@@ -2,30 +2,30 @@
     Private ShareIdValue As String
     Public Property ShareId() As String
         Get
-            Return ShareIdValue
+            Return Me.ShareIdValue
         End Get
         Set(ByVal value As String)
-            ShareIdValue = value
+            Me.ShareIdValue = value
         End Set
     End Property
 
     Private ItemsCountValue As Integer
     Public Property ItemsCount() As Integer
         Get
-            Return ItemsCountValue
+            Return Me.ItemsCountValue
         End Get
         Set(ByVal value As Integer)
-            ItemsCountValue = value
+            Me.ItemsCountValue = value
         End Set
     End Property
 
     Public Sub BeginDownload()
-        Me.ProgressBar_Files.Maximum = ItemsCount
+        Me.ProgressBar_Files.Maximum = Me.ItemsCount
 
-        For i As Integer = 0 To ItemsCount - 1
+        For i As Integer = 0 To Me.ItemsCount - 1
             Do
                 Try
-                    Download(ShareId & i.ToString("000"))
+                    Download(Me.ShareId & i.ToString("000"))
                     Exit Do
                 Catch ex As Exception
                     Select Case MsgBox(ex.Message, MsgBoxStyle.Critical Or MsgBoxStyle.AbortRetryIgnore)

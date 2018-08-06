@@ -21,10 +21,10 @@ Public Class Layer_Arrow
     Private ArrowModeValue As ArrowModes
     Public Property ArrowMode() As ArrowModes
         Get
-            Return ArrowModeValue
+            Return Me.ArrowModeValue
         End Get
         Set(ByVal value As ArrowModes)
-            ArrowModeValue = value
+            Me.ArrowModeValue = value
         End Set
     End Property
 
@@ -45,21 +45,21 @@ Public Class Layer_Arrow
                             Dim Tail21 As Point = PEnd + TailPolar21
                             Dim Tail22 As Point = PEnd + TailPolar22
 
-                            g.DrawCurve(Pen, New Point() {Tail11, Tail12, PEnd}, 0.5)
-                            g.DrawCurve(Pen, New Point() {Tail21, Tail22, PEnd}, 0.5)
+                            g.DrawCurve(Me.Pen, New Point() {Tail11, Tail12, PEnd}, 0.5)
+                            g.DrawCurve(Me.Pen, New Point() {Tail21, Tail22, PEnd}, 0.5)
                         End Sub
 
 
-        g.DrawLine(Pen, FirstPoint, LastPoint)
+        g.DrawLine(Me.Pen, Me.FirstPoint, Me.LastPoint)
 
-        Select Case ArrowMode
+        Select Case Me.ArrowMode
             Case ArrowModes.AtEnd
-                DrawArrow(FirstPoint, LastPoint)
+                DrawArrow(Me.FirstPoint, Me.LastPoint)
             Case ArrowModes.AtStart
-                DrawArrow(LastPoint, FirstPoint)
+                DrawArrow(Me.LastPoint, Me.FirstPoint)
             Case ArrowModes.Both
-                DrawArrow(LastPoint, FirstPoint)
-                DrawArrow(FirstPoint, LastPoint)
+                DrawArrow(Me.LastPoint, Me.FirstPoint)
+                DrawArrow(Me.FirstPoint, Me.LastPoint)
         End Select
     End Sub
 

@@ -1,11 +1,9 @@
-﻿Imports System.Threading
-Imports System.Globalization
+﻿Imports System.Collections.Specialized
+Imports System.Linq
 Imports System.Net
-Imports Microsoft.VisualBasic.Devices
-Imports System.Collections.Specialized
 
 Public Class Form_Save_Base
-    Inherits System.Windows.Forms.Form
+    Inherits Form
 
     Public Enum PublishOptions As Integer
         OnlyImageNumber = 2 ^ 16 - 1
@@ -28,7 +26,8 @@ Public Class Form_Save_Base
     Public Function Publish_ToClipboard(ImageNumber As Integer) As Boolean
         Do
             Try
-                Clipboard.SetImage(Images(ImageNumber))
+                Clipboard.SetImage(Me.Images(ImageNumber))
+
                 Return True
             Catch ex As Exception
                 If MsgBox(ex.Message, MsgBoxStyle.Critical Or MsgBoxStyle.RetryCancel) = MsgBoxResult.Cancel Then
@@ -36,11 +35,12 @@ Public Class Form_Save_Base
                 End If
             End Try
         Loop
+
         Return False
     End Function
 
     Public Function Publish_SaveToFile(Optional ByVal Options As PublishOptions = PublishOptions.SaveToFile) As Boolean
-        Dim ImageNumber As Integer = Options And PublishOptions.OnlyImageNumber
+        Dim imageNumber As Integer = Options And PublishOptions.OnlyImageNumber
         Dim path As String = ""
 
         path &= Settings.DefaultPath
@@ -48,28 +48,22 @@ Public Class Form_Save_Base
         path &= "\" & Now.ToString("yyyy-MM-dd HH-mm-ss-ffff") & "." & FileTypeString.ToLower()
 
         If (Not IO.Directory.Exists(Settings.DefaultPath) AndAlso ((Options And PublishOptions.SaveToFile) = PublishOptions.SaveToFile)) OrElse ((Options And PublishOptions.SaveAs) = PublishOptions.SaveAs) Then
-            Dim sfd As New SaveFileDialog
-            sfd.AddExtension = True
-            sfd.CheckPathExists = True
-            sfd.CheckFileExists = False
-            sfd.DefaultExt = "PNG|*.png"
+            Dim sfd As New SaveFileDialog With {
+                .AddExtension = True,
+                .CheckPathExists = True,
+                .CheckFileExists = False,
+                .DefaultExt = "PNG|*.png",
+                .Filter = Settings.FileTypes.Aggregate(Function(a, i) a & i.ToUpper & "|*." & i.ToLower & "|") & "All Files|*.*"
+            }
 
-            Dim fil As String = ""
-            For Each i As String In Settings.FileTypes
-                fil &= i.ToUpper & "|*." & i.ToLower & "|"
-            Next
-            fil &= "All Files|*.*"
-
-            sfd.Filter = fil
-
-            If sfd.ShowDialog = Windows.Forms.DialogResult.OK Then
+            If sfd.ShowDialog = DialogResult.OK Then
                 path = sfd.FileName
             Else
                 Return False
             End If
         End If
 
-        Dim tmp As Image = Images(ImageNumber)
+        Dim tmp As Image = Me.Images(imageNumber)
 
         Select Case IO.Path.GetExtension(path).Substring(1)
             Case "Bmp"
@@ -175,7 +169,7 @@ Public Class Form_Save_Base
         Dim Zip As New Ionic.Zip.ZipFile()
 
         Dim Index As Integer = 0
-        For Each tmp As Screenshot In Images
+        For Each tmp As Screenshot In Me.Images
             Dim ImagePath As String = GetTempFileName()
 
             Select Case Settings.ShareQuality
@@ -326,7 +320,7 @@ Public Class Form_Save_Base
     End Function
 
     Public Function AddImage_FromSnippingTool() As Integer
-        Dim ImagesCount As Integer = Images.Count
+        Dim ImagesCount As Integer = Me.Images.Count
 
         Me.Hide()
         With New Form_SnippingTool
@@ -335,23 +329,23 @@ Public Class Form_Save_Base
         End With
         Me.Show()
 
-        Return Images.Count - ImagesCount
+        Return Me.Images.Count - ImagesCount
     End Function
 
     Public Function AddImage_FromFile() As Integer
-        Dim od As New OpenFileDialog()
-        od.AutoUpgradeEnabled = True
-        od.CheckFileExists = True
-        od.CheckPathExists = True
-        od.Multiselect = True
-        od.Filter = "All supported files|*.bmp;*.emf;*.exif;*.gif;*.ico;*.jpeg;*.jpg;*.png;*.tiff;*.wmf;"
+        Dim od As New OpenFileDialog With {
+            .AutoUpgradeEnabled = True,
+            .CheckFileExists = True,
+            .CheckPathExists = True,
+            .Multiselect = True,
+            .Filter = "All supported files|*.bmp;*.emf;*.exif;*.gif;*.ico;*.jpeg;*.jpg;*.png;*.tiff;*.wmf;"
+        }
 
         Dim ImagesAdd As Integer = 0
 
-        If od.ShowDialog() = Windows.Forms.DialogResult.OK Then
-            For Each path As String In od.FileNames
+        If od.ShowDialog() = DialogResult.OK Then
+            For Each path As String In od.FileNames.Select(Function(fn) fn.Trim().Trim("""", "'"))
                 Do
-                    path = path.Trim().Trim("""", "'")
                     Try
                         Dim LocalPath = (New Uri(path)).LocalPath
                         Dim TempImage As Screenshot = Image.FromFile(LocalPath)
@@ -380,11 +374,10 @@ Public Class Form_Save_Base
 
     Public Function Edit_OpenInEditor(ImageNumber As Integer) As Boolean
         With New Form_Edit
-            .ToolStrip_Share.Hide()
-            .Panel_Commants.Hide()
-            .Image = Images(ImageNumber)
-            If .ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
-                Images(ImageNumber) = .Image
+            .Image = Me.Images(ImageNumber)
+
+            If .ShowDialog(Me) = DialogResult.OK Then
+                Me.Images(ImageNumber) = .Image
                 Return True
             Else
                 Return False

@@ -46,13 +46,13 @@ Public Class ToolStripPalitra
     <DefaultValue(GetType(Color), "255, 0, 0")>
     Public Property Color1 As Color
         Get
-            Return _Color1
+            Return Me._Color1
         End Get
         Set(value As Color)
-            If Not _Color1 = value Then
-                RaiseEvent ColorChanged(Me, New PalitraEventArgs(value, _Color1))
+            If Not Me._Color1 = value Then
+                RaiseEvent ColorChanged(Me, New PalitraEventArgs(value, Me._Color1))
                 RaiseEvent Color1Changed(Me, New PalitraEventArgs())
-                _Color1 = value
+                Me._Color1 = value
                 Me.Parent.Refresh()
             End If
         End Set
@@ -62,13 +62,13 @@ Public Class ToolStripPalitra
     <DefaultValue(GetType(Color), "255, 0, 0")>
     Public Property Color2 As Color
         Get
-            Return _Color2
+            Return Me._Color2
         End Get
         Set(value As Color)
-            If Not _Color2 = value Then
-                RaiseEvent ColorChanged(Me, New PalitraEventArgs(value, _Color2))
+            If Not Me._Color2 = value Then
+                RaiseEvent ColorChanged(Me, New PalitraEventArgs(value, Me._Color2))
                 RaiseEvent Color2Changed(Me, New PalitraEventArgs())
-                _Color2 = value
+                Me._Color2 = value
                 Me.Parent.Refresh()
             End If
         End Set
@@ -83,10 +83,10 @@ Public Class ToolStripPalitra
         Dim g As Graphics = e.Graphics
         'g.Clear(Color.Red)
 
-        g.FillRectangle(New SolidBrush(Color2), Color2Rect)
-        g.DrawRectangle(Pens.Black, Color2Rect)
-        g.FillRectangle(New SolidBrush(Color1), Color1Rect)
-        g.DrawRectangle(Pens.Black, Color1Rect)
+        g.FillRectangle(New SolidBrush(Me.Color2), Me.Color2Rect)
+        g.DrawRectangle(Pens.Black, Me.Color2Rect)
+        g.FillRectangle(New SolidBrush(Me.Color1), Me.Color1Rect)
+        g.DrawRectangle(Pens.Black, Me.Color1Rect)
 
         For l As Integer = 0 To 10
             For i As Integer = 0 To 359 Step 3

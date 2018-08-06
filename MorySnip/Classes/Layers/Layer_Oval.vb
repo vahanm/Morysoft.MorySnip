@@ -12,11 +12,11 @@
     End Sub
 
     Public Overrides Sub Paint(g As Graphics)
-        Dim r As Rectangle = Bounds
+        Dim r As Rectangle = Me.Bounds
 
         If Me.Fill Then
-            g.FillEllipse(Brush, r)
+            g.FillEllipse(Me.Brush, r)
         End If
-        g.DrawEllipse(Pen, r)
+        g.DrawEllipse(Me.Pen, r)
     End Sub
 End Class

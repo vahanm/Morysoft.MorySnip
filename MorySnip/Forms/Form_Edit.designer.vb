@@ -30,11 +30,6 @@ Partial Class Form_Edit
         Me.Resizer_Bottom = New System.Windows.Forms.Label()
         Me.Resizer_Right = New System.Windows.Forms.Label()
         Me.Editor_Main = New Morysoft.MorySnip.Editor()
-        Me.Panel_Commants = New System.Windows.Forms.Panel()
-        Me.WebBrowser_Comment = New System.Windows.Forms.WebBrowser()
-        Me.Label_Commants_TopBorder = New System.Windows.Forms.Label()
-        Me.Label_Commants = New System.Windows.Forms.Label()
-        Me.Label_Commants_LeftBorder = New System.Windows.Forms.Label()
         Me.ToolStrip_Draw = New System.Windows.Forms.ToolStrip()
         Me.Menu_PaintMode_Free = New System.Windows.Forms.ToolStripButton()
         Me.Menu_PaintMode_Line = New System.Windows.Forms.ToolStripButton()
@@ -58,6 +53,7 @@ Partial Class Form_Edit
         Me.Button_Back = New System.Windows.Forms.ToolStripButton()
         Me.Button_Redo = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStrip_Standard_Palitra = New Morysoft.MorySnip.ToolStripPalitra()
         Me.Button_Color = New System.Windows.Forms.ToolStripDropDownButton()
         Me.Menu_Pens = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.RedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -66,7 +62,6 @@ Partial Class Form_Edit
         Me.WhiteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.CustomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStrip_Standard_Palitra = New Morysoft.MorySnip.ToolStripPalitra()
         Me.Button_Size = New System.Windows.Forms.ToolStripDropDownButton()
         Me.Menu_Size = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
@@ -88,17 +83,6 @@ Partial Class Form_Edit
         Me.Button_Flip_X = New System.Windows.Forms.ToolStripButton()
         Me.Button_Flip_Y = New System.Windows.Forms.ToolStripButton()
         Me.Menu_ForNothing1 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
-        Me.Button_OK = New System.Windows.Forms.ToolStripButton()
-        Me.Button_Exit = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStrip_Share = New System.Windows.Forms.ToolStrip()
-        Me.Button_Save = New System.Windows.Forms.ToolStripButton()
-        Me.Button_SaveAs = New System.Windows.Forms.ToolStripButton()
-        Me.Button_SaveCopy = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
-        Me.TextBox_Title = New System.Windows.Forms.ToolStripTextBox()
-        Me.Button_SendToWeb = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
         Me.Menu_PaintMode = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
@@ -107,18 +91,20 @@ Partial Class Form_Edit
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer_Update = New System.Windows.Forms.Timer(Me.components)
+        Me.Button_Save = New System.Windows.Forms.ToolStripButton()
+        Me.Button_SaveAs = New System.Windows.Forms.ToolStripButton()
+        Me.Button_SaveCopy = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripContainer_Main.ContentPanel.SuspendLayout()
         Me.ToolStripContainer_Main.LeftToolStripPanel.SuspendLayout()
         Me.ToolStripContainer_Main.TopToolStripPanel.SuspendLayout()
         Me.ToolStripContainer_Main.SuspendLayout()
         Me.Panel_Image.SuspendLayout()
-        Me.Panel_Commants.SuspendLayout()
         Me.ToolStrip_Draw.SuspendLayout()
         Me.ToolStrip_Effects.SuspendLayout()
         Me.ToolStrip_Standard.SuspendLayout()
         Me.Menu_Pens.SuspendLayout()
         Me.Menu_Size.SuspendLayout()
-        Me.ToolStrip_Share.SuspendLayout()
         Me.SuspendLayout()
         '
         'ToolStripContainer_Main
@@ -127,7 +113,6 @@ Partial Class Form_Edit
         'ToolStripContainer_Main.ContentPanel
         '
         Me.ToolStripContainer_Main.ContentPanel.Controls.Add(Me.Panel_Image)
-        Me.ToolStripContainer_Main.ContentPanel.Controls.Add(Me.Panel_Commants)
         resources.ApplyResources(Me.ToolStripContainer_Main.ContentPanel, "ToolStripContainer_Main.ContentPanel")
         resources.ApplyResources(Me.ToolStripContainer_Main, "ToolStripContainer_Main")
         '
@@ -140,7 +125,6 @@ Partial Class Form_Edit
         'ToolStripContainer_Main.TopToolStripPanel
         '
         Me.ToolStripContainer_Main.TopToolStripPanel.Controls.Add(Me.ToolStrip_Standard)
-        Me.ToolStripContainer_Main.TopToolStripPanel.Controls.Add(Me.ToolStrip_Share)
         '
         'Panel_Image
         '
@@ -182,39 +166,6 @@ Partial Class Form_Edit
         Me.Editor_Main.FillObjecs = False
         Me.Editor_Main.Name = "Editor_Main"
         Me.Editor_Main.PaintMode = Morysoft.MorySnip.Editor.PaintModes.Rect
-        '
-        'Panel_Commants
-        '
-        Me.Panel_Commants.Controls.Add(Me.WebBrowser_Comment)
-        Me.Panel_Commants.Controls.Add(Me.Label_Commants_TopBorder)
-        Me.Panel_Commants.Controls.Add(Me.Label_Commants)
-        Me.Panel_Commants.Controls.Add(Me.Label_Commants_LeftBorder)
-        resources.ApplyResources(Me.Panel_Commants, "Panel_Commants")
-        Me.Panel_Commants.Name = "Panel_Commants"
-        '
-        'WebBrowser_Comment
-        '
-        Me.WebBrowser_Comment.AllowNavigation = False
-        resources.ApplyResources(Me.WebBrowser_Comment, "WebBrowser_Comment")
-        Me.WebBrowser_Comment.IsWebBrowserContextMenuEnabled = False
-        Me.WebBrowser_Comment.Name = "WebBrowser_Comment"
-        '
-        'Label_Commants_TopBorder
-        '
-        Me.Label_Commants_TopBorder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        resources.ApplyResources(Me.Label_Commants_TopBorder, "Label_Commants_TopBorder")
-        Me.Label_Commants_TopBorder.Name = "Label_Commants_TopBorder"
-        '
-        'Label_Commants
-        '
-        resources.ApplyResources(Me.Label_Commants, "Label_Commants")
-        Me.Label_Commants.Name = "Label_Commants"
-        '
-        'Label_Commants_LeftBorder
-        '
-        Me.Label_Commants_LeftBorder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        resources.ApplyResources(Me.Label_Commants_LeftBorder, "Label_Commants_LeftBorder")
-        Me.Label_Commants_LeftBorder.Name = "Label_Commants_LeftBorder"
         '
         'ToolStrip_Draw
         '
@@ -346,7 +297,7 @@ Partial Class Form_Edit
         '
         resources.ApplyResources(Me.ToolStrip_Standard, "ToolStrip_Standard")
         Me.ToolStrip_Standard.ImageScalingSize = New System.Drawing.Size(32, 32)
-        Me.ToolStrip_Standard.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Button_Back, Me.Button_Redo, Me.ToolStripSeparator8, Me.ToolStrip_Standard_Palitra, Me.Button_Color, Me.Button_Size, Me.ToolStripSeparator3, Me.Button_Rotate_Left, Me.Button_Rotate_Right, Me.ToolStripSeparator5, Me.Button_Flip_X, Me.Button_Flip_Y, Me.Menu_ForNothing1, Me.ToolStripSeparator7, Me.Button_OK, Me.Button_Exit})
+        Me.ToolStrip_Standard.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Button_SaveCopy, Me.Button_SaveAs, Me.Button_Save, Me.ToolStripSeparator6, Me.Button_Back, Me.Button_Redo, Me.ToolStripSeparator8, Me.ToolStrip_Standard_Palitra, Me.Button_Color, Me.Button_Size, Me.ToolStripSeparator3, Me.Button_Rotate_Left, Me.Button_Rotate_Right, Me.ToolStripSeparator5, Me.Button_Flip_X, Me.Button_Flip_Y, Me.Menu_ForNothing1})
         Me.ToolStrip_Standard.Name = "ToolStrip_Standard"
         '
         'Button_Back
@@ -368,6 +319,11 @@ Partial Class Form_Edit
         Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
         resources.ApplyResources(Me.ToolStripSeparator8, "ToolStripSeparator8")
         '
+        'ToolStrip_Standard_Palitra
+        '
+        resources.ApplyResources(Me.ToolStrip_Standard_Palitra, "ToolStrip_Standard_Palitra")
+        Me.ToolStrip_Standard_Palitra.Name = "ToolStrip_Standard_Palitra"
+        '
         'Button_Color
         '
         Me.Button_Color.DropDown = Me.Menu_Pens
@@ -378,6 +334,7 @@ Partial Class Form_Edit
         '
         Me.Menu_Pens.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RedToolStripMenuItem, Me.BlueToolStripMenuItem, Me.BlackToolStripMenuItem, Me.WhiteToolStripMenuItem, Me.ToolStripSeparator1, Me.CustomToolStripMenuItem})
         Me.Menu_Pens.Name = "Menu_Pens"
+        Me.Menu_Pens.OwnerItem = Me.Button_Color
         resources.ApplyResources(Me.Menu_Pens, "Menu_Pens")
         '
         'RedToolStripMenuItem
@@ -409,11 +366,6 @@ Partial Class Form_Edit
         '
         Me.CustomToolStripMenuItem.Name = "CustomToolStripMenuItem"
         resources.ApplyResources(Me.CustomToolStripMenuItem, "CustomToolStripMenuItem")
-        '
-        'ToolStrip_Standard_Palitra
-        '
-        resources.ApplyResources(Me.ToolStrip_Standard_Palitra, "ToolStrip_Standard_Palitra")
-        Me.ToolStrip_Standard_Palitra.Name = "ToolStrip_Standard_Palitra"
         '
         'Button_Size
         '
@@ -528,73 +480,6 @@ Partial Class Form_Edit
         Me.Menu_ForNothing1.Name = "Menu_ForNothing1"
         Me.Menu_ForNothing1.Overflow = System.Windows.Forms.ToolStripItemOverflow.Always
         '
-        'ToolStripSeparator7
-        '
-        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
-        resources.ApplyResources(Me.ToolStripSeparator7, "ToolStripSeparator7")
-        '
-        'Button_OK
-        '
-        Me.Button_OK.Image = Global.Morysoft.MorySnip.My.Resources.Resources.Ok
-        resources.ApplyResources(Me.Button_OK, "Button_OK")
-        Me.Button_OK.Name = "Button_OK"
-        '
-        'Button_Exit
-        '
-        resources.ApplyResources(Me.Button_Exit, "Button_Exit")
-        Me.Button_Exit.Name = "Button_Exit"
-        '
-        'ToolStrip_Share
-        '
-        resources.ApplyResources(Me.ToolStrip_Share, "ToolStrip_Share")
-        Me.ToolStrip_Share.ImageScalingSize = New System.Drawing.Size(32, 32)
-        Me.ToolStrip_Share.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Button_Save, Me.Button_SaveAs, Me.Button_SaveCopy, Me.ToolStripSeparator6, Me.TextBox_Title, Me.Button_SendToWeb, Me.ToolStripButton3})
-        Me.ToolStrip_Share.Name = "ToolStrip_Share"
-        '
-        'Button_Save
-        '
-        Me.Button_Save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Button_Save.Image = Global.Morysoft.MorySnip.My.Resources.Resources._1371823810_save
-        resources.ApplyResources(Me.Button_Save, "Button_Save")
-        Me.Button_Save.Name = "Button_Save"
-        '
-        'Button_SaveAs
-        '
-        Me.Button_SaveAs.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Button_SaveAs.Image = Global.Morysoft.MorySnip.My.Resources.Resources._1371823810_saveas
-        resources.ApplyResources(Me.Button_SaveAs, "Button_SaveAs")
-        Me.Button_SaveAs.Name = "Button_SaveAs"
-        '
-        'Button_SaveCopy
-        '
-        Me.Button_SaveCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Button_SaveCopy.Image = Global.Morysoft.MorySnip.My.Resources.Resources._1371824300_clipboard_copy
-        resources.ApplyResources(Me.Button_SaveCopy, "Button_SaveCopy")
-        Me.Button_SaveCopy.Name = "Button_SaveCopy"
-        '
-        'ToolStripSeparator6
-        '
-        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
-        resources.ApplyResources(Me.ToolStripSeparator6, "ToolStripSeparator6")
-        '
-        'TextBox_Title
-        '
-        Me.TextBox_Title.Name = "TextBox_Title"
-        resources.ApplyResources(Me.TextBox_Title, "TextBox_Title")
-        '
-        'Button_SendToWeb
-        '
-        Me.Button_SendToWeb.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Button_SendToWeb.Image = Global.Morysoft.MorySnip.My.Resources.Resources.favicon_8_
-        resources.ApplyResources(Me.Button_SendToWeb, "Button_SendToWeb")
-        Me.Button_SendToWeb.Name = "Button_SendToWeb"
-        '
-        'ToolStripButton3
-        '
-        resources.ApplyResources(Me.ToolStripButton3, "ToolStripButton3")
-        Me.ToolStripButton3.Name = "ToolStripButton3"
-        Me.ToolStripButton3.Overflow = System.Windows.Forms.ToolStripItemOverflow.Always
-        '
         'Menu_PaintMode
         '
         Me.Menu_PaintMode.Name = "Menu_PaintMode"
@@ -634,6 +519,32 @@ Partial Class Form_Edit
         '
         Me.Timer_Update.Enabled = True
         '
+        'Button_Save
+        '
+        Me.Button_Save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.Button_Save.Image = Global.Morysoft.MorySnip.My.Resources.Resources._1371823810_save
+        resources.ApplyResources(Me.Button_Save, "Button_Save")
+        Me.Button_Save.Name = "Button_Save"
+        '
+        'Button_SaveAs
+        '
+        Me.Button_SaveAs.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.Button_SaveAs.Image = Global.Morysoft.MorySnip.My.Resources.Resources._1371823810_saveas
+        resources.ApplyResources(Me.Button_SaveAs, "Button_SaveAs")
+        Me.Button_SaveAs.Name = "Button_SaveAs"
+        '
+        'Button_SaveCopy
+        '
+        Me.Button_SaveCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.Button_SaveCopy.Image = Global.Morysoft.MorySnip.My.Resources.Resources._1371824300_clipboard_copy
+        resources.ApplyResources(Me.Button_SaveCopy, "Button_SaveCopy")
+        Me.Button_SaveCopy.Name = "Button_SaveCopy"
+        '
+        'ToolStripSeparator6
+        '
+        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
+        resources.ApplyResources(Me.ToolStripSeparator6, "ToolStripSeparator6")
+        '
         'Form_Edit
         '
         resources.ApplyResources(Me, "$this")
@@ -650,7 +561,6 @@ Partial Class Form_Edit
         Me.ToolStripContainer_Main.ResumeLayout(False)
         Me.ToolStripContainer_Main.PerformLayout()
         Me.Panel_Image.ResumeLayout(False)
-        Me.Panel_Commants.ResumeLayout(False)
         Me.ToolStrip_Draw.ResumeLayout(False)
         Me.ToolStrip_Draw.PerformLayout()
         Me.ToolStrip_Effects.ResumeLayout(False)
@@ -659,8 +569,6 @@ Partial Class Form_Edit
         Me.ToolStrip_Standard.PerformLayout()
         Me.Menu_Pens.ResumeLayout(False)
         Me.Menu_Size.ResumeLayout(False)
-        Me.ToolStrip_Share.ResumeLayout(False)
-        Me.ToolStrip_Share.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -700,11 +608,8 @@ Partial Class Form_Edit
     Friend WithEvents Button_Flip_Y As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripSeparator5 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ToolStripSeparator7 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripSeparator8 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents Button_OK As System.Windows.Forms.ToolStripButton
     Friend WithEvents Menu_PaintMode As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents Button_Exit As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStrip_Draw As System.Windows.Forms.ToolStrip
     Friend WithEvents RedToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BlueToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -730,21 +635,12 @@ Partial Class Form_Edit
     Friend WithEvents Menu_PaintMode_Highlight As System.Windows.Forms.ToolStripButton
     Friend WithEvents Menu_PaintMode_Crop As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ToolStrip_Share As System.Windows.Forms.ToolStrip
-    Friend WithEvents TextBox_Title As System.Windows.Forms.ToolStripTextBox
-    Friend WithEvents Button_SendToWeb As System.Windows.Forms.ToolStripButton
-    Friend WithEvents Button_SaveCopy As System.Windows.Forms.ToolStripButton
-    Friend WithEvents Button_Save As System.Windows.Forms.ToolStripButton
-    Friend WithEvents Button_SaveAs As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripSeparator6 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ToolStripButton3 As System.Windows.Forms.ToolStripButton
     Friend WithEvents Menu_PaintMode_Numbers As System.Windows.Forms.ToolStripButton
-    Friend WithEvents Panel_Commants As System.Windows.Forms.Panel
-    Friend WithEvents Label_Commants_TopBorder As System.Windows.Forms.Label
-    Friend WithEvents Label_Commants As System.Windows.Forms.Label
-    Friend WithEvents WebBrowser_Comment As System.Windows.Forms.WebBrowser
-    Friend WithEvents Label_Commants_LeftBorder As System.Windows.Forms.Label
     Friend WithEvents Button_Redo As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStrip_Standard_Palitra As ToolStripPalitra
     Friend WithEvents Menu_PaintMode_Puzzle As System.Windows.Forms.ToolStripButton
+    Friend WithEvents Button_SaveCopy As ToolStripButton
+    Friend WithEvents Button_SaveAs As ToolStripButton
+    Friend WithEvents Button_Save As ToolStripButton
+    Friend WithEvents ToolStripSeparator6 As ToolStripSeparator
 End Class

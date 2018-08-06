@@ -10,9 +10,9 @@
         For Each id As String In SettingHistory
             Dim title As String = SettingHistoryTitle(id)
 
-            Dim tmp As New ListViewItem(New Date(CLng(id.Substring(0, 18))).ToString(), 0)
-
-            tmp.Tag = id
+            Dim tmp As New ListViewItem(New Date(CLng(id.Substring(0, 18))).ToString(), 0) With {
+                .Tag = id
+            }
             tmp.SubItems.Add(title)
 
             Me.ListView_History.Items.Insert(0, tmp)
@@ -66,7 +66,7 @@
     End Sub
 
     Private Sub ListView_History_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListView_History.MouseDoubleClick
-        If Me.ListView_History.SelectedItems.Count = 1 AndAlso e.Button = Windows.Forms.MouseButtons.Left AndAlso e.Clicks = 2 Then
+        If Me.ListView_History.SelectedItems.Count = 1 AndAlso e.Button = MouseButtons.Left AndAlso e.Clicks = 2 Then
             ViewInBrowser()
         End If
     End Sub

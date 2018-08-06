@@ -13,14 +13,14 @@
     Private ImageValue As Image
     Public Property Image() As Image
         Get
-            Return ImageValue
+            Return Me.ImageValue
         End Get
         Set(ByVal value As Image)
-            ImageValue = value
+            Me.ImageValue = value
         End Set
     End Property
 
     Public Overrides Sub Paint(g As Graphics)
-        g.DrawImage(Image, Bounds)
+        g.DrawImage(Me.Image, Me.Bounds)
     End Sub
 End Class

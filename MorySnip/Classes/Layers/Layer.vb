@@ -2,60 +2,60 @@
     Private OffsetValue As Point
     Public Property Offset() As Point
         Get
-            Return OffsetValue
+            Return Me.OffsetValue
         End Get
         Set(ByVal value As Point)
-            OffsetValue = value
+            Me.OffsetValue = value
         End Set
     End Property
 
     Private FillValue As Boolean
     Public Property Fill() As Boolean
         Get
-            Return FillValue
+            Return Me.FillValue
         End Get
         Set(ByVal value As Boolean)
-            FillValue = value
+            Me.FillValue = value
         End Set
     End Property
 
     Private PenValue As Pen
     Public Property Pen() As Pen
         Get
-            Return PenValue
+            Return Me.PenValue
         End Get
         Set(ByVal value As Pen)
-            PenValue = value
+            Me.PenValue = value
         End Set
     End Property
 
     Private BrushValue As Brush
     Public Property Brush() As Brush
         Get
-            Return BrushValue
+            Return Me.BrushValue
         End Get
         Set(ByVal value As Brush)
-            BrushValue = value
+            Me.BrushValue = value
         End Set
     End Property
 
     Private FirstPointValue As Point
     Public Property FirstPoint() As Point
         Get
-            Return FirstPointValue
+            Return Me.FirstPointValue
         End Get
         Set(ByVal value As Point)
-            FirstPointValue = value
+            Me.FirstPointValue = value
         End Set
     End Property
 
     Private LastPointValue As Point
     Public Property LastPoint() As Point
         Get
-            Return LastPointValue
+            Return Me.LastPointValue
         End Get
         Set(ByVal value As Point)
-            LastPointValue = value
+            Me.LastPointValue = value
         End Set
     End Property
 
@@ -76,12 +76,12 @@
 
     Public Overridable ReadOnly Property Bounds() As Rectangle
         Get
-            Return NormalRectingle(FirstPoint, LastPoint)
+            Return NormalRectingle(Me.FirstPoint, Me.LastPoint)
         End Get
     End Property
 
     Public Function InBounds(p As Point) As Boolean
-        With Bounds
+        With Me.Bounds
             Return p.X > .X AndAlso p.Y > .Y AndAlso p.X < .X + .Width AndAlso p.Y < .Y + .Height
         End With
     End Function

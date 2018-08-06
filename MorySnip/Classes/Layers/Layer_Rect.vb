@@ -12,11 +12,11 @@
     End Sub
 
     Public Overrides Sub Paint(g As Graphics)
-        Dim r As Rectangle = Bounds
+        Dim r As Rectangle = Me.Bounds
 
         If Me.Fill Then
-            g.FillRectangle(Brush, r)
+            g.FillRectangle(Me.Brush, r)
         End If
-        g.DrawRectangle(Pen, r)
+        g.DrawRectangle(Me.Pen, r)
     End Sub
 End Class

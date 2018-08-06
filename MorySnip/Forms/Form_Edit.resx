@@ -5349,7 +5349,7 @@
     <value>0, 0</value>
   </data>
   <data name="Panel_Image.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1071, 496</value>
+    <value>1071, 631</value>
   </data>
   <data name="Panel_Image.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -5365,138 +5365,6 @@
   </data>
   <data name="&gt;&gt;Panel_Image.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="WebBrowser_Comment.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="WebBrowser_Comment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 26</value>
-  </data>
-  <data name="WebBrowser_Comment.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
-  </data>
-  <data name="WebBrowser_Comment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1070, 109</value>
-  </data>
-  <data name="WebBrowser_Comment.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;WebBrowser_Comment.Name" xml:space="preserve">
-    <value>WebBrowser_Comment</value>
-  </data>
-  <data name="&gt;&gt;WebBrowser_Comment.Type" xml:space="preserve">
-    <value>System.Windows.Forms.WebBrowser, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;WebBrowser_Comment.Parent" xml:space="preserve">
-    <value>Panel_Commants</value>
-  </data>
-  <data name="&gt;&gt;WebBrowser_Comment.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="Label_Commants_TopBorder.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="Label_Commants_TopBorder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 25</value>
-  </data>
-  <data name="Label_Commants_TopBorder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1070, 1</value>
-  </data>
-  <data name="Label_Commants_TopBorder.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;Label_Commants_TopBorder.Name" xml:space="preserve">
-    <value>Label_Commants_TopBorder</value>
-  </data>
-  <data name="&gt;&gt;Label_Commants_TopBorder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label_Commants_TopBorder.Parent" xml:space="preserve">
-    <value>Panel_Commants</value>
-  </data>
-  <data name="&gt;&gt;Label_Commants_TopBorder.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="Label_Commants.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="Label_Commants.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 0</value>
-  </data>
-  <data name="Label_Commants.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1070, 25</value>
-  </data>
-  <data name="Label_Commants.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="Label_Commants.Text" xml:space="preserve">
-    <value>Commants</value>
-  </data>
-  <data name="Label_Commants.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;Label_Commants.Name" xml:space="preserve">
-    <value>Label_Commants</value>
-  </data>
-  <data name="&gt;&gt;Label_Commants.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label_Commants.Parent" xml:space="preserve">
-    <value>Panel_Commants</value>
-  </data>
-  <data name="&gt;&gt;Label_Commants.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="Label_Commants_LeftBorder.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="Label_Commants_LeftBorder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Label_Commants_LeftBorder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="Label_Commants_LeftBorder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1, 135</value>
-  </data>
-  <data name="Label_Commants_LeftBorder.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;Label_Commants_LeftBorder.Name" xml:space="preserve">
-    <value>Label_Commants_LeftBorder</value>
-  </data>
-  <data name="&gt;&gt;Label_Commants_LeftBorder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label_Commants_LeftBorder.Parent" xml:space="preserve">
-    <value>Panel_Commants</value>
-  </data>
-  <data name="&gt;&gt;Label_Commants_LeftBorder.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="Panel_Commants.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="Panel_Commants.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 496</value>
-  </data>
-  <data name="Panel_Commants.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1071, 135</value>
-  </data>
-  <data name="Panel_Commants.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;Panel_Commants.Name" xml:space="preserve">
-    <value>Panel_Commants</value>
-  </data>
-  <data name="&gt;&gt;Panel_Commants.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Panel_Commants.Parent" xml:space="preserve">
-    <value>ToolStripContainer_Main.ContentPanel</value>
-  </data>
-  <data name="&gt;&gt;Panel_Commants.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="ToolStripContainer_Main.ContentPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>1071, 631</value>
@@ -5521,102 +5389,6 @@
   </metadata>
   <data name="ToolStrip_Draw.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>None</value>
-  </data>
-  <data name="Menu_PaintMode_Free.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="Menu_PaintMode_Free.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="Menu_PaintMode_Free.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 28</value>
-  </data>
-  <data name="Menu_PaintMode_Free.Text" xml:space="preserve">
-    <value>Free</value>
-  </data>
-  <data name="Menu_PaintMode_Line.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="Menu_PaintMode_Line.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="Menu_PaintMode_Line.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 28</value>
-  </data>
-  <data name="Menu_PaintMode_Line.Text" xml:space="preserve">
-    <value>Line</value>
-  </data>
-  <data name="Menu_PaintMode_Arrow.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="Menu_PaintMode_Arrow.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="Menu_PaintMode_Arrow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 28</value>
-  </data>
-  <data name="Menu_PaintMode_Arrow.Text" xml:space="preserve">
-    <value>Arrow</value>
-  </data>
-  <data name="Menu_PaintMode_Oval.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="Menu_PaintMode_Oval.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 28</value>
-  </data>
-  <data name="Menu_PaintMode_Oval.Text" xml:space="preserve">
-    <value>Oval</value>
-  </data>
-  <data name="Menu_PaintMode_Rect.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="Menu_PaintMode_Rect.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="Menu_PaintMode_Rect.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 28</value>
-  </data>
-  <data name="Menu_PaintMode_Rect.Text" xml:space="preserve">
-    <value>Rectingle</value>
-  </data>
-  <data name="Menu_PaintMode_Numbers.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="Menu_PaintMode_Numbers.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="Menu_PaintMode_Numbers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 28</value>
-  </data>
-  <data name="Menu_PaintMode_Numbers.Text" xml:space="preserve">
-    <value>Numbers</value>
-  </data>
-  <data name="ToolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 6</value>
-  </data>
-  <data name="Menu_PaintMode_Fill.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="Menu_PaintMode_Fill.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="Menu_PaintMode_Fill.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 28</value>
-  </data>
-  <data name="Menu_PaintMode_Fill.Text" xml:space="preserve">
-    <value>Fill</value>
-  </data>
-  <data name="ToolStripButton1.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="ToolStripButton1.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="ToolStripButton1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 19</value>
-  </data>
-  <data name="ToolStripButton1.Text" xml:space="preserve">
-    <value>Cusomize</value>
   </data>
   <data name="ToolStrip_Draw.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 3</value>
@@ -5647,93 +5419,6 @@
   </metadata>
   <data name="ToolStrip_Effects.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>None</value>
-  </data>
-  <data name="Menu_PaintMode_Crop.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="Menu_PaintMode_Crop.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="Menu_PaintMode_Crop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 20</value>
-  </data>
-  <data name="Menu_PaintMode_Crop.Text" xml:space="preserve">
-    <value>Crop</value>
-  </data>
-  <data name="ToolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 6</value>
-  </data>
-  <data name="Menu_PaintMode_Highlight.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="Menu_PaintMode_Highlight.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="Menu_PaintMode_Highlight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 28</value>
-  </data>
-  <data name="Menu_PaintMode_Highlight.Text" xml:space="preserve">
-    <value>Highlight</value>
-  </data>
-  <data name="Menu_PaintMode_Puzzle.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="Menu_PaintMode_Puzzle.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="Menu_PaintMode_Puzzle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 28</value>
-  </data>
-  <data name="Menu_PaintMode_Puzzle.Text" xml:space="preserve">
-    <value>Puzzle</value>
-  </data>
-  <data name="Menu_PaintMode_Blur.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="Menu_PaintMode_Blur.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="Menu_PaintMode_Blur.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 28</value>
-  </data>
-  <data name="Menu_PaintMode_Blur.Text" xml:space="preserve">
-    <value>Blur</value>
-  </data>
-  <data name="Menu_PaintMode_Invert.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="Menu_PaintMode_Invert.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="Menu_PaintMode_Invert.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 20</value>
-  </data>
-  <data name="Menu_PaintMode_Invert.Text" xml:space="preserve">
-    <value>Ivert</value>
-  </data>
-  <data name="Menu_PaintMode_Grayscale.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="Menu_PaintMode_Grayscale.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="Menu_PaintMode_Grayscale.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 20</value>
-  </data>
-  <data name="Menu_PaintMode_Grayscale.Text" xml:space="preserve">
-    <value>Grayscale</value>
-  </data>
-  <data name="ToolStripButton2.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="ToolStripButton2.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="ToolStripButton2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 19</value>
-  </data>
-  <data name="ToolStripButton2.Text" xml:space="preserve">
-    <value>Cusomize</value>
   </data>
   <data name="ToolStrip_Effects.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 268</value>
@@ -5800,6 +5485,36 @@
   </metadata>
   <data name="ToolStrip_Standard.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>None</value>
+  </data>
+  <data name="Button_SaveCopy.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="Button_SaveCopy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 36</value>
+  </data>
+  <data name="Button_SaveCopy.Text" xml:space="preserve">
+    <value>Copy to clipboard</value>
+  </data>
+  <data name="Button_SaveAs.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="Button_SaveAs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 36</value>
+  </data>
+  <data name="Button_SaveAs.Text" xml:space="preserve">
+    <value>Save As</value>
+  </data>
+  <data name="Button_Save.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="Button_Save.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 36</value>
+  </data>
+  <data name="Button_Save.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="ToolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 39</value>
   </data>
   <data name="Button_Back.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
@@ -6159,63 +5874,11 @@
   <data name="Menu_ForNothing1.Text" xml:space="preserve">
     <value>Cusomize</value>
   </data>
-  <data name="ToolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 39</value>
-  </data>
-  <data name="Button_OK.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="Button_OK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 36</value>
-  </data>
-  <data name="Button_OK.Text" xml:space="preserve">
-    <value>&amp;OK</value>
-  </data>
-  <data name="Button_Exit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAW1SURBVFhHpVb9TxN3GD/urnetwNHetVRZttn4tumKugnb
-        T7vFuLcse82YzhopFEXeLCqKUOEsyMw2nUtQEJEXxTeUSRAFBKVYtyzLzJbs5yX7I5a4Ltn1u+c5rtjK
-        FYp8kk+e6/f5Pp/n8334ci0Vw8qqEd6uTKy2N01slJrur3EooQw9tShIythLUnAiTzx2Lx919eVE2APD
-        ZxxHJwjSqUdRuRuRlPFN+pZngkMZv+UIjpPs4IRG1M3yD/7jDN59Xd8CsIj5zpYwWXYcGVJzjj/U4tKW
-        KSI2PLOJF63eU5PO5knQekhy4nWPhYhduXtJ30dR9NKVOxxo4KvZxM1i41hEahjJ07enApdQ/H04+9gU
-        aDww1AS9n/S9FGVame9zNE8RPLGzJaQCZ+JSjHAKoWH0cYompps3Y21yPVv9yCN9P0zguVU77WgAnCVj
-        dtN9IhwZmc+E1tzRNEmcBhoxopYUGP5RrwEIjnfRQHbwHnE2TarOIAgEn4qwng0XSAgMJzPhEopOhe3B
-        +1qDWfV6hJwqNYwSa+B2l16nYQPn3uIXj94jcGs1I8mIebGuLyIcvBF/MZcLO0+EJQVuuUFNPKXAHWKr
-        GwpRSojVazW8CnRz7s3VYqMStTeOEYc8rjqOjhtGzIv1YMLXng91L2QWfvNQaoQcmJurTqy/TWy1Q5NU
-        wXVG6xqH1UA0kYsmbA1KVDoyQrCRvXHUgGME88LBgcfp3u9+EWGkyfcix+DUt4i19qZhcwQu4htKn8SW
-        amtAiYowLkkeVaUjo4YR8xqT5GPRWjtEMg8lbx5DvIlcFiaRVa9EbXXDxFp/h1jrZtMG6xoNcrF81qFB
-        Yq0ZCM3XPIaESbDrNvuz6pSo9fAQscrDqhXNLCAKB38gmfv64cIpNIqnCjQxcyfYdW/5hdpb2kmyYJSp
-        MvPADSL4r04ttHkM8Sbc7Mtv+jMPDPwn1NwkgjyoCjWDc8d910mG/8okRZE0FHtWoPOZO8HvOPE7ngqM
-        kMwaGO1+eDaKmN97hViqrr2BIosFTsJt2dYcTt/XTzLwZHK/mgHN5ozV/WSJpy9iqbiyqK9yhIv7PPgg
-        HQTTq68BMaZI/1WSXn76X0tZ30K+RRMAzZXwEhAyw0jN8lXVvBeeFxCXVF2GSfRGLGXdCzbh4j5tDFtA
-        gK+8RMwVlw3JVz5hsryloo9YPD0RtrQXX9spAZoHwubKPsJBMS/3qbxB5CCayy9Ao4vEXH5R+5xsH4f7
-        PF0RS2nnvCa05jyImsouEC4JMcfj8xfNj+gV+RV8hRLl9/TOXQN53tMZYX3JTbhMnwTCXFkvYUt7iEnu
-        UU27u5+KPYSFyJV2Ea4g+CvU4N/WTbvyyvDEXGm3lp9dN72Oed5zzsgEv9z0YX2Y29NDmN1dhMWC3edn
-        RcxxuzoJ52t7QK0t4KBwFRDfE+sp16ZyTu5VTbtwX7J6MAR5ztMBJrSvch3WZR/j+OgS2CSfVxlokhjP
-        ExqiqeQsoX3tU5SsxH5M4Mtq5rUNJirwxExJp7Z/to6+XnKOsN72ARSYhi1nmwlOl+aDDcC04icR19KK
-        ocDXTkyFbfhuT/glA4g3sZ5akV9pkrtV2ncuQSdej/Z1EJO37TYWT8OWs5XFUxZ3EEo+q9LFZ2dimtyh
-        MsVthC5sNWoeQ+IkwAQrd6ppmk5Hgh5+xnXWe3oQC6chON5jYfxUETQExkem8Mx8zWN4ahJ5VWyJEqWK
-        2hP0tGfQZApbW7EohlymsONvuggm4IUibxtEOLUXmu/UmqN4Kog34UYTDJigsbEXjbRrmoz3NGF2tL6N
-        BTFspJxriuj394eZ7Sf/ZLZ/+xe99etHzJcnu+IuXKpInITrtUr6Hf/P9GfNf9AfHP6NKWi5RHlOfIQb
-        47EBuB74CnAd8HngYoAm8F8UdXOBa7XPoihANAQW4EmRqY47FeAPEtSb44cJRf0Pn1usK70YyDUAAAAA
-        SUVORK5CYII=
-</value>
-  </data>
-  <data name="Button_Exit.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="Button_Exit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 36</value>
-  </data>
-  <data name="Button_Exit.Text" xml:space="preserve">
-    <value>&amp;Cancel</value>
-  </data>
   <data name="ToolStrip_Standard.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 0</value>
   </data>
   <data name="ToolStrip_Standard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>996, 39</value>
+    <value>966, 39</value>
   </data>
   <data name="ToolStrip_Standard.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -6234,90 +5897,6 @@
   </data>
   <data name="&gt;&gt;ToolStrip_Standard.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <metadata name="ToolStrip_Share.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>946, 17</value>
-  </metadata>
-  <data name="ToolStrip_Share.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="Button_Save.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="Button_Save.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 36</value>
-  </data>
-  <data name="Button_Save.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="Button_SaveAs.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="Button_SaveAs.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 36</value>
-  </data>
-  <data name="Button_SaveAs.Text" xml:space="preserve">
-    <value>Save As</value>
-  </data>
-  <data name="Button_SaveCopy.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="Button_SaveCopy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 36</value>
-  </data>
-  <data name="Button_SaveCopy.Text" xml:space="preserve">
-    <value>Copy to clipboard</value>
-  </data>
-  <data name="ToolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 39</value>
-  </data>
-  <data name="TextBox_Title.Size" type="System.Drawing.Size, System.Drawing">
-    <value>300, 39</value>
-  </data>
-  <data name="Button_SendToWeb.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="Button_SendToWeb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 36</value>
-  </data>
-  <data name="Button_SendToWeb.Text" xml:space="preserve">
-    <value>Send to Cucak.am</value>
-  </data>
-  <data name="ToolStripButton3.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="ToolStripButton3.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="ToolStripButton3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 19</value>
-  </data>
-  <data name="ToolStripButton3.Text" xml:space="preserve">
-    <value>Cusomize</value>
-  </data>
-  <data name="ToolStrip_Share.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 39</value>
-  </data>
-  <data name="ToolStrip_Share.Size" type="System.Drawing.Size, System.Drawing">
-    <value>478, 39</value>
-  </data>
-  <data name="ToolStrip_Share.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="ToolStrip_Share.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip_Share.Name" xml:space="preserve">
-    <value>ToolStrip_Share</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip_Share.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip_Share.Parent" xml:space="preserve">
-    <value>ToolStripContainer_Main.TopToolStripPanel</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip_Share.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="&gt;&gt;ToolStripContainer_Main.TopToolStripPanel.Name" xml:space="preserve">
     <value>ToolStripContainer_Main.TopToolStripPanel</value>
@@ -6342,6 +5921,189 @@
   </data>
   <data name="&gt;&gt;ToolStripContainer_Main.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="Menu_PaintMode_Free.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="Menu_PaintMode_Free.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="Menu_PaintMode_Free.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 28</value>
+  </data>
+  <data name="Menu_PaintMode_Free.Text" xml:space="preserve">
+    <value>Free</value>
+  </data>
+  <data name="Menu_PaintMode_Line.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="Menu_PaintMode_Line.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="Menu_PaintMode_Line.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 28</value>
+  </data>
+  <data name="Menu_PaintMode_Line.Text" xml:space="preserve">
+    <value>Line</value>
+  </data>
+  <data name="Menu_PaintMode_Arrow.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="Menu_PaintMode_Arrow.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="Menu_PaintMode_Arrow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 28</value>
+  </data>
+  <data name="Menu_PaintMode_Arrow.Text" xml:space="preserve">
+    <value>Arrow</value>
+  </data>
+  <data name="Menu_PaintMode_Oval.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="Menu_PaintMode_Oval.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 28</value>
+  </data>
+  <data name="Menu_PaintMode_Oval.Text" xml:space="preserve">
+    <value>Oval</value>
+  </data>
+  <data name="Menu_PaintMode_Rect.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="Menu_PaintMode_Rect.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="Menu_PaintMode_Rect.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 28</value>
+  </data>
+  <data name="Menu_PaintMode_Rect.Text" xml:space="preserve">
+    <value>Rectingle</value>
+  </data>
+  <data name="Menu_PaintMode_Numbers.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="Menu_PaintMode_Numbers.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="Menu_PaintMode_Numbers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 28</value>
+  </data>
+  <data name="Menu_PaintMode_Numbers.Text" xml:space="preserve">
+    <value>Numbers</value>
+  </data>
+  <data name="ToolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 6</value>
+  </data>
+  <data name="Menu_PaintMode_Fill.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="Menu_PaintMode_Fill.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="Menu_PaintMode_Fill.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 28</value>
+  </data>
+  <data name="Menu_PaintMode_Fill.Text" xml:space="preserve">
+    <value>Fill</value>
+  </data>
+  <data name="ToolStripButton1.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ToolStripButton1.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="ToolStripButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 19</value>
+  </data>
+  <data name="ToolStripButton1.Text" xml:space="preserve">
+    <value>Cusomize</value>
+  </data>
+  <data name="Menu_PaintMode_Crop.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="Menu_PaintMode_Crop.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="Menu_PaintMode_Crop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 20</value>
+  </data>
+  <data name="Menu_PaintMode_Crop.Text" xml:space="preserve">
+    <value>Crop</value>
+  </data>
+  <data name="ToolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 6</value>
+  </data>
+  <data name="Menu_PaintMode_Highlight.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="Menu_PaintMode_Highlight.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="Menu_PaintMode_Highlight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 28</value>
+  </data>
+  <data name="Menu_PaintMode_Highlight.Text" xml:space="preserve">
+    <value>Highlight</value>
+  </data>
+  <data name="Menu_PaintMode_Puzzle.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="Menu_PaintMode_Puzzle.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="Menu_PaintMode_Puzzle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 28</value>
+  </data>
+  <data name="Menu_PaintMode_Puzzle.Text" xml:space="preserve">
+    <value>Puzzle</value>
+  </data>
+  <data name="Menu_PaintMode_Blur.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="Menu_PaintMode_Blur.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="Menu_PaintMode_Blur.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 28</value>
+  </data>
+  <data name="Menu_PaintMode_Blur.Text" xml:space="preserve">
+    <value>Blur</value>
+  </data>
+  <data name="Menu_PaintMode_Invert.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="Menu_PaintMode_Invert.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="Menu_PaintMode_Invert.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 20</value>
+  </data>
+  <data name="Menu_PaintMode_Invert.Text" xml:space="preserve">
+    <value>Ivert</value>
+  </data>
+  <data name="Menu_PaintMode_Grayscale.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="Menu_PaintMode_Grayscale.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="Menu_PaintMode_Grayscale.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 20</value>
+  </data>
+  <data name="Menu_PaintMode_Grayscale.Text" xml:space="preserve">
+    <value>Grayscale</value>
+  </data>
+  <data name="ToolStripButton2.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ToolStripButton2.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="ToolStripButton2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 19</value>
+  </data>
+  <data name="ToolStripButton2.Text" xml:space="preserve">
+    <value>Cusomize</value>
   </data>
   <metadata name="Menu_PaintMode.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>523, 17</value>
@@ -6599,6 +6361,12 @@
   <data name="&gt;&gt;ToolStripSeparator8.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;ToolStrip_Standard_Palitra.Name" xml:space="preserve">
+    <value>ToolStrip_Standard_Palitra</value>
+  </data>
+  <data name="&gt;&gt;ToolStrip_Standard_Palitra.Type" xml:space="preserve">
+    <value>Morysoft.MorySnip.ToolStripPalitra, MorySnip, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
   <data name="&gt;&gt;Button_Color.Name" xml:space="preserve">
     <value>Button_Color</value>
   </data>
@@ -6640,12 +6408,6 @@
   </data>
   <data name="&gt;&gt;CustomToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip_Standard_Palitra.Name" xml:space="preserve">
-    <value>ToolStrip_Standard_Palitra</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip_Standard_Palitra.Type" xml:space="preserve">
-    <value>Morysoft.MorySnip.ToolStripPalitra, MorySnip, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;Button_Size.Name" xml:space="preserve">
     <value>Button_Size</value>
@@ -6767,66 +6529,6 @@
   <data name="&gt;&gt;Menu_ForNothing1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ToolStripSeparator7.Name" xml:space="preserve">
-    <value>ToolStripSeparator7</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Button_OK.Name" xml:space="preserve">
-    <value>Button_OK</value>
-  </data>
-  <data name="&gt;&gt;Button_OK.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Button_Exit.Name" xml:space="preserve">
-    <value>Button_Exit</value>
-  </data>
-  <data name="&gt;&gt;Button_Exit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Button_Save.Name" xml:space="preserve">
-    <value>Button_Save</value>
-  </data>
-  <data name="&gt;&gt;Button_Save.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Button_SaveAs.Name" xml:space="preserve">
-    <value>Button_SaveAs</value>
-  </data>
-  <data name="&gt;&gt;Button_SaveAs.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Button_SaveCopy.Name" xml:space="preserve">
-    <value>Button_SaveCopy</value>
-  </data>
-  <data name="&gt;&gt;Button_SaveCopy.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator6.Name" xml:space="preserve">
-    <value>ToolStripSeparator6</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TextBox_Title.Name" xml:space="preserve">
-    <value>TextBox_Title</value>
-  </data>
-  <data name="&gt;&gt;TextBox_Title.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Button_SendToWeb.Name" xml:space="preserve">
-    <value>Button_SendToWeb</value>
-  </data>
-  <data name="&gt;&gt;Button_SendToWeb.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripButton3.Name" xml:space="preserve">
-    <value>ToolStripButton3</value>
-  </data>
-  <data name="&gt;&gt;ToolStripButton3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;ToolStripMenuItem1.Name" xml:space="preserve">
     <value>ToolStripMenuItem1</value>
   </data>
@@ -6868,6 +6570,30 @@
   </data>
   <data name="&gt;&gt;Timer_Update.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Button_Save.Name" xml:space="preserve">
+    <value>Button_Save</value>
+  </data>
+  <data name="&gt;&gt;Button_Save.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Button_SaveAs.Name" xml:space="preserve">
+    <value>Button_SaveAs</value>
+  </data>
+  <data name="&gt;&gt;Button_SaveAs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Button_SaveCopy.Name" xml:space="preserve">
+    <value>Button_SaveCopy</value>
+  </data>
+  <data name="&gt;&gt;Button_SaveCopy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator6.Name" xml:space="preserve">
+    <value>ToolStripSeparator6</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Form_Edit</value>

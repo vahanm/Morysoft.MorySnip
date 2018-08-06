@@ -12,9 +12,9 @@ Imports System.Drawing
 Public Class RGBHSL
     Public Class HSL
         Public Sub New()
-            _h = 0
-            _s = 0
-            _l = 0
+            Me._h = 0
+            Me._s = 0
+            Me._l = 0
         End Sub 'New
 
         Private _h As Double
@@ -23,31 +23,31 @@ Public Class RGBHSL
 
         Public Property H() As Double
             Get
-                Return _h
+                Return Me._h
             End Get
             Set(value As Double)
-                _h = value
-                _h = IIf(_h > 1, 1, IIf(_h < 0, 0, _h))
+                Me._h = value
+                Me._h = IIf(Me._h > 1, 1, IIf(Me._h < 0, 0, Me._h))
             End Set
         End Property
 
         Public Property S() As Double
             Get
-                Return _s
+                Return Me._s
             End Get
             Set(value As Double)
-                _s = value
-                _s = IIf(_s > 1, 1, IIf(_s < 0, 0, _s))
+                Me._s = value
+                Me._s = IIf(Me._s > 1, 1, IIf(Me._s < 0, 0, Me._s))
             End Set
         End Property
 
         Public Property L() As Double
             Get
-                Return _l
+                Return Me._l
             End Get
             Set(value As Double)
-                _l = value
-                _l = IIf(_l > 1, 1, IIf(_l < 0, 0, _l))
+                Me._l = value
+                Me._l = IIf(Me._l > 1, 1, IIf(Me._l < 0, 0, Me._l))
             End Set
         End Property
     End Class 'HSL

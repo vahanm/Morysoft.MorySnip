@@ -33,23 +33,23 @@
         'a holder for the result
         Dim Result As Bitmap = New Bitmap(Width, Height)
 
-        If Image Is Nothing Then
+        If Me.Image Is Nothing Then
             Return Result
         End If
 
         ' set the resolutions the same to avoid cropping due to resolution differences
-        Result.SetResolution(Image.HorizontalResolution, Image.VerticalResolution)
+        Result.SetResolution(Me.Image.HorizontalResolution, Me.Image.VerticalResolution)
 
         Dim x, y, w, h As Integer
 
 
-        If Image.Width < Result.Width AndAlso Image.Height < Result.Height Then
-            w = Image.Width
-            h = Image.Height
+        If Me.Image.Width < Result.Width AndAlso Me.Image.Height < Result.Height Then
+            w = Me.Image.Width
+            h = Me.Image.Height
             x = (Result.Width - w) / 2
             y = (Result.Height - h) / 2
         Else
-            Dim r1 As Double = Image.Width / Image.Height
+            Dim r1 As Double = Me.Image.Width / Me.Image.Height
             Dim r2 As Double = Result.Width / Result.Height
 
             If r1 = r2 Then
@@ -59,11 +59,11 @@
                 y = 0
             ElseIf r1 > r2 Then
                 w = Result.Width
-                h = Image.Height * (Result.Width / Image.Width)
+                h = Me.Image.Height * (Result.Width / Me.Image.Width)
                 x = 0
                 y = (Height - h) / 2
             ElseIf r1 < r2 Then
-                w = Image.Width * (Result.Height / Image.Height)
+                w = Me.Image.Width * (Result.Height / Me.Image.Height)
                 h = Result.Height
                 x = (Result.Width - w) / 2
                 y = 0
@@ -78,7 +78,7 @@
             .InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic
             .SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality
             'draw the image into the target bitmap
-            .DrawImage(Image, x, y, w, h)
+            .DrawImage(Me.Image, x, y, w, h)
         End With
 
         'return the resulting bitmap

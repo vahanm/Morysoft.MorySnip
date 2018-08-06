@@ -2,7 +2,6 @@
 Imports System.Threading
 
 Namespace My
-
     ' The following events are available for MyApplication:
     ' 
     ' Startup: Raised when the application starts, before the startup form is created.
@@ -11,7 +10,6 @@ Namespace My
     ' StartupNextInstance: Raised when launching a single-instance application and the application is already active. 
     ' NetworkAvailabilityChanged: Raised when the network connection is connected or disconnected.
     Partial Friend Class MyApplication
-
         Private Sub ApplyJumpList()
             Dim jl As New System.Windows.Shell.JumpList()
             Dim dir As String = My.Application.Info.DirectoryPath
@@ -69,7 +67,6 @@ Namespace My
             SetDefaultSettings()
 
             Thread.CurrentThread.CurrentUICulture = CultureCode 'CultureInfo.CurrentCulture 'New CultureInfo("hy-am")
-
 
             ApplyJumpList()
 
@@ -144,13 +141,14 @@ Namespace My
 
                                         With New Form_Edit
                                             .Image = img
-                                            If .ShowDialog() = Windows.Forms.DialogResult.OK Then
+
+                                            If .ShowDialog() = DialogResult.OK Then
                                                 img = .Image
 
                                                 Dim sf As New Form_Save_Advanced()
+
                                                 sf.Images.Add(img)
                                                 sf.Show()
-                                                sf.Button_SendToWeb.PerformClick()
                                             End If
                                         End With
                                         End

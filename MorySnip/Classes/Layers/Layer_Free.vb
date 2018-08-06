@@ -4,7 +4,7 @@
     Dim PathValue As New Drawing2D.GraphicsPath
     Public ReadOnly Property Path As Drawing2D.GraphicsPath
         Get
-            Return PathValue
+            Return Me.PathValue
         End Get
     End Property
 
@@ -19,19 +19,19 @@
     End Sub
 
     Public Overrides Sub [Step](StepPoint As Point)
-        Path.AddLine(LastPoint, StepPoint)
+        Me.Path.AddLine(Me.LastPoint, StepPoint)
         MyBase.Step(StepPoint)
     End Sub
 
     Public Overrides Sub [Stop](LastPoint As Point)
-        Path.AddLine(Me.LastPoint, LastPoint)
+        Me.Path.AddLine(Me.LastPoint, LastPoint)
         MyBase.[Stop](LastPoint)
     End Sub
 
     Public Overrides ReadOnly Property Bounds() As Rectangle
         Get
             Dim x, y, w, h As Integer, IsFirst As Boolean = True
-            For Each item As PointF In PathValue.PathPoints
+            For Each item As PointF In Me.PathValue.PathPoints
                 If IsFirst Then
                     IsFirst = False
                     x = item.X
@@ -52,8 +52,8 @@
 
     Public Overrides Sub Paint(g As Graphics)
         If Me.Fill Then
-            g.FillPath(Brush, Path)
+            g.FillPath(Me.Brush, Me.Path)
         End If
-        g.DrawPath(Pen, Path)
+        g.DrawPath(Me.Pen, Me.Path)
     End Sub
 End Class

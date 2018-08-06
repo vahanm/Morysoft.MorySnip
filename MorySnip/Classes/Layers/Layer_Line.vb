@@ -11,6 +11,6 @@
     End Sub
 
     Public Overrides Sub Paint(g As Graphics)
-        g.DrawLine(Pen, FirstPoint, LastPoint)
+        g.DrawLine(Me.Pen, Me.FirstPoint, Me.LastPoint)
     End Sub
 End Class

@@ -9,7 +9,7 @@
 
     Private Sub PreviewImages()
         Dim Index As Integer = 0
-        For Each Screenshot As Screenshot In Images
+        For Each Screenshot As Screenshot In Me.Images
             If Index = Me.ListView_Images.Items.Count Then
                 Me.ImageList_Thumbs.Images.Add(Screenshot.GetThumbnailImage())
 
@@ -33,23 +33,23 @@
             Me.ImageList_Thumbs.Images.RemoveAt(i)
         Next
 
-        Me.Button_Edit.Enabled = Images.Count > 0
-        Me.Button_Remove.Enabled = Images.Count > 0
+        Me.Button_Edit.Enabled = Me.Images.Count > 0
+        Me.Button_Remove.Enabled = Me.Images.Count > 0
 
-        Me.Button_SendToWeb.Enabled = Images.Count > 0
-        Me.Button_Share_Facebook.Enabled = Images.Count > 0
+        Me.Button_SendToWeb.Enabled = Me.Images.Count > 0
+        Me.Button_Share_Facebook.Enabled = Me.Images.Count > 0
     End Sub
 
     Private Sub EditSelectedImage()
         If Me.ListView_Images.SelectedIndices.Count = 1 Then
-            Dim Index As Integer = ListView_Images.SelectedIndices(0)
+            Dim Index As Integer = Me.ListView_Images.SelectedIndices(0)
             If MyBase.Edit_OpenInEditor(Index) Then
                 PreviewImages()
             End If
         End If
     End Sub
 
-    Private Sub Form_Save_Album_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub Form_Save_Album_Load(ByVal sender As System.Object, ByVal e As EventArgs) Handles MyBase.Load
         Me.ComboBox_Quality.SelectedIndex = Settings.ShareQuality
         Me.CheckBox_CopyPath.Checked = Settings.CopyPath
         Me.CheckBox_OpenFolder.Checked = Settings.OpenFolder
@@ -117,14 +117,14 @@
         End If
     End Sub
 
-    Private Sub Button_Edit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button_Edit.Click
+    Private Sub Button_Edit_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles Button_Edit.Click
         EditSelectedImage()
     End Sub
 
     Private Sub Button_Remove_Click(sender As Object, e As EventArgs) Handles Button_Remove.Click
         If Me.ListView_Images.SelectedIndices.Count > 0 Then
             For i As Integer = Me.ListView_Images.SelectedIndices.Count - 1 To 0 Step -1
-                Images.RemoveAt(Me.ListView_Images.SelectedIndices(i))
+                Me.Images.RemoveAt(Me.ListView_Images.SelectedIndices(i))
             Next
             PreviewImages()
         End If

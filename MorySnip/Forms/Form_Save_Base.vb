@@ -5,6 +5,27 @@ Imports System.Net
 Public Class Form_Save_Base
     Inherits Form
 
+    Protected _virtualScreenLocation As Point = SystemInformation.VirtualScreen.Location
+    Protected _virtualScreenSize As Size = SystemInformation.VirtualScreen.Size
+
+    Protected _primaryScreenLocation As Point = Screen.PrimaryScreen.Bounds.Location
+    Protected _primaryScreenSize As Size = Screen.PrimaryScreen.Bounds.Size
+
+    Private _saveForm As Form_Save_Base
+
+    Public Property SaveForm As Form_Save_Base
+        Get
+            If Me._saveForm Is Nothing Then
+                Me._saveForm = New Form_Edit()
+            End If
+
+            Return Me._saveForm
+        End Get
+        Set
+            Me._saveForm = Value
+        End Set
+    End Property
+
     Public Enum PublishOptions As Integer
         OnlyImageNumber = 2 ^ 16 - 1
 
@@ -93,155 +114,6 @@ Public Class Form_Save_Base
         End If
 
         Return True
-    End Function
-
-    Public Function Publish_SharingService(Optional TitleText As String = Nothing) As Boolean
-        Dim URL As String = ""
-        Do
-            Try
-                URL = SaveToServer(PublishOptions.WebSharing Or (PublishOptions.CopyPathOrULR And Settings.CopyPath) Or (PublishOptions.OpenFolder And Settings.OpenFolder), TitleText)
-
-                If String.IsNullOrWhiteSpace(URL) Then
-                    Return False
-                End If
-
-                Exit Do
-            Catch ex As Exception
-                If MsgBox(ex.Message, MsgBoxStyle.Critical Or MsgBoxStyle.RetryCancel) = MsgBoxResult.Cancel Then
-                    Return False
-                End If
-            End Try
-        Loop
-
-        Return True
-    End Function
-
-    Public Function Publish_Album(TitleText As String) As Boolean
-        Dim URL As String = ""
-        Do
-            Try
-                URL = SaveToServer(PublishOptions.WebSharing Or PublishOptions.AsAlbum Or PublishOptions.CopyPathOrULR Or PublishOptions.OpenFolder, TitleText)
-
-                If URL Is Nothing Then
-                    Return False
-                End If
-
-                Exit Do
-            Catch ex As Exception
-                If MsgBox(ex.Message, MsgBoxStyle.Critical Or MsgBoxStyle.RetryCancel) = MsgBoxResult.Cancel Then
-                    Return False
-                End If
-            End Try
-        Loop
-
-        Return True
-    End Function
-
-    Public Function SaveToServer(Options As PublishOptions, Optional TitleText As String = Nothing) As String
-        Dim id As Single = Rnd(-Now.Millisecond)
-
-        Dim UploadId As String = Now.Ticks & CInt(id * 89999 + 10000).ToString("00000")
-        Dim nc As ICredentials = New NetworkCredential("snipping-tool@parap.am", "snipping-tool")
-
-        Dim url As String = "http://share.cucak.am/" & UploadId
-
-        Dim us As New Google.Apis.Urlshortener.v1.UrlResource(gcs)
-        Dim surl As Google.Apis.Urlshortener.v1.Data.Url = us.Insert(New Google.Apis.Urlshortener.v1.Data.Url() With {.LongUrl = url}).Execute()
-
-        If Not String.IsNullOrWhiteSpace(surl.Id) Then
-            url = surl.Id
-        End If
-
-        If (Options And PublishOptions.CopyPathOrULR) = PublishOptions.CopyPathOrULR Then
-            Do
-                Try
-                    Clipboard.SetText(url)
-                    Exit Do
-                Catch ex As Exception
-                    If MsgBox(ex.Message, MsgBoxStyle.Critical Or MsgBoxStyle.RetryCancel) = MsgBoxResult.Cancel Then
-                        Throw ex
-                    End If
-                End Try
-            Loop
-        End If
-
-        Dim ZipPath As String = GetTempFileName()
-        Dim Zip As New Ionic.Zip.ZipFile()
-
-        Dim Index As Integer = 0
-        For Each tmp As Screenshot In Me.Images
-            Dim ImagePath As String = GetTempFileName()
-
-            Select Case Settings.ShareQuality
-                Case 1
-                    Dim SizeRate As Double = ((tmp.Image.Width * tmp.Image.Height) / (2 * 1920 * 1080)) ^ 0.5 '4 * 10 ^ 6
-                    If SizeRate > 1 Then
-                        tmp = ImageUtilities.ResizeImage(tmp, tmp.Image.Width / SizeRate, tmp.Image.Height / SizeRate)
-                    End If
-                    tmp.Image.Save(ImagePath, Imaging.ImageFormat.Jpeg)
-                Case 2
-                    tmp.Image.Save(ImagePath, Imaging.ImageFormat.Gif)
-                Case Else
-                    If Not String.IsNullOrWhiteSpace(tmp.OriginalPath) Then
-                        ImagePath = tmp.OriginalPath
-                    Else
-                        tmp.Image.Save(ImagePath, Imaging.ImageFormat.Png)
-                    End If
-            End Select
-
-            If (Options And PublishOptions.AsAlbum) = PublishOptions.AsAlbum Then
-                Dim ThumbPath As String = GetTempFileName()
-                tmp.GetThumbnailImage(330, 330, Color.Transparent).Save(ThumbPath)
-                Zip.AddEntry(UploadId & String.Format("{0:000}.330x330.png", Index), New IO.FileStream(ThumbPath, IO.FileMode.Open, IO.FileAccess.Read, IO.FileShare.Read))
-            End If
-
-            If (Options And PublishOptions.AsAlbum) = PublishOptions.AsAlbum Then
-                Dim ThumbPath As String = GetTempFileName()
-                tmp.GetThumbnailImage(150, 150, Color.Transparent).Save(ThumbPath)
-                Zip.AddEntry(UploadId & String.Format("{0:000}.150x150.png", Index), New IO.FileStream(ThumbPath, IO.FileMode.Open, IO.FileAccess.Read, IO.FileShare.Read))
-            End If
-
-            If (Options And PublishOptions.AsAlbum) = PublishOptions.AsAlbum Then
-                Dim ThumbPath As String = GetTempFileName()
-                tmp.GetThumbnailImage(1200, 800, Color.Transparent).Save(ThumbPath)
-                Zip.AddEntry(UploadId & String.Format("{0:000}.1200x800.png", Index), New IO.FileStream(ThumbPath, IO.FileMode.Open, IO.FileAccess.Read, IO.FileShare.Read))
-            End If
-
-            If Not String.IsNullOrEmpty(tmp.Comment) Then
-                Zip.AddEntry(UploadId & String.Format("{0:000}.comment", Index), tmp.Comment, System.Text.Encoding.UTF8)
-            End If
-
-            If Not String.IsNullOrEmpty(tmp.Title) Then
-                Zip.AddEntry(UploadId & String.Format("{0:000}.title", Index), tmp.Title, System.Text.Encoding.UTF8)
-            End If
-
-            Zip.AddEntry(UploadId & String.Format("{0:000}.png", Index), New IO.FileStream(ImagePath, IO.FileMode.Open, IO.FileAccess.Read, IO.FileShare.Read))
-            Index += 1
-        Next
-
-        If Not String.IsNullOrEmpty(TitleText) Then
-            Zip.AddEntry(UploadId & ".title", TitleText, System.Text.Encoding.UTF8)
-        End If
-
-        Zip.Save(ZipPath)
-
-        Dim getUri = Function() New Uri(String.Format("ftp://cucak.am/snapshots/{0}.zip", UploadId))
-
-        My.Computer.Network.UploadFile(ZipPath, getUri(), nc, True, 200, FileIO.UICancelOption.ThrowException)
-
-        SettingHistoryAdd(UploadId, TitleText)
-
-        If (Options And PublishOptions.ShareViaFacebook) = PublishOptions.ShareViaFacebook Then
-            Shell("explorer ""https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fshare.cucak.am%2F" & UploadId & """", AppWinStyle.NormalFocus)
-        ElseIf (Options And PublishOptions.ShareViaOdnoklassniki) = PublishOptions.ShareViaOdnoklassniki Then
-            Shell("explorer ""http://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1&st._surl=http%3A%2F%2Fshare.cucak.am%2F" & UploadId & """", AppWinStyle.NormalFocus)
-        Else
-            If (Options And PublishOptions.OpenFolder) = PublishOptions.OpenFolder Then
-                Shell("explorer """ & url & """", AppWinStyle.NormalFocus)
-            End If
-        End If
-
-        Return url
     End Function
 
     Public Function AddImage_FromClipboard() As Integer
@@ -372,16 +244,126 @@ Public Class Form_Save_Base
         Return ImagesAdd
     End Function
 
-    Public Function Edit_OpenInEditor(ImageNumber As Integer) As Boolean
-        With New Form_Edit
-            .Image = Me.Images(ImageNumber)
+    Public Sub Snip_FromClipboard()
+        If Clipboard.ContainsImage() Then
+            Me.SaveForm.Images.Add(Clipboard.GetImage())
+            Me.SaveForm.Show()
+            Me.Close()
 
-            If .ShowDialog(Me) = DialogResult.OK Then
-                Me.Images(ImageNumber) = .Image
-                Return True
-            Else
-                Return False
+            Return
+        ElseIf Clipboard.ContainsText() Then
+            Dim paths = Clipboard.GetText()
+
+            For Each path As String In paths.Split("""", "'", ";", vbCr, vbLf).Select(Function(fn) fn.Trim("""", "'"))
+                Try
+                    Dim localPath = (New Uri(path)).LocalPath
+                    Dim tempImage As Screenshot = Image.FromFile(localPath)
+
+                    tempImage.OriginalPath = localPath
+
+                    Me.SaveForm.Images.Add(tempImage)
+                Catch ex As Exception
+
+                End Try
+            Next
+
+            If Me.SaveForm.Images.Count Then
+                Me.SaveForm.Show()
+                Me.Close()
+
+                Return
             End If
-        End With
-    End Function
+        ElseIf Clipboard.ContainsFileDropList() Then
+            Dim filesDrop = Clipboard.GetFileDropList()
+
+            For Each path As String In filesDrop
+                path = path.Trim("""", "'")
+
+                Try
+                    Dim localPath = (New Uri(path)).LocalPath
+                    Dim tempImage As Screenshot = Image.FromFile(localPath)
+
+                    tempImage.OriginalPath = localPath
+
+                    Me.SaveForm.Images.Add(tempImage)
+                Catch ex As Exception
+
+                End Try
+            Next
+
+            If Me.SaveForm.Images.Count Then
+                Me.SaveForm.Show()
+                Me.Close()
+
+                Return
+            End If
+        End If
+
+        MsgBox("No image or image file path in clipboard.", MsgBoxStyle.Critical)
+    End Sub
+
+    Public Sub Snip_FullScreen()
+        Me.Hide()
+
+        Dim b As New Bitmap(Me._virtualScreenSize.Width, Me._virtualScreenSize.Height)
+
+        Dim g As Graphics = Graphics.FromImage(b)
+
+        g.CopyFromScreen(Me._virtualScreenLocation.X, Me._virtualScreenLocation.Y, 0, 0, Me._virtualScreenSize)
+
+        Me.SaveForm.Images.Add(b)
+
+        Me.SaveForm.Show()
+
+        Me.Close()
+    End Sub
+
+    Public Sub Snip_Screen(index As Integer)
+        Throw New NotImplementedException()
+    End Sub
+
+    Public Sub Snip_FromFile()
+        Dim od As New OpenFileDialog With {
+            .AutoUpgradeEnabled = True,
+            .CheckFileExists = True,
+            .CheckPathExists = True,
+            .Multiselect = True,
+            .Filter = "All supported files|*.bmp;*.emf;*.exif;*.gif;*.ico;*.jpeg;*.jpg;*.png;*.tiff;*.wmf;"
+        }
+
+        Me.Hide()
+
+        If od.ShowDialog(Me.SaveForm) = DialogResult.OK Then
+            For Each path As String In od.FileNames.Select(Function(fn) fn.Trim("""", "'"))
+                Do
+                    Try
+                        Dim localPath = (New Uri(path)).LocalPath
+                        Dim tempImage As Screenshot = Image.FromFile(localPath)
+
+                        tempImage.OriginalPath = localPath
+
+                        Me.SaveForm.Images.Add(tempImage)
+
+                        Exit Do
+                    Catch ex As Exception
+                        Select Case MsgBox(ex.Message, MsgBoxStyle.Critical Or MsgBoxStyle.AbortRetryIgnore)
+                            Case MsgBoxResult.Retry
+
+                            Case MsgBoxResult.Abort
+                                Exit For
+                            Case MsgBoxResult.Ignore
+                                Exit Do
+                        End Select
+                    End Try
+                Loop
+            Next
+
+            Me.SaveForm.Show()
+            Me.Close()
+
+            Return
+        End If
+
+        Me.Show()
+    End Sub
 End Class

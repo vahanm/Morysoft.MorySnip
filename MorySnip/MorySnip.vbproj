@@ -45,6 +45,8 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -112,67 +114,43 @@
     <DelaySign>false</DelaySign>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Facebook">
-      <HintPath>..\packages\Facebook.6.8.0\lib\net40-client\Facebook.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Apis">
-      <HintPath>..\packages\Google.Apis.1.5.0-beta\lib\net40\Google.Apis.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Apis.PlatformServices">
-      <HintPath>..\packages\Google.Apis.1.5.0-beta\lib\net40\Google.Apis.PlatformServices.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Apis.Urlshortener.v1">
-      <HintPath>..\packages\Google.Apis.Urlshortener.v1.1.5.0.19-beta\lib\portable-net4+sl4+wp71+win8\Google.Apis.Urlshortener.v1.dll</HintPath>
+    <Reference Include="BumpKit, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bumpkit.1.0.2\lib\BumpKit.dll</HintPath>
     </Reference>
     <Reference Include="Ionic.Zip">
       <HintPath>..\lib\Ionic.Zip.dll</HintPath>
     </Reference>
-    <Reference Include="log4net">
-      <HintPath>..\packages\log4net.2.0.1\lib\net40-full\log4net.dll</HintPath>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.Threading.Tasks">
-      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.16\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Threading.Tasks.Extensions">
-      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.16\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop">
-      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.16\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net" />
-    <Reference Include="System.Net.Http, Version=2.1.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Net.Http.2.1.10\lib\net40\System.Net.Http.dll</HintPath>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="System.Net.Http.Extensions">
-      <HintPath>..\packages\Microsoft.Net.Http.2.1.10\lib\net40\System.Net.Http.Extensions.dll</HintPath>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
     </Reference>
-    <Reference Include="System.Net.Http.Primitives">
-      <HintPath>..\packages\Microsoft.Net.Http.2.1.10\lib\net40\System.Net.Http.Primitives.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.WebRequest, Version=2.1.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Net.Http.2.1.10\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime">
-      <HintPath>..\packages\Microsoft.Bcl.1.0.19\lib\net40\System.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Threading.Tasks">
-      <HintPath>..\packages\Microsoft.Bcl.1.0.19\lib\net40\System.Threading.Tasks.dll</HintPath>
-    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="Zlib.Portable">
-      <HintPath>..\packages\Zlib.Portable.1.9.2\lib\portable-net4+sl4+wp71+win8\Zlib.Portable.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -212,31 +190,19 @@
     <Compile Include="Classes\Polar.vb" />
     <Compile Include="Classes\Screenshot.vb" />
     <Compile Include="Classes\ToolStripPalitra.vb" />
-    <Compile Include="Forms\Form_Save_Album.Designer.vb">
-      <DependentUpon>Form_Save_Album.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Form_Save_Album.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\Form_Save_Base.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form_Save_Advanced.Designer.vb">
-      <DependentUpon>Form_Save_Advanced.vb</DependentUpon>
+    <Compile Include="Forms\Form_Settings.Designer.vb">
+      <DependentUpon>Form_Settings.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Form_Save_Advanced.vb">
+    <Compile Include="Forms\Form_Settings.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Form_AutoCapture.Designer.vb">
       <DependentUpon>Form_AutoCapture.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Form_AutoCapture.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Form_Browser.Designer.vb">
-      <DependentUpon>Form_Browser.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Form_Browser.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Form_Download.Designer.vb">
@@ -251,29 +217,11 @@
     <Compile Include="Forms\Form_Edit.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form_History.Designer.vb">
-      <DependentUpon>Form_History.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Form_History.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\Form_SnippingTool.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Form_SnippingTool.Designer.vb">
       <DependentUpon>Form_SnippingTool.vb</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Form_Preview.Designer.vb">
-      <DependentUpon>Form_Preview.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Form_Preview.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Form_Save_Simple.Designer.vb">
-      <DependentUpon>Form_Save_Simple.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Form_Save_Simple.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\Helpers.vb" />
@@ -301,19 +249,16 @@
     <EmbeddedResource Include="Classes\ImageControls.resx">
       <DependentUpon>ImageControls.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_Save_Advanced.hy.resx">
-      <DependentUpon>Form_Save_Advanced.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\Form_Settings.hy.resx">
+      <DependentUpon>Form_Settings.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_Save_Advanced.resx">
-      <DependentUpon>Form_Save_Advanced.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\Form_Settings.resx">
+      <DependentUpon>Form_Settings.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_AutoCapture.resx">
       <DependentUpon>Form_AutoCapture.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_Browser.resx">
-      <DependentUpon>Form_Browser.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_Download.resx">
       <DependentUpon>Form_Download.vb</DependentUpon>
@@ -324,37 +269,11 @@
     <EmbeddedResource Include="Forms\Form_Edit.resx">
       <DependentUpon>Form_Edit.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_History.hy.resx">
-      <DependentUpon>Form_History.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_History.resx">
-      <DependentUpon>Form_History.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_Save_Album.hy.resx">
-      <DependentUpon>Form_Save_Album.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_Save_Album.resx">
-      <DependentUpon>Form_Save_Album.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_SnippingTool.hy.resx">
       <DependentUpon>Form_SnippingTool.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_SnippingTool.resx">
       <DependentUpon>Form_SnippingTool.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_Preview.hy.resx">
-      <DependentUpon>Form_Preview.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_Preview.resx">
-      <DependentUpon>Form_Preview.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_Save_Simple.hy.resx">
-      <DependentUpon>Form_Save_Simple.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_Save_Simple.resx">
-      <DependentUpon>Form_Save_Simple.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.hy.resx" />
@@ -405,7 +324,6 @@
     <None Include="Resources\Clipboard copy.ico" />
     <None Include="Resources\Clipboard cut.ico" />
     <None Include="Resources\0011.jpg" />
-    <Content Include="Properties\AssemblyInfo.log4net.cs" />
     <Content Include="Resources\1371823643_doc_edit.png" />
     <Content Include="Resources\1371823655_folder_open.png" />
     <Content Include="Resources\1371823693_clipboard_cut.png" />
@@ -486,10 +404,12 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
-  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" />
-  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
-    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
-    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

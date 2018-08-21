@@ -1,9 +1,10 @@
 ﻿Module Helpers
-    Private Function gcd(a As Integer, b As Integer) As Integer
+    Private Function _gcd(a As Integer, b As Integer) As Integer
         If b = 0 Then
             Return a
         End If
-        Return gcd(b, a Mod b)
+
+        Return _gcd(b, a Mod b)
     End Function
 
     Public Function ReduceRatio(numerator As UInteger, denominator As UInteger) As Size
@@ -20,7 +21,8 @@
             denominator = temp
         End If
 
-        divisor = gcd(numerator, denominator)
+        divisor = _gcd(numerator, denominator)
+
         If temp Is Nothing Then
             Return New Size((numerator / divisor), (denominator / divisor))
         Else
@@ -170,7 +172,4 @@
             End Try
         Next
     End Sub
-
-    Public si As New Google.Apis.Services.BaseClientService.Initializer() With {.ApiKey = "AIzaSyBdLw3sO6yeOZSr_XXWuh_qYfMVjfkwSm4"}
-    Public gcs As New Google.Apis.Urlshortener.v1.UrlshortenerService(si)
 End Module

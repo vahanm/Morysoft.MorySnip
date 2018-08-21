@@ -3,33 +3,12 @@ Imports System.Linq
 Imports System.Windows.Forms
 
 Public Class Form_SnippingTool
-    Dim _saveForm As Form_Save_Base
-
     Dim x, y, w, h As Integer
     Dim FirstPoint As Point
     Dim LastPoint As Point
     Dim LastButton As MouseButtons = MouseButtons.None
 
-    Dim vl As Point = SystemInformation.VirtualScreen.Location
-    Dim vs As Size = SystemInformation.VirtualScreen.Size
-
-    Dim pl As Point = Screen.PrimaryScreen.Bounds.Location
-    Dim ps As Size = Screen.PrimaryScreen.Bounds.Size
-
     Dim bordersOnlyMode As Boolean = False
-
-    Public Property SaveForm As Form_Save_Base
-        Get
-            If Me._saveForm Is Nothing Then
-                Me._saveForm = New Form_Edit
-            End If
-
-            Return Me._saveForm
-        End Get
-        Set
-            Me._saveForm = Value
-        End Set
-    End Property
 
     Private Sub CalculateArea()
         If Me.FirstPoint.X < Me.LastPoint.X Then
@@ -70,7 +49,7 @@ Public Class Form_SnippingTool
                           Dim b As New Bitmap(Me.w, Me.h)
                           Dim g As Graphics = Graphics.FromImage(b)
 
-                          g.CopyFromScreen(Me.vl.X + Me.x, Me.vl.Y + Me.y, 0, 0, New Size(Me.w, Me.h))
+                          g.CopyFromScreen(Me._virtualScreenLocation.X + Me.x, Me._virtualScreenLocation.Y + Me.y, 0, 0, New Size(Me.w, Me.h))
 
                           Me.SaveForm.Images.Add(b)
 
@@ -156,15 +135,15 @@ Public Class Form_SnippingTool
 
                 Dim r1 = ReduceRatio(Me.w \ 10, Me.h \ 10)
                 Dim r2 = ReduceRatio(Me.w, Me.h)
-                Dim Approximate As Boolean = Not r1 = r2
+                Dim approximate As Boolean = Not r1 = r2
 
-                g.DrawString(String.Format("{0:# ##0px} - {1:# ##0px} -- {4}{2}:{3}", Me.w, Me.h, r1.Width, r1.Height, IIf(Approximate, "≈", "")), New Font(Me.Font.FontFamily, 11, FontStyle.Italic, GraphicsUnit.Pixel), Brushes.White, Me.x, Me.y - 14)
+                g.DrawString(String.Format("{0:# ##0px} - {1:# ##0px} -- {4}{2}:{3}", Me.w, Me.h, r1.Width, r1.Height, IIf(approximate, "≈", "")), New Font(Me.Font.FontFamily, 11, FontStyle.Italic, GraphicsUnit.Pixel), Brushes.White, Me.x, Me.y - 14)
             End If
         Else
             If My.Computer.Mouse.ButtonsSwapped Then
-                g.DrawString(My.Resources.PressLeftClickToViewOptions, New Font(Me.Font.FontFamily, 40, FontStyle.Italic, GraphicsUnit.Pixel), Brushes.DarkGray, -Me.vl.X + Me.pl.X + 10, -Me.vl.Y + Me.pl.Y + Me.ps.Height \ 2 - 20)
+                g.DrawString(My.Resources.PressLeftClickToViewOptions, New Font(Me.Font.FontFamily, 40, FontStyle.Italic, GraphicsUnit.Pixel), Brushes.DarkGray, -Me._virtualScreenLocation.X + Me._primaryScreenLocation.X + 10, -Me._virtualScreenLocation.Y + Me._primaryScreenLocation.Y + Me._primaryScreenSize.Height \ 2 - 20)
             Else
-                g.DrawString(My.Resources.PressRightClickToViewOptions, New Font(Me.Font.FontFamily, 40, FontStyle.Italic, GraphicsUnit.Pixel), Brushes.DarkGray, -Me.vl.X + Me.pl.X + 10, -Me.vl.Y + Me.pl.Y + Me.ps.Height \ 2 - 20)
+                g.DrawString(My.Resources.PressRightClickToViewOptions, New Font(Me.Font.FontFamily, 40, FontStyle.Italic, GraphicsUnit.Pixel), Brushes.DarkGray, -Me._virtualScreenLocation.X + Me._primaryScreenLocation.X + 10, -Me._virtualScreenLocation.Y + Me._primaryScreenLocation.Y + Me._primaryScreenSize.Height \ 2 - 20)
             End If
         End If
     End Sub
@@ -203,12 +182,8 @@ Public Class Form_SnippingTool
         End If
     End Sub
 
-    'Private Sub Form_SnippingTool_MouseLeave(sender As Object, e As EventArgs) Handles Me.MouseLeave
-    '    Cancel()
-    'End Sub
-
     Private Sub Form_SnippingTool_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseDown
-        If Me.LastButton = MouseButtons.None AndAlso (e.Button = MouseButtons.Left OrElse (e.Button = MouseButtons.Right And Me._saveForm Is Nothing)) Then
+        If Me.LastButton = MouseButtons.None Then
             Me.FirstPoint = e.Location
             Me.LastPoint = e.Location
             Me.LastButton = e.Button
@@ -218,153 +193,37 @@ Public Class Form_SnippingTool
     Private Sub Form_SnippingTool_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove
         If e.Button = Me.LastButton AndAlso Not Me.LastButton = MouseButtons.None Then
             Me.LastPoint = e.Location
-            CalculateArea()
+            Me.CalculateArea()
         End If
     End Sub
 
     Private Sub Form_SnippingTool_MouseUp(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseUp
-        If e.Button = Me.LastButton AndAlso Not Me.LastButton = MouseButtons.None AndAlso Me.w > 3 AndAlso Me.h > 3 Then
-            Me.LastPoint = e.Location
-            CalculateArea()
-            Crop()
-        ElseIf e.Button = MouseButtons.Right AndAlso Me.w < 3 AndAlso Me.h < 3 Then
-            ShowMenu()
+        If e.Button = Me.LastButton Then
+            If Not Me.LastButton = MouseButtons.None AndAlso Me.w > 3 AndAlso Me.h > 3 Then
+                Me.LastPoint = e.Location
+                Me.CalculateArea()
+                Me.Crop()
+            ElseIf e.Button = MouseButtons.Right AndAlso Me.w < 3 AndAlso Me.h < 3 Then
+                Me.ShowMenu()
+            End If
+
+            Me.LastButton = MouseButtons.None
         End If
-
-        If Me.LastButton = e.Button Then Me.LastButton = MouseButtons.None
     End Sub
 
-    Private Sub Form_SnippingTool_MouseWheel(sender As Object, e As MouseEventArgs) Handles Me.MouseWheel
-
+    Private Sub Menu_Snip_FullScreen_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Menu_Snip_FullScreen.Click
+        Me.Snip_FullScreen()
     End Sub
 
-    Private Sub Menu_Snip_FullScreen_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles Menu_Snip_FullScreen.Click
-        Me.Hide()
-
-        Dim b As New Bitmap(Me.vs.Width, Me.vs.Height)
-
-        Dim g As Graphics = Graphics.FromImage(b)
-
-        g.CopyFromScreen(Me.vl.X, Me.vl.Y, 0, 0, Me.vs)
-
-        Me.SaveForm.Images.Add(b)
-
-        Me.SaveForm.Show()
-
-        Me.Close()
-    End Sub
-
-    Private Sub Menu_Snip_Exit_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles Menu_Snip_Exit.Click
+    Private Sub Menu_Snip_Exit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Menu_Snip_Exit.Click
         Me.Close()
     End Sub
 
     Private Sub Menu_Snip_FromClipboard_Click(sender As Object, e As EventArgs) Handles Menu_Snip_FromClipboard.Click
-        If Clipboard.ContainsImage() Then
-            Me.SaveForm.Images.Add(Clipboard.GetImage())
-            Me.SaveForm.Show()
-            Me.Close()
-
-            Return
-        ElseIf Clipboard.ContainsText() Then
-            Dim paths = Clipboard.GetText()
-
-
-            For Each path As String In paths.Split("""", "'", ";", vbCr, vbLf).Select(Function(fn) fn.Trim("""", "'"))
-                Try
-                    Dim LocalPath = (New Uri(path)).LocalPath
-                    Dim TempImage As Screenshot = Image.FromFile(LocalPath)
-                    TempImage.OriginalPath = LocalPath
-                    Me.SaveForm.Images.Add(TempImage)
-                Catch ex As Exception
-
-                End Try
-            Next
-
-            If Me.SaveForm.Images.Count Then
-                Me.SaveForm.Show()
-                Me.Close()
-
-                Return
-            End If
-        ElseIf Clipboard.ContainsFileDropList() Then
-            Dim filesDrop = Clipboard.GetFileDropList()
-
-            For Each path As String In filesDrop
-                path = path.Trim("""", "'")
-
-                Try
-                    Dim LocalPath = (New Uri(path)).LocalPath
-                    Dim TempImage As Screenshot = Image.FromFile(LocalPath)
-                    TempImage.OriginalPath = LocalPath
-                    Me.SaveForm.Images.Add(TempImage)
-                Catch ex As Exception
-
-                End Try
-            Next
-
-            If Me.SaveForm.Images.Count Then
-                Me.SaveForm.Show()
-                Me.Close()
-
-                Return
-            End If
-        End If
-
-        MsgBox("No image or image file path in clipboard.", MsgBoxStyle.Critical)
+        Me.Snip_FromClipboard()
     End Sub
 
     Private Sub Menu_Snip_FromFile_Click(sender As Object, e As EventArgs) Handles Menu_Snip_FromFile.Click
-        Dim od As New OpenFileDialog With {
-            .AutoUpgradeEnabled = True,
-            .CheckFileExists = True,
-            .CheckPathExists = True,
-            .Multiselect = True,
-            .Filter = "All supported files|*.bmp;*.emf;*.exif;*.gif;*.ico;*.jpeg;*.jpg;*.png;*.tiff;*.wmf;"
-        }
-
-        Me.Hide()
-
-        If od.ShowDialog(Me.SaveForm) = DialogResult.OK Then
-            For Each path As String In od.FileNames.Select(Function(fn) fn.Trim("""", "'"))
-                Do
-                    Try
-                        Dim localPath = (New Uri(path)).LocalPath
-                        Dim tempImage As Screenshot = Image.FromFile(localPath)
-
-                        tempImage.OriginalPath = localPath
-
-                        Me.SaveForm.Images.Add(tempImage)
-
-                        Exit Do
-                    Catch ex As Exception
-                        Select Case MsgBox(ex.Message, MsgBoxStyle.Critical Or MsgBoxStyle.AbortRetryIgnore)
-                            Case MsgBoxResult.Retry
-
-                            Case MsgBoxResult.Abort
-                                Exit For
-                            Case MsgBoxResult.Ignore
-                                Exit Do
-                        End Select
-                    End Try
-                Loop
-            Next
-
-            Me.SaveForm.Show()
-            Me.Close()
-
-            Return
-        End If
-
-        Me.Show()
-    End Sub
-
-    Private Sub Menu_Snip_Album_Click(sender As Object, e As EventArgs) Handles Menu_Snip_Album.Click
-        Form_Save_Album.Show()
-        Me.Close()
-    End Sub
-
-    Private Sub Menu_Snip_History_Click(sender As Object, e As EventArgs) Handles Menu_Snip_History.Click
-        Form_History.Show()
-        Me.Close()
+        Me.Snip_FromFile()
     End Sub
 End Class

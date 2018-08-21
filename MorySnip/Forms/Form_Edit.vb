@@ -3,7 +3,7 @@
         Me.Editor_Main.BackgroundImage = Me.BackgroundImage
     End Sub
 
-    Private Sub Form_Edit_Load(ByVal sender As System.Object, ByVal e As EventArgs) Handles MyBase.Load
+    Private Sub Form_Edit_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Me.Editor_Main.Cursor = New Cursor(New IO.MemoryStream(My.Resources.PENCIL))
         Catch ex As Exception : End Try
@@ -22,7 +22,7 @@
         End Set
     End Property
 
-    Private Sub RedToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripMenuItem1.Click, RedToolStripMenuItem.Click
+    Private Sub RedToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripMenuItem1.Click, RedToolStripMenuItem.Click
         Me.Editor_Main.CurrentPen.Color = Color.Red
         CType(Me.Editor_Main.CurrentBrush, SolidBrush).Color = Color.Red
         Me.Button_Color.Text = "Red"
@@ -31,7 +31,7 @@
         Me.ToolStrip_Standard_Palitra.Color2 = CType(Me.Editor_Main.CurrentBrush, SolidBrush).Color
     End Sub
 
-    Private Sub BlueToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles BlueToolStripMenuItem.Click, ToolStripMenuItem2.Click
+    Private Sub BlueToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles BlueToolStripMenuItem.Click, ToolStripMenuItem2.Click
         Me.Editor_Main.CurrentPen.Color = Color.Blue
         CType(Me.Editor_Main.CurrentBrush, SolidBrush).Color = Color.Blue
         Me.Button_Color.Text = "Blue"
@@ -40,7 +40,7 @@
         Me.ToolStrip_Standard_Palitra.Color2 = CType(Me.Editor_Main.CurrentBrush, SolidBrush).Color
     End Sub
 
-    Private Sub BlackToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles BlackToolStripMenuItem.Click, ToolStripMenuItem3.Click
+    Private Sub BlackToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles BlackToolStripMenuItem.Click, ToolStripMenuItem3.Click
         Me.Editor_Main.CurrentPen.Color = Color.Black
         CType(Me.Editor_Main.CurrentBrush, SolidBrush).Color = Color.Black
         Me.Button_Color.Text = "Black"
@@ -49,7 +49,7 @@
         Me.ToolStrip_Standard_Palitra.Color2 = CType(Me.Editor_Main.CurrentBrush, SolidBrush).Color
     End Sub
 
-    Private Sub WhiteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles WhiteToolStripMenuItem.Click, ToolStripMenuItem4.Click
+    Private Sub WhiteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles WhiteToolStripMenuItem.Click, ToolStripMenuItem4.Click
         Me.Editor_Main.CurrentPen.Color = Color.White
         CType(Me.Editor_Main.CurrentBrush, SolidBrush).Color = Color.White
         Me.Button_Color.Text = "White"
@@ -58,7 +58,7 @@
         Me.ToolStrip_Standard_Palitra.Color2 = CType(Me.Editor_Main.CurrentBrush, SolidBrush).Color
     End Sub
 
-    Private Sub CustomToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles CustomToolStripMenuItem.Click, ToolStripMenuItem5.Click
+    Private Sub CustomToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CustomToolStripMenuItem.Click, ToolStripMenuItem5.Click
         Dim tmp As New ColorDialog With {
             .Color = Me.Editor_Main.CurrentPen.Color
         }
@@ -84,7 +84,7 @@
         Me.Button_Size.Tag = Me.Editor_Main.CurrentPen.Width
     End Sub
 
-    Private Sub Button_Back_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles Button_Back.Click
+    Private Sub Button_Back_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button_Back.Click
         Me.Editor_Main.Undo()
     End Sub
 
@@ -92,28 +92,28 @@
         Me.Editor_Main.Redo()
     End Sub
 
-    Private Sub Button_Rotate_Left_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles Button_Rotate_Left.Click
+    Private Sub Button_Rotate_Left_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button_Rotate_Left.Click
         Me.Editor_Main.RotateFlip(RotateFlipType.Rotate270FlipNone)
     End Sub
 
-    Private Sub Button_Rotate_Right_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles Button_Rotate_Right.Click
+    Private Sub Button_Rotate_Right_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button_Rotate_Right.Click
         Me.Editor_Main.RotateFlip(RotateFlipType.Rotate90FlipNone)
     End Sub
 
-    Private Sub Button_Flip_X_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles Button_Flip_X.Click
+    Private Sub Button_Flip_X_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button_Flip_X.Click
         Me.Editor_Main.RotateFlip(RotateFlipType.RotateNoneFlipX)
     End Sub
 
-    Private Sub Button_Flip_Y_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles Button_Flip_Y.Click
+    Private Sub Button_Flip_Y_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button_Flip_Y.Click
         Me.Editor_Main.RotateFlip(RotateFlipType.RotateNoneFlipY)
     End Sub
 
-    Private Sub Button_OK_Click(ByVal sender As System.Object, ByVal e As EventArgs)
+    Private Sub Button_OK_Click(ByVal sender As Object, ByVal e As EventArgs)
         Me.Editor_Main.Render()
         Me.DialogResult = DialogResult.OK
     End Sub
 
-    Private Sub Button_Exit_Click(ByVal sender As System.Object, ByVal e As EventArgs)
+    Private Sub Button_Exit_Click(ByVal sender As Object, ByVal e As EventArgs)
         Me.Close()
     End Sub
 
@@ -133,7 +133,7 @@
         Me.Editor_Main.PaintMode = Editor.PaintModes.Grayscale
     End Sub
 
-    Private Sub Timer_Update_Tick(ByVal sender As System.Object, ByVal e As EventArgs) Handles Timer_Update.Tick
+    Private Sub Timer_Update_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles Timer_Update.Tick
         'Tools
         If Not Me.Menu_PaintMode_Free.Checked = (Me.Editor_Main.PaintMode = Editor.PaintModes.Free) Then
             Me.Menu_PaintMode_Free.Checked = (Me.Editor_Main.PaintMode = Editor.PaintModes.Free)
@@ -211,7 +211,7 @@
         End If
     End Sub
 
-    Private Sub Menu_PaintMode_Free_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles Menu_PaintMode_Free.Click
+    Private Sub Menu_PaintMode_Free_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Menu_PaintMode_Free.Click
         Me.Editor_Main.PaintMode = Editor.PaintModes.Free
     End Sub
 
@@ -219,7 +219,7 @@
         Me.Editor_Main.PaintMode = Editor.PaintModes.Highlight
     End Sub
 
-    Private Sub Menu_PaintMode_Line_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles Menu_PaintMode_Line.Click
+    Private Sub Menu_PaintMode_Line_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Menu_PaintMode_Line.Click
         Me.Editor_Main.PaintMode = Editor.PaintModes.Line
     End Sub
 
@@ -227,11 +227,11 @@
         Me.Editor_Main.PaintMode = Editor.PaintModes.Arrow
     End Sub
 
-    Private Sub Menu_PaintMode_Oval_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles Menu_PaintMode_Oval.Click
+    Private Sub Menu_PaintMode_Oval_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Menu_PaintMode_Oval.Click
         Me.Editor_Main.PaintMode = Editor.PaintModes.Oval
     End Sub
 
-    Private Sub Menu_PaintMode_Rect_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles Menu_PaintMode_Rect.Click
+    Private Sub Menu_PaintMode_Rect_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Menu_PaintMode_Rect.Click
         Me.Editor_Main.PaintMode = Editor.PaintModes.Rect
     End Sub
 
@@ -239,11 +239,11 @@
         Me.Editor_Main.PaintMode = Editor.PaintModes.Number
     End Sub
 
-    Private Sub Menu_PaintMode_Select_Click(ByVal sender As System.Object, ByVal e As EventArgs)
+    Private Sub Menu_PaintMode_Select_Click(ByVal sender As Object, ByVal e As EventArgs)
         Me.Editor_Main.PaintMode = Editor.PaintModes.Invert
     End Sub
 
-    Private Sub Menu_PaintMode_Fill_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles Menu_PaintMode_Fill.Click
+    Private Sub Menu_PaintMode_Fill_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Menu_PaintMode_Fill.Click
         Me.Editor_Main.FillObjecs = Me.Menu_PaintMode_Fill.Checked
     End Sub
 
@@ -305,24 +305,24 @@
         Me.Images(0) = Me.Editor_Main.BackgroundImage
     End Sub
 
-    Private Sub Button_Save_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles Button_Save.Click
-        Render()
+    Private Sub Button_Save_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button_Save.Click
+        Me.Render()
 
         If MyBase.Publish_SaveToFile(PublishOptions.SaveToFile Or PublishOptions.CopyPathOrULR) Then
             Me.Close()
         End If
     End Sub
 
-    Private Sub Button_SaveAs_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles Button_SaveAs.Click
-        Render()
+    Private Sub Button_SaveAs_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button_SaveAs.Click
+        Me.Render()
 
         If MyBase.Publish_SaveToFile(PublishOptions.SaveToFile Or PublishOptions.SaveAs Or PublishOptions.CopyPathOrULR) Then
             Me.Close()
         End If
     End Sub
 
-    Private Sub Button_SaveCopy_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles Button_SaveCopy.Click
-        Render()
+    Private Sub Button_SaveCopy_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button_SaveCopy.Click
+        Me.Render()
 
         If MyBase.Publish_ToClipboard(0) Then
             Me.Close()

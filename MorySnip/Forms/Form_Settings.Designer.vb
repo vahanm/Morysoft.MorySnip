@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form_Save_Advanced
-    Inherits Form_Save_Base
+Partial Class Form_Settings
+    Inherits Form
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()> _
@@ -23,7 +23,7 @@ Partial Class Form_Save_Advanced
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_Save_Advanced))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_Settings))
         Me.ComboBox_Type = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -32,14 +32,10 @@ Partial Class Form_Save_Advanced
         Me.CheckBox_OpenFolder = New System.Windows.Forms.CheckBox()
         Me.Button_BrowseLocal = New System.Windows.Forms.Button()
         Me.ImageList_Thumbs = New System.Windows.Forms.ImageList(Me.components)
-        Me.Button_FromClipboard = New System.Windows.Forms.Button()
         Me.Menu_Clipboard = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.Menu_Clipboard_Message = New System.Windows.Forms.ToolStripMenuItem()
         Me.Menu_Clipboard_Separator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.Menu_Clipboard_Monitor = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Button_CutFromScreen = New System.Windows.Forms.Button()
-        Me.Button_FromFile = New System.Windows.Forms.Button()
-        Me.Button_FullScreen = New System.Windows.Forms.Button()
         Me.ComboBox_Quality = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ToolTip_Buttons = New System.Windows.Forms.ToolTip(Me.components)
@@ -107,15 +103,6 @@ Partial Class Form_Save_Advanced
         resources.ApplyResources(Me.ImageList_Thumbs, "ImageList_Thumbs")
         Me.ImageList_Thumbs.TransparentColor = System.Drawing.Color.Transparent
         '
-        'Button_FromClipboard
-        '
-        Me.Button_FromClipboard.ContextMenuStrip = Me.Menu_Clipboard
-        Me.Button_FromClipboard.Image = Global.Morysoft.MorySnip.My.Resources.Resources._1371823721_clipboard_past
-        resources.ApplyResources(Me.Button_FromClipboard, "Button_FromClipboard")
-        Me.Button_FromClipboard.Name = "Button_FromClipboard"
-        Me.ToolTip_Buttons.SetToolTip(Me.Button_FromClipboard, resources.GetString("Button_FromClipboard.ToolTip"))
-        Me.Button_FromClipboard.UseVisualStyleBackColor = True
-        '
         'Menu_Clipboard
         '
         Me.Menu_Clipboard.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_Clipboard_Message, Me.Menu_Clipboard_Separator1, Me.Menu_Clipboard_Monitor})
@@ -136,30 +123,6 @@ Partial Class Form_Save_Advanced
         '
         Me.Menu_Clipboard_Monitor.Name = "Menu_Clipboard_Monitor"
         resources.ApplyResources(Me.Menu_Clipboard_Monitor, "Menu_Clipboard_Monitor")
-        '
-        'Button_CutFromScreen
-        '
-        Me.Button_CutFromScreen.Image = Global.Morysoft.MorySnip.My.Resources.Resources._1371823693_clipboard_cut
-        resources.ApplyResources(Me.Button_CutFromScreen, "Button_CutFromScreen")
-        Me.Button_CutFromScreen.Name = "Button_CutFromScreen"
-        Me.ToolTip_Buttons.SetToolTip(Me.Button_CutFromScreen, resources.GetString("Button_CutFromScreen.ToolTip"))
-        Me.Button_CutFromScreen.UseVisualStyleBackColor = True
-        '
-        'Button_FromFile
-        '
-        Me.Button_FromFile.Image = Global.Morysoft.MorySnip.My.Resources.Resources._1371823655_folder_open
-        resources.ApplyResources(Me.Button_FromFile, "Button_FromFile")
-        Me.Button_FromFile.Name = "Button_FromFile"
-        Me.ToolTip_Buttons.SetToolTip(Me.Button_FromFile, resources.GetString("Button_FromFile.ToolTip"))
-        Me.Button_FromFile.UseVisualStyleBackColor = True
-        '
-        'Button_FullScreen
-        '
-        Me.Button_FullScreen.Image = Global.Morysoft.MorySnip.My.Resources.Resources._1371823758_monitor
-        resources.ApplyResources(Me.Button_FullScreen, "Button_FullScreen")
-        Me.Button_FullScreen.Name = "Button_FullScreen"
-        Me.ToolTip_Buttons.SetToolTip(Me.Button_FullScreen, resources.GetString("Button_FullScreen.ToolTip"))
-        Me.Button_FullScreen.UseVisualStyleBackColor = True
         '
         'ComboBox_Quality
         '
@@ -214,17 +177,10 @@ Partial Class Form_Save_Advanced
         Me.Menu_Screens_AllScreens.Name = "Menu_Screens_AllScreens"
         resources.ApplyResources(Me.Menu_Screens_AllScreens, "Menu_Screens_AllScreens")
         '
-        'Timer_MonitorClipboard
-        '
-        '
-        'Form_Save_Advanced
+        'Form_Settings
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.Button_FromClipboard)
-        Me.Controls.Add(Me.Button_CutFromScreen)
-        Me.Controls.Add(Me.Button_FromFile)
-        Me.Controls.Add(Me.Button_FullScreen)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.ComboBox_Quality)
@@ -234,7 +190,7 @@ Partial Class Form_Save_Advanced
         Me.Controls.Add(Me.CheckBox_OpenFolder)
         Me.Controls.Add(Me.Button_BrowseLocal)
         Me.Controls.Add(Me.Label3)
-        Me.Name = "Form_Save_Advanced"
+        Me.Name = "Form_Settings"
         Me.Menu_Clipboard.ResumeLayout(False)
         Me.Menu_Screens.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -247,10 +203,6 @@ Partial Class Form_Save_Advanced
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents CheckBox_CopyPath As System.Windows.Forms.CheckBox
-    Friend WithEvents Button_FromClipboard As System.Windows.Forms.Button
-    Friend WithEvents Button_CutFromScreen As System.Windows.Forms.Button
-    Friend WithEvents Button_FromFile As System.Windows.Forms.Button
-    Friend WithEvents Button_FullScreen As System.Windows.Forms.Button
     Friend WithEvents ComboBox_Quality As System.Windows.Forms.ComboBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents ToolTip_Buttons As System.Windows.Forms.ToolTip

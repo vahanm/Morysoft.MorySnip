@@ -350,6 +350,10 @@
     <None Include="Resources\logo-share-hover[1].png" />
     <None Include="Resources\highlight.png" />
     <None Include="Resources\facebook_48.png" />
+    <None Include="Resources\iconic_fullscreen.png" />
+    <None Include="Resources\iconic_x.png" />
+    <None Include="Resources\iconic_folder.png" />
+    <None Include="Resources\iconic_new_window.png" />
     <Content Include="Resources\JobIcons\Album.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -28,7 +28,6 @@ Partial Class Editor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.Morysoft.MorySnip.My.Resources.Resources._0011
         Me.DoubleBuffered = True
         Me.Name = "Editor"
         Me.ResumeLayout(False)

@@ -121,17 +121,11 @@
   <data name="1371823693_clipboard_cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1371823693_clipboard_cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logo-share-hover[1]" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo-share-hover[1].png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="document" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Document.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1371823655_folder_open" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1371823655_folder_open.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="image_share" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1364670706_Share This.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="oval" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\oval.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,9 +163,6 @@
   <data name="transform_crop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\transform_crop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="image_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1364670469_3floppy_unmount.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="PENCIL" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PENCIL.CUR;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -205,41 +196,20 @@
   <data name="doc_plus_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\doc_plus_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mail_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mail_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="free" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\free.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ok.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1371843972_odnoklassniki" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1371843972_odnoklassniki.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="favicon[8]" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\favicon[8].ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="black_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\black_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="image_clipboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1364670859_clipboard_64.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="0011" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\0011.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cucak_am_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cucak_am_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="clipboard_copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Clipboard copy.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="32[1]" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\32[1];System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="image_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1364670780_file_edit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="line" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\line.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -262,22 +232,31 @@
   <data name="fill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fill.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1371825477_facebook" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1371825477_facebook.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="1371823827_doc_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1371823827_doc_delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1371823721_clipboard_past" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1371823721_clipboard_past.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1371844583_email" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1371844583_email.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="round_plus_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\round_plus_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Arrow2 - left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Arrow2 - left.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconsLink" xml:space="preserve">
+    <value>https://www.iconfinder.com/iconsets/iconic-1</value>
+  </data>
+  <data name="iconic_fullscreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconic_fullscreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconic_x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconic_x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconic_folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconic_folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconic_new_window" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconic_new_window.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

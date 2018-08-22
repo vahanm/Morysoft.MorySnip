@@ -42,18 +42,19 @@ Partial Class Form_SnippingTool
         '
         'Menu_Snip_FromClipboard
         '
+        Me.Menu_Snip_FromClipboard.Image = Global.Morysoft.MorySnip.My.Resources.Resources.iconic_new_window
         Me.Menu_Snip_FromClipboard.Name = "Menu_Snip_FromClipboard"
         resources.ApplyResources(Me.Menu_Snip_FromClipboard, "Menu_Snip_FromClipboard")
         '
         'Menu_Snip_FromFile
         '
-        Me.Menu_Snip_FromFile.Image = Global.Morysoft.MorySnip.My.Resources.Resources.document
+        Me.Menu_Snip_FromFile.Image = Global.Morysoft.MorySnip.My.Resources.Resources.iconic_folder
         Me.Menu_Snip_FromFile.Name = "Menu_Snip_FromFile"
         resources.ApplyResources(Me.Menu_Snip_FromFile, "Menu_Snip_FromFile")
         '
         'Menu_Snip_FullScreen
         '
-        Me.Menu_Snip_FullScreen.Image = Global.Morysoft.MorySnip.My.Resources.Resources.Fullscreen
+        Me.Menu_Snip_FullScreen.Image = Global.Morysoft.MorySnip.My.Resources.Resources.iconic_fullscreen
         Me.Menu_Snip_FullScreen.Name = "Menu_Snip_FullScreen"
         resources.ApplyResources(Me.Menu_Snip_FullScreen, "Menu_Snip_FullScreen")
         '
@@ -64,7 +65,7 @@ Partial Class Form_SnippingTool
         '
         'Menu_Snip_Exit
         '
-        Me.Menu_Snip_Exit.Image = Global.Morysoft.MorySnip.My.Resources.Resources.close
+        Me.Menu_Snip_Exit.Image = Global.Morysoft.MorySnip.My.Resources.Resources.iconic_x
         Me.Menu_Snip_Exit.Name = "Menu_Snip_Exit"
         resources.ApplyResources(Me.Menu_Snip_Exit, "Menu_Snip_Exit")
         '

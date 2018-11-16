@@ -11,16 +11,7 @@
         Me.Number = Number
         Me.Start(FirstPoint)
     End Sub
-
-    Private NumberValue As Integer
     Public Property Number() As Integer
-        Get
-            Return Me.NumberValue
-        End Get
-        Set(ByVal value As Integer)
-            Me.NumberValue = value
-        End Set
-    End Property
 
     Public Overrides Sub Paint(g As Graphics)
         Dim r As Rectangle = Me.Bounds

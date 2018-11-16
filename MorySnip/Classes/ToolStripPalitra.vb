@@ -109,23 +109,23 @@ Public Class ToolStripPalitra
     End Function
 
     Private Sub SelectColor1(l As Point)
-        Me.Color1 = GetColorByPoint(l)
+        Me.Color1 = Me.GetColorByPoint(l)
     End Sub
 
     Private Sub SelectColor2(l As Point)
-        Me.Color2 = GetColorByPoint(l)
+        Me.Color2 = Me.GetColorByPoint(l)
     End Sub
 
     Protected Overrides Sub OnMouseDown(e As MouseEventArgs)
-        If e.Button = MouseButtons.Left Then SelectColor1(e.Location)
-        If e.Button = MouseButtons.Right Then SelectColor2(e.Location)
+        If e.Button = MouseButtons.Left Then Me.SelectColor1(e.Location)
+        If e.Button = MouseButtons.Right Then Me.SelectColor2(e.Location)
 
         MyBase.OnMouseDown(e)
     End Sub
 
     Protected Overrides Sub OnMouseMove(mea As MouseEventArgs)
-        If mea.Button = MouseButtons.Left Then SelectColor1(mea.Location)
-        If mea.Button = MouseButtons.Right Then SelectColor2(mea.Location)
+        If mea.Button = MouseButtons.Left Then Me.SelectColor1(mea.Location)
+        If mea.Button = MouseButtons.Right Then Me.SelectColor2(mea.Location)
 
         MyBase.OnMouseMove(mea)
     End Sub

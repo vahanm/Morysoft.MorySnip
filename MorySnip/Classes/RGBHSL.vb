@@ -212,11 +212,11 @@ Public Class RGBHSL
     '/ <param name="c">A Color to convert</param>
     '/ <returns>An HSL value</returns>
     Public Shared Function RGB_to_HSL(c As Color) As HSL
-        Dim hsl As New HSL()
-
-        hsl.H = c.GetHue() / 360.0 ' we store hue as 0-1 as opposed to 0-360
-        hsl.L = c.GetBrightness()
-        hsl.S = c.GetSaturation()
+        Dim hsl As New HSL With {
+            .H = c.GetHue() / 360.0, ' we store hue as 0-1 as opposed to 0-360
+            .L = c.GetBrightness(),
+            .S = c.GetSaturation()
+        }
 
         Return hsl
     End Function 'RGB_to_HSL

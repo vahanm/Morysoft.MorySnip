@@ -26,7 +26,7 @@
     End Function
 
     Public Function GetThumbnailImage() As Bitmap
-        Return GetThumbnailImage(128, 128, Color.White, New Pen(Brushes.DarkGray, 2))
+        Return Me.GetThumbnailImage(128, 128, Color.White, New Pen(Brushes.DarkGray, 2))
     End Function
 
     Public Function GetThumbnailImage(Width As Integer, Height As Integer, Fill As Color, Optional Border As Pen = Nothing) As Bitmap

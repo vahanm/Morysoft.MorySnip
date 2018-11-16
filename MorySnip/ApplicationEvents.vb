@@ -17,17 +17,17 @@ Namespace My
             Dim exe As String = String.Format("{0}\{1}.exe", dir, ass)
 
             Dim addJumpTask = Sub(Title As String, Command As String, Icon As String, CustomCategory As String)
-                                  Dim jt As New System.Windows.Shell.JumpTask()
+                                  Dim jt As New System.Windows.Shell.JumpTask With {
+                                      .Title = Title,
+                                      .ApplicationPath = exe,
+                                      .Arguments = Command,
+                                      .IconResourcePath = IIf(String.IsNullOrWhiteSpace(Icon), exe, String.Format("{0}\Resources\JobIcons\{1}.ico", dir, Icon)),
+                                      .IconResourceIndex = 0
+                                  }
 
                                   'If Not String.IsNullOrWhiteSpace(CustomCategory) Then
                                   '    jt.CustomCategory = CustomCategory
                                   'End If
-
-                                  jt.Title = Title
-                                  jt.ApplicationPath = exe
-                                  jt.Arguments = Command
-                                  jt.IconResourcePath = IIf(String.IsNullOrWhiteSpace(Icon), exe, String.Format("{0}\Resources\JobIcons\{1}.ico", dir, Icon))
-                                  jt.IconResourceIndex = 0
 
                                   jl.JumpItems.Add(jt)
                               End Sub
@@ -65,7 +65,7 @@ Namespace My
 
             Thread.CurrentThread.CurrentUICulture = CultureCode 'CultureInfo.CurrentCulture 'New CultureInfo("hy-am")
 
-            ApplyJumpList()
+            Me.ApplyJumpList()
 
             If e.CommandLine.Count > 0 Then
                 Dim tmp As New Form_Save_Base

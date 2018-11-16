@@ -162,11 +162,11 @@ Public Class Form_SnippingTool
         Else
             Select Case e.KeyCode
                 Case Keys.Escape
-                    Cancel()
+                    Me.Cancel()
                 Case Keys.ControlKey, Keys.ShiftKey
-                    CalculateArea()
+                    Me.CalculateArea()
                 Case Keys.Enter
-                    Crop()
+                    Me.Crop()
             End Select
         End If
     End Sub
@@ -175,10 +175,10 @@ Public Class Form_SnippingTool
         If Me.LastButton = MouseButtons.None Then
             Select Case e.KeyCode
                 Case Keys.Apps
-                    ShowMenu()
+                    Me.ShowMenu()
             End Select
         Else
-            CalculateArea()
+            Me.CalculateArea()
         End If
     End Sub
 

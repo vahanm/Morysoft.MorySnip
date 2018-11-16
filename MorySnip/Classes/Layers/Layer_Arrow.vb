@@ -17,16 +17,7 @@ Public Class Layer_Arrow
         Me.ArrowMode = ArrowMode
         Me.Start(FirstPoint)
     End Sub
-
-    Private ArrowModeValue As ArrowModes
     Public Property ArrowMode() As ArrowModes
-        Get
-            Return Me.ArrowModeValue
-        End Get
-        Set(ByVal value As ArrowModes)
-            Me.ArrowModeValue = value
-        End Set
-    End Property
 
     Public Overrides Sub Paint(g As Graphics)
         Dim DrawArrow = Sub(PBegin As Point, PEnd As Point)

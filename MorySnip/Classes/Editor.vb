@@ -11,7 +11,7 @@ Public Class Editor
 
     Public Sub CreateCheckpoint(Optional Image As Image = Nothing)
         If Image Is Nothing Then
-            Image = GetResult()
+            Image = Me.GetResult()
         End If
         Me.PreviousSteps.Add(Image)
         Me.NextSteps.Clear()
@@ -31,7 +31,7 @@ Public Class Editor
 
     Public Sub Redo()
         If Me.CanRedo Then
-            Me.PreviousSteps.Add(GetResult())
+            Me.PreviousSteps.Add(Me.GetResult())
             Me.BackgroundImage = Me.NextSteps(Me.NextSteps.Count - 1)
             Me.NextSteps.RemoveAt(Me.NextSteps.Count - 1)
         End If
@@ -39,7 +39,7 @@ Public Class Editor
 
     Public Sub Undo()
         If Me.CanUndo Then
-            Me.NextSteps.Add(GetResult())
+            Me.NextSteps.Add(Me.GetResult())
             Me.Layers.Clear()
             Me.BackgroundImage = Me.PreviousSteps(Me.PreviousSteps.Count - 1)
             Me.PreviousSteps.RemoveAt(Me.PreviousSteps.Count - 1)
@@ -47,7 +47,7 @@ Public Class Editor
     End Sub
 
     Public Sub Render()
-        Dim result As Image = GetResult()
+        Dim result As Image = Me.GetResult()
 
         Me.BackgroundImage = result
 
@@ -71,13 +71,7 @@ Public Class Editor
         Next
         Return result
     End Function
-
-    Dim CurrentPenValue As New Pen(Brushes.Red, 2) With {.StartCap = LineCap.Round, .EndCap = LineCap.Round, .Alignment = PenAlignment.Inset}
-    Public ReadOnly Property CurrentPen As Pen
-        Get
-            Return Me.CurrentPenValue
-        End Get
-    End Property
+    Public ReadOnly Property CurrentPen As New Pen(Brushes.Red, 2) With {.StartCap = LineCap.Round, .EndCap = LineCap.Round, .Alignment = PenAlignment.Inset}
 
     Dim CurrentBrushValue As New SolidBrush(Color.Red)
     Public Property CurrentBrush As Brush
@@ -142,7 +136,6 @@ Public Class Editor
 
     Dim _PaintMode As PaintModes = PaintModes.Free
     Dim _PaintModeLast As PaintModes = PaintModes.Free
-    Dim _FillObjecs As Boolean = True
 
     Public Sub SetLastPaintMode()
         Me.PaintMode = Me._PaintModeLast
@@ -158,21 +151,14 @@ Public Class Editor
         End Set
     End Property
 
-    Public Property FillObjecs() As Boolean
-        Get
-            Return Me._FillObjecs
-        End Get
-        Set(ByVal value As Boolean)
-            Me._FillObjecs = value
-        End Set
-    End Property
+    Public Property FillObjecs() As Boolean = True
 
     Dim Painting As Boolean = False
     Dim PBegin As Point
     Dim PEnd As Point
 
     Private Sub Editor_BackgroundImageChanged(sender As Object, e As EventArgs) Handles Me.BackgroundImageChanged
-        ResetImageSizeAndPosition()
+        Me.ResetImageSizeAndPosition()
     End Sub
 
     Public Sub ResetImageSizeAndPosition()
@@ -276,12 +262,11 @@ Public Class Editor
                 Case MouseButtons.Left, MouseButtons.Right
                     If Me.NewLayer IsNot Nothing Then
                         Me.NewLayer.Stop(e.Location)
-
-                        CreateCheckpoint()
+                        Me.CreateCheckpoint()
 
                         If TypeOf Me.NewLayer Is Layer_Action Then
                             Dim ActionLayer As Layer_Action = Me.NewLayer
-                            Render()
+                            Me.Render()
                             Me.BackgroundImage = ApplyAction(Me.BackgroundImage, ActionLayer.Action, ActionLayer.Zone, ActionLayer.Bounds)
                         Else
                             If TypeOf Me.NewLayer Is Layer_Number Then
@@ -309,9 +294,9 @@ Public Class Editor
     End Sub
 
     Public Sub RotateFlip(ByVal value As RotateFlipType)
-        Render()
+        Me.Render()
         Me.Img.RotateFlip(value)
-        ResetImageSizeAndPosition()
+        Me.ResetImageSizeAndPosition()
     End Sub
 
     Private Sub Editor_MouseWheel(sender As Object, e As MouseEventArgs) Handles Me.MouseWheel

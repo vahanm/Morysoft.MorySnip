@@ -6,30 +6,11 @@
         Me.Zone = Zone
         Me.Start(FirstPoint)
     End Sub
-
-    Private ActionValue As Actions
     Public Property Action() As Actions
-        Get
-            Return Me.ActionValue
-        End Get
-        Set(ByVal value As Actions)
-            Me.ActionValue = value
-        End Set
-    End Property
-
-    Private ZoneValue As Zones
     Public Property Zone() As Zones
-        Get
-            Return Me.ZoneValue
-        End Get
-        Set(ByVal value As Zones)
-            Me.ZoneValue = value
-        End Set
-    End Property
-
-    Dim Pen1 As New Pen(Color.White, 1)
-    Dim Pen2 As New Pen(Color.Black, 1) With {.DashStyle = Drawing2D.DashStyle.Custom, .DashPattern = New Single() {3, 3}}
-    Dim BrushFill As New Drawing2D.HatchBrush(Drawing2D.HatchStyle.BackwardDiagonal, Color.DarkGray, Color.Transparent)
+    ReadOnly Pen1 As New Pen(Color.White, 1)
+    ReadOnly Pen2 As New Pen(Color.Black, 1) With {.DashStyle = Drawing2D.DashStyle.Custom, .DashPattern = New Single() {3, 3}}
+    ReadOnly BrushFill As New Drawing2D.HatchBrush(Drawing2D.HatchStyle.BackwardDiagonal, Color.DarkGray, Color.Transparent)
 
     Public Overrides Sub Paint(g As Graphics)
         Dim r As Rectangle = Me.Bounds

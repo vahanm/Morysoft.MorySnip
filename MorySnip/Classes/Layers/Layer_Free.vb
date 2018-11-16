@@ -1,12 +1,6 @@
 ﻿Public Class Layer_Free
     Inherits Layer
-
-    Dim PathValue As New Drawing2D.GraphicsPath
-    Public ReadOnly Property Path As Drawing2D.GraphicsPath
-        Get
-            Return Me.PathValue
-        End Get
-    End Property
+    Public ReadOnly Property Path As New Drawing2D.GraphicsPath
 
     Public Sub New()
 
@@ -31,7 +25,7 @@
     Public Overrides ReadOnly Property Bounds() As Rectangle
         Get
             Dim x, y, w, h As Integer, IsFirst As Boolean = True
-            For Each item As PointF In Me.PathValue.PathPoints
+            For Each item As PointF In Me.Path.PathPoints
                 If IsFirst Then
                     IsFirst = False
                     x = item.X

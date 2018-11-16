@@ -1,23 +1,6 @@
 ﻿Public Class Form_Download
-    Private ShareIdValue As String
     Public Property ShareId() As String
-        Get
-            Return Me.ShareIdValue
-        End Get
-        Set(ByVal value As String)
-            Me.ShareIdValue = value
-        End Set
-    End Property
-
-    Private ItemsCountValue As Integer
     Public Property ItemsCount() As Integer
-        Get
-            Return Me.ItemsCountValue
-        End Get
-        Set(ByVal value As Integer)
-            Me.ItemsCountValue = value
-        End Set
-    End Property
 
     Public Sub BeginDownload()
         Me.ProgressBar_Files.Maximum = Me.ItemsCount
@@ -25,7 +8,7 @@
         For i As Integer = 0 To Me.ItemsCount - 1
             Do
                 Try
-                    Download(Me.ShareId & i.ToString("000"))
+                    Me.Download(Me.ShareId & i.ToString("000"))
                     Exit Do
                 Catch ex As Exception
                     Select Case MsgBox(ex.Message, MsgBoxStyle.Critical Or MsgBoxStyle.AbortRetryIgnore)
@@ -53,6 +36,6 @@
 
     Private Sub Timer_Begin_Tick(sender As Object, e As EventArgs) Handles Timer_Begin.Tick
         Me.Timer_Begin.Stop()
-        BeginDownload()
+        Me.BeginDownload()
     End Sub
 End Class

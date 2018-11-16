@@ -1,63 +1,10 @@
 ﻿Public MustInherit Class Layer
-    Private OffsetValue As Point
     Public Property Offset() As Point
-        Get
-            Return Me.OffsetValue
-        End Get
-        Set(ByVal value As Point)
-            Me.OffsetValue = value
-        End Set
-    End Property
-
-    Private FillValue As Boolean
     Public Property Fill() As Boolean
-        Get
-            Return Me.FillValue
-        End Get
-        Set(ByVal value As Boolean)
-            Me.FillValue = value
-        End Set
-    End Property
-
-    Private PenValue As Pen
     Public Property Pen() As Pen
-        Get
-            Return Me.PenValue
-        End Get
-        Set(ByVal value As Pen)
-            Me.PenValue = value
-        End Set
-    End Property
-
-    Private BrushValue As Brush
     Public Property Brush() As Brush
-        Get
-            Return Me.BrushValue
-        End Get
-        Set(ByVal value As Brush)
-            Me.BrushValue = value
-        End Set
-    End Property
-
-    Private FirstPointValue As Point
     Public Property FirstPoint() As Point
-        Get
-            Return Me.FirstPointValue
-        End Get
-        Set(ByVal value As Point)
-            Me.FirstPointValue = value
-        End Set
-    End Property
-
-    Private LastPointValue As Point
     Public Property LastPoint() As Point
-        Get
-            Return Me.LastPointValue
-        End Get
-        Set(ByVal value As Point)
-            Me.LastPointValue = value
-        End Set
-    End Property
 
     Public Overridable Sub Start(FirstPoint As Point)
         Me.FirstPoint = FirstPoint
@@ -91,7 +38,7 @@
         g.InterpolationMode = Drawing2D.InterpolationMode.HighQualityBicubic
         g.SmoothingMode = Drawing2D.SmoothingMode.AntiAlias
 
-        Paint(g)
+        Me.Paint(g)
     End Sub
 
     Public MustOverride Sub Paint(g As Graphics)

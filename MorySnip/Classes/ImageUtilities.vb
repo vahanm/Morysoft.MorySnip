@@ -4,14 +4,14 @@ Imports System.Drawing
 Imports System.Drawing.Imaging
 
 Public Module ImageUtilities
-    ''' <summary)
+    ''' <summary>
     ''' A quick lookup for getting image encoders
-    ''' </summary)
+    ''' </summary>
     Private EncodersValue As Dictionary(Of String, ImageCodecInfo) = Nothing
 
-    ''' <summary)
+    ''' <summary>
     ''' A quick lookup for getting image encoders
-    ''' </summary)
+    ''' </summary>
     Public ReadOnly Property Encoders As Dictionary(Of String, ImageCodecInfo)
         'get accessor that creates the dictionary on demand
         Get
@@ -32,13 +32,13 @@ Public Module ImageUtilities
         End Get
     End Property
 
-    ''' <summary)
+    ''' <summary>
     ''' Resize the image to the specified width and height.
-    ''' </summary)
-    ''' <param name="image")The image to resize.</param)
-    ''' <param name="width")The width to resize to.</param)
-    ''' <param name="height")The height to resize to.</param)
-    ''' <returns)The resized image.</returns)
+    ''' </summary>
+    ''' <param name="image">The image to resize.</param>
+    ''' <param name="width">The width to resize to.</param>
+    ''' <param name="height">The height to resize to.</param>
+    ''' <returns>The resized image.</returns>
     Public Function ResizeImage(image As System.Drawing.Image, width As Integer, height As Integer) As System.Drawing.Bitmap
         'a holder for the result
         Dim result As Bitmap = New Bitmap(width, height)
@@ -59,15 +59,15 @@ Public Module ImageUtilities
         Return result
     End Function
 
-    ''' <summary) 
+    ''' <summary>
     ''' Saves an image as a jpeg image, with the given quality 
-    ''' </summary) 
-    ''' <param name="path")Path to which the image would be saved.</param) 
-    ''' <param name="quality")An integer from 0 to 100, with 100 being the 
-    ''' highest quality</param) 
-    ''' <exception cref="ArgumentOutOfRangeException")
+    ''' </summary> 
+    ''' <param name="path">Path to which the image would be saved.</param>
+    ''' <param name="quality">An integer from 0 to 100, with 100 being the 
+    ''' highest quality</param>
+    ''' <exception cref="ArgumentOutOfRangeException">
     ''' An invalid value was entered for image quality.
-    ''' </exception)
+    ''' </exception>
     Public Sub SaveJpeg(Path As String, Image As Image, Quality As Integer)
         'ensure the quality is within the correct range
         If ((quality < 0) OrElse (quality > 100)) Then
@@ -90,9 +90,9 @@ Public Module ImageUtilities
         Image.Save(path, jpegCodec, encoderParams)
     End Sub
 
-    ''' <summary) 
+    ''' <summary>
     ''' Returns the image codec with the given mime type 
-    ''' </summary) 
+    ''' </summary> 
     Public Function GetEncoderInfo(mimeType As String) As ImageCodecInfo
         'do a case insensitive search for the mime type
         Dim lookupKey As String = mimeType.ToLower()

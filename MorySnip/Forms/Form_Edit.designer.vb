@@ -50,9 +50,9 @@ Partial Class Form_Edit
         Me.Menu_PaintMode_Grayscale = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip_Standard = New System.Windows.Forms.ToolStrip()
-        Me.Button_SaveCopy = New System.Windows.Forms.ToolStripButton()
-        Me.Button_SaveAs = New System.Windows.Forms.ToolStripButton()
         Me.Button_Save = New System.Windows.Forms.ToolStripButton()
+        Me.Button_SaveAs = New System.Windows.Forms.ToolStripButton()
+        Me.Button_SaveCopy = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.Button_Back = New System.Windows.Forms.ToolStripButton()
         Me.Button_Redo = New System.Windows.Forms.ToolStripButton()
@@ -300,12 +300,12 @@ Partial Class Form_Edit
         Me.ToolStrip_Standard.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Button_Save, Me.Button_SaveAs, Me.Button_SaveCopy, Me.ToolStripSeparator6, Me.Button_Back, Me.Button_Redo, Me.ToolStripSeparator8, Me.ToolStrip_Standard_Palitra, Me.Button_Color, Me.Button_Size, Me.ToolStripSeparator3, Me.Button_Rotate_Left, Me.Button_Rotate_Right, Me.ToolStripSeparator5, Me.Button_Flip_X, Me.Button_Flip_Y, Me.Menu_ForNothing1})
         Me.ToolStrip_Standard.Name = "ToolStrip_Standard"
         '
-        'Button_SaveCopy
+        'Button_Save
         '
-        Me.Button_SaveCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Button_SaveCopy.Image = Global.Morysoft.MorySnip.My.Resources.Resources._1371824300_clipboard_copy
-        resources.ApplyResources(Me.Button_SaveCopy, "Button_SaveCopy")
-        Me.Button_SaveCopy.Name = "Button_SaveCopy"
+        Me.Button_Save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.Button_Save.Image = Global.Morysoft.MorySnip.My.Resources.Resources._1371823810_save
+        resources.ApplyResources(Me.Button_Save, "Button_Save")
+        Me.Button_Save.Name = "Button_Save"
         '
         'Button_SaveAs
         '
@@ -314,12 +314,12 @@ Partial Class Form_Edit
         resources.ApplyResources(Me.Button_SaveAs, "Button_SaveAs")
         Me.Button_SaveAs.Name = "Button_SaveAs"
         '
-        'Button_Save
+        'Button_SaveCopy
         '
-        Me.Button_Save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Button_Save.Image = Global.Morysoft.MorySnip.My.Resources.Resources._1371823810_save
-        resources.ApplyResources(Me.Button_Save, "Button_Save")
-        Me.Button_Save.Name = "Button_Save"
+        Me.Button_SaveCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.Button_SaveCopy.Image = Global.Morysoft.MorySnip.My.Resources.Resources._1371824300_clipboard_copy
+        resources.ApplyResources(Me.Button_SaveCopy, "Button_SaveCopy")
+        Me.Button_SaveCopy.Name = "Button_SaveCopy"
         '
         'ToolStripSeparator6
         '
@@ -550,7 +550,6 @@ Partial Class Form_Edit
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.ToolStripContainer_Main)
-        Me.MinimizeBox = False
         Me.Name = "Form_Edit"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ToolStripContainer_Main.ContentPanel.ResumeLayout(False)

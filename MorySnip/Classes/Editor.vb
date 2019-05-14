@@ -7,7 +7,9 @@ Public Class Editor
     Dim ImagePosition As New Point(0, 0)
 
     Dim LastButton As MouseButtons = MouseButtons.None
-    Dim LastNUmber As Integer = 1
+    Dim _LastNumber As Integer = 1
+
+    Public Event LastNumberChanged(sender As Object, e As EventArgs)
 
     Public Sub CreateCheckpoint(Optional Image As Image = Nothing)
         If Image Is Nothing Then
@@ -16,6 +18,17 @@ Public Class Editor
         Me.PreviousSteps.Add(Image)
         Me.NextSteps.Clear()
     End Sub
+
+    Public Property LastNumber As Integer
+        Get
+            Return Me._LastNumber
+        End Get
+        Set(value As Integer)
+            Me._LastNumber = value
+
+            RaiseEvent LastNumberChanged(Me, New EventArgs())
+        End Set
+    End Property
 
     Public ReadOnly Property CanRedo As Boolean
         Get
@@ -209,7 +222,7 @@ Public Class Editor
                         Case PaintModes.Rect
                             Me.NewLayer = New Layer_Rect(Me.CurrentPen, Me.CurrentBrush, e.Location) With {.Fill = e.Button = MouseButtons.Right Xor Me.FillObjecs}
                         Case PaintModes.Number
-                            Me.NewLayer = New Layer_Number(Me.CurrentPen, Me.CurrentBrush, e.Location, Me.LastNUmber) With {.Fill = e.Button = MouseButtons.Right Xor Me.FillObjecs}
+                            Me.NewLayer = New Layer_Number(Me.CurrentPen, Me.CurrentBrush, e.Location, Me.LastNumber) With {.Fill = e.Button = MouseButtons.Right Xor Me.FillObjecs}
                         Case PaintModes.Oval
                             Me.NewLayer = New Layer_Oval(Me.CurrentPen, Me.CurrentBrush, e.Location) With {.Fill = e.Button = MouseButtons.Right Xor Me.FillObjecs}
                         Case PaintModes.Free
@@ -270,7 +283,7 @@ Public Class Editor
                             Me.BackgroundImage = ApplyAction(Me.BackgroundImage, ActionLayer.Action, ActionLayer.Zone, ActionLayer.Bounds)
                         Else
                             If TypeOf Me.NewLayer Is Layer_Number Then
-                                Me.LastNUmber += 1
+                                Me.LastNumber += 1
                             End If
                             If TypeOf Me.NewLayer Is Layer_Line AndAlso Me.LastButton = MouseButtons.Right Then
                                 Me.CurrentPen.DashStyle = DashStyle.Solid

@@ -276,6 +276,36 @@
   <metadata name="ToolStrip_Draw.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>671, 17</value>
   </metadata>
+  <metadata name="Menu_Numbers.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>946, 17</value>
+  </metadata>
+  <data name="IncrementToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 22</value>
+  </data>
+  <data name="IncrementToolStripMenuItem.Text" xml:space="preserve">
+    <value>Increment</value>
+  </data>
+  <data name="DecrementToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="DecrementToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 22</value>
+  </data>
+  <data name="DecrementToolStripMenuItem.Text" xml:space="preserve">
+    <value>Decrement</value>
+  </data>
+  <data name="ToolStripSeparator10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 6</value>
+  </data>
+  <data name="Menu_Numbers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 54</value>
+  </data>
+  <data name="&gt;&gt;Menu_Numbers.Name" xml:space="preserve">
+    <value>Menu_Numbers</value>
+  </data>
+  <data name="&gt;&gt;Menu_Numbers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="ToolStrip_Draw.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -336,6 +366,9 @@
   <data name="Menu_PaintMode_Rect.Text" xml:space="preserve">
     <value>Rectingle</value>
   </data>
+  <data name="ToolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 6</value>
+  </data>
   <data name="Menu_PaintMode_Numbers.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -346,7 +379,7 @@
     <value>27, 28</value>
   </data>
   <data name="Menu_PaintMode_Numbers.Text" xml:space="preserve">
-    <value>Numbers</value>
+    <value>1</value>
   </data>
   <data name="ToolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
     <value>27, 6</value>
@@ -379,7 +412,7 @@
     <value>0, 3</value>
   </data>
   <data name="ToolStrip_Draw.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 248</value>
+    <value>29, 254</value>
   </data>
   <data name="ToolStrip_Draw.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -493,7 +526,7 @@
     <value>Cusomize</value>
   </data>
   <data name="ToolStrip_Effects.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 268</value>
+    <value>0, 274</value>
   </data>
   <data name="ToolStrip_Effects.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 193</value>
@@ -992,7 +1025,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ToolStripContainer_Main.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <metadata name="Menu_PaintMode.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>523, 17</value>
@@ -1130,6 +1163,24 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Editor</value>
   </data>
+  <data name="&gt;&gt;IncrementToolStripMenuItem.Name" xml:space="preserve">
+    <value>IncrementToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;IncrementToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DecrementToolStripMenuItem.Name" xml:space="preserve">
+    <value>DecrementToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;DecrementToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator10.Name" xml:space="preserve">
+    <value>ToolStripSeparator10</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;Menu_PaintMode_Free.Name" xml:space="preserve">
     <value>Menu_PaintMode_Free</value>
   </data>
@@ -1159,6 +1210,12 @@
   </data>
   <data name="&gt;&gt;Menu_PaintMode_Rect.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator7.Name" xml:space="preserve">
+    <value>ToolStripSeparator7</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Menu_PaintMode_Numbers.Name" xml:space="preserve">
     <value>Menu_PaintMode_Numbers</value>

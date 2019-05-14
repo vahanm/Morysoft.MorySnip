@@ -42,6 +42,8 @@ Public Class Form_SnippingTool
     End Sub
 
     Private Sub Crop()
+        Dim images As New List(Of Screenshot)
+
         Dim capture = Sub()
                           Me.Opacity = 0
                           Me.Refresh()
@@ -51,7 +53,7 @@ Public Class Form_SnippingTool
 
                           g.CopyFromScreen(Me._virtualScreenLocation.X + Me.x, Me._virtualScreenLocation.Y + Me.y, 0, 0, New Size(Me.w, Me.h))
 
-                          Me.SaveForm.Images.Add(b)
+                          images.Add(b)
 
                           Me.Opacity = 1
                           Me.Refresh()
@@ -89,13 +91,17 @@ Public Class Form_SnippingTool
                     capture()
                 End If
 
+                Me.SaveForm.Images.AddRange(images)
                 Me.SaveForm.Show()
                 Me.Close()
 
             Case MouseButtons.Right
                 Me.Hide()
+
                 capture()
-                Me.SaveForm.Show()
+
+                Me.Images.AddRange(images)
+                Me.Publish_ToClipboard(0)
                 Me.Close()
         End Select
     End Sub

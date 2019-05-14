@@ -44,10 +44,10 @@ Public Class Form_Save_Base
 
     Public Images As New List(Of Screenshot)
 
-    Public Function Publish_ToClipboard(ImageNumber As Integer) As Boolean
+    Public Function Publish_ToClipboard(imageNumber As Integer) As Boolean
         Do
             Try
-                Clipboard.SetImage(Me.Images(ImageNumber))
+                Clipboard.SetImage(Me.Images(imageNumber))
 
                 Return True
             Catch ex As Exception

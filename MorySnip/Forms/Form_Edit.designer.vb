@@ -31,11 +31,16 @@ Partial Class Form_Edit
         Me.Resizer_Right = New System.Windows.Forms.Label()
         Me.Editor_Main = New Morysoft.MorySnip.Editor()
         Me.ToolStrip_Draw = New System.Windows.Forms.ToolStrip()
+        Me.Menu_Numbers = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.IncrementToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DecrementToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
         Me.Menu_PaintMode_Free = New System.Windows.Forms.ToolStripButton()
         Me.Menu_PaintMode_Line = New System.Windows.Forms.ToolStripButton()
         Me.Menu_PaintMode_Arrow = New System.Windows.Forms.ToolStripButton()
         Me.Menu_PaintMode_Oval = New System.Windows.Forms.ToolStripButton()
         Me.Menu_PaintMode_Rect = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.Menu_PaintMode_Numbers = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
         Me.Menu_PaintMode_Fill = New System.Windows.Forms.ToolStripButton()
@@ -101,6 +106,7 @@ Partial Class Form_Edit
         Me.ToolStripContainer_Main.SuspendLayout()
         Me.Panel_Image.SuspendLayout()
         Me.ToolStrip_Draw.SuspendLayout()
+        Me.Menu_Numbers.SuspendLayout()
         Me.ToolStrip_Effects.SuspendLayout()
         Me.ToolStrip_Standard.SuspendLayout()
         Me.Menu_Pens.SuspendLayout()
@@ -163,15 +169,40 @@ Partial Class Form_Edit
         'Editor_Main
         '
         Me.Editor_Main.FillObjecs = False
+        Me.Editor_Main.LastNumber = 1
         resources.ApplyResources(Me.Editor_Main, "Editor_Main")
         Me.Editor_Main.Name = "Editor_Main"
         Me.Editor_Main.PaintMode = Morysoft.MorySnip.Editor.PaintModes.Rect
         '
         'ToolStrip_Draw
         '
+        Me.ToolStrip_Draw.ContextMenuStrip = Me.Menu_Numbers
         resources.ApplyResources(Me.ToolStrip_Draw, "ToolStrip_Draw")
-        Me.ToolStrip_Draw.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_PaintMode_Free, Me.Menu_PaintMode_Line, Me.Menu_PaintMode_Arrow, Me.Menu_PaintMode_Oval, Me.Menu_PaintMode_Rect, Me.Menu_PaintMode_Numbers, Me.ToolStripSeparator9, Me.Menu_PaintMode_Fill, Me.ToolStripButton1})
+        Me.ToolStrip_Draw.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_PaintMode_Free, Me.Menu_PaintMode_Line, Me.Menu_PaintMode_Arrow, Me.Menu_PaintMode_Oval, Me.Menu_PaintMode_Rect, Me.ToolStripSeparator7, Me.Menu_PaintMode_Numbers, Me.ToolStripSeparator9, Me.Menu_PaintMode_Fill, Me.ToolStripButton1})
         Me.ToolStrip_Draw.Name = "ToolStrip_Draw"
+        '
+        'Menu_Numbers
+        '
+        Me.Menu_Numbers.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IncrementToolStripMenuItem, Me.DecrementToolStripMenuItem, Me.ToolStripSeparator10})
+        Me.Menu_Numbers.Name = "Menu_Numbers"
+        resources.ApplyResources(Me.Menu_Numbers, "Menu_Numbers")
+        '
+        'IncrementToolStripMenuItem
+        '
+        Me.IncrementToolStripMenuItem.Checked = True
+        Me.IncrementToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.IncrementToolStripMenuItem.Name = "IncrementToolStripMenuItem"
+        resources.ApplyResources(Me.IncrementToolStripMenuItem, "IncrementToolStripMenuItem")
+        '
+        'DecrementToolStripMenuItem
+        '
+        resources.ApplyResources(Me.DecrementToolStripMenuItem, "DecrementToolStripMenuItem")
+        Me.DecrementToolStripMenuItem.Name = "DecrementToolStripMenuItem"
+        '
+        'ToolStripSeparator10
+        '
+        Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
+        resources.ApplyResources(Me.ToolStripSeparator10, "ToolStripSeparator10")
         '
         'Menu_PaintMode_Free
         '
@@ -207,6 +238,11 @@ Partial Class Form_Edit
         Me.Menu_PaintMode_Rect.Image = Global.Morysoft.MorySnip.My.Resources.Resources.rect
         resources.ApplyResources(Me.Menu_PaintMode_Rect, "Menu_PaintMode_Rect")
         Me.Menu_PaintMode_Rect.Name = "Menu_PaintMode_Rect"
+        '
+        'ToolStripSeparator7
+        '
+        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
+        resources.ApplyResources(Me.ToolStripSeparator7, "ToolStripSeparator7")
         '
         'Menu_PaintMode_Numbers
         '
@@ -562,6 +598,7 @@ Partial Class Form_Edit
         Me.Panel_Image.ResumeLayout(False)
         Me.ToolStrip_Draw.ResumeLayout(False)
         Me.ToolStrip_Draw.PerformLayout()
+        Me.Menu_Numbers.ResumeLayout(False)
         Me.ToolStrip_Effects.ResumeLayout(False)
         Me.ToolStrip_Effects.PerformLayout()
         Me.ToolStrip_Standard.ResumeLayout(False)
@@ -634,7 +671,6 @@ Partial Class Form_Edit
     Friend WithEvents Menu_PaintMode_Highlight As System.Windows.Forms.ToolStripButton
     Friend WithEvents Menu_PaintMode_Crop As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents Menu_PaintMode_Numbers As System.Windows.Forms.ToolStripButton
     Friend WithEvents Button_Redo As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStrip_Standard_Palitra As ToolStripPalitra
     Friend WithEvents Menu_PaintMode_Puzzle As System.Windows.Forms.ToolStripButton
@@ -642,4 +678,10 @@ Partial Class Form_Edit
     Friend WithEvents Button_SaveAs As ToolStripButton
     Friend WithEvents Button_Save As ToolStripButton
     Friend WithEvents ToolStripSeparator6 As ToolStripSeparator
+    Friend WithEvents ToolStripSeparator7 As ToolStripSeparator
+    Friend WithEvents Menu_Numbers As ContextMenuStrip
+    Friend WithEvents IncrementToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DecrementToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
+    Friend WithEvents Menu_PaintMode_Numbers As ToolStripButton
 End Class

@@ -3,6 +3,20 @@
         Me.Editor_Main.BackgroundImage = Me.BackgroundImage
     End Sub
 
+    Private LastNumberMax As Integer = 10
+
+    Private Sub AddNumberInNumbersMenu(num As Integer)
+        Dim item = New ToolStripButton(num.ToString()) With {
+                        .Tag = num
+                    }
+
+        AddHandler item.Click, Sub(lsender, le)
+                                   Me.Editor_Main.LastNumber = CType(lsender, ToolStripButton).Tag
+                               End Sub
+
+        Me.Menu_Numbers.Items.Add(item)
+    End Sub
+
     Private Sub Form_Edit_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Me.Editor_Main.Cursor = New Cursor(New IO.MemoryStream(My.Resources.PENCIL))
@@ -11,6 +25,10 @@
         If Me.Images.Count = 1 Then
             Me.BackgroundImage = Me.Images(0)
         End If
+
+        For num As Integer = 1 To Me.LastNumberMax
+            Me.AddNumberInNumbersMenu(num)
+        Next
     End Sub
 
     Public Property Image() As Screenshot
@@ -327,6 +345,26 @@
         If MyBase.Publish_ToClipboard(0) Then
             Me.Close()
         End If
+    End Sub
+
+    Private Sub Menu_PaintMode_Numbers_ButtonClick(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Editor_Main_LastNumberChanged(sender As Object, e As EventArgs) Handles Editor_Main.LastNumberChanged
+        If Me.LastNumberMax < Me.Editor_Main.LastNumber Then
+            For num As Integer = Me.LastNumberMax + 1 To Me.Editor_Main.LastNumber
+                Me.AddNumberInNumbersMenu(num)
+            Next
+
+            Me.LastNumberMax = Me.Editor_Main.LastNumber
+        End If
+
+        For Each item As ToolStripItem In Me.Menu_Numbers.Items
+            If item.Tag IsNot Nothing Then
+                CType(item, ToolStripButton).Checked = item.Tag = Me.Editor_Main.LastNumber
+            End If
+        Next
     End Sub
 #End Region
 

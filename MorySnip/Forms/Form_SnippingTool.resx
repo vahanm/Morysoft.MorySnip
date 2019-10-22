@@ -117,45 +117,45 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="Menu_Snip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="_Menu_Snip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Menu_Snip_FromClipboard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 38</value>
-  </data>
-  <data name="Menu_Snip_FromClipboard.Text" xml:space="preserve">
-    <value>From Clipboard</value>
-  </data>
-  <data name="Menu_Snip_FromFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 38</value>
-  </data>
-  <data name="Menu_Snip_FromFile.Text" xml:space="preserve">
-    <value>From File</value>
-  </data>
-  <data name="Menu_Snip_FullScreen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 38</value>
-  </data>
-  <data name="Menu_Snip_FullScreen.Text" xml:space="preserve">
-    <value>&amp;Full-screen snip</value>
-  </data>
-  <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 6</value>
-  </data>
-  <data name="Menu_Snip_Exit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 38</value>
-  </data>
-  <data name="Menu_Snip_Exit.Text" xml:space="preserve">
-    <value>E&amp;xit</value>
-  </data>
-  <data name="Menu_Snip.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_Menu_Snip.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 162</value>
   </data>
-  <data name="&gt;&gt;Menu_Snip.Name" xml:space="preserve">
-    <value>Menu_Snip</value>
+  <data name="&gt;&gt;_Menu_Snip.Name" xml:space="preserve">
+    <value>_Menu_Snip</value>
   </data>
-  <data name="&gt;&gt;Menu_Snip.Type" xml:space="preserve">
+  <data name="&gt;&gt;_Menu_Snip.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_Menu_Snip_FromClipboard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 38</value>
+  </data>
+  <data name="_Menu_Snip_FromClipboard.Text" xml:space="preserve">
+    <value>From Clipboard</value>
+  </data>
+  <data name="_Menu_Snip_FromFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 38</value>
+  </data>
+  <data name="_Menu_Snip_FromFile.Text" xml:space="preserve">
+    <value>From File</value>
+  </data>
+  <data name="_Menu_Snip_FullScreen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 38</value>
+  </data>
+  <data name="_Menu_Snip_FullScreen.Text" xml:space="preserve">
+    <value>&amp;Full-screen snip</value>
+  </data>
+  <data name="_ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 6</value>
+  </data>
+  <data name="_Menu_Snip_Exit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 38</value>
+  </data>
+  <data name="_Menu_Snip_Exit.Text" xml:space="preserve">
+    <value>E&amp;xit</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1638,47 +1638,43 @@
         AIABAADAAQAAwAEAAOADAADwBwAA
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>Manual</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>SnippingTool</value>
   </data>
-  <data name="&gt;&gt;Menu_Snip_FromClipboard.Name" xml:space="preserve">
-    <value>Menu_Snip_FromClipboard</value>
+  <data name="&gt;&gt;_Menu_Snip_FromClipboard.Name" xml:space="preserve">
+    <value>_Menu_Snip_FromClipboard</value>
   </data>
-  <data name="&gt;&gt;Menu_Snip_FromClipboard.Type" xml:space="preserve">
+  <data name="&gt;&gt;_Menu_Snip_FromClipboard.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Menu_Snip_FromFile.Name" xml:space="preserve">
-    <value>Menu_Snip_FromFile</value>
+  <data name="&gt;&gt;_Menu_Snip_FromFile.Name" xml:space="preserve">
+    <value>_Menu_Snip_FromFile</value>
   </data>
-  <data name="&gt;&gt;Menu_Snip_FromFile.Type" xml:space="preserve">
+  <data name="&gt;&gt;_Menu_Snip_FromFile.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Menu_Snip_FullScreen.Name" xml:space="preserve">
-    <value>Menu_Snip_FullScreen</value>
+  <data name="&gt;&gt;_Menu_Snip_FullScreen.Name" xml:space="preserve">
+    <value>_Menu_Snip_FullScreen</value>
   </data>
-  <data name="&gt;&gt;Menu_Snip_FullScreen.Type" xml:space="preserve">
+  <data name="&gt;&gt;_Menu_Snip_FullScreen.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ToolStripSeparator1.Name" xml:space="preserve">
-    <value>ToolStripSeparator1</value>
+  <data name="&gt;&gt;_ToolStripSeparator1.Name" xml:space="preserve">
+    <value>_ToolStripSeparator1</value>
   </data>
-  <data name="&gt;&gt;ToolStripSeparator1.Type" xml:space="preserve">
+  <data name="&gt;&gt;_ToolStripSeparator1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Menu_Snip_Exit.Name" xml:space="preserve">
-    <value>Menu_Snip_Exit</value>
+  <data name="&gt;&gt;_Menu_Snip_Exit.Name" xml:space="preserve">
+    <value>_Menu_Snip_Exit</value>
   </data>
-  <data name="&gt;&gt;Menu_Snip_Exit.Type" xml:space="preserve">
+  <data name="&gt;&gt;_Menu_Snip_Exit.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Form_SnippingTool</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>Morysoft.MorySnip.Form_Save_Base, MorySnip, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Morysoft.MorySnip.FormSaveBase, MorySnip, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

@@ -87,27 +87,27 @@
     </WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>83AD198FECFDC4D1514F89C5EF19895E9255FE46</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>9991BFC1CCD78C8AD9F409D5DCCA0F308B488ECC</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>MorySnip_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
     <TargetZone>Internet</TargetZone>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>MorySnip_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <DelaySign>false</DelaySign>
@@ -193,29 +193,29 @@
     <Compile Include="Forms\FormSaveBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form_Settings.Designer.cs">
-      <DependentUpon>Form_Settings.cs</DependentUpon>
+    <Compile Include="Forms\FormSettings.Designer.cs">
+      <DependentUpon>FormSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Form_Settings.cs">
+    <Compile Include="Forms\FormSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form_AutoCapture.Designer.cs">
-      <DependentUpon>Form_AutoCapture.cs</DependentUpon>
+    <Compile Include="Forms\FormAutoCapture.Designer.cs">
+      <DependentUpon>FormAutoCapture.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Form_AutoCapture.cs">
+    <Compile Include="Forms\FormAutoCapture.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form_Edit.designer.cs">
-      <DependentUpon>Form_Edit.cs</DependentUpon>
+    <Compile Include="Forms\FormEdit.designer.cs">
+      <DependentUpon>FormEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Form_Edit.cs">
+    <Compile Include="Forms\FormEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form_SnippingTool.cs">
+    <Compile Include="Forms\FormSnippingTool.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form_SnippingTool.Designer.cs">
-      <DependentUpon>Form_SnippingTool.cs</DependentUpon>
+    <Compile Include="Forms\FormSnippingTool.Designer.cs">
+      <DependentUpon>FormSnippingTool.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\Helpers.cs" />
@@ -241,28 +241,28 @@
     <EmbeddedResource Include="Classes\ImageControls.resx">
       <DependentUpon>ImageControls.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_Settings.hy.resx">
-      <DependentUpon>Form_Settings.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormSettings.hy.resx">
+      <DependentUpon>FormSettings.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_Settings.resx">
-      <DependentUpon>Form_Settings.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormSettings.resx">
+      <DependentUpon>FormSettings.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_AutoCapture.resx">
-      <DependentUpon>Form_AutoCapture.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormAutoCapture.resx">
+      <DependentUpon>FormAutoCapture.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_Edit.hy.resx">
-      <DependentUpon>Form_Edit.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormEdit.hy.resx">
+      <DependentUpon>FormEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_Edit.resx">
-      <DependentUpon>Form_Edit.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormEdit.resx">
+      <DependentUpon>FormEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_SnippingTool.hy.resx">
-      <DependentUpon>Form_SnippingTool.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormSnippingTool.hy.resx">
+      <DependentUpon>FormSnippingTool.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_SnippingTool.resx">
-      <DependentUpon>Form_SnippingTool.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormSnippingTool.resx">
+      <DependentUpon>FormSnippingTool.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.hy.resx" />
@@ -380,11 +380,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="My Project\" />
-    <Folder Include="Old versions\v1\" />
-    <Folder Include="Old versions\v2\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

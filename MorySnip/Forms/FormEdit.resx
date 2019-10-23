@@ -210,25 +210,25 @@
   <data name="&gt;&gt;Resizer_Right.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="Editor_Main.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="_Editor_Main.Location" type="System.Drawing.Point, System.Drawing">
     <value>2, 2</value>
   </data>
-  <data name="Editor_Main.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_Editor_Main.Size" type="System.Drawing.Size, System.Drawing">
     <value>432, 327</value>
   </data>
-  <data name="Editor_Main.TabIndex" type="System.Int32, mscorlib">
+  <data name="_Editor_Main.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;Editor_Main.Name" xml:space="preserve">
-    <value>Editor_Main</value>
+  <data name="&gt;&gt;_Editor_Main.Name" xml:space="preserve">
+    <value>_Editor_Main</value>
   </data>
-  <data name="&gt;&gt;Editor_Main.Type" xml:space="preserve">
-    <value>Morysoft.MorySnip.Editor, MorySnip, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;_Editor_Main.Type" xml:space="preserve">
+    <value>Morysoft.MorySnip.Editor, MorySnip, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a4d9378991632c7a</value>
   </data>
-  <data name="&gt;&gt;Editor_Main.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_Editor_Main.Parent" xml:space="preserve">
     <value>Panel_Image</value>
   </data>
-  <data name="&gt;&gt;Editor_Main.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_Editor_Main.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="Panel_Image.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -274,7 +274,7 @@
     <value>Fill</value>
   </data>
   <metadata name="ToolStrip_Draw.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>671, 17</value>
+    <value>523, 17</value>
   </metadata>
   <metadata name="Menu_Numbers.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>946, 17</value>
@@ -526,7 +526,7 @@
     <value>Cusomize</value>
   </data>
   <data name="ToolStrip_Effects.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 274</value>
+    <value>0, 293</value>
   </data>
   <data name="ToolStrip_Effects.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 193</value>
@@ -1028,7 +1028,7 @@
     <value>4</value>
   </data>
   <metadata name="Menu_PaintMode.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>523, 17</value>
+    <value>657, 17</value>
   </metadata>
   <data name="Menu_PaintMode.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 4</value>
@@ -1335,7 +1335,7 @@
     <value>ToolStrip_Standard_Palitra</value>
   </data>
   <data name="&gt;&gt;ToolStrip_Standard_Palitra.Type" xml:space="preserve">
-    <value>Morysoft.MorySnip.ToolStripPalitra, MorySnip, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Morysoft.MorySnip.ToolStripPalitra, MorySnip, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a4d9378991632c7a</value>
   </data>
   <data name="&gt;&gt;Button_Color.Name" xml:space="preserve">
     <value>Button_Color</value>
@@ -1545,6 +1545,6 @@
     <value>Form_Edit</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>Morysoft.MorySnip.Form_Save_Base, MorySnip, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Morysoft.MorySnip.FormSaveBase, MorySnip, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a4d9378991632c7a</value>
   </data>
 </root>

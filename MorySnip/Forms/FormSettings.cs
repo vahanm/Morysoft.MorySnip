@@ -5,6 +5,11 @@ namespace Morysoft.MorySnip
 {
     public partial class Form_Settings
     {
+        public Form_Settings()
+        {
+            this.InitializeComponent();
+        }
+
         private void Form_Load(object sender, EventArgs e)
         {
             this.Button_BrowseLocal.Text = Settings.DefaultPath;

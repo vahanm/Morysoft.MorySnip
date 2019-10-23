@@ -31,7 +31,7 @@ namespace Morysoft.MorySnip
         {
             try
             {
-                this.Editor_Main.Cursor = new Cursor(new System.IO.MemoryStream(Morysoft.MorySnip.Properties.Resources.PENCIL));
+                this.Editor_Main.Cursor = new Cursor(new System.IO.MemoryStream(Properties.Resources.PENCIL));
             }
             catch (Exception ex)
             {
@@ -168,7 +168,7 @@ namespace Morysoft.MorySnip
             this.Close();
         }
 
-        private void Button_Effect_Blur_Click(object sender, EventArgs e)
+        private void Menu_PaintMode_Blur_Click(object sender, EventArgs e)
         {
             this.Editor_Main.PaintMode = Editor.PaintModes.Blur;
         }
@@ -178,12 +178,12 @@ namespace Morysoft.MorySnip
             this.Editor_Main.PaintMode = Editor.PaintModes.Puzzle;
         }
 
-        private void Button_Effect_Invert_Click(object sender, EventArgs e)
+        private void Menu_PaintMode_Invert_Click(object sender, EventArgs e)
         {
             this.Editor_Main.PaintMode = Editor.PaintModes.Invert;
         }
 
-        private void Button_Effect_Grayscale_Click(object sender, EventArgs e)
+        private void Menu_PaintMode_Grayscale_Click(object sender, EventArgs e)
         {
             this.Editor_Main.PaintMode = Editor.PaintModes.Grayscale;
         }
@@ -358,9 +358,14 @@ namespace Morysoft.MorySnip
         private int ResizerX;
         private int ResizerY;
 
+        public Form_Edit()
+        {
+            this.InitializeComponent();
+        }
+
         private void Resizers_MouseDown(object sender, MouseEventArgs e)
         {
-            if ((int)e.Button == (int)MouseButtons.Left)
+            if (e.Button == MouseButtons.Left)
             {
                 this.ResizerX = e.X;
                 this.ResizerY = e.Y;
@@ -369,7 +374,7 @@ namespace Morysoft.MorySnip
 
         private void Resizer_Both_MouseMove(object sender, MouseEventArgs e)
         {
-            if ((int)e.Button == (int)MouseButtons.Left)
+            if (e.Button == MouseButtons.Left)
             {
                 this.Resizer_Both.Location += new Size(e.X - this.ResizerX, e.Y - this.ResizerY);
 
@@ -385,7 +390,7 @@ namespace Morysoft.MorySnip
 
         private void Resizer_Right_MouseMove(object sender, MouseEventArgs e)
         {
-            if ((int)e.Button == (int)MouseButtons.Left)
+            if (e.Button == MouseButtons.Left)
             {
                 this.Resizer_Both.Location += new Size(e.X - this.ResizerX, 0);
 
@@ -399,7 +404,7 @@ namespace Morysoft.MorySnip
 
         private void Resizer_Bottom_MouseMove(object sender, MouseEventArgs e)
         {
-            if ((int)e.Button == (int)MouseButtons.Left)
+            if (e.Button == MouseButtons.Left)
             {
                 this.Resizer_Both.Location += new Size(0, e.Y - this.ResizerY);
 
@@ -422,7 +427,7 @@ namespace Morysoft.MorySnip
         {
             this.Render();
 
-            if (Publish_SaveToFile(PublishOptions.SaveToFile | PublishOptions.CopyPathOrULR))
+            if (this.Publish_SaveToFile(PublishOptions.SaveToFile | PublishOptions.CopyPathOrULR))
             {
                 this.Close();
             }
@@ -432,7 +437,7 @@ namespace Morysoft.MorySnip
         {
             this.Render();
 
-            if (base.Publish_SaveToFile(PublishOptions.SaveToFile | PublishOptions.SaveAs | PublishOptions.CopyPathOrULR))
+            if (this.Publish_SaveToFile(PublishOptions.SaveToFile | PublishOptions.SaveAs | PublishOptions.CopyPathOrULR))
             {
                 this.Close();
             }
@@ -442,7 +447,7 @@ namespace Morysoft.MorySnip
         {
             this.Render();
 
-            if (Publish_ToClipboard(0))
+            if (this.Publish_ToClipboard(0))
             {
                 this.Close();
             }
@@ -473,7 +478,7 @@ namespace Morysoft.MorySnip
             }
         }
 
-        private void ToolStrip_Standard_Palitra_ColorChanged(object sender, EventArgs e)
+        private void ToolStrip_Standard_Palitra_ColorChanged(object sender, PalitraEventArgs e)
         {
             this.Editor_Main.CurrentPen.Color = this.ToolStrip_Standard_Palitra.Color1;
             ((SolidBrush)this.Editor_Main.CurrentBrush).Color = this.ToolStrip_Standard_Palitra.Color2;
@@ -484,7 +489,7 @@ namespace Morysoft.MorySnip
             }
             else
             {
-                this.Button_Color.Text = Conversions.ToString(this.Editor_Main.CurrentPen.Color.R) + ", " + Conversions.ToString(this.Editor_Main.CurrentPen.Color.G) + ", " + Conversions.ToString(this.Editor_Main.CurrentPen.Color.B);
+                this.Button_Color.Text = $"{this.Editor_Main.CurrentPen.Color.R}, {this.Editor_Main.CurrentPen.Color.G}, {this.Editor_Main.CurrentPen.Color.B}";
             }
         }
     }

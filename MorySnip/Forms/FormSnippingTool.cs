@@ -97,13 +97,17 @@ namespace Morysoft.MorySnip
                         {
                             using (var acf = new Form_AutoCapture())
                             {
-                                if ((int)acf.ShowDialog() == (int)DialogResult.OK)
+                                if (acf.ShowDialog() != DialogResult.OK)
+                                {
+                                    Environment.Exit(0);
+                                }
+                                else
                                 {
                                     void wait(int milliseconds) => Process.GetCurrentProcess().WaitForExit(milliseconds);
 
-                                    int waitMilliseconds = Conversions.ToInteger(acf.NumericUpDown_Start.Value * 1000);
-                                    int intervalMilliseconds = Conversions.ToInteger(acf.NumericUpDown_Interval.Value);
-                                    int count = Conversions.ToInteger(acf.NumericUpDown_Count.Value);
+                                    int waitMilliseconds = (int)acf.NumericUpDown_Start.Value * 1000;
+                                    int intervalMilliseconds = (int)acf.NumericUpDown_Interval.Value;
+                                    int count = (int)acf.NumericUpDown_Count.Value;
 
                                     this.bordersOnlyMode = true;
                                     this.Opacity = 1;
@@ -112,19 +116,16 @@ namespace Morysoft.MorySnip
 
                                     for (int i = 1, loopTo = count; i <= loopTo; i++)
                                     {
-                                        wait(Conversions.ToInteger(Interaction.IIf(i == 1, waitMilliseconds, intervalMilliseconds)));
+                                        wait(i == 1 ? waitMilliseconds : intervalMilliseconds);
                                         capture();
                                     }
-                                }
-                                else
-                                {
-                                    Environment.Exit(0);
                                 }
                             }
                         }
 
+                        this.Hide();
                         this.SaveForm.Images.AddRange(images);
-                        this.SaveForm.Show();
+                        this.SaveForm.ShowDialog();
                         this.Close();
                         break;
                     }
@@ -192,11 +193,11 @@ namespace Morysoft.MorySnip
             }
             else if ((new Mouse()).ButtonsSwapped)
             {
-                g.DrawString(Morysoft.MorySnip.Properties.Resources.PressLeftClickToViewOptions, new Font(this.Font.FontFamily, 40, FontStyle.Italic, GraphicsUnit.Pixel), Brushes.DarkGray, -this._virtualScreenLocation.X + this._primaryScreenLocation.X + 10, -this._virtualScreenLocation.Y + this._primaryScreenLocation.Y + this._primaryScreenSize.Height / 2 - 20);
+                g.DrawString(Properties.Resources.PressLeftClickToViewOptions, new Font(this.Font.FontFamily, 40, FontStyle.Italic, GraphicsUnit.Pixel), Brushes.DarkGray, -this._virtualScreenLocation.X + this._primaryScreenLocation.X + 10, -this._virtualScreenLocation.Y + this._primaryScreenLocation.Y + this._primaryScreenSize.Height / 2 - 20);
             }
             else
             {
-                g.DrawString(Morysoft.MorySnip.Properties.Resources.PressRightClickToViewOptions, new Font(this.Font.FontFamily, 40, FontStyle.Italic, GraphicsUnit.Pixel), Brushes.DarkGray, -this._virtualScreenLocation.X + this._primaryScreenLocation.X + 10, -this._virtualScreenLocation.Y + this._primaryScreenLocation.Y + this._primaryScreenSize.Height / 2 - 20);
+                g.DrawString(Properties.Resources.PressRightClickToViewOptions, new Font(this.Font.FontFamily, 40, FontStyle.Italic, GraphicsUnit.Pixel), Brushes.DarkGray, -this._virtualScreenLocation.X + this._primaryScreenLocation.X + 10, -this._virtualScreenLocation.Y + this._primaryScreenLocation.Y + this._primaryScreenSize.Height / 2 - 20);
             }
         }
 
@@ -208,15 +209,13 @@ namespace Morysoft.MorySnip
 
         private void Form_SnippingTool_KeyDown(object sender, KeyEventArgs e)
         {
-            if (this.LastButton == (int)MouseButtons.None)
+            if (this.LastButton == MouseButtons.None)
             {
                 switch (e.KeyCode)
                 {
                     case Keys.Escape:
-                        {
-                            this.Close();
-                            break;
-                        }
+                        this.Close();
+                        break;
                 }
             }
             else
@@ -224,23 +223,17 @@ namespace Morysoft.MorySnip
                 switch (e.KeyCode)
                 {
                     case Keys.Escape:
-                        {
-                            this.Cancel();
-                            break;
-                        }
+                        this.Cancel();
+                        break;
 
                     case Keys.ControlKey:
                     case Keys.ShiftKey:
-                        {
-                            this.CalculateArea();
-                            break;
-                        }
+                        this.CalculateArea();
+                        break;
 
                     case Keys.Enter:
-                        {
-                            this.Crop();
-                            break;
-                        }
+                        this.Crop();
+                        break;
                 }
             }
         }
@@ -256,17 +249,15 @@ namespace Morysoft.MorySnip
                 switch (e.KeyCode)
                 {
                     case Keys.Apps:
-                        {
-                            this.ShowMenu();
-                            break;
-                        }
+                        this.ShowMenu();
+                        break;
                 }
             }
         }
 
         private void Form_SnippingTool_MouseDown(object sender, MouseEventArgs e)
         {
-            if (this.LastButton == (int)MouseButtons.None)
+            if (this.LastButton == MouseButtons.None)
             {
                 this.FirstPoint = e.Location;
                 this.LastPoint = e.Location;
@@ -276,7 +267,7 @@ namespace Morysoft.MorySnip
 
         private void Form_SnippingTool_MouseMove(object sender, MouseEventArgs e)
         {
-            if ((int)e.Button == (int)this.LastButton && !(this.LastButton == (int)MouseButtons.None))
+            if (e.Button == this.LastButton && this.LastButton != MouseButtons.None)
             {
                 this.LastPoint = e.Location;
                 this.CalculateArea();
@@ -285,15 +276,15 @@ namespace Morysoft.MorySnip
 
         private void Form_SnippingTool_MouseUp(object sender, MouseEventArgs e)
         {
-            if ((int)e.Button == (int)this.LastButton)
+            if (e.Button == this.LastButton)
             {
-                if (!(this.LastButton == (int)MouseButtons.None) && this.w > 3 && this.h > 3)
+                if (this.LastButton != MouseButtons.None && this.w > 3 && this.h > 3)
                 {
                     this.LastPoint = e.Location;
                     this.CalculateArea();
                     this.Crop();
                 }
-                else if ((int)e.Button == (int)MouseButtons.Right && this.w < 3 && this.h < 3)
+                else if (e.Button == MouseButtons.Right && this.w < 3 && this.h < 3)
                 {
                     this.ShowMenu();
                 }

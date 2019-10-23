@@ -102,7 +102,6 @@ namespace Morysoft.MorySnip
             this.ShowInTaskbar = false;
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.Color.Magenta;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form_SnippingTool_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_SnippingTool_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form_SnippingTool_KeyUp);

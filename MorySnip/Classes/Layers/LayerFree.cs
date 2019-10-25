@@ -4,15 +4,15 @@ using Microsoft.VisualBasic.CompilerServices;
 
 namespace Morysoft.MorySnip
 {
-    public class Layer_Free : Layer
+    public class LayerFree : Layer
     {
         public GraphicsPath Path { get; private set; } = new GraphicsPath();
 
-        public Layer_Free()
+        public LayerFree()
         {
         }
 
-        public Layer_Free(Pen Pen, Brush Brush, Point FirstPoint)
+        public LayerFree(Pen Pen, Brush Brush, Point FirstPoint)
         {
             this.Pen = Pen;
             this.Brush = Brush;
@@ -38,7 +38,7 @@ namespace Morysoft.MorySnip
                 int x = default, y = default, w = default, h = default;
                 bool IsFirst = true;
 
-                foreach (PointF item in this.Path.PathPoints)
+                foreach (var item in this.Path.PathPoints)
                 {
                     if (IsFirst)
                     {

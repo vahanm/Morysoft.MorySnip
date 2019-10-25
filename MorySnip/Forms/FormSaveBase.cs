@@ -1,12 +1,12 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
-using System.Collections.Generic;
-using System;
-using System.Linq;
 using Microsoft.VisualBasic.CompilerServices;
-using System.IO;
-using System.Drawing.Imaging;
 using Microsoft.VisualBasic.Devices;
 
 namespace Morysoft.MorySnip
@@ -111,65 +111,65 @@ namespace Morysoft.MorySnip
             switch (Path.GetExtension(path).Substring(1))
             {
                 case "Bmp":
-                    {
-                        tmp.Save(path, ImageFormat.Bmp);
-                        break;
-                    }
+                {
+                    tmp.Save(path, ImageFormat.Bmp);
+                    break;
+                }
 
                 case "Emf":
-                    {
-                        tmp.Save(path, ImageFormat.Emf);
-                        break;
-                    }
+                {
+                    tmp.Save(path, ImageFormat.Emf);
+                    break;
+                }
 
                 case "Exif":
-                    {
-                        tmp.Save(path, ImageFormat.Exif);
-                        break;
-                    }
+                {
+                    tmp.Save(path, ImageFormat.Exif);
+                    break;
+                }
 
                 case "Gif":
-                    {
-                        tmp.Save(path, ImageFormat.Gif);
-                        break;
-                    }
+                {
+                    tmp.Save(path, ImageFormat.Gif);
+                    break;
+                }
 
                 case "Ico":
-                    {
-                        tmp.Save(path, ImageFormat.Icon);
-                        break;
-                    }
+                {
+                    tmp.Save(path, ImageFormat.Icon);
+                    break;
+                }
 
                 case "Jpeg":
                 case "jpg":
-                    {
-                        tmp.Save(path, ImageFormat.Jpeg);
-                        break;
-                    }
+                {
+                    tmp.Save(path, ImageFormat.Jpeg);
+                    break;
+                }
 
                 case "Png":
-                    {
-                        tmp.Save(path, ImageFormat.Png);
-                        break;
-                    }
+                {
+                    tmp.Save(path, ImageFormat.Png);
+                    break;
+                }
 
                 case "Tiff":
-                    {
-                        tmp.Save(path, ImageFormat.Tiff);
-                        break;
-                    }
+                {
+                    tmp.Save(path, ImageFormat.Tiff);
+                    break;
+                }
 
                 case "Wmf":
-                    {
-                        tmp.Save(path, ImageFormat.Wmf);
-                        break;
-                    }
+                {
+                    tmp.Save(path, ImageFormat.Wmf);
+                    break;
+                }
 
                 default:
-                    {
-                        tmp.Save(path);
-                        break;
-                    }
+                {
+                    tmp.Save(path);
+                    break;
+                }
             }
 
             if ((Options & PublishOptions.SaveAs) == PublishOptions.SaveAs)
@@ -190,7 +190,7 @@ namespace Morysoft.MorySnip
             }
             else if (Clipboard.ContainsText())
             {
-                var paths = Clipboard.GetText();
+                string paths = Clipboard.GetText();
                 int count = 0;
 
                 if (LikeOperator.LikeString(paths, "*[A-z]*[.][A-z]*", CompareMethod.Binary) && (paths.StartsWith("http://") || paths.StartsWith("https://") || paths.StartsWith("ftp://")))
@@ -202,11 +202,11 @@ namespace Morysoft.MorySnip
 
                 foreach (string path in paths.Split('"', '\'', ';', Conversions.ToChar(Constants.vbCr), Conversions.ToChar(Constants.vbLf)))
                 {
-                    var nomralizedPath = path.Trim().Trim('"', '\'');
+                    string nomralizedPath = path.Trim().Trim('"', '\'');
 
                     try
                     {
-                        var localPath = new Uri(nomralizedPath).LocalPath;
+                        string localPath = new Uri(nomralizedPath).LocalPath;
                         var tempImage = new Screenshot
                         {
                             Image = Image.FromFile(localPath),
@@ -232,11 +232,11 @@ namespace Morysoft.MorySnip
 
                 foreach (string path in l)
                 {
-                    var nomralizedPath = path.Trim().Trim('"', '\'');
+                    string nomralizedPath = path.Trim().Trim('"', '\'');
 
                     try
                     {
-                        var localPath = new Uri(nomralizedPath).LocalPath;
+                        string localPath = new Uri(nomralizedPath).LocalPath;
                         var tempImage = new Screenshot
                         {
                             Image = Image.FromFile(localPath),
@@ -298,8 +298,10 @@ namespace Morysoft.MorySnip
 
             this.Hide();
             {
-                var withBlock = new Form_SnippingTool();
-                withBlock.SaveForm = this;
+                var withBlock = new Form_SnippingTool
+                {
+                    SaveForm = this
+                };
                 withBlock.ShowDialog();
             }
             this.Show();
@@ -408,7 +410,7 @@ namespace Morysoft.MorySnip
 
                 foreach (string path in filesDrop)
                 {
-                    var nomralizedPath = path.Trim('"', '\'');
+                    string nomralizedPath = path.Trim('"', '\'');
 
                     try
                     {
@@ -453,10 +455,7 @@ namespace Morysoft.MorySnip
             this.Close();
         }
 
-        public void Snip_Screen(int index)
-        {
-            throw new NotImplementedException();
-        }
+        public void Snip_Screen(int index) => throw new NotImplementedException();
 
         public void Snip_FromFile()
         {
@@ -490,21 +489,21 @@ namespace Morysoft.MorySnip
                             switch (Interaction.MsgBox(ex.Message, MsgBoxStyle.Critical | MsgBoxStyle.AbortRetryIgnore))
                             {
                                 case MsgBoxResult.Retry:
-                                    {
-                                        break;
-                                    }
+                                {
+                                    break;
+                                }
 
                                 case MsgBoxResult.Abort:
-                                    {
-                                        break;
-                                        break;
-                                    }
+                                {
+                                    break;
+                                    break;
+                                }
 
                                 case MsgBoxResult.Ignore:
-                                    {
-                                        break;
-                                        break;
-                                    }
+                                {
+                                    break;
+                                    break;
+                                }
                             }
                         }
                     }

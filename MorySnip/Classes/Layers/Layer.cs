@@ -17,10 +17,7 @@ namespace Morysoft.MorySnip
             this.LastPoint = FirstPoint;
         }
 
-        public virtual void Step(Point StepPoint)
-        {
-            this.LastPoint = StepPoint;
-        }
+        public virtual void Step(Point StepPoint) => this.LastPoint = StepPoint;
 
         public virtual void Stop(Point LastPoint)
         {
@@ -37,13 +34,7 @@ namespace Morysoft.MorySnip
             }
         }
 
-        public virtual Rectangle Bounds
-        {
-            get
-            {
-                return Helpers.NormalRectingle(this.FirstPoint, this.LastPoint);
-            }
-        }
+        public virtual Rectangle Bounds => Helpers.NormalRectingle(this.FirstPoint, this.LastPoint);
 
         public bool InBounds(Point p)
         {

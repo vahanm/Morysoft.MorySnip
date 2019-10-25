@@ -1,12 +1,12 @@
-﻿using System.Drawing;
+﻿using System;
 using System.Collections.Generic;
-using System;
-using Microsoft.VisualBasic.CompilerServices;
+using System.Drawing;
 using System.IO;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace Morysoft.MorySnip
 {
-    static class Helpers
+    internal static class Helpers
     {
         private static int _gcd(int a, int b)
         {
@@ -37,7 +37,7 @@ namespace Morysoft.MorySnip
                 denominator = Conversions.ToUInteger(temp);
             }
 
-            var divisor = _gcd(Conversions.ToInteger(numerator), Conversions.ToInteger(denominator));
+            int divisor = _gcd(Conversions.ToInteger(numerator), Conversions.ToInteger(denominator));
 
             if (temp == null)
             {
@@ -59,10 +59,7 @@ namespace Morysoft.MorySnip
             return new Rectangle(x1, y1, x2 - x1, y2 - y1);
         }
 
-        public static Rectangle NormalRectingle(Point p, Size s)
-        {
-            return NormalRectingle(p, p + s);
-        }
+        public static Rectangle NormalRectingle(Point p, Size s) => NormalRectingle(p, p + s);
 
         public static Font LogFont = new Font("Courier New", 10);
 
@@ -71,12 +68,12 @@ namespace Morysoft.MorySnip
             switch (type)
             {
                 case Actions.Crop:
-                    {
-                        var newImage = new Bitmap(Rect.Width, Rect.Height);
-                        var g = Graphics.FromImage(newImage);
-                        g.DrawImage(Img, -Rect.X, -Rect.Y, Img.Width, Img.Height);
-                        return newImage;
-                    }
+                {
+                    var newImage = new Bitmap(Rect.Width, Rect.Height);
+                    var g = Graphics.FromImage(newImage);
+                    g.DrawImage(Img, -Rect.X, -Rect.Y, Img.Width, Img.Height);
+                    return newImage;
+                }
             }
 
             Img = (Bitmap)Img.Clone();
@@ -96,19 +93,19 @@ namespace Morysoft.MorySnip
                 switch (Zone)
                 {
                     case Zones.All:
-                        {
-                            return true;
-                        }
+                    {
+                        return true;
+                    }
 
                     case Zones.NotSelected:
-                        {
-                            return !Selected(x, y);
-                        }
+                    {
+                        return !Selected(x, y);
+                    }
 
                     case Zones.Selected:
-                        {
-                            return Selected(x, y);
-                        }
+                    {
+                        return Selected(x, y);
+                    }
                 }
 
                 return false;
@@ -120,84 +117,84 @@ namespace Morysoft.MorySnip
             switch (type)
             {
                 case Actions.Blur:
+                {
+                    Effect = (x, y) =>
                     {
-                        Effect = (x, y) =>
+                        int nR = default, nG = default, nB = default, nA = default, count = default;
+                        int r = 5;
+
+                        for (int sx = x - r, loopTo = x + r; sx <= loopTo; sx += 2)
                         {
-                            int nR = default, nG = default, nB = default, nA = default, count = default;
-                            int r = 5;
-
-                            for (int sx = x - r, loopTo = x + r; sx <= loopTo; sx += 2)
+                            for (int sy = y - r, loopTo1 = y + r; sy <= loopTo1; sy += 2)
                             {
-                                for (int sy = y - r, loopTo1 = y + r; sy <= loopTo1; sy += 2)
+                                if (sx < 0 || sx > w - 1 || sy < 0 || sy > h - 1)
                                 {
-                                    if (sx < 0 || sx > w - 1 || sy < 0 || sy > h - 1)
-                                    {
-                                        continue;
-                                    }
-
-                                    var col = Img.GetPixel(sx, sy);
-
-                                    nR += col.R;
-                                    nG += col.G;
-                                    nB += col.B;
-                                    nA += col.A;
-
-                                    count += 1;
+                                    continue;
                                 }
+
+                                var col = Img.GetPixel(sx, sy);
+
+                                nR += col.R;
+                                nG += col.G;
+                                nB += col.B;
+                                nA += col.A;
+
+                                count += 1;
                             }
+                        }
 
-                            nR /= count;
-                            nG /= count;
-                            nB /= count;
-                            nA /= count;
+                        nR /= count;
+                        nG /= count;
+                        nB /= count;
+                        nA /= count;
 
-                            Img.SetPixel(x, y, Color.FromArgb(nA, nR, nG, nB));
-                        };
-                        break;
-                    }
+                        Img.SetPixel(x, y, Color.FromArgb(nA, nR, nG, nB));
+                    };
+                    break;
+                }
 
                 case Actions.Puzzle:
-                    {
-                        Effect = (x, y) => Img.SetPixel(x, y, Img.GetPixel(x - x % 4, y - y % 4));
-                        break;
-                    }
+                {
+                    Effect = (x, y) => Img.SetPixel(x, y, Img.GetPixel(x - x % 4, y - y % 4));
+                    break;
+                }
 
                 case Actions.Grayscale:
+                {
+                    Effect = (x, y) =>
                     {
-                        Effect = (x, y) =>
-                        {
-                            var b = default(int);
-                            var col = Img.GetPixel(x, y);
+                        int b = default(int);
+                        var col = Img.GetPixel(x, y);
 
-                            b += col.R;
-                            b += col.G;
-                            b += col.B;
-                            b /= 3;
+                        b += col.R;
+                        b += col.G;
+                        b += col.B;
+                        b /= 3;
 
-                            Img.SetPixel(x, y, Color.FromArgb(col.A, b, b, b));
-                        };
-                        break;
-                    }
+                        Img.SetPixel(x, y, Color.FromArgb(col.A, b, b, b));
+                    };
+                    break;
+                }
 
                 case Actions.Invert:
-                    {
-                        Effect = (x, y) => Img.SetPixel(x, y, Color.FromArgb(255 - Img.GetPixel(x, y).R, 255 - Img.GetPixel(x, y).G, 255 - Img.GetPixel(x, y).B));
-                        break;
-                    }
+                {
+                    Effect = (x, y) => Img.SetPixel(x, y, Color.FromArgb(255 - Img.GetPixel(x, y).R, 255 - Img.GetPixel(x, y).G, 255 - Img.GetPixel(x, y).B));
+                    break;
+                }
 
                 case Actions.Highlight:
-                    {
-                        Effect = (x, y) => Img.SetPixel(x, y, Color.FromArgb(Img.GetPixel(x, y).R, Img.GetPixel(x, y).G, 0));
-                        break;
-                    }
+                {
+                    Effect = (x, y) => Img.SetPixel(x, y, Color.FromArgb(Img.GetPixel(x, y).R, Img.GetPixel(x, y).G, 0));
+                    break;
+                }
 
                 default:
+                {
+                    Effect = (x, y) =>
                     {
-                        Effect = (x, y) =>
-                        {
-                        };
-                        break;
-                    }
+                    };
+                    break;
+                }
             }
 
             for (int x = 0, loopTo = Img.Width - 1; x <= loopTo; x++)

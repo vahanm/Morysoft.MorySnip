@@ -159,10 +159,7 @@ namespace Morysoft.MorySnip
         /// <param name="s"></param>
         /// <returns>A Color structure containing the equivalent RGB values</returns>
         /// <remarks>Adapted from the algoritm in Foley and Van-Dam</remarks>
-        public static Color HSL_to_RGB(double h, double l, double s)
-        {
-            return HSL_to_RGB(new HSL() { H = h, L = l, S = s });
-        }
+        public static Color HSL_to_RGB(double h, double l, double s) => HSL_to_RGB(new HSL() { H = h, L = l, S = s });
 
         /// <summary>
         /// Converts a colour from HSL to RGB
@@ -197,8 +194,8 @@ namespace Morysoft.MorySnip
                     : hsl.L + hsl.S - hsl.L * hsl.S;
                 temp1 = 2.0 * hsl.L - temp2;
 
-                var t3 = new[] { hsl.H + 1.0 / 3.0, hsl.H, hsl.H - 1.0 / 3.0 };
-                var clr = new[] { 0.0, 0.0, 0.0 };
+                double[] t3 = new[] { hsl.H + 1.0 / 3.0, hsl.H, hsl.H - 1.0 / 3.0 };
+                double[] clr = new[] { 0.0, 0.0, 0.0 };
                 int i;
 
                 for (i = 0; i <= 2; i++)

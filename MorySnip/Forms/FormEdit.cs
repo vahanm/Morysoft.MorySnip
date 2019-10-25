@@ -1,17 +1,14 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
-using System;
 using Microsoft.VisualBasic.CompilerServices;
 
 namespace Morysoft.MorySnip
 {
     public partial class Form_Edit
     {
-        private void Form_Edit_BackgroundImageChanged(object sender, EventArgs e)
-        {
-            this.Editor_Main.BackgroundImage = this.BackgroundImage;
-        }
+        private void Form_Edit_BackgroundImageChanged(object sender, EventArgs e) => this.Editor_Main.BackgroundImage = this.BackgroundImage;
 
         private int LastNumberMax = 10;
 
@@ -127,35 +124,17 @@ namespace Morysoft.MorySnip
             this.Button_Size.Tag = this.Editor_Main.CurrentPen.Width;
         }
 
-        private void Button_Back_Click(object sender, EventArgs e)
-        {
-            this.Editor_Main.Undo();
-        }
+        private void Button_Back_Click(object sender, EventArgs e) => this.Editor_Main.Undo();
 
-        private void Button_Redo_Click(object sender, EventArgs e)
-        {
-            this.Editor_Main.Redo();
-        }
+        private void Button_Redo_Click(object sender, EventArgs e) => this.Editor_Main.Redo();
 
-        private void Button_Rotate_Left_Click(object sender, EventArgs e)
-        {
-            this.Editor_Main.RotateFlip(RotateFlipType.Rotate270FlipNone);
-        }
+        private void Button_Rotate_Left_Click(object sender, EventArgs e) => this.Editor_Main.RotateFlip(RotateFlipType.Rotate270FlipNone);
 
-        private void Button_Rotate_Right_Click(object sender, EventArgs e)
-        {
-            this.Editor_Main.RotateFlip(RotateFlipType.Rotate90FlipNone);
-        }
+        private void Button_Rotate_Right_Click(object sender, EventArgs e) => this.Editor_Main.RotateFlip(RotateFlipType.Rotate90FlipNone);
 
-        private void Button_Flip_X_Click(object sender, EventArgs e)
-        {
-            this.Editor_Main.RotateFlip(RotateFlipType.RotateNoneFlipX);
-        }
+        private void Button_Flip_X_Click(object sender, EventArgs e) => this.Editor_Main.RotateFlip(RotateFlipType.RotateNoneFlipX);
 
-        private void Button_Flip_Y_Click(object sender, EventArgs e)
-        {
-            this.Editor_Main.RotateFlip(RotateFlipType.RotateNoneFlipY);
-        }
+        private void Button_Flip_Y_Click(object sender, EventArgs e) => this.Editor_Main.RotateFlip(RotateFlipType.RotateNoneFlipY);
 
         private void Button_OK_Click(object sender, EventArgs e)
         {
@@ -163,93 +142,78 @@ namespace Morysoft.MorySnip
             this.DialogResult = DialogResult.OK;
         }
 
-        private void Button_Exit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        private void Button_Exit_Click(object sender, EventArgs e) => this.Close();
 
-        private void Menu_PaintMode_Blur_Click(object sender, EventArgs e)
-        {
-            this.Editor_Main.PaintMode = Editor.PaintModes.Blur;
-        }
+        private void Menu_PaintMode_Blur_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Blur;
 
-        private void Menu_PaintMode_Puzzle_Click(object sender, EventArgs e)
-        {
-            this.Editor_Main.PaintMode = Editor.PaintModes.Puzzle;
-        }
+        private void Menu_PaintMode_Puzzle_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Puzzle;
 
-        private void Menu_PaintMode_Invert_Click(object sender, EventArgs e)
-        {
-            this.Editor_Main.PaintMode = Editor.PaintModes.Invert;
-        }
+        private void Menu_PaintMode_Invert_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Invert;
 
-        private void Menu_PaintMode_Grayscale_Click(object sender, EventArgs e)
-        {
-            this.Editor_Main.PaintMode = Editor.PaintModes.Grayscale;
-        }
+        private void Menu_PaintMode_Grayscale_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Grayscale;
 
         private void Timer_Update_Tick(object sender, EventArgs e)
         {
             // Tools
-            if (!(this.Menu_PaintMode_Free.Checked == (this.Editor_Main.PaintMode == (int)Editor.PaintModes.Free)))
+            if (!(this.Menu_PaintMode_Free.Checked == (this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Free)))
             {
-                this.Menu_PaintMode_Free.Checked = this.Editor_Main.PaintMode == (int)Editor.PaintModes.Free;
+                this.Menu_PaintMode_Free.Checked = this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Free;
             }
 
-            if (!(this.Menu_PaintMode_Line.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Line)))
+            if (!(this.Menu_PaintMode_Line.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Line)))
             {
-                this.Menu_PaintMode_Line.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Line;
+                this.Menu_PaintMode_Line.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Line;
             }
 
-            if (!(this.Menu_PaintMode_Arrow.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Arrow)))
+            if (!(this.Menu_PaintMode_Arrow.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Arrow)))
             {
-                this.Menu_PaintMode_Arrow.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Arrow;
+                this.Menu_PaintMode_Arrow.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Arrow;
             }
 
-            if (!(this.Menu_PaintMode_Oval.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Oval)))
+            if (!(this.Menu_PaintMode_Oval.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Oval)))
             {
-                this.Menu_PaintMode_Oval.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Oval;
+                this.Menu_PaintMode_Oval.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Oval;
             }
 
-            if (!(this.Menu_PaintMode_Rect.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Rect)))
+            if (!(this.Menu_PaintMode_Rect.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Rect)))
             {
-                this.Menu_PaintMode_Rect.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Rect;
+                this.Menu_PaintMode_Rect.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Rect;
             }
 
-            if (!(this.Menu_PaintMode_Numbers.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Number)))
+            if (!(this.Menu_PaintMode_Numbers.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Number)))
             {
-                this.Menu_PaintMode_Numbers.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Number;
+                this.Menu_PaintMode_Numbers.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Number;
             }
 
             // Actions
-            if (!(this.Menu_PaintMode_Highlight.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Highlight)))
+            if (!(this.Menu_PaintMode_Highlight.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Highlight)))
             {
-                this.Menu_PaintMode_Highlight.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Highlight;
+                this.Menu_PaintMode_Highlight.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Highlight;
             }
 
-            if (!(this.Menu_PaintMode_Invert.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Invert)))
+            if (!(this.Menu_PaintMode_Invert.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Invert)))
             {
-                this.Menu_PaintMode_Invert.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Invert;
+                this.Menu_PaintMode_Invert.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Invert;
             }
 
-            if (!(this.Menu_PaintMode_Grayscale.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Grayscale)))
+            if (!(this.Menu_PaintMode_Grayscale.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Grayscale)))
             {
-                this.Menu_PaintMode_Grayscale.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Grayscale;
+                this.Menu_PaintMode_Grayscale.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Grayscale;
             }
 
-            if (!(this.Menu_PaintMode_Blur.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Blur)))
+            if (!(this.Menu_PaintMode_Blur.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Blur)))
             {
-                this.Menu_PaintMode_Blur.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Blur;
+                this.Menu_PaintMode_Blur.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Blur;
             }
 
-            if (!(this.Menu_PaintMode_Puzzle.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Puzzle)))
+            if (!(this.Menu_PaintMode_Puzzle.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Puzzle)))
             {
-                this.Menu_PaintMode_Puzzle.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Puzzle;
+                this.Menu_PaintMode_Puzzle.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Puzzle;
             }
 
-            if (!(this.Menu_PaintMode_Crop.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Crop)))
+            if (!(this.Menu_PaintMode_Crop.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Crop)))
             {
-                this.Menu_PaintMode_Crop.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.PaintModes.Crop;
+                this.Menu_PaintMode_Crop.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Crop;
             }
 
             if (!Operators.ConditionalCompareObjectEqual(this.Button_Size.Tag, this.Editor_Main.CurrentPen.Width, false))
@@ -305,55 +269,25 @@ namespace Morysoft.MorySnip
             }
         }
 
-        private void Menu_PaintMode_Free_Click(object sender, EventArgs e)
-        {
-            this.Editor_Main.PaintMode = Editor.PaintModes.Free;
-        }
+        private void Menu_PaintMode_Free_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Free;
 
-        private void Menu_PaintMode_Highlight_Click(object sender, EventArgs e)
-        {
-            this.Editor_Main.PaintMode = Editor.PaintModes.Highlight;
-        }
+        private void Menu_PaintMode_Highlight_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Highlight;
 
-        private void Menu_PaintMode_Line_Click(object sender, EventArgs e)
-        {
-            this.Editor_Main.PaintMode = Editor.PaintModes.Line;
-        }
+        private void Menu_PaintMode_Line_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Line;
 
-        private void Menu_PaintMode_Arrow_Click(object sender, EventArgs e)
-        {
-            this.Editor_Main.PaintMode = Editor.PaintModes.Arrow;
-        }
+        private void Menu_PaintMode_Arrow_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Arrow;
 
-        private void Menu_PaintMode_Oval_Click(object sender, EventArgs e)
-        {
-            this.Editor_Main.PaintMode = Editor.PaintModes.Oval;
-        }
+        private void Menu_PaintMode_Oval_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Oval;
 
-        private void Menu_PaintMode_Rect_Click(object sender, EventArgs e)
-        {
-            this.Editor_Main.PaintMode = Editor.PaintModes.Rect;
-        }
+        private void Menu_PaintMode_Rect_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Rect;
 
-        private void Menu_PaintMode_Numbers_Click(object sender, EventArgs e)
-        {
-            this.Editor_Main.PaintMode = Editor.PaintModes.Number;
-        }
+        private void Menu_PaintMode_Numbers_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Number;
 
-        private void Menu_PaintMode_Select_Click(object sender, EventArgs e)
-        {
-            this.Editor_Main.PaintMode = Editor.PaintModes.Invert;
-        }
+        private void Menu_PaintMode_Select_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Invert;
 
-        private void Menu_PaintMode_Fill_Click(object sender, EventArgs e)
-        {
-            this.Editor_Main.FillObjecs = this.Menu_PaintMode_Fill.Checked;
-        }
+        private void Menu_PaintMode_Fill_Click(object sender, EventArgs e) => this.Editor_Main.FillObjecs = this.Menu_PaintMode_Fill.Checked;
 
-        private void Menu_PaintMode_Crop_Click(object sender, EventArgs e)
-        {
-            this.Editor_Main.PaintMode = Editor.PaintModes.Crop;
-        }
+        private void Menu_PaintMode_Crop_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Crop;
 
         private int ResizerX;
         private int ResizerY;

@@ -1,5 +1,5 @@
-﻿using System.Drawing;
-using System;
+﻿using System;
+using System.Drawing;
 using Microsoft.VisualBasic.CompilerServices;
 
 namespace Morysoft.MorySnip
@@ -11,15 +11,9 @@ namespace Morysoft.MorySnip
         public string Comment;
         public string OriginalPath;
 
-        public static implicit operator Screenshot(Image source)
-        {
-            return new Screenshot() { Image = source };
-        }
+        public static implicit operator Screenshot(Image source) => new Screenshot() { Image = source };
 
-        public static explicit operator Image(Screenshot source)
-        {
-            return source.Image;
-        }
+        public static explicit operator Image(Screenshot source) => source.Image;
 
         public Screenshot Clone() => new Screenshot
         {

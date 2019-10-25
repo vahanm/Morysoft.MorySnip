@@ -2,13 +2,9 @@
 
 namespace Morysoft.MorySnip
 {
-    public class Layer_Oval : Layer
+    public class LayerRect : Layer
     {
-        public Layer_Oval()
-        {
-        }
-
-        public Layer_Oval(Pen Pen, Brush Brush, Point FirstPoint)
+        public LayerRect(Pen Pen, Brush Brush, Point FirstPoint)
         {
             this.Pen = Pen;
             this.Brush = Brush;
@@ -21,10 +17,10 @@ namespace Morysoft.MorySnip
 
             if (this.Fill)
             {
-                g.FillEllipse(this.Brush, r);
+                g.FillRectangle(this.Brush, r);
             }
 
-            g.DrawEllipse(this.Pen, r);
+            g.DrawRectangle(this.Pen, r);
         }
     }
 }

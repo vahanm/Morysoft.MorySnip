@@ -1,7 +1,7 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-using System;
+﻿using System;
 using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace Morysoft.MorySnip
 {
@@ -133,15 +133,9 @@ namespace Morysoft.MorySnip
             }
         }
 
-        private void SelectColor1(Point l)
-        {
-            this.Color1 = this.GetColorByPoint(l);
-        }
+        private void SelectColor1(Point l) => this.Color1 = this.GetColorByPoint(l);
 
-        private void SelectColor2(Point l)
-        {
-            this.Color2 = this.GetColorByPoint(l);
-        }
+        private void SelectColor2(Point l) => this.Color2 = this.GetColorByPoint(l);
 
         protected override void OnMouseDown(MouseEventArgs e)
         {

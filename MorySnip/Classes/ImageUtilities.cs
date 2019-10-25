@@ -1,6 +1,6 @@
-﻿using System.Drawing;
+﻿using System;
 using System.Collections.Generic;
-using System;
+using System.Drawing;
 using System.Drawing.Imaging;
 
 namespace Morysoft.MorySnip
@@ -8,13 +8,13 @@ namespace Morysoft.MorySnip
     public static class ImageUtilities
     {
         /// <summary>
-    /// A quick lookup for getting image encoders
-    /// </summary>
+        /// A quick lookup for getting image encoders
+        /// </summary>
         private static readonly Dictionary<string, ImageCodecInfo> EncodersValue = null;
 
         /// <summary>
-    /// A quick lookup for getting image encoders
-    /// </summary>
+        /// A quick lookup for getting image encoders
+        /// </summary>
         public static Dictionary<string, ImageCodecInfo> Encoders
         {
             // get accessor that creates the dictionary on demand
@@ -31,7 +31,7 @@ namespace Morysoft.MorySnip
                 if (EncodersValue.Count == 0)
                 {
                     // get all the codecs
-                    foreach (ImageCodecInfo codec in ImageCodecInfo.GetImageEncoders())
+                    foreach (var codec in ImageCodecInfo.GetImageEncoders())
                     {
                         // add each codec to the quick lookup
                         EncodersValue.Add(codec.MimeType.ToLower(), codec);
@@ -44,12 +44,12 @@ namespace Morysoft.MorySnip
         }
 
         /// <summary>
-    /// Resize the image to the specified width and height.
-    /// </summary>
-    /// <param name="image">The image to resize.</param>
-    /// <param name="width">The width to resize to.</param>
-    /// <param name="height">The height to resize to.</param>
-    /// <returns>The resized image.</returns>
+        /// Resize the image to the specified width and height.
+        /// </summary>
+        /// <param name="image">The image to resize.</param>
+        /// <param name="width">The width to resize to.</param>
+        /// <param name="height">The height to resize to.</param>
+        /// <returns>The resized image.</returns>
         public static Bitmap ResizeImage(Image image, int width, int height)
         {
             // a holder for the result
@@ -73,21 +73,21 @@ namespace Morysoft.MorySnip
         }
 
         /// <summary>
-    /// Saves an image as a jpeg image, with the given quality
-    /// </summary>
-    /// <param name="path">Path to which the image would be saved.</param>
-    /// <param name="quality">An integer from 0 to 100, with 100 being the
-    /// highest quality</param>
-    /// <exception cref="ArgumentOutOfRangeException">
-    /// An invalid value was entered for image quality.
-    /// </exception>
+        /// Saves an image as a jpeg image, with the given quality
+        /// </summary>
+        /// <param name="path">Path to which the image would be saved.</param>
+        /// <param name="quality">An integer from 0 to 100, with 100 being the
+        /// highest quality</param>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// An invalid value was entered for image quality.
+        /// </exception>
         public static void SaveJpeg(string Path, Image Image, int Quality)
         {
             // ensure the quality is within the correct range
             if (Quality < 0 || Quality > 100)
             {
                 // create the error message
-                string err = string.Format("Jpeg image quality must be between 0 and 100, with 100 being the highest quality.  A value of {0} was specified.", Quality);
+                string err = String.Format("Jpeg image quality must be between 0 and 100, with 100 being the highest quality.  A value of {0} was specified.", Quality);
                 // throw a helpful exception
                 throw new ArgumentOutOfRangeException(err);
             }
@@ -106,8 +106,8 @@ namespace Morysoft.MorySnip
         }
 
         /// <summary>
-    /// Returns the image codec with the given mime type
-    /// </summary>
+        /// Returns the image codec with the given mime type
+        /// </summary>
         public static ImageCodecInfo GetEncoderInfo(string mimeType)
         {
             // do a case insensitive search for the mime type

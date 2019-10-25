@@ -31,7 +31,7 @@ namespace Morysoft.MorySnip
                 float a1 = Conversions.ToSingle(0.5);
                 float a2 = Conversions.ToSingle(0.4);
 
-                Polar newZero = (Polar)pBegin - pEnd;
+                var newZero = (Polar)pBegin - pEnd;
 
                 var tailPolar11 = new Polar(newZero.Angle - a1, newZero.Radius / 10);
                 var tailPolar12 = new Polar(newZero.Angle - a2, newZero.Radius / 20);
@@ -52,23 +52,23 @@ namespace Morysoft.MorySnip
             switch (this.ArrowMode)
             {
                 case ArrowModes.AtEnd:
-                    {
-                        drawArrow(this.FirstPoint, this.LastPoint);
-                        break;
-                    }
+                {
+                    drawArrow(this.FirstPoint, this.LastPoint);
+                    break;
+                }
 
                 case ArrowModes.AtStart:
-                    {
-                        drawArrow(this.LastPoint, this.FirstPoint);
-                        break;
-                    }
+                {
+                    drawArrow(this.LastPoint, this.FirstPoint);
+                    break;
+                }
 
                 case ArrowModes.Both:
-                    {
-                        drawArrow(this.LastPoint, this.FirstPoint);
-                        drawArrow(this.FirstPoint, this.LastPoint);
-                        break;
-                    }
+                {
+                    drawArrow(this.LastPoint, this.FirstPoint);
+                    drawArrow(this.FirstPoint, this.LastPoint);
+                    break;
+                }
             }
         }
 

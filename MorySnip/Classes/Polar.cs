@@ -1,5 +1,5 @@
-﻿using System.Drawing;
-using System;
+﻿using System;
+using System.Drawing;
 using Microsoft.VisualBasic.CompilerServices;
 
 namespace Morysoft.MorySnip
@@ -10,15 +10,9 @@ namespace Morysoft.MorySnip
 
         public float Angle { get; set; }
 
-        public static PointF Convert(Polar Source)
-        {
-            return new PointF(Conversions.ToSingle(Source.Radius * Math.Cos(Source.Angle)), Conversions.ToSingle(Source.Radius * Math.Sin(Source.Angle)));
-        }
+        public static PointF Convert(Polar Source) => new PointF(Conversions.ToSingle(Source.Radius * Math.Cos(Source.Angle)), Conversions.ToSingle(Source.Radius * Math.Sin(Source.Angle)));
 
-        public static Polar Convert(Point Source)
-        {
-            return Convert(new PointF(Source.X, Source.Y));
-        }
+        public static Polar Convert(Point Source) => Convert(new PointF(Source.X, Source.Y));
 
         public static Polar Convert(PointF Source)
         {
@@ -62,15 +56,9 @@ namespace Morysoft.MorySnip
             return new Polar(Angle, Radius);
         }
 
-        public static implicit operator Polar(Point Source)
-        {
-            return Convert(Source);
-        }
+        public static implicit operator Polar(Point Source) => Convert(Source);
 
-        public static implicit operator Polar(PointF Source)
-        {
-            return Convert(Source);
-        }
+        public static implicit operator Polar(PointF Source) => Convert(Source);
 
         public static implicit operator Point(Polar Source)
         {
@@ -78,10 +66,7 @@ namespace Morysoft.MorySnip
             return new Point(Conversions.ToInteger(Result.X), Conversions.ToInteger(Result.Y));
         }
 
-        public static implicit operator PointF(Polar Source)
-        {
-            return Convert(Source);
-        }
+        public static implicit operator PointF(Polar Source) => Convert(Source);
 
         public static implicit operator Size(Polar Source)
         {

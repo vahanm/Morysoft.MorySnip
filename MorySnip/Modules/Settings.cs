@@ -1,47 +1,35 @@
-﻿using System.Windows.Forms;
-using Microsoft.VisualBasic;
+﻿using System;
 using System.Globalization;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
 using System.IO;
+using System.Windows.Forms;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace Morysoft.MorySnip
 {
     public static class Settings
     {
-        public static string get_Setting(string Name, string Default = "")
-        {
-            return Interaction.GetSetting(Application.CompanyName, Application.ProductName, Name, Default);
-        }
+        public static string get_Setting(string Name, string Default = "") => Interaction.GetSetting(Application.CompanyName, Application.ProductName, Name, Default);
 
-        public static void set_Setting(string Name, string value, string Default = "")
-        {
-            Interaction.SaveSetting(Application.CompanyName, Application.ProductName, Name, value);
-        }
+        public static void set_Setting(string Name, string value, string Default = "") => Interaction.SaveSetting(Application.CompanyName, Application.ProductName, Name, value);
 
         public static void RemoveSetting(string Name)
         {
-            if (!string.IsNullOrWhiteSpace(get_Setting(Name)))
+            if (!String.IsNullOrWhiteSpace(get_Setting(Name)))
             {
                 Interaction.DeleteSetting(Application.CompanyName, Application.ProductName, Name);
             }
         }
 
-        public static long get_SettingInt(string Name, long Default = 0)
-        {
-            return (long)Conversion.Val(get_Setting(Name, Conversions.ToString(Default)));
-        }
+        public static long get_SettingInt(string Name, long Default = 0) => (long)Conversion.Val(get_Setting(Name, Conversions.ToString(Default)));
 
-        public static void set_SettingInt(string Name, long value, long Default = 0)
-        {
-            set_Setting(Name, value.ToString());
-        }
+        public static void set_SettingInt(string Name, long value, long Default = 0) => set_Setting(Name, value.ToString());
 
         public static string[] get_SettingIDs(string Name)
         {
             // Return Array.ConvertAll(Setting(Name, "0").Split(";"), New Converter(Of String, Long)(Function(a) CLng(a)))
             string tmp = get_Setting(Name);
-            if (string.IsNullOrWhiteSpace(tmp))
+            if (String.IsNullOrWhiteSpace(tmp))
             {
                 return new string[] { };
             }
@@ -51,10 +39,7 @@ namespace Morysoft.MorySnip
             }
         }
 
-        public static void set_SettingIDs(string Name, string[] value)
-        {
-            set_Setting(Name, string.Join(";", value));
-        }
+        public static void set_SettingIDs(string Name, string[] value) => set_Setting(Name, String.Join(";", value));
 
         public static void SettingAddID(string Name, string Id)
         {
@@ -64,10 +49,7 @@ namespace Morysoft.MorySnip
             }
         }
 
-        public static void SettingRemoveID(string Name, string Id)
-        {
-            set_Setting(Name, (";" + get_Setting(Name) + ";").Replace(";" + Id + ";", "").Trim(';'));
-        }
+        public static void SettingRemoveID(string Name, string Id) => set_Setting(Name, (";" + get_Setting(Name) + ";").Replace(";" + Id + ";", "").Trim(';'));
 
         public static void SetDefaultSettings()
         {
@@ -94,9 +76,9 @@ namespace Morysoft.MorySnip
             string CultureName = get_Setting("CultureCode");
             bool Found = false;
 
-            if (!string.IsNullOrEmpty(CultureName))
+            if (!String.IsNullOrEmpty(CultureName))
             {
-                foreach (CultureInfo Culture in CultureInfo.GetCultures(CultureTypes.AllCultures))
+                foreach (var Culture in CultureInfo.GetCultures(CultureTypes.AllCultures))
                 {
                     if ((Culture.Name ?? "") == (CultureName ?? ""))
                     {
@@ -118,13 +100,7 @@ namespace Morysoft.MorySnip
             set => set_Setting("DefaultPath", value);
         }
 
-        public static string[] FileTypes
-        {
-            get
-            {
-                return new string[] { "Png", "Bmp", "Emf", "Exif", "Gif", "Ico", "Jpg", "Tiff", "Wmf" };
-            }
-        }
+        public static string[] FileTypes => new string[] { "Png", "Bmp", "Emf", "Exif", "Gif", "Ico", "Jpg", "Tiff", "Wmf" };
 
         public static int FileType
         {
@@ -132,13 +108,7 @@ namespace Morysoft.MorySnip
             set => set_SettingInt(nameof(FileType), value);
         }
 
-        public static string FileTypeString
-        {
-            get
-            {
-                return FileTypes[FileType];
-            }
-        }
+        public static string FileTypeString => FileTypes[FileType];
 
         public static int ShareQuality
         {
@@ -170,14 +140,11 @@ namespace Morysoft.MorySnip
             set => set_SettingIDs("History", value);
         }
 
-        public static string get_SettingHistoryTitle(string Id)
-        {
-            return get_Setting("History_Title_" + Id);
-        }
+        public static string get_SettingHistoryTitle(string Id) => get_Setting("History_Title_" + Id);
 
         public static void set_SettingHistoryTitle(string Id, string value)
         {
-            if (string.IsNullOrWhiteSpace(value))
+            if (String.IsNullOrWhiteSpace(value))
             {
                 RemoveSetting("History_Title_" + Id);
             }

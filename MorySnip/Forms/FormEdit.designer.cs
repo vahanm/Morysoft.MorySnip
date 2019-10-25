@@ -189,7 +189,7 @@ namespace Morysoft.MorySnip
             this.Editor_Main.LastNumber = 1;
             resources.ApplyResources(this.Editor_Main, "_Editor_Main");
             this.Editor_Main.Name = "_Editor_Main";
-            this.Editor_Main.PaintMode = Morysoft.MorySnip.Editor.PaintModes.Rect;
+            this.Editor_Main.PaintMode = Morysoft.MorySnip.Editor.EditorPaintMode.Rect;
             this.Editor_Main.LastNumberChanged += new Morysoft.MorySnip.Editor.LastNumberChangedEventHandler(this.Editor_Main_LastNumberChanged);
             // 
             // ToolStrip_Draw

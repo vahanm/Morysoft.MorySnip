@@ -1,13 +1,12 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Globalization;
 using System.Net;
-using System.IO;
 using System.Net.Cache;
-using System.Xml;
 using System.Reflection;
-using Microsoft.Win32;
-using System.ComponentModel;
 using System.Threading;
+using System.Xml;
+using Microsoft.Win32;
 
 namespace AutoUpdaterDotNET
 {
@@ -71,10 +70,7 @@ namespace AutoUpdaterDotNET
         /// <summary>
         /// Start checking for new version of application and display dialog to the user if update is available.
         /// </summary>
-        public static void Start()
-        {
-            Start(AppCastURL);
-        }
+        public static void Start() => Start(AppCastURL);
 
         /// <summary>
         /// Start checking for new version of application and display dialog to the user if update is available.
@@ -83,7 +79,7 @@ namespace AutoUpdaterDotNET
         public static void Start(String appCast)
         {
             AppCastURL = appCast;
-            
+
             var backgroundWorker = new BackgroundWorker();
 
             backgroundWorker.DoWork += BackgroundWorkerDoWork;
@@ -94,22 +90,22 @@ namespace AutoUpdaterDotNET
         private static void BackgroundWorkerDoWork(object sender, DoWorkEventArgs e)
         {
             var mainAssembly = Assembly.GetEntryAssembly();
-            var companyAttribute = (AssemblyCompanyAttribute) GetAttribute(mainAssembly, typeof (AssemblyCompanyAttribute));
-            var titleAttribute = (AssemblyTitleAttribute) GetAttribute(mainAssembly, typeof (AssemblyTitleAttribute));
+            var companyAttribute = (AssemblyCompanyAttribute)GetAttribute(mainAssembly, typeof(AssemblyCompanyAttribute));
+            var titleAttribute = (AssemblyTitleAttribute)GetAttribute(mainAssembly, typeof(AssemblyTitleAttribute));
             AppTitle = titleAttribute != null ? titleAttribute.Title : mainAssembly.GetName().Name;
-            var appCompany = companyAttribute != null ? companyAttribute.Company : "";
+            string appCompany = companyAttribute != null ? companyAttribute.Company : "";
 
-            RegistryLocation = !string.IsNullOrEmpty(appCompany) ? string.Format(@"Software\{0}\{1}\AutoUpdater", appCompany, AppTitle) : string.Format(@"Software\{0}\AutoUpdater", AppTitle);
+            RegistryLocation = !String.IsNullOrEmpty(appCompany) ? String.Format(@"Software\{0}\{1}\AutoUpdater", appCompany, AppTitle) : String.Format(@"Software\{0}\AutoUpdater", AppTitle);
 
-            RegistryKey updateKey = Registry.CurrentUser.OpenSubKey(RegistryLocation);
+            var updateKey = Registry.CurrentUser.OpenSubKey(RegistryLocation);
 
             if (updateKey != null)
             {
                 object remindLaterTime = updateKey.GetValue("remindlater");
- 
+
                 if (remindLaterTime != null)
                 {
-                    DateTime remindLater = Convert.ToDateTime(remindLaterTime.ToString(), CultureInfo.CreateSpecificCulture("en-US"));
+                    var remindLater = Convert.ToDateTime(remindLaterTime.ToString(), CultureInfo.CreateSpecificCulture("en-US"));
 
                     int compareResult = DateTime.Compare(DateTime.Now, remindLater);
 
@@ -124,7 +120,7 @@ namespace AutoUpdaterDotNET
 
             InstalledVersion = mainAssembly.GetName().Version;
 
-            WebRequest webRequest = WebRequest.Create(AppCastURL);
+            var webRequest = WebRequest.Create(AppCastURL);
             webRequest.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
 
             WebResponse webResponse;
@@ -138,42 +134,55 @@ namespace AutoUpdaterDotNET
                 return;
             }
 
-            Stream appCastStream = webResponse.GetResponseStream();
+            var appCastStream = webResponse.GetResponseStream();
 
             var receivedAppCastDocument = new XmlDocument();
 
-            if (appCastStream != null) receivedAppCastDocument.Load(appCastStream);
-            else return;
+            if (appCastStream != null)
+            {
+                receivedAppCastDocument.Load(appCastStream);
+            }
+            else
+            {
+                return;
+            }
 
-            XmlNodeList appCastItems = receivedAppCastDocument.SelectNodes("item");
+            var appCastItems = receivedAppCastDocument.SelectNodes("item");
 
             if (appCastItems != null)
+            {
                 foreach (XmlNode item in appCastItems)
                 {
-                    XmlNode appCastVersion = item.SelectSingleNode("version");
+                    var appCastVersion = item.SelectSingleNode("version");
                     if (appCastVersion != null)
                     {
                         String appVersion = appCastVersion.InnerText;
                         var version = new Version(appVersion);
                         if (version <= InstalledVersion)
+                        {
                             continue;
+                        }
+
                         CurrentVersion = version;
                     }
                     else
+                    {
                         continue;
+                    }
 
-                    XmlNode appCastTitle = item.SelectSingleNode("title");
+                    var appCastTitle = item.SelectSingleNode("title");
 
                     DialogTitle = appCastTitle != null ? appCastTitle.InnerText : "";
 
-                    XmlNode appCastChangeLog = item.SelectSingleNode("changelog");
+                    var appCastChangeLog = item.SelectSingleNode("changelog");
 
                     ChangeLogURL = appCastChangeLog != null ? appCastChangeLog.InnerText : "";
 
-                    XmlNode appCastUrl = item.SelectSingleNode("url");
+                    var appCastUrl = item.SelectSingleNode("url");
 
                     DownloadURL = appCastUrl != null ? appCastUrl.InnerText : "";
                 }
+            }
 
             if (updateKey != null)
             {
@@ -184,10 +193,13 @@ namespace AutoUpdaterDotNET
                     string skipValue = skip.ToString();
                     var skipVersion = new Version(applicationVersion.ToString());
                     if (skipValue.Equals("1") && CurrentVersion <= skipVersion)
+                    {
                         return;
+                    }
+
                     if (CurrentVersion > skipVersion)
                     {
-                        RegistryKey updateKeyWrite = Registry.CurrentUser.CreateSubKey(RegistryLocation);
+                        var updateKeyWrite = Registry.CurrentUser.CreateSubKey(RegistryLocation);
                         if (updateKeyWrite != null)
                         {
                             updateKeyWrite.SetValue("version", CurrentVersion.ToString());
@@ -199,7 +211,9 @@ namespace AutoUpdaterDotNET
             }
 
             if (CurrentVersion == null)
+            {
                 return;
+            }
 
             if (CurrentVersion > InstalledVersion)
             {
@@ -217,14 +231,14 @@ namespace AutoUpdaterDotNET
             updateForm.ShowDialog();
         }
 
-        private static Attribute GetAttribute (Assembly assembly,Type attributeType)
+        private static Attribute GetAttribute(Assembly assembly, Type attributeType)
         {
-            var attributes = assembly.GetCustomAttributes ( attributeType, false );
-            if ( attributes.Length == 0 )
+            object[] attributes = assembly.GetCustomAttributes(attributeType, false);
+            if (attributes.Length == 0)
             {
                 return null;
             }
-            return (Attribute) attributes[0];
+            return (Attribute)attributes[0];
         }
     }
 }

@@ -1,9 +1,9 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
-using System.Collections.Generic;
-using System;
 using Microsoft.VisualBasic.CompilerServices;
 using Microsoft.VisualBasic.Devices;
 
@@ -86,61 +86,61 @@ namespace Morysoft.MorySnip
             switch (this.LastButton)
             {
                 case MouseButtons.Left:
+                {
+                    this.Hide();
+
+                    if (!(new Keyboard()).AltKeyDown)
                     {
-                        this.Hide();
-
-                        if (!(new Keyboard()).AltKeyDown)
+                        capture();
+                    }
+                    else
+                    {
+                        using (var acf = new Form_AutoCapture())
                         {
-                            capture();
-                        }
-                        else
-                        {
-                            using (var acf = new Form_AutoCapture())
+                            if (acf.ShowDialog() != DialogResult.OK)
                             {
-                                if (acf.ShowDialog() != DialogResult.OK)
+                                Environment.Exit(0);
+                            }
+                            else
+                            {
+                                void wait(int milliseconds) => Process.GetCurrentProcess().WaitForExit(milliseconds);
+
+                                int waitMilliseconds = (int)acf.NumericUpDown_Start.Value * 1000;
+                                int intervalMilliseconds = (int)acf.NumericUpDown_Interval.Value;
+                                int count = (int)acf.NumericUpDown_Count.Value;
+
+                                this.bordersOnlyMode = true;
+                                this.Opacity = 1;
+                                this.Show();
+                                this.Refresh();
+
+                                for (int i = 1, loopTo = count; i <= loopTo; i++)
                                 {
-                                    Environment.Exit(0);
-                                }
-                                else
-                                {
-                                    void wait(int milliseconds) => Process.GetCurrentProcess().WaitForExit(milliseconds);
-
-                                    int waitMilliseconds = (int)acf.NumericUpDown_Start.Value * 1000;
-                                    int intervalMilliseconds = (int)acf.NumericUpDown_Interval.Value;
-                                    int count = (int)acf.NumericUpDown_Count.Value;
-
-                                    this.bordersOnlyMode = true;
-                                    this.Opacity = 1;
-                                    this.Show();
-                                    this.Refresh();
-
-                                    for (int i = 1, loopTo = count; i <= loopTo; i++)
-                                    {
-                                        wait(i == 1 ? waitMilliseconds : intervalMilliseconds);
-                                        capture();
-                                    }
+                                    wait(i == 1 ? waitMilliseconds : intervalMilliseconds);
+                                    capture();
                                 }
                             }
                         }
-
-                        this.Hide();
-                        this.SaveForm.Images.AddRange(images);
-                        this.SaveForm.ShowDialog();
-                        this.Close();
-                        break;
                     }
+
+                    this.Hide();
+                    this.SaveForm.Images.AddRange(images);
+                    this.SaveForm.ShowDialog();
+                    this.Close();
+                    break;
+                }
 
                 case MouseButtons.Right:
-                    {
-                        this.Hide();
+                {
+                    this.Hide();
 
-                        capture();
+                    capture();
 
-                        this.Images.AddRange(images);
-                        this.Publish_ToClipboard(0);
-                        this.Close();
-                        break;
-                    }
+                    this.Images.AddRange(images);
+                    this.Publish_ToClipboard(0);
+                    this.Close();
+                    break;
+                }
             }
         }
 
@@ -155,10 +155,7 @@ namespace Morysoft.MorySnip
             this.Refresh();
         }
 
-        private void ShowMenu()
-        {
-            this.Menu_Snip.Show(Cursor.Position);
-        }
+        private void ShowMenu() => this.Menu_Snip.Show(Cursor.Position);
 
         protected override void OnPaintBackground(PaintEventArgs e)
         {
@@ -188,7 +185,7 @@ namespace Morysoft.MorySnip
                     var r2 = Helpers.ReduceRatio(Conversions.ToUInteger(this.w), Conversions.ToUInteger(this.h));
                     bool approximate = !(r1 == r2);
 
-                    g.DrawString(string.Format("{0:# ##0px} - {1:# ##0px} -- {4}{2}:{3}", this.w, this.h, r1.Width, r1.Height, Interaction.IIf(approximate, "≈", "")), new Font(this.Font.FontFamily, 11, FontStyle.Italic, GraphicsUnit.Pixel), Brushes.White, this.x, this.y - 14);
+                    g.DrawString(String.Format("{0:# ##0px} - {1:# ##0px} -- {4}{2}:{3}", this.w, this.h, r1.Width, r1.Height, Interaction.IIf(approximate, "≈", "")), new Font(this.Font.FontFamily, 11, FontStyle.Italic, GraphicsUnit.Pixel), Brushes.White, this.x, this.y - 14);
                 }
             }
             else if ((new Mouse()).ButtonsSwapped)
@@ -293,24 +290,12 @@ namespace Morysoft.MorySnip
             }
         }
 
-        private void Menu_Snip_FullScreen_Click(object sender, EventArgs e)
-        {
-            this.Snip_FullScreen();
-        }
+        private void Menu_Snip_FullScreen_Click(object sender, EventArgs e) => this.Snip_FullScreen();
 
-        private void Menu_Snip_Exit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        private void Menu_Snip_Exit_Click(object sender, EventArgs e) => this.Close();
 
-        private void Menu_Snip_FromClipboard_Click(object sender, EventArgs e)
-        {
-            this.Snip_FromClipboard();
-        }
+        private void Menu_Snip_FromClipboard_Click(object sender, EventArgs e) => this.Snip_FromClipboard();
 
-        private void Menu_Snip_FromFile_Click(object sender, EventArgs e)
-        {
-            this.Snip_FromFile();
-        }
+        private void Menu_Snip_FromFile_Click(object sender, EventArgs e) => this.Snip_FromFile();
     }
 }

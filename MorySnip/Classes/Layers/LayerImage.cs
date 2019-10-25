@@ -12,9 +12,6 @@ namespace Morysoft.MorySnip
 
         public Bitmap Image { get; set; }
 
-        public override void Paint(Graphics g)
-        {
-            g.DrawImage(this.Image, this.Bounds);
-        }
+        public override void Paint(Graphics g) => g.DrawImage(this.Image, this.Bounds);
     }
 }

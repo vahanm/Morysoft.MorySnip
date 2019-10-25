@@ -1,5 +1,5 @@
-﻿using System.Windows.Forms;
-using System;
+﻿using System;
+using System.Windows.Forms;
 
 namespace Morysoft.MorySnip
 {
@@ -31,10 +31,7 @@ namespace Morysoft.MorySnip
             }
         }
 
-        private void ComboBox_Type_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Settings.FileType = this.ComboBox_Type.SelectedIndex;
-        }
+        private void ComboBox_Type_SelectedIndexChanged(object sender, EventArgs e) => Settings.FileType = this.ComboBox_Type.SelectedIndex;
 
         private void Form_Closing(object sender, FormClosingEventArgs e)
         {

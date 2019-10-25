@@ -1,8 +1,8 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
-using System;
-using System.Threading;
 using Microsoft.VisualBasic.CompilerServices;
 
 namespace Morysoft.MorySnip.My

@@ -3,13 +3,13 @@ using Microsoft.VisualBasic.CompilerServices;
 
 namespace Morysoft.MorySnip
 {
-    public class Layer_Number : Layer
+    public class LayerNumber : Layer
     {
-        public Layer_Number()
+        public LayerNumber()
         {
         }
 
-        public Layer_Number(Pen Pen, Brush Brush, Point FirstPoint, int Number)
+        public LayerNumber(Pen Pen, Brush Brush, Point FirstPoint, int Number)
         {
             this.Pen = Pen;
             this.Brush = Brush;

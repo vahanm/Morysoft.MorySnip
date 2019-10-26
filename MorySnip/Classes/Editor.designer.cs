@@ -36,18 +36,17 @@ namespace Morysoft.MorySnip
             // 
             // Editor
             // 
-            this.AutoScaleDimensions = new SizeF(6.0F, 13.0F);
-            this.AutoScaleMode = AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.DoubleBuffered = true;
             this.Name = "Editor";
-            this.BackgroundImageChanged += Editor_BackgroundImageChanged;
-            this.KeyDown += Editor_KeyDown;
-            this.MouseClick += Editor_MouseClick;
-            this.MouseDown += Editor_MouseDown;
-            this.MouseMove += Editor_MouseMove;
-            this.MouseUp += Editor_MouseUp;
-            this.MouseWheel += Editor_MouseWheel;
+            this.BackgroundImageChanged += new System.EventHandler(this.Editor_BackgroundImageChanged);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Editor_MouseClick);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Editor_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Editor_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Editor_MouseUp);
             this.ResumeLayout(false);
+
         }
     }
 }

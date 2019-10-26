@@ -53,20 +53,21 @@ namespace Morysoft.MorySnip
             SendViaEmail = (1 << 30)
         }
 
-        public List<Screenshot> Images = new List<Screenshot>();
+        public List<Screenshot> Images { get; } = new List<Screenshot>();
 
-        public bool Publish_ToClipboard(int imageNumber)
+        public bool PublishToClipboard(int imageNumber)
         {
             do
             {
                 try
                 {
                     Clipboard.SetImage(this.Images[imageNumber].Image);
+
                     return true;
                 }
                 catch (Exception ex)
                 {
-                    if ((int)Interaction.MsgBox(ex.Message, MsgBoxStyle.Critical | MsgBoxStyle.RetryCancel) == (int)MsgBoxResult.Cancel)
+                    if (Interaction.MsgBox(ex.Message, MsgBoxStyle.Critical | MsgBoxStyle.RetryCancel) == MsgBoxResult.Cancel)
                     {
                         return false;
                     }
@@ -76,8 +77,7 @@ namespace Morysoft.MorySnip
 
             return false;
         }
-
-        public bool Publish_SaveToFile(PublishOptions Options = PublishOptions.SaveToFile)
+        public bool PublishSaveToFile(PublishOptions Options = PublishOptions.SaveToFile)
         {
             int imageNumber = (int)(Options & PublishOptions.OnlyImageNumber);
             string path = "";
@@ -180,7 +180,7 @@ namespace Morysoft.MorySnip
             return true;
         }
 
-        public int AddImage_FromClipboard()
+        public int AddImageFromClipboard()
         {
             if (Clipboard.ContainsImage())
             {
@@ -259,7 +259,7 @@ namespace Morysoft.MorySnip
             return default;
         }
 
-        public object AddImage_FullScreen(int ScreenNumber = -1)
+        public object AddImageFullScreen(int ScreenNumber = -1)
         {
             Point vl;
             Size vs;
@@ -292,7 +292,7 @@ namespace Morysoft.MorySnip
             return 1;
         }
 
-        public int AddImage_FromSnippingTool()
+        public int AddImageFromSnippingTool()
         {
             int ImagesCount = this.Images.Count;
 
@@ -309,7 +309,7 @@ namespace Morysoft.MorySnip
             return this.Images.Count - ImagesCount;
         }
 
-        public int AddImage_FromFile()
+        public int AddImageFromFile()
         {
             using (var od = new OpenFileDialog()
             {
@@ -366,7 +366,7 @@ namespace Morysoft.MorySnip
             }
         }
 
-        public void Snip_FromClipboard()
+        public void SnipFromClipboard()
         {
             if (Clipboard.ContainsImage())
             {
@@ -438,7 +438,7 @@ namespace Morysoft.MorySnip
             Interaction.MsgBox("No image or image file path in clipboard.", MsgBoxStyle.Critical);
         }
 
-        public void Snip_FullScreen()
+        public void SnipFullScreen()
         {
             this.Hide();
 
@@ -455,9 +455,9 @@ namespace Morysoft.MorySnip
             this.Close();
         }
 
-        public void Snip_Screen(int index) => throw new NotImplementedException();
+        public void SnipScreen(int index) => throw new NotImplementedException();
 
-        public void Snip_FromFile()
+        public void SnipFromFile()
         {
             var od = new OpenFileDialog()
             {

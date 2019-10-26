@@ -184,7 +184,7 @@ namespace Morysoft.MorySnip
 
         public void ResetImageSizeAndPosition()
         {
-            if (this.BackgroundImage != null)
+            if (!(this.BackgroundImage is null))
             {
                 this.Size = this.BackgroundImage.Size;
                 this.ImagePosition = new Point();

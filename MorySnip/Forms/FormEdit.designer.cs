@@ -183,12 +183,12 @@ namespace Morysoft.MorySnip
             this.Resizer_Right.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Resizers_MouseDown);
             this.Resizer_Right.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Resizer_Right_MouseMove);
             // 
-            // _Editor_Main
+            // Editor_Main
             // 
             this.Editor_Main.FillObjecs = false;
             this.Editor_Main.LastNumber = 1;
-            resources.ApplyResources(this.Editor_Main, "_Editor_Main");
-            this.Editor_Main.Name = "_Editor_Main";
+            resources.ApplyResources(this.Editor_Main, "Editor_Main");
+            this.Editor_Main.Name = "Editor_Main";
             this.Editor_Main.PaintMode = Morysoft.MorySnip.Editor.EditorPaintMode.Rect;
             this.Editor_Main.LastNumberChanged += new Morysoft.MorySnip.Editor.LastNumberChangedEventHandler(this.Editor_Main_LastNumberChanged);
             // 
@@ -692,6 +692,8 @@ namespace Morysoft.MorySnip
             this.Controls.Add(this.ToolStripContainer_Main);
             this.Name = "Form_Edit";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Form_Edit_Load);
+            this.BackgroundImageChanged += new System.EventHandler(this.Form_Edit_BackgroundImageChanged);
             this.ToolStripContainer_Main.ContentPanel.ResumeLayout(false);
             this.ToolStripContainer_Main.LeftToolStripPanel.ResumeLayout(false);
             this.ToolStripContainer_Main.LeftToolStripPanel.PerformLayout();

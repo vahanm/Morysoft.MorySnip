@@ -137,7 +137,7 @@ namespace Morysoft.MorySnip
                     capture();
 
                     this.Images.AddRange(images);
-                    this.Publish_ToClipboard(0);
+                    this.PublishToClipboard(0);
                     this.Close();
                     break;
                 }
@@ -290,12 +290,12 @@ namespace Morysoft.MorySnip
             }
         }
 
-        private void Menu_Snip_FullScreen_Click(object sender, EventArgs e) => this.Snip_FullScreen();
+        private void Menu_Snip_FullScreen_Click(object sender, EventArgs e) => this.SnipFullScreen();
 
         private void Menu_Snip_Exit_Click(object sender, EventArgs e) => this.Close();
 
-        private void Menu_Snip_FromClipboard_Click(object sender, EventArgs e) => this.Snip_FromClipboard();
+        private void Menu_Snip_FromClipboard_Click(object sender, EventArgs e) => this.SnipFromClipboard();
 
-        private void Menu_Snip_FromFile_Click(object sender, EventArgs e) => this.Snip_FromFile();
+        private void Menu_Snip_FromFile_Click(object sender, EventArgs e) => this.SnipFromFile();
     }
 }

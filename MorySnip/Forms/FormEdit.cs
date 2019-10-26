@@ -48,7 +48,7 @@ namespace Morysoft.MorySnip
         public Screenshot Image
         {
             get => this.Editor_Main.BackgroundImage;
-            set => this.Editor_Main.BackgroundImage = (Image)value.Image.Clone();
+            set => this.Editor_Main.BackgroundImage = (Image)value?.Image?.Clone();
         }
 
         private void RedToolStripMenuItem_Click(object sender, EventArgs e)
@@ -361,7 +361,7 @@ namespace Morysoft.MorySnip
         {
             this.Render();
 
-            if (this.Publish_SaveToFile(PublishOptions.SaveToFile | PublishOptions.CopyPathOrULR))
+            if (this.PublishSaveToFile(PublishOptions.SaveToFile | PublishOptions.CopyPathOrULR))
             {
                 this.Close();
             }
@@ -371,7 +371,7 @@ namespace Morysoft.MorySnip
         {
             this.Render();
 
-            if (this.Publish_SaveToFile(PublishOptions.SaveToFile | PublishOptions.SaveAs | PublishOptions.CopyPathOrULR))
+            if (this.PublishSaveToFile(PublishOptions.SaveToFile | PublishOptions.SaveAs | PublishOptions.CopyPathOrULR))
             {
                 this.Close();
             }
@@ -381,7 +381,7 @@ namespace Morysoft.MorySnip
         {
             this.Render();
 
-            if (this.Publish_ToClipboard(0))
+            if (this.PublishToClipboard(0))
             {
                 this.Close();
             }

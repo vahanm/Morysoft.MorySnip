@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
+using Morysoft.MorySnip.Modules;
 
 namespace Morysoft.MorySnip
 {
@@ -34,9 +35,9 @@ namespace Morysoft.MorySnip
             {
             }
 
-            if (this.Images.Count == 1)
+            if (this.Screenshotes.Count == 1)
             {
-                this.BackgroundImage = this.Images[0].Image;
+                this.BackgroundImage = this.Screenshotes[0].Image;
             }
 
             for (int num = 1, loopTo = this.LastNumberMax; num <= loopTo; num++)
@@ -45,7 +46,7 @@ namespace Morysoft.MorySnip
             }
         }
 
-        public Screenshot Image
+        public Screenshot Screenshot
         {
             get => this.Editor_Main.BackgroundImage;
             set => this.Editor_Main.BackgroundImage = (Image)value?.Image?.Clone();
@@ -354,14 +355,14 @@ namespace Morysoft.MorySnip
         private void Render()
         {
             this.Editor_Main.Render();
-            this.Images[0] = this.Editor_Main.BackgroundImage;
+            this.Screenshotes[0] = this.Editor_Main.BackgroundImage;
         }
 
         private void Button_Save_Click(object sender, EventArgs e)
         {
             this.Render();
 
-            if (this.PublishSaveToFile(PublishOptions.SaveToFile | PublishOptions.CopyPathOrULR))
+            if (Publisher.Publish(PublishOptions.SaveToFile | PublishOptions.CopyPathOrULR, this.Screenshot))
             {
                 this.Close();
             }
@@ -371,7 +372,7 @@ namespace Morysoft.MorySnip
         {
             this.Render();
 
-            if (this.PublishSaveToFile(PublishOptions.SaveToFile | PublishOptions.SaveAs | PublishOptions.CopyPathOrULR))
+            if (Publisher.Publish(PublishOptions.SaveToFile | PublishOptions.SaveAs | PublishOptions.CopyPathOrULR, this.Screenshot))
             {
                 this.Close();
             }
@@ -381,7 +382,7 @@ namespace Morysoft.MorySnip
         {
             this.Render();
 
-            if (this.PublishToClipboard(0))
+            if (Publisher.Publish(PublishOptions.CopyImage, this.Screenshot))
             {
                 this.Close();
             }

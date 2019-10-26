@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using Microsoft.VisualBasic.Devices;
+using Morysoft.MorySnip.Modules;
 
 namespace Morysoft.MorySnip
 {
@@ -124,7 +125,7 @@ namespace Morysoft.MorySnip
                     }
 
                     this.Hide();
-                    this.SaveForm.Images.AddRange(images);
+                    this.SaveForm.Screenshotes.AddRange(images);
                     this.SaveForm.ShowDialog();
                     this.Close();
                     break;
@@ -136,8 +137,8 @@ namespace Morysoft.MorySnip
 
                     capture();
 
-                    this.Images.AddRange(images);
-                    this.PublishToClipboard(0);
+                    this.Screenshotes.AddRange(images);
+                    Publisher.Publish(PublishOptions.CopyImage, images.ToArray());
                     this.Close();
                     break;
                 }

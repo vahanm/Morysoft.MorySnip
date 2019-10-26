@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using Microsoft.VisualBasic.Devices;
+using Morysoft.MorySnip.Modules;
 
 namespace Morysoft.MorySnip
 {
@@ -35,156 +36,13 @@ namespace Morysoft.MorySnip
             set => this._saveForm = value;
         }
 
-        public enum PublishOptions : int
-        {
-            OnlyImageNumber = (1 << 16) - 1,
-            CopyPathOrULR = (1 << 17),
-            CopyImage = (1 << 18),
-            OpenFolder = (1 << 19),
-            SaveToFile = (1 << 24),
-            SaveAs = (1 << 25),
-            WebSharing = (1 << 28), // Base service
-
-            AsAlbum = (1 << 29),
-            ShareViaFacebook = (1 << 26), // 67,108,864
-
-            ShareViaOdnoklassniki = (1 << 27), // 134,217,728
-
-            SendViaEmail = (1 << 30)
-        }
-
-        public List<Screenshot> Images { get; } = new List<Screenshot>();
-
-        public bool PublishToClipboard(int imageNumber)
-        {
-            do
-            {
-                try
-                {
-                    Clipboard.SetImage(this.Images[imageNumber].Image);
-
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    if (Interaction.MsgBox(ex.Message, MsgBoxStyle.Critical | MsgBoxStyle.RetryCancel) == MsgBoxResult.Cancel)
-                    {
-                        return false;
-                    }
-                }
-            }
-            while (true);
-
-            return false;
-        }
-        public bool PublishSaveToFile(PublishOptions Options = PublishOptions.SaveToFile)
-        {
-            int imageNumber = (int)(Options & PublishOptions.OnlyImageNumber);
-            string path = "";
-
-            path += Settings.DefaultPath;
-
-            path += @"\" + DateAndTime.Now.ToString("yyyy-MM-dd HH-mm-ss-ffff") + "." + Settings.FileTypeString.ToLower();
-
-            if (!Directory.Exists(Settings.DefaultPath) && (Options & PublishOptions.SaveToFile) == PublishOptions.SaveToFile || (Options & PublishOptions.SaveAs) == PublishOptions.SaveAs)
-            {
-                using (var sfd = new SaveFileDialog()
-                {
-                    AddExtension = true,
-                    CheckPathExists = true,
-                    CheckFileExists = false,
-                    DefaultExt = "PNG|*.png",
-                    Filter = Settings.FileTypes.Aggregate((a, i) => a + i.ToUpper() + "|*." + i.ToLower() + "|") + "All Files|*.*"
-                })
-                {
-                    if (sfd.ShowDialog() != DialogResult.OK)
-                    {
-                        return false;
-                    }
-
-                    path = sfd.FileName;
-                }
-            }
-
-            var tmp = this.Images[imageNumber].Image;
-
-            switch (Path.GetExtension(path).Substring(1))
-            {
-                case "Bmp":
-                {
-                    tmp.Save(path, ImageFormat.Bmp);
-                    break;
-                }
-
-                case "Emf":
-                {
-                    tmp.Save(path, ImageFormat.Emf);
-                    break;
-                }
-
-                case "Exif":
-                {
-                    tmp.Save(path, ImageFormat.Exif);
-                    break;
-                }
-
-                case "Gif":
-                {
-                    tmp.Save(path, ImageFormat.Gif);
-                    break;
-                }
-
-                case "Ico":
-                {
-                    tmp.Save(path, ImageFormat.Icon);
-                    break;
-                }
-
-                case "Jpeg":
-                case "jpg":
-                {
-                    tmp.Save(path, ImageFormat.Jpeg);
-                    break;
-                }
-
-                case "Png":
-                {
-                    tmp.Save(path, ImageFormat.Png);
-                    break;
-                }
-
-                case "Tiff":
-                {
-                    tmp.Save(path, ImageFormat.Tiff);
-                    break;
-                }
-
-                case "Wmf":
-                {
-                    tmp.Save(path, ImageFormat.Wmf);
-                    break;
-                }
-
-                default:
-                {
-                    tmp.Save(path);
-                    break;
-                }
-            }
-
-            if ((Options & PublishOptions.SaveAs) == PublishOptions.SaveAs)
-            {
-                Interaction.Shell("explorer /select, \"" + path + "\"", AppWinStyle.NormalFocus);
-            }
-
-            return true;
-        }
+        public List<Screenshot> Screenshotes { get; } = new List<Screenshot>();
 
         public int AddImageFromClipboard()
         {
             if (Clipboard.ContainsImage())
             {
-                this.Images.Add(Clipboard.GetImage());
+                this.Screenshotes.Add(Clipboard.GetImage());
 
                 return 1;
             }
@@ -213,7 +71,7 @@ namespace Morysoft.MorySnip
                             OriginalPath = localPath
                         };
 
-                        this.Images.Add(tempImage);
+                        this.Screenshotes.Add(tempImage);
 
                         count += 1;
                     }
@@ -243,7 +101,7 @@ namespace Morysoft.MorySnip
                             OriginalPath = localPath
                         };
 
-                        this.Images.Add(tempImage);
+                        this.Screenshotes.Add(tempImage);
 
                         count += 1;
                     }
@@ -284,7 +142,7 @@ namespace Morysoft.MorySnip
 
             g.CopyFromScreen(vl.X, vl.Y, 0, 0, vs);
 
-            this.Images.Add(b);
+            this.Screenshotes.Add(b);
 
             this.Show();
             this.Opacity = 1;
@@ -294,19 +152,21 @@ namespace Morysoft.MorySnip
 
         public int AddImageFromSnippingTool()
         {
-            int ImagesCount = this.Images.Count;
+            int imagesCount = this.Screenshotes.Count;
 
             this.Hide();
+
+            using (var withBlock = new Form_SnippingTool
             {
-                var withBlock = new Form_SnippingTool
-                {
-                    SaveForm = this
-                };
+                SaveForm = this
+            })
+            {
                 withBlock.ShowDialog();
             }
+
             this.Show();
 
-            return this.Images.Count - ImagesCount;
+            return this.Screenshotes.Count - imagesCount;
         }
 
         public int AddImageFromFile()
@@ -333,7 +193,7 @@ namespace Morysoft.MorySnip
                                 string LocalPath = new Uri(path).LocalPath;
                                 Screenshot TempImage = Image.FromFile(LocalPath);
                                 TempImage.OriginalPath = LocalPath;
-                                this.Images.Add(TempImage);
+                                this.Screenshotes.Add(TempImage);
                                 imagesAdd += 1;
 
                                 return true;
@@ -368,87 +228,26 @@ namespace Morysoft.MorySnip
 
         public void SnipFromClipboard()
         {
-            if (Clipboard.ContainsImage())
+            var screenshotes = Snipper.FromClipboard();
+
+            this.SaveForm.Screenshotes.AddRange(screenshotes);
+
+            if (this.SaveForm.Screenshotes.Count == 0)
             {
-                this.SaveForm.Images.Add(Clipboard.GetImage());
+                Interaction.MsgBox("No image or image file path in clipboard.", MsgBoxStyle.Critical);
+            }
+            else
+            {
                 this.SaveForm.Show();
                 this.Close();
-
-                return;
             }
-            else if (Clipboard.ContainsText())
-            {
-                string paths = Clipboard.GetText();
-
-                foreach (string path in paths.Split('"', '\'', ';', Conversions.ToChar(Constants.vbCr), Conversions.ToChar(Constants.vbLf)).Select(fn => fn.Trim('"', '\'')))
-                {
-                    try
-                    {
-                        string localPath = new Uri(path).LocalPath;
-                        Screenshot tempImage = Image.FromFile(localPath);
-
-                        tempImage.OriginalPath = localPath;
-
-                        this.SaveForm.Images.Add(tempImage);
-                    }
-                    catch (Exception ex)
-                    {
-                    }
-                }
-
-                if (this.SaveForm.Images.Count > 0)
-                {
-                    this.SaveForm.Show();
-                    this.Close();
-
-                    return;
-                }
-            }
-            else if (Clipboard.ContainsFileDropList())
-            {
-                var filesDrop = Clipboard.GetFileDropList();
-
-                foreach (string path in filesDrop)
-                {
-                    string nomralizedPath = path.Trim('"', '\'');
-
-                    try
-                    {
-                        string localPath = new Uri(nomralizedPath).LocalPath;
-                        Screenshot tempImage = Image.FromFile(localPath);
-
-                        tempImage.OriginalPath = localPath;
-
-                        this.SaveForm.Images.Add(tempImage);
-                    }
-                    catch (Exception ex)
-                    {
-                    }
-                }
-
-                if (this.SaveForm.Images.Count > 0)
-                {
-                    this.SaveForm.Show();
-                    this.Close();
-
-                    return;
-                }
-            }
-
-            Interaction.MsgBox("No image or image file path in clipboard.", MsgBoxStyle.Critical);
         }
 
         public void SnipFullScreen()
         {
             this.Hide();
 
-            var b = new Bitmap(this._virtualScreenSize.Width, this._virtualScreenSize.Height);
-
-            var g = Graphics.FromImage(b);
-
-            g.CopyFromScreen(this._virtualScreenLocation.X, this._virtualScreenLocation.Y, 0, 0, this._virtualScreenSize);
-
-            this.SaveForm.Images.Add(b);
+            this.SaveForm.Screenshotes.AddRange(Snipper.AllScreens());
 
             this.SaveForm.Show();
 
@@ -481,7 +280,7 @@ namespace Morysoft.MorySnip
                             string localPath = new Uri(path).LocalPath;
                             Screenshot tempImage = Image.FromFile(localPath);
                             tempImage.OriginalPath = localPath;
-                            this.SaveForm.Images.Add(tempImage);
+                            this.SaveForm.Screenshotes.Add(tempImage);
                             break;
                         }
                         catch (Exception ex)

@@ -22,7 +22,7 @@ namespace Morysoft.MorySnip.My
                     Title = title,
                     ApplicationPath = exe,
                     Arguments = command,
-                    IconResourcePath = string.IsNullOrWhiteSpace(icon) ? exe : string.Format(@"{0}\Resources\JobIcons\{1}.ico", dir, icon),
+                    IconResourcePath = String.IsNullOrWhiteSpace(icon) ? exe : string.Format(@"{0}\Resources\JobIcons\{1}.ico", dir, icon),
                     IconResourceIndex = 0
                 };
 
@@ -82,43 +82,43 @@ namespace Morysoft.MorySnip.My
                     {
                         case "--fullscreen":
                             {
-                                tmp.Snip_FullScreen();
+                                tmp.SnipFullScreen();
                                 break;
                             }
 
                         case "--fullscreen[0]":
                             {
-                                tmp.Snip_Screen(0);
+                                tmp.SnipScreen(0);
                                 break;
                             }
 
                         case "--fullscreen[1]":
                             {
-                                tmp.Snip_Screen(1);
+                                tmp.SnipScreen(1);
                                 break;
                             }
 
                         case "--fullscreen[2]":
                             {
-                                tmp.Snip_Screen(2);
+                                tmp.SnipScreen(2);
                                 break;
                             }
 
                         case "--fullscreen[3]":
                             {
-                                tmp.Snip_Screen(3);
+                                tmp.SnipScreen(3);
                                 break;
                             }
 
                         case "--clipboard":
                             {
-                                tmp.Snip_FromClipboard();
+                                tmp.SnipFromClipboard();
                                 break;
                             }
 
                         case "--file":
                             {
-                                tmp.Snip_FromFile();
+                                tmp.SnipFromFile();
                                 break;
                             }
                     }
@@ -134,14 +134,14 @@ namespace Morysoft.MorySnip.My
                         Screenshot tempImage = Image.FromFile(localPath);
 
                         tempImage.OriginalPath = localPath;
-                        tmp.Images.Add(tempImage);
+                        tmp.Screenshotes.Add(tempImage);
                     }
                     catch
                     {
                     }
                 }
 
-                if (tmp.Images.Count > 0 | tmp.Visible)
+                if (tmp.Screenshotes.Count > 0 | tmp.Visible)
                 {
                     return tmp;
                 }

@@ -223,7 +223,9 @@
       <DependentUpon>FormSnippingTool.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modules\Snipper.cs" />
     <Compile Include="Modules\Helpers.cs" />
+    <Compile Include="Modules\Publisher.cs" />
     <Compile Include="Modules\Settings.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

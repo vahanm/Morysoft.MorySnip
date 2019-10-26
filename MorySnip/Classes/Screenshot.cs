@@ -6,10 +6,10 @@ namespace Morysoft.MorySnip
 {
     public class Screenshot
     {
-        public Image Image;
-        public string Title;
-        public string Comment;
-        public string OriginalPath;
+        public Image Image { get; set; }
+        public string Title { get; set; }
+        public string Comment { get; set; }
+        public string OriginalPath { get; set; }
 
         public static implicit operator Screenshot(Image source) => new Screenshot() { Image = source };
 
@@ -39,7 +39,6 @@ namespace Morysoft.MorySnip
             result.SetResolution(this.Image.HorizontalResolution, this.Image.VerticalResolution);
 
             int x = default, y = default, w = default, h = default;
-
 
             if (this.Image.Width < result.Width && this.Image.Height < result.Height)
             {

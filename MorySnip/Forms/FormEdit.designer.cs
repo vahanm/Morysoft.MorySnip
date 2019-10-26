@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 namespace Morysoft.MorySnip
 {
     [Microsoft.VisualBasic.CompilerServices.DesignerGenerated()]
-    public partial class Form_Edit : FormSaveBase
+    public partial class FormEdit : FormSaveBase
     {
 
         // Form overrides dispose to clean up the component list.
@@ -34,7 +34,7 @@ namespace Morysoft.MorySnip
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Edit));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEdit));
             this.ToolStripContainer_Main = new System.Windows.Forms.ToolStripContainer();
             this.Panel_Image = new System.Windows.Forms.Panel();
             this.Resizer_Both = new System.Windows.Forms.Label();
@@ -286,7 +286,7 @@ namespace Morysoft.MorySnip
             this.Menu_PaintMode_Numbers.Image = global::Morysoft.MorySnip.Properties.Resources.Numbers;
             resources.ApplyResources(this.Menu_PaintMode_Numbers, "Menu_PaintMode_Numbers");
             this.Menu_PaintMode_Numbers.Name = "Menu_PaintMode_Numbers";
-            this.Menu_PaintMode_Numbers.Click += new System.EventHandler(this.Menu_PaintMode_Numbers_ButtonClick);
+            this.Menu_PaintMode_Numbers.Click += new System.EventHandler(this.Menu_PaintMode_Numbers_Click);
             // 
             // ToolStripSeparator9
             // 
@@ -685,12 +685,12 @@ namespace Morysoft.MorySnip
             this.Timer_Update.Enabled = true;
             this.Timer_Update.Tick += new System.EventHandler(this.Timer_Update_Tick);
             // 
-            // Form_Edit
+            // FormEdit
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.ToolStripContainer_Main);
-            this.Name = "Form_Edit";
+            this.Name = "FormEdit";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form_Edit_Load);
             this.BackgroundImageChanged += new System.EventHandler(this.Form_Edit_BackgroundImageChanged);

@@ -147,7 +147,7 @@ namespace Morysoft.MorySnip.My
                 }
             }
 
-            return new Form_SnippingTool();
+            return new FormSnippingTool();
         }
     }
 }

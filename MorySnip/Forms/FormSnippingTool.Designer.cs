@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 namespace Morysoft.MorySnip
 {
     [Microsoft.VisualBasic.CompilerServices.DesignerGenerated()]
-    public partial class Form_SnippingTool : FormSaveBase
+    public partial class FormSnippingTool : FormSaveBase
     {
 
         // Form overrides dispose to clean up the component list.
@@ -34,7 +34,7 @@ namespace Morysoft.MorySnip
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_SnippingTool));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSnippingTool));
             this._Menu_Snip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this._Menu_Snip_FromClipboard = new System.Windows.Forms.ToolStripMenuItem();
             this._Menu_Snip_FromFile = new System.Windows.Forms.ToolStripMenuItem();

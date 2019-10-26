@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Interop;
+using System.Windows.Media.Imaging;
 using Microsoft.VisualBasic;
 
 namespace Morysoft.MorySnip.Modules
@@ -31,6 +36,47 @@ namespace Morysoft.MorySnip.Modules
 
     public static class Publisher
     {
+        public static string GetPath(bool saveAs = false, string defaultType = null, string[] supportedTypes = null)
+        {
+            if (String.IsNullOrWhiteSpace(defaultType))
+            {
+                defaultType = Settings.FileTypeString;
+            }
+
+            if (supportedTypes is null || supportedTypes.Length == 0)
+            {
+                supportedTypes = Settings.FileTypes;
+            }
+
+            string path = "";
+
+            path += Settings.DefaultPath;
+
+            path += @"\" + DateAndTime.Now.ToString("yyyy-MM-dd HH-mm-ss-ffff") + "." + defaultType.ToLower();
+
+            if (!Directory.Exists(Settings.DefaultPath))
+            {
+                using (var sfd = new SaveFileDialog()
+                {
+                    AddExtension = true,
+                    CheckPathExists = true,
+                    CheckFileExists = false,
+                    DefaultExt = $"{defaultType.ToUpper()}|*.{defaultType.ToLower()}",
+                    Filter = Settings.FileTypes.Aggregate((a, i) => a + $"{i.ToUpper()}|*.{i.ToLower()}|") + "All Files|*.*"
+                })
+                {
+                    if (sfd.ShowDialog() != DialogResult.OK)
+                    {
+                        return null;
+                    }
+
+                    path = sfd.FileName;
+                }
+            }
+
+            return path;
+        }
+
         private static bool PublishToClipboard(Screenshot screenshot)
         {
             if (screenshot is null)
@@ -42,7 +88,7 @@ namespace Morysoft.MorySnip.Modules
             {
                 try
                 {
-                    Clipboard.SetImage(screenshot.Image);
+                    System.Windows.Forms.Clipboard.SetImage(screenshot.Image);
 
                     return true;
                 }
@@ -79,30 +125,11 @@ namespace Morysoft.MorySnip.Modules
 
         private static bool PublishSaveToFile(PublishOptions options, Screenshot screenshot)
         {
-            string path = "";
+            string path = GetPath(saveAs: (options & PublishOptions.SaveAs) == PublishOptions.SaveAs);
 
-            path += Settings.DefaultPath;
-
-            path += @"\" + DateAndTime.Now.ToString("yyyy-MM-dd HH-mm-ss-ffff") + "." + Settings.FileTypeString.ToLower();
-
-            if (!Directory.Exists(Settings.DefaultPath) && (options & PublishOptions.SaveToFile) == PublishOptions.SaveToFile || (options & PublishOptions.SaveAs) == PublishOptions.SaveAs)
+            if (path is null)
             {
-                using (var sfd = new SaveFileDialog()
-                {
-                    AddExtension = true,
-                    CheckPathExists = true,
-                    CheckFileExists = false,
-                    DefaultExt = "PNG|*.png",
-                    Filter = Settings.FileTypes.Aggregate((a, i) => a + i.ToUpper() + "|*." + i.ToLower() + "|") + "All Files|*.*"
-                })
-                {
-                    if (sfd.ShowDialog() != DialogResult.OK)
-                    {
-                        return false;
-                    }
-
-                    path = sfd.FileName;
-                }
+                return false;
             }
 
             ImageFormat imageFormat(string imagePath)
@@ -138,6 +165,47 @@ namespace Morysoft.MorySnip.Modules
             if ((options & PublishOptions.SaveAs) == PublishOptions.SaveAs)
             {
                 Interaction.Shell("explorer /select, \"" + path + "\"", AppWinStyle.NormalFocus);
+            }
+
+            return true;
+        }
+
+        public static bool PublishMultipleFrames(PublishOptions options, IEnumerable<Screenshot> screenshotes)
+        {
+            if (screenshotes is null)
+            {
+                throw new ArgumentNullException(nameof(screenshotes));
+            }
+
+            string path = GetPath(
+                saveAs: (options & PublishOptions.SaveAs) == PublishOptions.SaveAs,
+                defaultType: "Gif",
+                supportedTypes: new string[] { "Gif" });
+
+            if (path is null)
+            {
+                return false;
+            }
+
+            var gEnc = new GifBitmapEncoder();
+
+            foreach (Bitmap bmpImage in screenshotes)
+            {
+                var bmp = bmpImage.GetHbitmap();
+                var src = Imaging.CreateBitmapSourceFromHBitmap(
+                    bmp,
+                    IntPtr.Zero,
+                    Int32Rect.Empty,
+                    BitmapSizeOptions.FromEmptyOptions());
+
+                gEnc.Frames.Add(BitmapFrame.Create(src));
+
+                //Marshal.FreeCoTaskMem(bmp); // recommended, handle memory leak
+            }
+
+            using (var fs = new FileStream(path, FileMode.Create))
+            {
+                gEnc.Save(fs);
             }
 
             return true;

@@ -7,7 +7,7 @@ using Morysoft.MorySnip.Modules;
 
 namespace Morysoft.MorySnip
 {
-    public partial class Form_Edit
+    public partial class FormEdit
     {
         private void Form_Edit_BackgroundImageChanged(object sender, EventArgs e) => this.Editor_Main.BackgroundImage = this.BackgroundImage;
 
@@ -94,27 +94,23 @@ namespace Morysoft.MorySnip
 
         private void CustomToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var tmp = new ColorDialog()
+            using (var tmp = new ColorDialog()
             {
                 Color = this.Editor_Main.CurrentPen.Color
-            };
-
-            if ((int)tmp.ShowDialog() == (int)DialogResult.OK)
+            })
             {
-                this.Editor_Main.CurrentPen.Color = tmp.Color;
-                ((SolidBrush)this.Editor_Main.CurrentBrush).Color = tmp.Color;
-
-                if (this.Editor_Main.CurrentPen.Color.IsKnownColor)
+                if (tmp.ShowDialog() == DialogResult.OK)
                 {
-                    this.Button_Color.Text = this.Editor_Main.CurrentPen.Color.Name;
-                }
-                else
-                {
-                    this.Button_Color.Text = Conversions.ToString(this.Editor_Main.CurrentPen.Color.R) + ", " + Conversions.ToString(this.Editor_Main.CurrentPen.Color.G) + ", " + Conversions.ToString(this.Editor_Main.CurrentPen.Color.B);
-                }
+                    this.Editor_Main.CurrentPen.Color = tmp.Color;
+                    ((SolidBrush)this.Editor_Main.CurrentBrush).Color = tmp.Color;
 
-                this.ToolStrip_Standard_Palitra.Color1 = this.Editor_Main.CurrentPen.Color;
-                this.ToolStrip_Standard_Palitra.Color2 = ((SolidBrush)this.Editor_Main.CurrentBrush).Color;
+                    this.Button_Color.Text = this.Editor_Main.CurrentPen.Color.IsKnownColor
+                        ? this.Editor_Main.CurrentPen.Color.Name
+                        : $"{this.Editor_Main.CurrentPen.Color.R}, {this.Editor_Main.CurrentPen.Color.G}, {this.Editor_Main.CurrentPen.Color.B}";
+
+                    this.ToolStrip_Standard_Palitra.Color1 = this.Editor_Main.CurrentPen.Color;
+                    this.ToolStrip_Standard_Palitra.Color2 = ((SolidBrush)this.Editor_Main.CurrentBrush).Color;
+                }
             }
         }
 
@@ -156,118 +152,42 @@ namespace Morysoft.MorySnip
         private void Timer_Update_Tick(object sender, EventArgs e)
         {
             // Tools
-            if (!(this.Menu_PaintMode_Free.Checked == (this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Free)))
-            {
-                this.Menu_PaintMode_Free.Checked = this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Free;
-            }
-
-            if (!(this.Menu_PaintMode_Line.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Line)))
-            {
-                this.Menu_PaintMode_Line.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Line;
-            }
-
-            if (!(this.Menu_PaintMode_Arrow.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Arrow)))
-            {
-                this.Menu_PaintMode_Arrow.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Arrow;
-            }
-
-            if (!(this.Menu_PaintMode_Oval.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Oval)))
-            {
-                this.Menu_PaintMode_Oval.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Oval;
-            }
-
-            if (!(this.Menu_PaintMode_Rect.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Rect)))
-            {
-                this.Menu_PaintMode_Rect.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Rect;
-            }
-
-            if (!(this.Menu_PaintMode_Numbers.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Number)))
-            {
-                this.Menu_PaintMode_Numbers.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Number;
-            }
+            this.Menu_PaintMode_Free.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Free;
+            this.Menu_PaintMode_Line.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Line;
+            this.Menu_PaintMode_Arrow.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Arrow;
+            this.Menu_PaintMode_Oval.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Oval;
+            this.Menu_PaintMode_Rect.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Rect;
+            this.Menu_PaintMode_Numbers.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Number;
 
             // Actions
-            if (!(this.Menu_PaintMode_Highlight.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Highlight)))
-            {
-                this.Menu_PaintMode_Highlight.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Highlight;
-            }
+            this.Menu_PaintMode_Highlight.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Highlight;
+            this.Menu_PaintMode_Invert.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Invert;
+            this.Menu_PaintMode_Grayscale.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Grayscale;
+            this.Menu_PaintMode_Blur.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Blur;
+            this.Menu_PaintMode_Puzzle.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Puzzle;
+            this.Menu_PaintMode_Crop.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Crop;
 
-            if (!(this.Menu_PaintMode_Invert.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Invert)))
+            if (this.Button_Size.Tag != (object)this.Editor_Main.CurrentPen.Width)
             {
-                this.Menu_PaintMode_Invert.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Invert;
-            }
-
-            if (!(this.Menu_PaintMode_Grayscale.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Grayscale)))
-            {
-                this.Menu_PaintMode_Grayscale.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Grayscale;
-            }
-
-            if (!(this.Menu_PaintMode_Blur.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Blur)))
-            {
-                this.Menu_PaintMode_Blur.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Blur;
-            }
-
-            if (!(this.Menu_PaintMode_Puzzle.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Puzzle)))
-            {
-                this.Menu_PaintMode_Puzzle.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Puzzle;
-            }
-
-            if (!(this.Menu_PaintMode_Crop.Checked == ((int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Crop)))
-            {
-                this.Menu_PaintMode_Crop.Checked = (int)this.Editor_Main.PaintMode == (int)Editor.EditorPaintMode.Crop;
-            }
-
-            if (!Operators.ConditionalCompareObjectEqual(this.Button_Size.Tag, this.Editor_Main.CurrentPen.Width, false))
-            {
-                this.Button_Size.Text = Conversions.ToString(this.Editor_Main.CurrentPen.Width) + "px";
+                this.Button_Size.Text = $"{this.Editor_Main.CurrentPen.Width}px";
                 this.Button_Size.Tag = this.Editor_Main.CurrentPen.Width;
             }
 
             // Special actions
-            if (!(this.Button_Back.Enabled == this.Editor_Main.CanUndo))
-            {
-                this.Button_Back.Enabled = this.Editor_Main.CanUndo;
-            }
+            this.Button_Back.Enabled = this.Editor_Main.CanUndo;
+            this.Button_Redo.Enabled = this.Editor_Main.CanRedo;
 
-            if (!(this.Button_Redo.Enabled == this.Editor_Main.CanRedo))
-            {
-                this.Button_Redo.Enabled = this.Editor_Main.CanRedo;
-            }
+            int w = this.Editor_Main.Width;
+            int h = this.Editor_Main.Height;
+            int l = w + 4 - this.Panel_Image.HorizontalScroll.Value; // 
+            int t = h + 4 - this.Panel_Image.VerticalScroll.Value; // 
 
-            int w = this.Width;
-            int h = this.Height;
-            int l = w + 4 - this.Panel_Image.HorizontalScroll.Value;
-            int t = h + 4 - this.Panel_Image.VerticalScroll.Value;
-
-            if (!(this.Resizer_Both.Left == l))
-            {
-                this.Resizer_Both.Left = l;
-            }
-
-            if (!(this.Resizer_Both.Top == t))
-            {
-                this.Resizer_Both.Top = t;
-            }
-
-            if (!(this.Resizer_Right.Left == l))
-            {
-                this.Resizer_Right.Left = l;
-            }
-
-            if (!(this.Resizer_Right.Height == h))
-            {
-                this.Resizer_Right.Height = h;
-            }
-
-            if (!(this.Resizer_Bottom.Top == t))
-            {
-                this.Resizer_Bottom.Top = t;
-            }
-
-            if (!(this.Resizer_Bottom.Width == w))
-            {
-                this.Resizer_Bottom.Width = w;
-            }
+            this.Resizer_Both.Left = l;
+            this.Resizer_Both.Top = t;
+            this.Resizer_Right.Left = l;
+            this.Resizer_Right.Height = h;
+            this.Resizer_Bottom.Top = t;
+            this.Resizer_Bottom.Width = w;
         }
 
         private void Menu_PaintMode_Free_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Free;
@@ -293,7 +213,7 @@ namespace Morysoft.MorySnip
         private int ResizerX;
         private int ResizerY;
 
-        public Form_Edit()
+        public FormEdit()
         {
             this.InitializeComponent();
         }
@@ -388,10 +308,6 @@ namespace Morysoft.MorySnip
             }
         }
 
-        private void Menu_PaintMode_Numbers_ButtonClick(object sender, EventArgs e)
-        {
-        }
-
         private void Editor_Main_LastNumberChanged(object sender, EventArgs e)
         {
             if (this.LastNumberMax < this.Editor_Main.LastNumber)
@@ -418,14 +334,9 @@ namespace Morysoft.MorySnip
             this.Editor_Main.CurrentPen.Color = this.ToolStrip_Standard_Palitra.Color1;
             ((SolidBrush)this.Editor_Main.CurrentBrush).Color = this.ToolStrip_Standard_Palitra.Color2;
 
-            if (this.Editor_Main.CurrentPen.Color.IsKnownColor)
-            {
-                this.Button_Color.Text = this.Editor_Main.CurrentPen.Color.Name;
-            }
-            else
-            {
-                this.Button_Color.Text = $"{this.Editor_Main.CurrentPen.Color.R}, {this.Editor_Main.CurrentPen.Color.G}, {this.Editor_Main.CurrentPen.Color.B}";
-            }
+            this.Button_Color.Text = this.Editor_Main.CurrentPen.Color.IsKnownColor
+                ? this.Editor_Main.CurrentPen.Color.Name
+                : $"{this.Editor_Main.CurrentPen.Color.R}, {this.Editor_Main.CurrentPen.Color.G}, {this.Editor_Main.CurrentPen.Color.B}";
         }
     }
 }

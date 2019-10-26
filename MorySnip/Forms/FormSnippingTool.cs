@@ -10,8 +10,14 @@ using Morysoft.MorySnip.Modules;
 
 namespace Morysoft.MorySnip
 {
-    public partial class Form_SnippingTool
+    public partial class FormSnippingTool
     {
+        private static Point _virtualScreenLocation = SystemInformation.VirtualScreen.Location;
+        private static Size _virtualScreenSize = SystemInformation.VirtualScreen.Size;
+
+        private static Point _primaryScreenLocation = Screen.PrimaryScreen.Bounds.Location;
+        private static Size _primaryScreenSize = Screen.PrimaryScreen.Bounds.Size;
+
         private int x, y, w, h;
         private Point FirstPoint;
         private Point LastPoint;
@@ -19,7 +25,7 @@ namespace Morysoft.MorySnip
 
         private bool bordersOnlyMode = false;
 
-        public Form_SnippingTool()
+        public FormSnippingTool()
         {
             this.InitializeComponent();
         }
@@ -73,12 +79,10 @@ namespace Morysoft.MorySnip
                 this.Opacity = 0;
                 this.Refresh();
 
-                var b = new Bitmap(this.w, this.h);
-                var g = Graphics.FromImage(b);
-
-                g.CopyFromScreen(this._virtualScreenLocation.X + this.x, this._virtualScreenLocation.Y + this.y, 0, 0, new Size(this.w, this.h));
-
-                images.Add(b);
+                images.AddRange(Snipper.Areas(new Rectangle[]
+                {
+                    new Rectangle(this.x, this.y, this.w, this.h)
+                }));
 
                 this.Opacity = 1;
                 this.Refresh();
@@ -93,10 +97,14 @@ namespace Morysoft.MorySnip
                     if (!(new Keyboard()).AltKeyDown)
                     {
                         capture();
+
+                        this.Hide();
+                        this.SaveForm.Screenshotes.AddRange(images);
+                        this.SaveForm.ShowDialog();
                     }
                     else
                     {
-                        using (var acf = new Form_AutoCapture())
+                        using (var acf = new FormAutoCapture())
                         {
                             if (acf.ShowDialog() != DialogResult.OK)
                             {
@@ -122,11 +130,10 @@ namespace Morysoft.MorySnip
                                 }
                             }
                         }
+
+                        Publisher.PublishMultipleFrames(PublishOptions.AsAlbum, images);
                     }
 
-                    this.Hide();
-                    this.SaveForm.Screenshotes.AddRange(images);
-                    this.SaveForm.ShowDialog();
                     this.Close();
                     break;
                 }
@@ -173,12 +180,7 @@ namespace Morysoft.MorySnip
                 }
                 else
                 {
-                    // g.DrawLine(New Pen(Brushes.DarkOrange, 2), x, y - 5, x + w, y - 5)
-
-                    // g.DrawLine(New Pen(Brushes.DarkOrange, 2), x - 5, y, x - 5, y + h)
-
                     g.FillRectangle(new SolidBrush(this.TransparencyKey), this.x, this.y, this.w + 1, this.h + 1);
-                    // g.DrawRectangle(Pens.Red, x, y, w, h)
                     g.DrawRectangle(Pens.Red, -10, this.y, 10000, this.h + 1);
                     g.DrawRectangle(Pens.Red, this.x, -10, this.w + 1, 10000);
 
@@ -186,16 +188,37 @@ namespace Morysoft.MorySnip
                     var r2 = Helpers.ReduceRatio(Conversions.ToUInteger(this.w), Conversions.ToUInteger(this.h));
                     bool approximate = !(r1 == r2);
 
-                    g.DrawString(String.Format("{0:# ##0px} - {1:# ##0px} -- {4}{2}:{3}", this.w, this.h, r1.Width, r1.Height, Interaction.IIf(approximate, "≈", "")), new Font(this.Font.FontFamily, 11, FontStyle.Italic, GraphicsUnit.Pixel), Brushes.White, this.x, this.y - 14);
+                    using (var font = new Font(this.Font.FontFamily, 11, FontStyle.Italic, GraphicsUnit.Pixel))
+                    {
+                        g.DrawString(
+                            String.Format("{0:# ##0px} - {1:# ##0px} -- {4}{2}:{3}",
+                                this.w,
+                                this.h,
+                                r1.Width,
+                                r1.Height,
+                                approximate ? "≈" : ""
+                            ),
+                            font,
+                            Brushes.White,
+                            this.x,
+                            this.y - 14
+                        );
+                    }
                 }
-            }
-            else if ((new Mouse()).ButtonsSwapped)
-            {
-                g.DrawString(Properties.Resources.PressLeftClickToViewOptions, new Font(this.Font.FontFamily, 40, FontStyle.Italic, GraphicsUnit.Pixel), Brushes.DarkGray, -this._virtualScreenLocation.X + this._primaryScreenLocation.X + 10, -this._virtualScreenLocation.Y + this._primaryScreenLocation.Y + this._primaryScreenSize.Height / 2 - 20);
             }
             else
             {
-                g.DrawString(Properties.Resources.PressRightClickToViewOptions, new Font(this.Font.FontFamily, 40, FontStyle.Italic, GraphicsUnit.Pixel), Brushes.DarkGray, -this._virtualScreenLocation.X + this._primaryScreenLocation.X + 10, -this._virtualScreenLocation.Y + this._primaryScreenLocation.Y + this._primaryScreenSize.Height / 2 - 20);
+                using (var font = new Font(this.Font.FontFamily, 40, FontStyle.Italic, GraphicsUnit.Pixel))
+                {
+                    g.DrawString((new Mouse()).ButtonsSwapped
+                        ? Properties.Resources.PressLeftClickToViewOptions
+                        : Properties.Resources.PressRightClickToViewOptions,
+                        font,
+                        Brushes.DarkGray,
+                        -_virtualScreenLocation.X + _primaryScreenLocation.X + 10,
+                        -_virtualScreenLocation.Y + _primaryScreenLocation.Y + _primaryScreenSize.Height / 2 - 20
+                    );
+                }
             }
         }
 

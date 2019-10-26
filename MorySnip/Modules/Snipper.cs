@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace Morysoft.MorySnip.Modules
 {
@@ -30,6 +31,16 @@ namespace Morysoft.MorySnip.Modules
             });
         }
 
+        public static IEnumerable<Screenshot> Areas(IEnumerable<Rectangle> rectangles)
+        {
+            return Rectangles(rectangles.Select(rectangle => new Rectangle(
+                rectangle.X + _virtualScreenLocation.X,
+                rectangle.Y + _virtualScreenLocation.Y,
+                rectangle.Width,
+                rectangle.Height
+            )));
+        }
+
         public static IEnumerable<Screenshot> AllScreens()
         {
             return Rectangles(new Rectangle[]
@@ -48,22 +59,41 @@ namespace Morysoft.MorySnip.Modules
 
         public static IEnumerable<Screenshot> FromUris(IEnumerable<string> paths)
         {
+            var isAborted = false;
+
             return paths.Select(path =>
-             {
-                 try
-                 {
-                     string localPath = new Uri(path).LocalPath;
-                     Screenshot tempImage = Image.FromFile(localPath);
+            {
+                if (isAborted)
+                {
+                    return null;
+                }
 
-                     tempImage.OriginalPath = localPath;
+                do
+                {
+                    try
+                    {
+                        string localPath = new Uri(path).LocalPath;
+                        Screenshot tempImage = Image.FromFile(localPath);
 
-                     return tempImage;
-                 }
-                 catch (Exception ex)
-                 {
-                     return null;
-                 }
-             }).Where(s => !(s is null));
+                        tempImage.OriginalPath = localPath;
+
+                        return tempImage;
+                    }
+                    catch (Exception ex)
+                    {
+                        switch (Interaction.MsgBox(ex.Message, MsgBoxStyle.Critical | MsgBoxStyle.AbortRetryIgnore))
+                        {
+                            case MsgBoxResult.Abort:
+                                isAborted = true;
+                                return null;
+
+                            case MsgBoxResult.Ignore:
+                                return null;
+                        }
+                    }
+                }
+                while (true);
+            }).Where(s => !(s is null));
         }
 
         public static IEnumerable<Screenshot> FromClipboard()
@@ -95,5 +125,33 @@ namespace Morysoft.MorySnip.Modules
 
             return Array.Empty<Screenshot>();
         }
+
+        public static IEnumerable<Screenshot> FromFiles()
+        {
+            using (var od = new OpenFileDialog()
+            {
+                AutoUpgradeEnabled = true,
+                CheckFileExists = true,
+                CheckPathExists = true,
+                Multiselect = true,
+                Filter = "All supported files|*.bmp;*.emf;*.exif;*.gif;*.ico;*.jpeg;*.jpg;*.png;*.tiff;*.wmf;"
+            })
+            {
+                return od.ShowDialog() == DialogResult.OK
+                    ? FromUris(od.FileNames.Select(fn => fn.Trim().Trim('"', '\'')))
+                    : Array.Empty<Screenshot>();
+            }
+        }
+
+        //public static IEnumerable<Screenshot> FromSnippingTool()
+        //{
+        //    using (var withBlock = new FormSnippingTool
+        //    {
+        //        SaveForm = this
+        //    })
+        //    {
+        //        withBlock.ShowDialog();
+        //    }
+        //}
     }
 }

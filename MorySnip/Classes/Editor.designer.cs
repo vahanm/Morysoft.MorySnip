@@ -41,10 +41,12 @@ namespace Morysoft.MorySnip
             this.DoubleBuffered = true;
             this.Name = "Editor";
             this.BackgroundImageChanged += new System.EventHandler(this.Editor_BackgroundImageChanged);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Editor_KeyDown);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Editor_MouseClick);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Editor_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Editor_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Editor_MouseUp);
+            this.MouseWheel += new MouseEventHandler(this.Editor_MouseWheel);
             this.ResumeLayout(false);
 
         }

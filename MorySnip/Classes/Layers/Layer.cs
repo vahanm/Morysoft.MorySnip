@@ -36,6 +36,8 @@ namespace Morysoft.MorySnip
 
         public virtual Rectangle Bounds => Helpers.NormalRectingle(this.FirstPoint, this.LastPoint);
 
+        public virtual bool IsValid => true;
+
         public bool InBounds(Point p)
         {
             return p.X > this.Bounds

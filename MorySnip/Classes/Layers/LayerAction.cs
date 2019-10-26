@@ -57,5 +57,7 @@ namespace Morysoft.MorySnip
         public override void Render(Graphics g)
         {
         }
+
+        public override bool IsValid => this.FirstPoint.X != this.LastPoint.X && this.FirstPoint.Y != this.LastPoint.Y;
     }
 }

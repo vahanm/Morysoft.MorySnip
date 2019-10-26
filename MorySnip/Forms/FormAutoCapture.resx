@@ -118,201 +118,201 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="_Label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 9</value>
   </data>
-  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_Label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 23</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
+  <data name="_Label1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="Label1.Text" xml:space="preserve">
+  <data name="_Label1.Text" xml:space="preserve">
     <value>Start after (s):</value>
   </data>
-  <data name="Label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="_Label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
-    <value>Label1</value>
+  <data name="&gt;&gt;_Label1.Name" xml:space="preserve">
+    <value>_Label1</value>
   </data>
-  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
+  <data name="&gt;&gt;_Label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_Label1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_Label1.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="NumericUpDown_Start.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="_NumericUpDown_Start.Location" type="System.Drawing.Point, System.Drawing">
     <value>147, 12</value>
   </data>
-  <data name="NumericUpDown_Start.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_NumericUpDown_Start.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 20</value>
   </data>
-  <data name="NumericUpDown_Start.TabIndex" type="System.Int32, mscorlib">
+  <data name="_NumericUpDown_Start.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="NumericUpDown_Start.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+  <data name="_NumericUpDown_Start.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="NumericUpDown_Start.UpDownAlign" type="System.Windows.Forms.LeftRightAlignment, System.Windows.Forms">
+  <data name="_NumericUpDown_Start.UpDownAlign" type="System.Windows.Forms.LeftRightAlignment, System.Windows.Forms">
     <value>Left</value>
   </data>
-  <data name="&gt;&gt;NumericUpDown_Start.Name" xml:space="preserve">
-    <value>NumericUpDown_Start</value>
+  <data name="&gt;&gt;_NumericUpDown_Start.Name" xml:space="preserve">
+    <value>_NumericUpDown_Start</value>
   </data>
-  <data name="&gt;&gt;NumericUpDown_Start.Type" xml:space="preserve">
+  <data name="&gt;&gt;_NumericUpDown_Start.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;NumericUpDown_Start.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_NumericUpDown_Start.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;NumericUpDown_Start.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_NumericUpDown_Start.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="Label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="_Label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="_Label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 35</value>
   </data>
-  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_Label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 23</value>
   </data>
-  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
+  <data name="_Label2.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="Label2.Text" xml:space="preserve">
+  <data name="_Label2.Text" xml:space="preserve">
     <value>Interval (ms):</value>
   </data>
-  <data name="Label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="_Label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
-    <value>Label2</value>
+  <data name="&gt;&gt;_Label2.Name" xml:space="preserve">
+    <value>_Label2</value>
   </data>
-  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
+  <data name="&gt;&gt;_Label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_Label2.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_Label2.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="NumericUpDown_Interval.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="_NumericUpDown_Interval.Location" type="System.Drawing.Point, System.Drawing">
     <value>147, 38</value>
   </data>
-  <data name="NumericUpDown_Interval.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_NumericUpDown_Interval.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 20</value>
   </data>
-  <data name="NumericUpDown_Interval.TabIndex" type="System.Int32, mscorlib">
+  <data name="_NumericUpDown_Interval.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="NumericUpDown_Interval.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+  <data name="_NumericUpDown_Interval.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="NumericUpDown_Interval.UpDownAlign" type="System.Windows.Forms.LeftRightAlignment, System.Windows.Forms">
+  <data name="_NumericUpDown_Interval.UpDownAlign" type="System.Windows.Forms.LeftRightAlignment, System.Windows.Forms">
     <value>Left</value>
   </data>
-  <data name="&gt;&gt;NumericUpDown_Interval.Name" xml:space="preserve">
-    <value>NumericUpDown_Interval</value>
+  <data name="&gt;&gt;_NumericUpDown_Interval.Name" xml:space="preserve">
+    <value>_NumericUpDown_Interval</value>
   </data>
-  <data name="&gt;&gt;NumericUpDown_Interval.Type" xml:space="preserve">
+  <data name="&gt;&gt;_NumericUpDown_Interval.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;NumericUpDown_Interval.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_NumericUpDown_Interval.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;NumericUpDown_Interval.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_NumericUpDown_Interval.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="Label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="_Label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="_Label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 61</value>
   </data>
-  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_Label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 23</value>
   </data>
-  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
+  <data name="_Label3.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="Label3.Text" xml:space="preserve">
+  <data name="_Label3.Text" xml:space="preserve">
     <value>Count:</value>
   </data>
-  <data name="Label3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="_Label3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
-    <value>Label3</value>
+  <data name="&gt;&gt;_Label3.Name" xml:space="preserve">
+    <value>_Label3</value>
   </data>
-  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
+  <data name="&gt;&gt;_Label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_Label3.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_Label3.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="NumericUpDown_Count.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="_NumericUpDown_Count.Location" type="System.Drawing.Point, System.Drawing">
     <value>147, 64</value>
   </data>
-  <data name="NumericUpDown_Count.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_NumericUpDown_Count.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 20</value>
   </data>
-  <data name="NumericUpDown_Count.TabIndex" type="System.Int32, mscorlib">
+  <data name="_NumericUpDown_Count.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="NumericUpDown_Count.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+  <data name="_NumericUpDown_Count.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="NumericUpDown_Count.UpDownAlign" type="System.Windows.Forms.LeftRightAlignment, System.Windows.Forms">
+  <data name="_NumericUpDown_Count.UpDownAlign" type="System.Windows.Forms.LeftRightAlignment, System.Windows.Forms">
     <value>Left</value>
   </data>
-  <data name="&gt;&gt;NumericUpDown_Count.Name" xml:space="preserve">
-    <value>NumericUpDown_Count</value>
+  <data name="&gt;&gt;_NumericUpDown_Count.Name" xml:space="preserve">
+    <value>_NumericUpDown_Count</value>
   </data>
-  <data name="&gt;&gt;NumericUpDown_Count.Type" xml:space="preserve">
+  <data name="&gt;&gt;_NumericUpDown_Count.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;NumericUpDown_Count.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_NumericUpDown_Count.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;NumericUpDown_Count.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_NumericUpDown_Count.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="Button_Start.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="_Button_Start.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
-  <data name="Button_Start.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="_Button_Start.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 90</value>
   </data>
-  <data name="Button_Start.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_Button_Start.Size" type="System.Drawing.Size, System.Drawing">
     <value>252, 47</value>
   </data>
-  <data name="Button_Start.TabIndex" type="System.Int32, mscorlib">
+  <data name="_Button_Start.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="Button_Start.Text" xml:space="preserve">
+  <data name="_Button_Start.Text" xml:space="preserve">
     <value>Start</value>
   </data>
-  <data name="&gt;&gt;Button_Start.Name" xml:space="preserve">
-    <value>Button_Start</value>
+  <data name="&gt;&gt;_Button_Start.Name" xml:space="preserve">
+    <value>_Button_Start</value>
   </data>
-  <data name="&gt;&gt;Button_Start.Type" xml:space="preserve">
+  <data name="&gt;&gt;_Button_Start.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Button_Start.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_Button_Start.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;Button_Start.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_Button_Start.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -331,7 +331,7 @@
     <value>Auto Capture</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Form_AutoCapture</value>
+    <value>FormAutoCapture</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

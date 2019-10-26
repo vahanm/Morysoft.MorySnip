@@ -203,6 +203,11 @@ namespace Morysoft.MorySnip
 
         private Layer NewLayer;
 
+        public Editor()
+        {
+            this.InitializeComponent();
+        }
+
         private void Editor_MouseClick(object sender, MouseEventArgs e)
         {
             if (this.LastButton == MouseButtons.Left && e.Button == MouseButtons.Right || this.LastButton == MouseButtons.Right && e.Button == MouseButtons.Left)
@@ -386,33 +391,7 @@ namespace Morysoft.MorySnip
                     case MouseButtons.Left:
                     case MouseButtons.Right:
                     {
-                        if (this.NewLayer != null)
-                        {
-                            this.NewLayer.Stop(e.Location);
-                            this.CreateCheckpoint();
-
-                            if (this.NewLayer is LayerAction ActionLayer)
-                            {
-                                this.Render();
-                                this.BackgroundImage = Helpers.ApplyAction((Bitmap)this.BackgroundImage, ActionLayer.Action, ActionLayer.Zone, ActionLayer.Bounds);
-                            }
-                            else
-                            {
-                                if (this.NewLayer is LayerNumber)
-                                {
-                                    this.LastNumber += 1;
-                                }
-
-                                if (this.NewLayer is LayerLine && (int)this.LastButton == (int)MouseButtons.Right)
-                                {
-                                    this.CurrentPen.DashStyle = DashStyle.Solid;
-                                }
-
-                                this.Layers.Add(this.NewLayer);
-                            }
-
-                            this.NewLayer = null;
-                        }
+                        this.CompleteLayer(e);
 
                         break;
                     }
@@ -431,6 +410,46 @@ namespace Morysoft.MorySnip
 
                 this.Refresh();
             }
+        }
+
+        private void CompleteLayer(MouseEventArgs e)
+        {
+            if (this.NewLayer == null)
+            {
+                return;
+            }
+
+            this.NewLayer.Stop(e.Location);
+
+            if (!this.NewLayer.IsValid)
+            {
+                this.NewLayer = null;
+                return;
+            }
+
+            this.CreateCheckpoint();
+
+            if (this.NewLayer is LayerAction ActionLayer)
+            {
+                this.Render();
+                this.BackgroundImage = Helpers.ApplyAction((Bitmap)this.BackgroundImage, ActionLayer.Action, ActionLayer.Zone, ActionLayer.Bounds);
+            }
+            else
+            {
+                if (e.Button == MouseButtons.Left && this.NewLayer is LayerNumber)
+                {
+                    this.LastNumber += 1;
+                }
+
+                if (this.NewLayer is LayerLine && (int)this.LastButton == (int)MouseButtons.Right)
+                {
+                    this.CurrentPen.DashStyle = DashStyle.Solid;
+                }
+
+                this.Layers.Add(this.NewLayer);
+            }
+
+            this.NewLayer = null;
         }
 
         public void RotateFlip(RotateFlipType value)

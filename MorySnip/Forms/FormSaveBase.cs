@@ -63,7 +63,8 @@ namespace Morysoft.MorySnip
             }
             else
             {
-                this.SaveForm.Show();
+                this.Hide();
+                this.SaveForm.ShowDialog();
                 this.Close();
             }
         }
@@ -74,7 +75,7 @@ namespace Morysoft.MorySnip
 
             this.SaveForm.Screenshotes.AddRange(Snipper.AllScreens());
 
-            this.SaveForm.Show();
+            this.SaveForm.ShowDialog();
 
             this.Close();
         }
@@ -94,8 +95,8 @@ namespace Morysoft.MorySnip
             else
             {
                 this.SaveForm.Screenshotes.AddRange(screenshotes);
-
-                this.SaveForm.Show();
+                this.Hide();
+                this.SaveForm.ShowDialog();
                 this.Close();
             }
         }

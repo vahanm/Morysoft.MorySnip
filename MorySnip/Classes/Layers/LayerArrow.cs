@@ -28,8 +28,8 @@ namespace Morysoft.MorySnip
         {
             void drawArrow(Point pBegin, Point pEnd)
             {
-                float a1 = Conversions.ToSingle(0.5);
-                float a2 = Conversions.ToSingle(0.4);
+                float a1 = 0.5f;
+                float a2 = 0.4f;
 
                 var newZero = (Polar)pBegin - pEnd;
 

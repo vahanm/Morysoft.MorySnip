@@ -16,44 +16,43 @@ namespace Morysoft.MorySnip
 
         public static Polar Convert(PointF Source)
         {
-            float Angle;
-            float Radius;
-            float X = Source.X;
-            float Y = Source.Y;
+            float angle;
+            float radius;
+            float x = Source.X;
+            float y = Source.Y;
 
-
-            if (X > 0 & Y >= 0)
+            if (x > 0 && y >= 0)
             {
-                Angle = Conversions.ToSingle(Math.Atan(Y / X));
+                angle = Conversions.ToSingle(Math.Atan(y / x));
             }
-            else if (X > 0 & Y < 0)
+            else if (x > 0 && y < 0)
             {
-                Angle = Conversions.ToSingle(Math.Atan(Y / X) + 2 * Math.PI);
+                angle = Conversions.ToSingle(Math.Atan(y / x) + 2 * Math.PI);
             }
-            else if (X < 0)
+            else if (x < 0)
             {
-                Angle = Conversions.ToSingle(Math.Atan(Y / X) + Math.PI);
+                angle = Conversions.ToSingle(Math.Atan(y / x) + Math.PI);
             }
-            else if (X == 0 & Y > 0)
+            else if (x == 0 && y > 0)
             {
-                Angle = Conversions.ToSingle(Math.PI / 2);
+                angle = Conversions.ToSingle(Math.PI / 2);
             }
-            else if (X == 0 & Y < 0)
+            else if (x == 0 && y < 0)
             {
-                Angle = Conversions.ToSingle(Math.PI * 3 / 2);
+                angle = Conversions.ToSingle(Math.PI * 3 / 2);
             }
-            else if (X == 0 & Y == 0)
+            else if (x == 0 && y == 0)
             {
-                Angle = 0;
+                angle = 0;
             }
             else
             {
                 throw new Exception("The impossible is possible");
             }
 
-            Radius = Conversions.ToSingle(Math.Pow(Math.Pow(X, 2) + Math.Pow(Y, 2), 0.5));
+            radius = Conversions.ToSingle(Math.Pow(Math.Pow(x, 2) + Math.Pow(y, 2), 0.5));
 
-            return new Polar(Angle, Radius);
+            return new Polar(angle, radius);
         }
 
         public static implicit operator Polar(Point Source) => Convert(Source);
@@ -62,27 +61,30 @@ namespace Morysoft.MorySnip
 
         public static implicit operator Point(Polar Source)
         {
-            var Result = Convert(Source);
-            return new Point(Conversions.ToInteger(Result.X), Conversions.ToInteger(Result.Y));
+            var result = Convert(Source);
+
+            return new Point(Conversions.ToInteger(result.X), Conversions.ToInteger(result.Y));
         }
 
         public static implicit operator PointF(Polar Source) => Convert(Source);
 
         public static implicit operator Size(Polar Source)
         {
-            var Result = Convert(Source);
-            return new Size(Conversions.ToInteger(Result.X), Conversions.ToInteger(Result.Y));
+            var result = Convert(Source);
+
+            return new Size(Conversions.ToInteger(result.X), Conversions.ToInteger(result.Y));
         }
 
         public static implicit operator SizeF(Polar Source)
         {
-            var Result = Convert(Source);
-            return new SizeF(Result.X, Result.Y);
+            var result = Convert(Source);
+
+            return new SizeF(result.X, result.Y);
         }
 
-        public static Polar operator -(Polar a, Polar b) => new Polar { Angle = a.Angle - b.Angle, Radius = a.Radius - b.Radius };
+        public static Polar operator +(Polar left, Polar right) => Add(left, right);
 
-        public static Polar operator +(Polar a, Polar b) => new Polar { Angle = a.Angle + b.Angle, Radius = a.Radius + b.Radius };
+        public static Polar operator -(Polar left, Polar right) => Subtract(left, right);
 
         public Polar() { }
 
@@ -91,5 +93,9 @@ namespace Morysoft.MorySnip
             this.Angle = angle;
             this.Radius = radius;
         }
+
+        public static Polar Add(Polar left, Polar right) => (PointF)left + (SizeF)right;
+
+        public static Polar Subtract(Polar left, Polar right) => (PointF)left - (SizeF)right;
     }
 }

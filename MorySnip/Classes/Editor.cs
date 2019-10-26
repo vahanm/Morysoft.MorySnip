@@ -15,7 +15,7 @@ namespace Morysoft.MorySnip
         private Point ImagePosition = new Point(0, 0);
 
         private MouseButtons LastButton = MouseButtons.None;
-        private int _LastNumber = 1;
+        private int _LastNumber = 0;
 
         public event LastNumberChangedEventHandler LastNumberChanged;
 
@@ -39,7 +39,7 @@ namespace Morysoft.MorySnip
             {
                 this._LastNumber = value;
 
-                LastNumberChanged?.Invoke(this, new EventArgs());
+                LastNumberChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -243,7 +243,7 @@ namespace Morysoft.MorySnip
 
         private void Editor_MouseDown(object sender, MouseEventArgs e)
         {
-            if (this.LastButton == (int)MouseButtons.None)
+            if (this.LastButton == MouseButtons.None)
             {
                 this.LastButton = e.Button;
 
@@ -252,85 +252,7 @@ namespace Morysoft.MorySnip
                     case MouseButtons.Left:
                     case MouseButtons.Right:
                     {
-                        switch (this.PaintMode)
-                        {
-                            case EditorPaintMode.Line:
-                            {
-                                if ((int)e.Button == (int)MouseButtons.Right)
-                                {
-                                    this.CurrentPen.DashStyle = DashStyle.DashDotDot;
-                                }
-
-                                this.NewLayer = new LayerLine(this.CurrentPen, e.Location);
-                                break;
-                            }
-
-                            case EditorPaintMode.Rect:
-                            {
-                                this.NewLayer = new LayerRect(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = (int)e.Button == (int)MouseButtons.Right ^ this.FillObjecs };
-                                break;
-                            }
-
-                            case EditorPaintMode.Number:
-                            {
-                                this.NewLayer = new LayerNumber(this.CurrentPen, this.CurrentBrush, e.Location, this.LastNumber) { Fill = (int)e.Button == (int)MouseButtons.Right ^ this.FillObjecs };
-                                break;
-                            }
-
-                            case EditorPaintMode.Oval:
-                            {
-                                this.NewLayer = new LayerOval(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = (int)e.Button == (int)MouseButtons.Right ^ this.FillObjecs };
-                                break;
-                            }
-
-                            case EditorPaintMode.Free:
-                            {
-                                this.NewLayer = new LayerFree(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = (int)e.Button == (int)MouseButtons.Right ^ this.FillObjecs };
-                                break;
-                            }
-
-                            case EditorPaintMode.Arrow:
-                            {
-                                this.NewLayer = new LayerArrow(this.CurrentPen, this.CurrentBrush, e.Location, ArrowMode: (int)e.Button == (int)MouseButtons.Right ? ArrowModes.AtStart : ArrowModes.AtEnd);
-                                break;
-                            }
-
-                            case EditorPaintMode.Invert:
-                            {
-                                this.NewLayer = new LayerAction(e.Location, Actions.Invert, (Zones)Interaction.IIf((int)e.Button == (int)MouseButtons.Right, Zones.NotSelected, Zones.Selected));
-                                break;
-                            }
-
-                            case EditorPaintMode.Blur:
-                            {
-                                this.NewLayer = new LayerAction(e.Location, Actions.Blur, (Zones)Interaction.IIf((int)e.Button == (int)MouseButtons.Right, Zones.NotSelected, Zones.Selected));
-                                break;
-                            }
-
-                            case EditorPaintMode.Puzzle:
-                            {
-                                this.NewLayer = new LayerAction(e.Location, Actions.Puzzle, (Zones)Interaction.IIf((int)e.Button == (int)MouseButtons.Right, Zones.NotSelected, Zones.Selected));
-                                break;
-                            }
-
-                            case EditorPaintMode.Grayscale:
-                            {
-                                this.NewLayer = new LayerAction(e.Location, Actions.Grayscale, (Zones)Interaction.IIf((int)e.Button == (int)MouseButtons.Right, Zones.NotSelected, Zones.Selected));
-                                break;
-                            }
-
-                            case EditorPaintMode.Highlight:
-                            {
-                                this.NewLayer = new LayerAction(e.Location, Actions.Highlight, Zones.Selected);
-                                break;
-                            }
-
-                            case EditorPaintMode.Crop:
-                            {
-                                this.NewLayer = new LayerAction(e.Location, Actions.Crop, Zones.Selected);
-                                break;
-                            }
-                        }
+                        this.BeginLayer(e);
 
                         break;
                     }
@@ -350,9 +272,97 @@ namespace Morysoft.MorySnip
             }
         }
 
+        private void BeginLayer(MouseEventArgs e)
+        {
+            switch (this.PaintMode)
+            {
+                case EditorPaintMode.Line:
+                {
+                    if (e.Button == MouseButtons.Right)
+                    {
+                        this.CurrentPen.DashStyle = DashStyle.DashDotDot;
+                    }
+
+                    this.NewLayer = new LayerLine(this.CurrentPen, e.Location);
+                    break;
+                }
+
+                case EditorPaintMode.Rect:
+                {
+                    this.NewLayer = new LayerRect(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
+                    break;
+                }
+
+                case EditorPaintMode.Number:
+                {
+                    if (e.Button == MouseButtons.Left)
+                    {
+                        this.LastNumber += 1;
+                    }
+
+                    this.NewLayer = new LayerNumber(this.CurrentPen, this.CurrentBrush, e.Location, this.LastNumber) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
+                    break;
+                }
+
+                case EditorPaintMode.Oval:
+                {
+                    this.NewLayer = new LayerOval(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
+                    break;
+                }
+
+                case EditorPaintMode.Free:
+                {
+                    this.NewLayer = new LayerFree(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
+                    break;
+                }
+
+                case EditorPaintMode.Arrow:
+                {
+                    this.NewLayer = new LayerArrow(this.CurrentPen, this.CurrentBrush, e.Location, ArrowMode: e.Button == MouseButtons.Right ? ArrowModes.AtStart : ArrowModes.AtEnd);
+                    break;
+                }
+
+                case EditorPaintMode.Invert:
+                {
+                    this.NewLayer = new LayerAction(e.Location, Actions.Invert, (Zones)Interaction.IIf(e.Button == MouseButtons.Right, Zones.NotSelected, Zones.Selected));
+                    break;
+                }
+
+                case EditorPaintMode.Blur:
+                {
+                    this.NewLayer = new LayerAction(e.Location, Actions.Blur, (Zones)Interaction.IIf(e.Button == MouseButtons.Right, Zones.NotSelected, Zones.Selected));
+                    break;
+                }
+
+                case EditorPaintMode.Puzzle:
+                {
+                    this.NewLayer = new LayerAction(e.Location, Actions.Puzzle, (Zones)Interaction.IIf(e.Button == MouseButtons.Right, Zones.NotSelected, Zones.Selected));
+                    break;
+                }
+
+                case EditorPaintMode.Grayscale:
+                {
+                    this.NewLayer = new LayerAction(e.Location, Actions.Grayscale, (Zones)Interaction.IIf(e.Button == MouseButtons.Right, Zones.NotSelected, Zones.Selected));
+                    break;
+                }
+
+                case EditorPaintMode.Highlight:
+                {
+                    this.NewLayer = new LayerAction(e.Location, Actions.Highlight, Zones.Selected);
+                    break;
+                }
+
+                case EditorPaintMode.Crop:
+                {
+                    this.NewLayer = new LayerAction(e.Location, Actions.Crop, Zones.Selected);
+                    break;
+                }
+            }
+        }
+
         private void Editor_MouseMove(object sender, MouseEventArgs e)
         {
-            if ((int)e.Button == (int)this.LastButton & !(this.LastButton == (int)MouseButtons.None))
+            if (e.Button == this.LastButton & !(this.LastButton == MouseButtons.None))
             {
                 switch (e.Button)
                 {
@@ -384,7 +394,7 @@ namespace Morysoft.MorySnip
 
         private void Editor_MouseUp(object sender, MouseEventArgs e)
         {
-            if ((int)e.Button == (int)this.LastButton & !(this.LastButton == (int)MouseButtons.None))
+            if (e.Button == this.LastButton & !(this.LastButton == MouseButtons.None))
             {
                 switch (e.Button)
                 {
@@ -436,12 +446,7 @@ namespace Morysoft.MorySnip
             }
             else
             {
-                if (e.Button == MouseButtons.Left && this.NewLayer is LayerNumber)
-                {
-                    this.LastNumber += 1;
-                }
-
-                if (this.NewLayer is LayerLine && (int)this.LastButton == (int)MouseButtons.Right)
+                if (this.NewLayer is LayerLine && this.LastButton == MouseButtons.Right)
                 {
                     this.CurrentPen.DashStyle = DashStyle.Solid;
                 }

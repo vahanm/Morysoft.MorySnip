@@ -238,7 +238,7 @@
     <value>0, 0</value>
   </data>
   <data name="Panel_Image.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1068, 631</value>
+    <value>1071, 631</value>
   </data>
   <data name="Panel_Image.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -256,7 +256,7 @@
     <value>0</value>
   </data>
   <data name="ToolStripContainer_Main.ContentPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1068, 631</value>
+    <value>1071, 631</value>
   </data>
   <data name="&gt;&gt;ToolStripContainer_Main.ContentPanel.Name" xml:space="preserve">
     <value>ToolStripContainer_Main.ContentPanel</value>
@@ -316,7 +316,7 @@
     <value>Magenta</value>
   </data>
   <data name="Menu_PaintMode_Free.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 28</value>
+    <value>27, 28</value>
   </data>
   <data name="Menu_PaintMode_Free.Text" xml:space="preserve">
     <value>Free</value>
@@ -328,7 +328,7 @@
     <value>Magenta</value>
   </data>
   <data name="Menu_PaintMode_Line.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 28</value>
+    <value>27, 28</value>
   </data>
   <data name="Menu_PaintMode_Line.Text" xml:space="preserve">
     <value>Line</value>
@@ -340,7 +340,7 @@
     <value>Magenta</value>
   </data>
   <data name="Menu_PaintMode_Arrow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 28</value>
+    <value>27, 28</value>
   </data>
   <data name="Menu_PaintMode_Arrow.Text" xml:space="preserve">
     <value>Arrow</value>
@@ -349,7 +349,7 @@
     <value>None</value>
   </data>
   <data name="Menu_PaintMode_Oval.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 28</value>
+    <value>27, 28</value>
   </data>
   <data name="Menu_PaintMode_Oval.Text" xml:space="preserve">
     <value>Oval</value>
@@ -361,13 +361,13 @@
     <value>Magenta</value>
   </data>
   <data name="Menu_PaintMode_Rect.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 28</value>
+    <value>27, 28</value>
   </data>
   <data name="Menu_PaintMode_Rect.Text" xml:space="preserve">
     <value>Rectingle</value>
   </data>
   <data name="ToolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 6</value>
+    <value>27, 6</value>
   </data>
   <data name="Menu_PaintMode_Numbers.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
@@ -376,13 +376,13 @@
     <value>Magenta</value>
   </data>
   <data name="Menu_PaintMode_Numbers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 28</value>
+    <value>27, 28</value>
   </data>
   <data name="Menu_PaintMode_Numbers.Text" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="ToolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 6</value>
+    <value>27, 6</value>
   </data>
   <data name="Menu_PaintMode_Fill.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
@@ -391,7 +391,7 @@
     <value>Magenta</value>
   </data>
   <data name="Menu_PaintMode_Fill.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 28</value>
+    <value>27, 28</value>
   </data>
   <data name="Menu_PaintMode_Fill.Text" xml:space="preserve">
     <value>Fill</value>
@@ -412,7 +412,7 @@
     <value>0, 3</value>
   </data>
   <data name="ToolStrip_Draw.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 273</value>
+    <value>29, 254</value>
   </data>
   <data name="ToolStrip_Draw.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>

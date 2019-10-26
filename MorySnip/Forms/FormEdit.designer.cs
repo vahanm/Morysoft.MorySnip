@@ -186,7 +186,7 @@ namespace Morysoft.MorySnip
             // Editor_Main
             // 
             this.Editor_Main.FillObjecs = false;
-            this.Editor_Main.LastNumber = 1;
+            this.Editor_Main.LastNumber = 0;
             resources.ApplyResources(this.Editor_Main, "Editor_Main");
             this.Editor_Main.Name = "Editor_Main";
             this.Editor_Main.PaintMode = Morysoft.MorySnip.Editor.EditorPaintMode.Rect;

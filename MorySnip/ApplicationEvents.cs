@@ -7,31 +7,22 @@ using Microsoft.VisualBasic.CompilerServices;
 
 namespace Morysoft.MorySnip.My
 {
-    // The following events are available for MyApplication:
-    // 
-    // Startup: Raised when the application starts, before the startup form is created.
-    // Shutdown: Raised after all application forms are closed.  This event is not raised if the application terminates abnormally.
-    // UnhandledException: Raised if the application encounters an unhandled exception.
-    // StartupNextInstance: Raised when launching a single-instance application and the application is already active. 
-    // NetworkAvailabilityChanged: Raised when the network connection is connected or disconnected.
-    internal partial class MyApplication
+    internal static class ApplicationEvents
     {
-        /*
-        private void ApplyJumpList()
+        private static void ApplyJumpList()
         {
             var jl = new System.Windows.Shell.JumpList();
-            string dir = MyProject.Application.Info.DirectoryPath;
-            string ass = MyProject.Application.Info.AssemblyName;
-            string exe = string.Format(@"{0}\{1}.exe", dir, ass);
+            string exe = Application.ExecutablePath;
+            string dir = System.IO.Path.GetDirectoryName(exe);
 
-            void addJumpTask(string Title, string Command, string Icon, string CustomCategory)
+            void addJumpTask(string title, string command, string icon, string customCategory)
             {
                 var jt = new System.Windows.Shell.JumpTask()
                 {
-                    Title = Title,
+                    Title = title,
                     ApplicationPath = exe,
-                    Arguments = Command,
-                    IconResourcePath = string.IsNullOrWhiteSpace(Icon) ? exe : string.Format(@"{0}\Resources\JobIcons\{1}.ico", dir, Icon),
+                    Arguments = command,
+                    IconResourcePath = string.IsNullOrWhiteSpace(icon) ? exe : string.Format(@"{0}\Resources\JobIcons\{1}.ico", dir, icon),
                     IconResourceIndex = 0
                 };
 
@@ -66,30 +57,26 @@ namespace Morysoft.MorySnip.My
             jl.Apply();
         }
 
-        private void MyApplication_Shutdown(object sender, EventArgs e)
-        {
-            Helpers.DeleteAllTempFiles();
-        }
+        public static void Shutdown() => Helpers.DeleteAllTempFiles();
 
-        private void MyApplication_Startup(object sender, Microsoft.VisualBasic.ApplicationServices.StartupEventArgs e)
+        public static Form Startup(string[] args)
         {
-            Interaction.SaveSetting(MyProject.Application.Info.CompanyName, "Global", MyProject.Application.Info.AssemblyName.Replace(" ", "_") + "_Version", MyProject.Application.Info.Version.ToString());
-            Interaction.SaveSetting(MyProject.Application.Info.CompanyName, "Global", MyProject.Application.Info.AssemblyName.Replace(" ", "_") + "_Path", MyProject.Application.Info.DirectoryPath);
-            Interaction.SaveSetting(MyProject.Application.Info.CompanyName, "Global", MyProject.Application.Info.AssemblyName.Replace(" ", "_") + "_LastRun", DateAndTime.Now.ToString("hh:mm:ss dd.MM.yyyy"));
+            Interaction.SaveSetting(Application.CompanyName, "Global", Application.ProductName.Replace(" ", "_") + "_Version", Application.ProductVersion);
+            Interaction.SaveSetting(Application.CompanyName, "Global", Application.ProductName.Replace(" ", "_") + "_LastRun", DateAndTime.Now.ToString("hh:mm:ss dd.MM.yyyy"));
 
             Settings.SetDefaultSettings();
 
             Thread.CurrentThread.CurrentUICulture = Settings.CultureCode; // CultureInfo.CurrentCulture 'New CultureInfo("hy-am")
 
-            this.ApplyJumpList();
+            ApplicationEvents.ApplyJumpList();
 
-            if (e.CommandLine.Count > 0)
+            if (args.Length > 0)
             {
-                var tmp = new Form_Save_Base();
+                var tmp = new FormSaveBase();
 
-                if (e.CommandLine.Count == 1)
+                if (args.Length == 1)
                 {
-                    string com = e.CommandLine[0].Trim();
+                    string com = args[0].Trim();
 
                     switch (com)
                     {
@@ -137,7 +124,7 @@ namespace Morysoft.MorySnip.My
                     }
                 }
 
-                foreach (string path in e.CommandLine)
+                foreach (string path in args)
                 {
                     var nomralizedPath = path.Trim().Trim('"', '\'');
 
@@ -149,23 +136,18 @@ namespace Morysoft.MorySnip.My
                         tempImage.OriginalPath = localPath;
                         tmp.Images.Add(tempImage);
                     }
-                    catch (Exception ex)
+                    catch
                     {
                     }
                 }
 
                 if (tmp.Images.Count > 0 | tmp.Visible)
                 {
-                    MyProject.Application.MainForm = tmp;
+                    return tmp;
                 }
             }
-        }
 
-        private void MyApplication_StartupNextInstance(object sender, Microsoft.VisualBasic.ApplicationServices.StartupNextInstanceEventArgs e)
-        {
+            return new Form_SnippingTool();
         }
-        */
     }
 }
-
-

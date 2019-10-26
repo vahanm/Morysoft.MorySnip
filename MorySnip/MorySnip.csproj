@@ -93,11 +93,10 @@
     </WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>9991BFC1CCD78C8AD9F409D5DCCA0F308B488ECC</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>A4CA8952C4B200A7ACFF360D4CEF2704B06E16D5</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>
-    </ManifestKeyFile>
+    <ManifestKeyFile>MorySnip_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>

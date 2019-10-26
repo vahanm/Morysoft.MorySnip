@@ -12,11 +12,17 @@ namespace Morysoft.MorySnip.My
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        private static void Main()
+        private static void Main(string[] args)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_SnippingTool());
+
+            using (var form = ApplicationEvents.Startup(args))
+            {
+                Application.Run(form);
+            }
+
+            ApplicationEvents.Shutdown();
         }
     }
 }

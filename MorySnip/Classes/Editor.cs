@@ -2,33 +2,38 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Linq;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 
 namespace Morysoft.MorySnip
 {
+    public class EditorStep
+    {
+        public Bitmap Image { get; set; }
+
+        public int LastNumber { get; set; }
+
+        public List<Layer> Layers { get; set; }
+    }
+
     public partial class Editor
     {
-        private readonly List<Image> PreviousSteps = new List<Image>();
-        private readonly List<Image> NextSteps = new List<Image>();
+        private readonly Stack<EditorStep> PreviousSteps = new Stack<EditorStep>();
+        private readonly Stack<EditorStep> NextSteps = new Stack<EditorStep>();
         private readonly List<Layer> Layers = new List<Layer>();
         private Point ImagePosition = new Point(0, 0);
 
         private MouseButtons LastButton = MouseButtons.None;
-        private int _LastNumber = 0;
+        private int _LastNumber = 1;
 
         public event LastNumberChangedEventHandler LastNumberChanged;
 
         public delegate void LastNumberChangedEventHandler(object sender, EventArgs e);
 
-        public void CreateCheckpoint(Image Image = null)
+        public void CreateCheckpoint()
         {
-            if (Image == null)
-            {
-                Image = this.GetResult();
-            }
-
-            this.PreviousSteps.Add(Image);
+            this.PreviousSteps.Push(this.CreateStep());
             this.NextSteps.Clear();
         }
 
@@ -51,9 +56,12 @@ namespace Morysoft.MorySnip
         {
             if (this.CanRedo)
             {
-                this.PreviousSteps.Add(this.GetResult());
-                this.BackgroundImage = this.NextSteps[this.NextSteps.Count - 1];
-                this.NextSteps.RemoveAt(this.NextSteps.Count - 1);
+                this.PreviousSteps.Push(this.CreateStep());
+
+                var step = this.NextSteps.Pop();
+
+                this.BackgroundImage = step.Image;
+                this.LastNumber = step.LastNumber;
             }
         }
 
@@ -61,11 +69,35 @@ namespace Morysoft.MorySnip
         {
             if (this.CanUndo)
             {
-                this.NextSteps.Add(this.GetResult());
+                this.NextSteps.Push(this.CreateStep());
+
                 this.Layers.Clear();
-                this.BackgroundImage = this.PreviousSteps[this.PreviousSteps.Count - 1];
-                this.PreviousSteps.RemoveAt(this.PreviousSteps.Count - 1);
+
+                var step = this.PreviousSteps.Pop();
+
+                this.ApplyStep(step);
             }
+        }
+
+        public EditorStep CreateStep()
+        {
+            return new EditorStep
+            {
+                Image = this.GetResult(),
+                LastNumber = this.LastNumber,
+                Layers = this.Layers.Select(l => l).ToList()
+            };
+        }
+
+        public void ApplyStep(EditorStep step)
+        {
+            if (step is null)
+            {
+                throw new ArgumentNullException(nameof(step));
+            }
+
+            this.BackgroundImage = step.Image;
+            this.LastNumber = step.LastNumber;
         }
 
         public void Render()
@@ -78,7 +110,7 @@ namespace Morysoft.MorySnip
             this.ImagePosition = new Point();
         }
 
-        public Image GetResult()
+        public Bitmap GetResult()
         {
             var result = new Bitmap(this.Width, this.Height);
 
@@ -147,12 +179,15 @@ namespace Morysoft.MorySnip
 
         public enum EditorPaintMode
         {
+            // Objects
             Free,
             Line,
             Arrow,
             Oval,
             Rect,
             Number,
+            Magnifier,
+            // Effects
             Highlight,
             Invert,
             Blur,
@@ -295,11 +330,6 @@ namespace Morysoft.MorySnip
 
                 case EditorPaintMode.Number:
                 {
-                    if (e.Button == MouseButtons.Left)
-                    {
-                        this.LastNumber += 1;
-                    }
-
                     this.NewLayer = new LayerNumber(this.CurrentPen, this.CurrentBrush, e.Location, this.LastNumber) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
                     break;
                 }
@@ -321,6 +351,17 @@ namespace Morysoft.MorySnip
                     this.NewLayer = new LayerArrow(this.CurrentPen, this.CurrentBrush, e.Location, ArrowMode: e.Button == MouseButtons.Right ? ArrowModes.AtStart : ArrowModes.AtEnd);
                     break;
                 }
+
+                case EditorPaintMode.Magnifier:
+                    this.NewLayer = new LayerMagnifier(
+                        this.CurrentPen,
+                        this.CurrentBrush,
+                        (Bitmap)this.BackgroundImage,
+                        e.Location,
+                        2,
+                        50
+                    );
+                    break;
 
                 case EditorPaintMode.Invert:
                 {
@@ -446,6 +487,11 @@ namespace Morysoft.MorySnip
             }
             else
             {
+                if (this.NewLayer is LayerNumber)
+                {
+                    this.LastNumber += 1;
+                }
+
                 if (this.NewLayer is LayerLine && this.LastButton == MouseButtons.Right)
                 {
                     this.CurrentPen.DashStyle = DashStyle.Solid;

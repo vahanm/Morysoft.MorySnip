@@ -49,48 +49,50 @@ namespace Morysoft.MorySnip
             }
         }
 
-        public static Rectangle NormalRectingle(Point p1, Point p2)
+        public static Rectangle NormalizeRectingle(Point p1, Point p2)
         {
-            int x1, x2, y1, y2;
-            x1 = Math.Min(p1.X, p2.X);
-            x2 = Math.Max(p1.X, p2.X);
-            y1 = Math.Min(p1.Y, p2.Y);
-            y2 = Math.Max(p1.Y, p2.Y);
+            int x1 = Math.Min(p1.X, p2.X);
+            int x2 = Math.Max(p1.X, p2.X);
+            int y1 = Math.Min(p1.Y, p2.Y);
+            int y2 = Math.Max(p1.Y, p2.Y);
+
             return new Rectangle(x1, y1, x2 - x1, y2 - y1);
         }
 
-        public static Rectangle NormalRectingle(Point p, Size s) => NormalRectingle(p, p + s);
+        public static Rectangle NormalRectingle(Point p, Size s) => NormalizeRectingle(p, p + s);
 
         public static Font LogFont = new Font("Courier New", 10);
 
-        public static Bitmap ApplyAction(Bitmap Img, Actions type, Zones Zone, Rectangle Rect)
+        public static Bitmap ApplyAction(Bitmap image, Actions type, Zones zone, Rectangle area)
         {
             switch (type)
             {
                 case Actions.Crop:
                 {
-                    var newImage = new Bitmap(Rect.Width, Rect.Height);
+                    var newImage = new Bitmap(area.Width, area.Height);
                     var g = Graphics.FromImage(newImage);
-                    g.DrawImage(Img, -Rect.X, -Rect.Y, Img.Width, Img.Height);
+
+                    g.DrawImage(image, -area.X, -area.Y, image.Width, image.Height);
+
                     return newImage;
                 }
             }
 
-            Img = (Bitmap)Img.Clone();
+            image = (Bitmap)image.Clone();
 
-            int w = Img.Width;
-            int h = Img.Height;
+            int w = image.Width;
+            int h = image.Height;
 
-            int CropX = Rect.X;
-            int CropY = Rect.Y;
-            int CropW = Rect.X + Rect.Width;
-            int CropH = Rect.Y + Rect.Height;
+            int cropX = area.X;
+            int cropY = area.Y;
+            int cropW = area.X + area.Width;
+            int cropH = area.Y + area.Height;
 
-            bool Selected(int x, int y) => x >= CropX & x <= CropW & y >= CropY & y <= CropH;
+            bool isSelected(int x, int y) => x >= cropX & x <= cropW & y >= cropY & y <= cropH;
 
             bool inZone(int x, int y)
             {
-                switch (Zone)
+                switch (zone)
                 {
                     case Zones.All:
                     {
@@ -99,12 +101,12 @@ namespace Morysoft.MorySnip
 
                     case Zones.NotSelected:
                     {
-                        return !Selected(x, y);
+                        return !isSelected(x, y);
                     }
 
                     case Zones.Selected:
                     {
-                        return Selected(x, y);
+                        return isSelected(x, y);
                     }
                 }
 
@@ -132,7 +134,7 @@ namespace Morysoft.MorySnip
                                     continue;
                                 }
 
-                                var col = Img.GetPixel(sx, sy);
+                                var col = image.GetPixel(sx, sy);
 
                                 nR += col.R;
                                 nG += col.G;
@@ -148,14 +150,14 @@ namespace Morysoft.MorySnip
                         nB /= count;
                         nA /= count;
 
-                        Img.SetPixel(x, y, Color.FromArgb(nA, nR, nG, nB));
+                        image.SetPixel(x, y, Color.FromArgb(nA, nR, nG, nB));
                     };
                     break;
                 }
 
                 case Actions.Puzzle:
                 {
-                    Effect = (x, y) => Img.SetPixel(x, y, Img.GetPixel(x - x % 4, y - y % 4));
+                    Effect = (x, y) => image.SetPixel(x, y, image.GetPixel(x - x % 4, y - y % 4));
                     break;
                 }
 
@@ -163,28 +165,28 @@ namespace Morysoft.MorySnip
                 {
                     Effect = (x, y) =>
                     {
-                        int b = default(int);
-                        var col = Img.GetPixel(x, y);
+                        int b = default;
+                        var col = image.GetPixel(x, y);
 
                         b += col.R;
                         b += col.G;
                         b += col.B;
                         b /= 3;
 
-                        Img.SetPixel(x, y, Color.FromArgb(col.A, b, b, b));
+                        image.SetPixel(x, y, Color.FromArgb(col.A, b, b, b));
                     };
                     break;
                 }
 
                 case Actions.Invert:
                 {
-                    Effect = (x, y) => Img.SetPixel(x, y, Color.FromArgb(255 - Img.GetPixel(x, y).R, 255 - Img.GetPixel(x, y).G, 255 - Img.GetPixel(x, y).B));
+                    Effect = (x, y) => image.SetPixel(x, y, Color.FromArgb(255 - image.GetPixel(x, y).R, 255 - image.GetPixel(x, y).G, 255 - image.GetPixel(x, y).B));
                     break;
                 }
 
                 case Actions.Highlight:
                 {
-                    Effect = (x, y) => Img.SetPixel(x, y, Color.FromArgb(Img.GetPixel(x, y).R, Img.GetPixel(x, y).G, 0));
+                    Effect = (x, y) => image.SetPixel(x, y, Color.FromArgb(image.GetPixel(x, y).R, image.GetPixel(x, y).G, 0));
                     break;
                 }
 
@@ -197,9 +199,9 @@ namespace Morysoft.MorySnip
                 }
             }
 
-            for (int x = 0, loopTo = Img.Width - 1; x <= loopTo; x++)
+            for (int x = 0, loopTo = image.Width - 1; x <= loopTo; x++)
             {
-                for (int y = 0, loopTo1 = Img.Height - 1; y <= loopTo1; y++)
+                for (int y = 0, loopTo1 = image.Height - 1; y <= loopTo1; y++)
                 {
                     if (inZone(x, y))
                     {
@@ -208,7 +210,7 @@ namespace Morysoft.MorySnip
                 }
             }
 
-            return Img;
+            return image;
         }
 
         private static readonly List<string> TempFiles = new List<string>();

@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace Morysoft.MorySnip
 {
@@ -10,6 +11,10 @@ namespace Morysoft.MorySnip
         public Brush Brush { get; set; }
         public Point FirstPoint { get; set; }
         public Point LastPoint { get; set; }
+
+        public float Length => (float)Math.Sqrt(
+            Math.Pow(this.FirstPoint.X - this.LastPoint.X, 2) + Math.Pow(this.FirstPoint.Y - this.LastPoint.Y, 2)
+        );
 
         public virtual void Start(Point FirstPoint)
         {
@@ -34,7 +39,7 @@ namespace Morysoft.MorySnip
             }
         }
 
-        public virtual Rectangle Bounds => Helpers.NormalRectingle(this.FirstPoint, this.LastPoint);
+        public virtual Rectangle Bounds => Helpers.NormalizeRectingle(this.FirstPoint, this.LastPoint);
 
         public virtual bool IsValid => true;
 

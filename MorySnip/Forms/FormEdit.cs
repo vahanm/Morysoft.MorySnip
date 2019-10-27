@@ -158,6 +158,7 @@ namespace Morysoft.MorySnip
             this.Menu_PaintMode_Oval.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Oval;
             this.Menu_PaintMode_Rect.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Rect;
             this.Menu_PaintMode_Numbers.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Number;
+            this.Menu_PaintMode_Magnifier.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Magnifier;
 
             // Actions
             this.Menu_PaintMode_Highlight.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Highlight;
@@ -338,5 +339,7 @@ namespace Morysoft.MorySnip
                 ? this.Editor_Main.CurrentPen.Color.Name
                 : $"{this.Editor_Main.CurrentPen.Color.R}, {this.Editor_Main.CurrentPen.Color.G}, {this.Editor_Main.CurrentPen.Color.B}";
         }
+
+        private void Menu_PaintMode_Magnifier_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Magnifier;
     }
 }

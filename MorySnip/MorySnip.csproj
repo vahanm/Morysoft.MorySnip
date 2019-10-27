@@ -169,14 +169,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.cs" />
+    <Compile Include="Classes\Layers\LayerMagnifier.cs" />
     <Compile Include="Classes\RGBHSL.cs" />
     <Compile Include="Classes\Constants.cs" />
     <Compile Include="Classes\Editor.designer.cs">
       <DependentUpon>Editor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Editor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Classes\Editor.cs" />
     <Compile Include="Classes\ImageControls.Designer.cs">
       <DependentUpon>ImageControls.cs</DependentUpon>
     </Compile>
@@ -369,6 +368,7 @@
     <None Include="Resources\Numbers.png" />
     <None Include="Resources\round_plus_32.png" />
     <None Include="Resources\mail_48.png" />
+    <None Include="Resources\magnifier-16x16.png" />
     <Content Include="Resources\SnippingTool.ico" />
   </ItemGroup>
   <ItemGroup>

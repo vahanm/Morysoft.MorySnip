@@ -137,6 +137,27 @@
   <data name="Panel_Image.AutoScrollMargin" type="System.Drawing.Size, System.Drawing">
     <value>50, 50</value>
   </data>
+  <data name="Editor_Main.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 2</value>
+  </data>
+  <data name="Editor_Main.Size" type="System.Drawing.Size, System.Drawing">
+    <value>432, 327</value>
+  </data>
+  <data name="Editor_Main.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Editor_Main.Name" xml:space="preserve">
+    <value>Editor_Main</value>
+  </data>
+  <data name="&gt;&gt;Editor_Main.Type" xml:space="preserve">
+    <value>Morysoft.MorySnip.Editor, MorySnip, Version=2.0.0.0, Culture=neutral, PublicKeyToken=305d2f080a262fdd</value>
+  </data>
+  <data name="&gt;&gt;Editor_Main.Parent" xml:space="preserve">
+    <value>Panel_Image</value>
+  </data>
+  <data name="&gt;&gt;Editor_Main.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Resizer_Both.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -160,7 +181,7 @@
     <value>Panel_Image</value>
   </data>
   <data name="&gt;&gt;Resizer_Both.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="Resizer_Bottom.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -184,7 +205,7 @@
     <value>Panel_Image</value>
   </data>
   <data name="&gt;&gt;Resizer_Bottom.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="Resizer_Right.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -208,27 +229,6 @@
     <value>Panel_Image</value>
   </data>
   <data name="&gt;&gt;Resizer_Right.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="Editor_Main.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 2</value>
-  </data>
-  <data name="Editor_Main.Size" type="System.Drawing.Size, System.Drawing">
-    <value>432, 327</value>
-  </data>
-  <data name="Editor_Main.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;Editor_Main.Name" xml:space="preserve">
-    <value>Editor_Main</value>
-  </data>
-  <data name="&gt;&gt;Editor_Main.Type" xml:space="preserve">
-    <value>Morysoft.MorySnip.Editor, MorySnip, Version=2.0.0.0, Culture=neutral, PublicKeyToken=305d2f080a262fdd</value>
-  </data>
-  <data name="&gt;&gt;Editor_Main.Parent" xml:space="preserve">
-    <value>Panel_Image</value>
-  </data>
-  <data name="&gt;&gt;Editor_Main.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="Panel_Image.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -381,6 +381,15 @@
   <data name="Menu_PaintMode_Numbers.Text" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="Menu_PaintMode_Magnifier.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="Menu_PaintMode_Magnifier.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 20</value>
+  </data>
+  <data name="Menu_PaintMode_Magnifier.Text" xml:space="preserve">
+    <value>Magnifier</value>
+  </data>
   <data name="ToolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
     <value>27, 6</value>
   </data>
@@ -412,7 +421,7 @@
     <value>0, 3</value>
   </data>
   <data name="ToolStrip_Draw.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 254</value>
+    <value>29, 277</value>
   </data>
   <data name="ToolStrip_Draw.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -526,7 +535,7 @@
     <value>Cusomize</value>
   </data>
   <data name="ToolStrip_Effects.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 312</value>
+    <value>0, 292</value>
   </data>
   <data name="ToolStrip_Effects.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 193</value>
@@ -1221,6 +1230,12 @@
     <value>Menu_PaintMode_Numbers</value>
   </data>
   <data name="&gt;&gt;Menu_PaintMode_Numbers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Menu_PaintMode_Magnifier.Name" xml:space="preserve">
+    <value>Menu_PaintMode_Magnifier</value>
+  </data>
+  <data name="&gt;&gt;Menu_PaintMode_Magnifier.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ToolStripSeparator9.Name" xml:space="preserve">

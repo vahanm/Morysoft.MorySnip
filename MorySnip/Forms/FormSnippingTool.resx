@@ -1672,9 +1672,9 @@
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Form_SnippingTool</value>
+    <value>FormSnippingTool</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>Morysoft.MorySnip.FormSaveBase, MorySnip, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Morysoft.MorySnip.FormSaveBase, MorySnip, Version=2.0.0.0, Culture=neutral, PublicKeyToken=305d2f080a262fdd</value>
   </data>
 </root>

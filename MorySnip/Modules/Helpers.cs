@@ -8,15 +8,7 @@ namespace Morysoft.MorySnip
 {
     internal static class Helpers
     {
-        private static int _gcd(int a, int b)
-        {
-            if (b == 0)
-            {
-                return a;
-            }
-
-            return _gcd(b, a % b);
-        }
+        private static int _gcd(int a, int b) => b == 0 ? a : _gcd(b, a % b);
 
         public static Size ReduceRatio(uint numerator, uint denominator)
         {

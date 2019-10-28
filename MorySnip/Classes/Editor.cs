@@ -512,22 +512,28 @@ namespace Morysoft.MorySnip
 
         private void Editor_MouseWheel(object sender, MouseEventArgs e)
         {
-            if (this.NewLayer != null)
+            if (this.NewLayer == null)
             {
-                if (e.Delta > 0)
-                {
-                    if (this.CurrentPen.Width < 30)
-                    {
-                        this.CurrentPen.Width += 1;
-                    }
-                }
-                else if (this.CurrentPen.Width > 1)
-                {
-                    this.CurrentPen.Width -= 1;
-                }
+                return;
+            }
 
-                this.Refresh();
-                ((HandledMouseEventArgs)e).Handled = true;
+            if (e.Delta > 0)
+            {
+                if (this.CurrentPen.Width < 30)
+                {
+                    this.CurrentPen.Width += 1;
+                }
+            }
+            else if (this.CurrentPen.Width > 1)
+            {
+                this.CurrentPen.Width -= 1;
+            }
+
+            this.Refresh();
+
+            if (e is HandledMouseEventArgs he)
+            {
+                he.Handled = true;
             }
         }
     }

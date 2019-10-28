@@ -167,6 +167,11 @@ namespace Morysoft.MorySnip
 
         protected override void OnPaintBackground(PaintEventArgs e)
         {
+            if (e is null)
+            {
+                throw new ArgumentNullException(nameof(e));
+            }
+
             var g = e.Graphics;
 
             g.Clear(Color.Black);
@@ -224,8 +229,8 @@ namespace Morysoft.MorySnip
 
         private void Form_SnippingTool_Load(object sender, EventArgs e)
         {
-            this.Location = SystemInformation.VirtualScreen.Location;
-            this.Size = SystemInformation.VirtualScreen.Size;
+            this.Location = _virtualScreenLocation;
+            this.Size = _virtualScreenSize;
         }
 
         private void Form_SnippingTool_KeyDown(object sender, KeyEventArgs e)

@@ -302,21 +302,23 @@ namespace Morysoft.MorySnip
 
         private void Form_SnippingTool_MouseUp(object sender, MouseEventArgs e)
         {
-            if (e.Button == this.LastButton)
+            if (e.Button != this.LastButton)
             {
-                if (this.LastButton != MouseButtons.None && this.w > 3 && this.h > 3)
-                {
-                    this.LastPoint = e.Location;
-                    this.CalculateArea();
-                    this.Crop();
-                }
-                else if (e.Button == MouseButtons.Right && this.w < 3 && this.h < 3)
-                {
-                    this.ShowMenu();
-                }
-
-                this.LastButton = MouseButtons.None;
+                return;
             }
+
+            if (this.LastButton != MouseButtons.None && this.w > 3 && this.h > 3)
+            {
+                this.LastPoint = e.Location;
+                this.CalculateArea();
+                this.Crop();
+            }
+            else if (e.Button == MouseButtons.Right && this.w < 3 && this.h < 3)
+            {
+                this.ShowMenu();
+            }
+
+            this.LastButton = MouseButtons.None;
         }
 
         private void Menu_Snip_FullScreen_Click(object sender, EventArgs e) => this.SnipFullScreen();

@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 namespace Morysoft.MorySnip
 {
     [Microsoft.VisualBasic.CompilerServices.DesignerGenerated()]
-    public partial class FormEdit : FormSaveBase
+    public partial class FormEdit : Form
     {
 
         // Form overrides dispose to clean up the component list.

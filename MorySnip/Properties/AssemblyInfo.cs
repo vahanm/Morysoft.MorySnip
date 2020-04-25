@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Snipping Tool from Morysoft")]
 [assembly: AssemblyCompany("Morysoft")]
 [assembly: AssemblyProduct("MorySnip")]
-[assembly: AssemblyCopyright("Copyright © Morysoft 2015-2019")]
+[assembly: AssemblyCopyright("Copyright © Morysoft 2015-2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: ComVisible(false)]
 [assembly: Guid("a8c246f2-2ce2-48a7-8997-bc7d767a5b35")]

@@ -57,6 +57,8 @@ namespace Morysoft.MorySnip.Modules
             });
         }
 
+        public static IEnumerable<Screenshot> SnipScreen(int index) => throw new NotImplementedException();
+
         public static IEnumerable<Screenshot> FromUris(IEnumerable<string> paths)
         {
             var isAborted = false;

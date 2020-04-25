@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
@@ -31,18 +32,18 @@ namespace Morysoft.MorySnip
             {
                 this.Editor_Main.Cursor = new Cursor(new System.IO.MemoryStream(Properties.Resources.PENCIL));
             }
-            catch (Exception ex)
+            catch
             {
-            }
-
-            if (this.Screenshotes.Count == 1)
-            {
-                this.BackgroundImage = this.Screenshotes[0].Image;
             }
 
             for (int num = 1, loopTo = this.LastNumberMax; num <= loopTo; num++)
             {
                 this.AddNumberInNumbersMenu(num);
+            }
+
+            if (!(this.Screenshot is null))
+            {
+                this.BackgroundImage = this.Screenshot.Image;
             }
         }
 
@@ -272,11 +273,10 @@ namespace Morysoft.MorySnip
             }
         }
 
-
         private void Render()
         {
             this.Editor_Main.Render();
-            this.Screenshotes[0] = this.Editor_Main.BackgroundImage;
+            this.Screenshot = this.Editor_Main.BackgroundImage;
         }
 
         private void Button_Save_Click(object sender, EventArgs e)

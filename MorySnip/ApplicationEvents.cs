@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
+using Morysoft.MorySnip.Modules;
 
 namespace Morysoft.MorySnip.My
 {
     internal static class ApplicationEvents
     {
+        public static void Shutdown() => Helpers.DeleteAllTempFiles();
+
         private static void ApplyJumpList()
         {
             var jl = new System.Windows.Shell.JumpList();
@@ -57,7 +61,81 @@ namespace Morysoft.MorySnip.My
             jl.Apply();
         }
 
-        public static void Shutdown() => Helpers.DeleteAllTempFiles();
+        private static FormEdit FromJumpList(string com)
+        {
+            var tmp = new FormEdit();
+
+            switch (com)
+            {
+                case "--fullscreen":
+                    {
+                        tmp.Screenshot = Snipper.AllScreens().First();
+                        break;
+                    }
+
+                case "--fullscreen[0]":
+                    {
+                        tmp.Screenshot = Snipper.SnipScreen(0).First();
+                        break;
+                    }
+
+                case "--fullscreen[1]":
+                    {
+                        tmp.Screenshot = Snipper.SnipScreen(1).First();
+                        break;
+                    }
+
+                case "--fullscreen[2]":
+                    {
+                        tmp.Screenshot = Snipper.SnipScreen(2).First();
+                        break;
+                    }
+
+                case "--fullscreen[3]":
+                    {
+                        tmp.Screenshot = Snipper.SnipScreen(3).First();
+                        break;
+                    }
+
+                case "--clipboard":
+                    {
+                        tmp.Screenshot = Snipper.FromClipboard().First();
+                        break;
+                    }
+
+                case "--file":
+                    {
+                        tmp.Screenshot = Snipper.FromFiles().First();
+                        break;
+                    }
+            }
+
+            return tmp;
+        }
+
+        private static Form FromPath(string[] args)
+        {
+            var tmp = new FormEdit();
+
+            foreach (string path in args)
+            {
+                var nomralizedPath = path.Trim().Trim('"', '\'');
+
+                try
+                {
+                    string localPath = new Uri(nomralizedPath).LocalPath;
+                    Screenshot tempImage = Image.FromFile(localPath);
+
+                    tempImage.OriginalPath = localPath;
+                    tmp.Screenshot = tempImage;
+                }
+                catch
+                {
+                }
+            }
+
+            return tmp;
+        }
 
         public static Form Startup(string[] args)
         {
@@ -70,81 +148,18 @@ namespace Morysoft.MorySnip.My
 
             ApplicationEvents.ApplyJumpList();
 
-            if (args.Length > 0)
+            if (
+                args.Length == 1
+                && FromJumpList(args[0].Trim()) is FormEdit fromJumpList
+                && !(fromJumpList.Screenshot?.Image is null)
+            )
             {
-                var tmp = new FormSaveBase();
+                return fromJumpList;
+            }
 
-                if (args.Length == 1)
-                {
-                    string com = args[0].Trim();
-
-                    switch (com)
-                    {
-                        case "--fullscreen":
-                            {
-                                tmp.SnipFullScreen();
-                                break;
-                            }
-
-                        case "--fullscreen[0]":
-                            {
-                                tmp.SnipScreen(0);
-                                break;
-                            }
-
-                        case "--fullscreen[1]":
-                            {
-                                tmp.SnipScreen(1);
-                                break;
-                            }
-
-                        case "--fullscreen[2]":
-                            {
-                                tmp.SnipScreen(2);
-                                break;
-                            }
-
-                        case "--fullscreen[3]":
-                            {
-                                tmp.SnipScreen(3);
-                                break;
-                            }
-
-                        case "--clipboard":
-                            {
-                                tmp.SnipFromClipboard();
-                                break;
-                            }
-
-                        case "--file":
-                            {
-                                tmp.SnipFromFile();
-                                break;
-                            }
-                    }
-                }
-
-                foreach (string path in args)
-                {
-                    var nomralizedPath = path.Trim().Trim('"', '\'');
-
-                    try
-                    {
-                        string localPath = new Uri(nomralizedPath).LocalPath;
-                        Screenshot tempImage = Image.FromFile(localPath);
-
-                        tempImage.OriginalPath = localPath;
-                        tmp.Screenshotes.Add(tempImage);
-                    }
-                    catch
-                    {
-                    }
-                }
-
-                if (tmp.Screenshotes.Count > 0 | tmp.Visible)
-                {
-                    return tmp;
-                }
+            if (args.Length > 0 && FromPath(args) is Form formPath)
+            {
+                return formPath;
             }
 
             return new FormSnippingTool();

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MorySnip", "MorySnip\MorySnip.csproj", "{ABA5C0D6-BADB-09FC-36E6-00FC6B790301}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoUpdater.NET", "AutoUpdater\AutoUpdater.NET.csproj", "{FB9E7E6B-B19F-4F37-A708-2996190CEF13}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MorySnip", "MorySnip\MorySnip.csproj", "{ABA5C0D6-BADB-09FC-36E6-00FC6B790301}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,12 +15,11 @@ Global
 		{ABA5C0D6-BADB-09FC-36E6-00FC6B790301}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABA5C0D6-BADB-09FC-36E6-00FC6B790301}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABA5C0D6-BADB-09FC-36E6-00FC6B790301}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FB9E7E6B-B19F-4F37-A708-2996190CEF13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB9E7E6B-B19F-4F37-A708-2996190CEF13}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FB9E7E6B-B19F-4F37-A708-2996190CEF13}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FB9E7E6B-B19F-4F37-A708-2996190CEF13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5BFB14C5-C478-4A5F-A2D8-E7D5ECF74D78}
 	EndGlobalSection
 EndGlobal

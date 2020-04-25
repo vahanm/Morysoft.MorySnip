@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 namespace Morysoft.MorySnip
 {
     [Microsoft.VisualBasic.CompilerServices.DesignerGenerated()]
-    public partial class FormSnippingTool : FormSaveBase
+    public partial class FormSnippingTool : Form
     {
 
         // Form overrides dispose to clean up the component list.
@@ -44,7 +44,7 @@ namespace Morysoft.MorySnip
             this.Menu_Snip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // _Menu_Snip
+            // Menu_Snip
             // 
             this.Menu_Snip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.Menu_Snip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -54,40 +54,40 @@ namespace Morysoft.MorySnip
             this.ToolStripSeparator1,
             this.Menu_Snip_Exit});
             this.Menu_Snip.Name = "Menu_Snip";
-            resources.ApplyResources(this.Menu_Snip, "_Menu_Snip");
+            resources.ApplyResources(this.Menu_Snip, "Menu_Snip");
             // 
-            // _Menu_Snip_FromClipboard
+            // Menu_Snip_FromClipboard
             // 
             this.Menu_Snip_FromClipboard.Image = global::Morysoft.MorySnip.Properties.Resources.iconic_new_window;
-            this.Menu_Snip_FromClipboard.Name = "_Menu_Snip_FromClipboard";
-            resources.ApplyResources(this.Menu_Snip_FromClipboard, "_Menu_Snip_FromClipboard");
+            this.Menu_Snip_FromClipboard.Name = "Menu_Snip_FromClipboard";
+            resources.ApplyResources(this.Menu_Snip_FromClipboard, "Menu_Snip_FromClipboard");
             this.Menu_Snip_FromClipboard.Click += new System.EventHandler(this.Menu_Snip_FromClipboard_Click);
             // 
-            // _Menu_Snip_FromFile
+            // Menu_Snip_FromFile
             // 
             this.Menu_Snip_FromFile.Image = global::Morysoft.MorySnip.Properties.Resources.iconic_folder;
-            this.Menu_Snip_FromFile.Name = "_Menu_Snip_FromFile";
-            resources.ApplyResources(this.Menu_Snip_FromFile, "_Menu_Snip_FromFile");
+            this.Menu_Snip_FromFile.Name = "Menu_Snip_FromFile";
+            resources.ApplyResources(this.Menu_Snip_FromFile, "Menu_Snip_FromFile");
             this.Menu_Snip_FromFile.Click += new System.EventHandler(this.Menu_Snip_FromFile_Click);
             // 
-            // _Menu_Snip_FullScreen
+            // Menu_Snip_FullScreen
             // 
             this.Menu_Snip_FullScreen.Image = global::Morysoft.MorySnip.Properties.Resources.iconic_fullscreen;
-            this.Menu_Snip_FullScreen.Name = "_Menu_Snip_FullScreen";
-            resources.ApplyResources(this.Menu_Snip_FullScreen, "_Menu_Snip_FullScreen");
+            this.Menu_Snip_FullScreen.Name = "Menu_Snip_FullScreen";
+            resources.ApplyResources(this.Menu_Snip_FullScreen, "Menu_Snip_FullScreen");
             this.Menu_Snip_FullScreen.Click += new System.EventHandler(this.Menu_Snip_FullScreen_Click);
             // 
-            // _ToolStripSeparator1
+            // ToolStripSeparator1
             // 
-            this.ToolStripSeparator1.Name = "_ToolStripSeparator1";
-            resources.ApplyResources(this.ToolStripSeparator1, "_ToolStripSeparator1");
+            this.ToolStripSeparator1.Name = "ToolStripSeparator1";
+            resources.ApplyResources(this.ToolStripSeparator1, "ToolStripSeparator1");
             // 
-            // _Menu_Snip_Exit
+            // Menu_Snip_Exit
             // 
             this.Menu_Snip_Exit.Image = global::Morysoft.MorySnip.Properties.Resources.iconic_x;
-            this.Menu_Snip_Exit.Name = "_Menu_Snip_Exit";
-            resources.ApplyResources(this.Menu_Snip_Exit, "_Menu_Snip_Exit");
-            this.Menu_Snip_Exit.Click += new System.EventHandler(this.Menu_Snip_FullScreen_Click);
+            this.Menu_Snip_Exit.Name = "Menu_Snip_Exit";
+            resources.ApplyResources(this.Menu_Snip_Exit, "Menu_Snip_Exit");
+            this.Menu_Snip_Exit.Click += new System.EventHandler(this.Menu_Snip_Exit_Click);
             // 
             // FormSnippingTool
             // 

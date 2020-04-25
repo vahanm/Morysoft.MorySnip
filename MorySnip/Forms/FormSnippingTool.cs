@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
@@ -24,6 +25,71 @@ namespace Morysoft.MorySnip
         private MouseButtons LastButton = MouseButtons.None;
 
         private bool bordersOnlyMode = false;
+        public List<Screenshot> Screenshotes { get; } = new List<Screenshot>();
+
+        public void SnipFromClipboard()
+        {
+            this.SaveForm.Screenshot = Snipper.FromClipboard().FirstOrDefault();
+
+            if (this.SaveForm.Screenshot?.Image is null)
+            {
+                Interaction.MsgBox("No image or image file path in clipboard.", MsgBoxStyle.Critical);
+            }
+            else
+            {
+                this.Hide();
+                this.SaveForm.ShowDialog();
+                this.Close();
+            }
+        }
+
+        public void SnipFullScreen()
+        {
+            this.Hide();
+
+            this.SaveForm.Screenshot = Snipper.AllScreens().First();
+
+            this.SaveForm.ShowDialog();
+
+            this.Close();
+        }
+
+        public void SnipScreen(int index) => throw new NotImplementedException();
+
+        public void SnipFromFile()
+        {
+            this.Hide();
+
+            var screenshotes = Snipper.FromFiles();
+
+            if (!screenshotes.Any())
+            {
+                this.Show();
+            }
+            else
+            {
+                this.SaveForm.Screenshot = screenshotes.First();
+                this.Hide();
+                this.SaveForm.ShowDialog();
+                this.Close();
+            }
+        }
+
+        private FormEdit _saveForm;
+
+        public FormEdit SaveForm
+        {
+            get
+            {
+                if (this._saveForm == null)
+                {
+                    this._saveForm = new FormEdit();
+                }
+
+                return this._saveForm;
+            }
+            set => this._saveForm = value;
+        }
 
         public FormSnippingTool()
         {
@@ -91,64 +157,64 @@ namespace Morysoft.MorySnip
             switch (this.LastButton)
             {
                 case MouseButtons.Left:
-                {
-                    this.Hide();
-
-                    if (!(new Keyboard()).AltKeyDown)
                     {
-                        capture();
-
                         this.Hide();
-                        this.SaveForm.Screenshotes.AddRange(images);
-                        this.SaveForm.ShowDialog();
-                    }
-                    else
-                    {
-                        using (var acf = new FormAutoCapture())
+
+                        if (!(new Keyboard()).AltKeyDown)
                         {
+                            capture();
+
+                            this.Hide();
+                            this.SaveForm.Screenshot = images.First();
+                            this.SaveForm.ShowDialog();
+                        }
+                        else
+                        {
+                            using var acf = new FormAutoCapture();
+
                             if (acf.ShowDialog() != DialogResult.OK)
                             {
                                 Environment.Exit(0);
+
+                                return;
                             }
-                            else
+
+                            static void wait(int milliseconds) => Process.GetCurrentProcess().WaitForExit(milliseconds);
+
+                            int waitMilliseconds = (int)acf.NumericUpDown_Start.Value * 1000;
+                            int intervalMilliseconds = (int)acf.NumericUpDown_Interval.Value;
+                            int count = (int)acf.NumericUpDown_Count.Value;
+
+                            this.bordersOnlyMode = true;
+                            this.Opacity = 1;
+                            this.Show();
+                            this.Refresh();
+
+                            for (int i = 1, loopTo = count; i <= loopTo; i++)
                             {
-                                void wait(int milliseconds) => Process.GetCurrentProcess().WaitForExit(milliseconds);
-
-                                int waitMilliseconds = (int)acf.NumericUpDown_Start.Value * 1000;
-                                int intervalMilliseconds = (int)acf.NumericUpDown_Interval.Value;
-                                int count = (int)acf.NumericUpDown_Count.Value;
-
-                                this.bordersOnlyMode = true;
-                                this.Opacity = 1;
-                                this.Show();
-                                this.Refresh();
-
-                                for (int i = 1, loopTo = count; i <= loopTo; i++)
-                                {
-                                    wait(i == 1 ? waitMilliseconds : intervalMilliseconds);
-                                    capture();
-                                }
+                                wait(i == 1 ? waitMilliseconds : intervalMilliseconds);
+                                capture();
                             }
                         }
 
                         Publisher.PublishMultipleFrames(PublishOptions.AsAlbum, images);
+
+                        this.Close();
+
+                        break;
                     }
 
-                    this.Close();
-                    break;
-                }
-
                 case MouseButtons.Right:
-                {
-                    this.Hide();
+                    {
+                        this.Hide();
 
-                    capture();
+                        capture();
 
-                    this.Screenshotes.AddRange(images);
-                    Publisher.Publish(PublishOptions.CopyImage, images.ToArray());
-                    this.Close();
-                    break;
-                }
+                        this.Screenshotes.AddRange(images);
+                        Publisher.Publish(PublishOptions.CopyImage, images.ToArray());
+                        this.Close();
+                        break;
+                    }
             }
         }
 
@@ -221,7 +287,7 @@ namespace Morysoft.MorySnip
                         font,
                         Brushes.DarkGray,
                         -_virtualScreenLocation.X + _primaryScreenLocation.X + 10,
-                        -_virtualScreenLocation.Y + _primaryScreenLocation.Y + _primaryScreenSize.Height / 2 - 20
+                        -_virtualScreenLocation.Y + _primaryScreenLocation.Y + (_primaryScreenSize.Height / 2) - 20
                     );
                 }
             }

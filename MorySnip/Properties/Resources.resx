@@ -117,149 +117,167 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="1371823693_clipboard_cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1371823693_clipboard_cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="document" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Document.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1371823655_folder_open" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1371823655_folder_open.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="oval" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\oval.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="stock_filters-invert-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\stock_filters-invert-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Numbers" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Numbers.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1371823849_trash" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1371823849_trash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Star" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Star.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="PressLeftClickToViewOptions" xml:space="preserve">
     <value>Press Left Click to view Options</value>
   </data>
-  <data name="facebook_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\facebook_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1371823810_saveas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1371823810_saveas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1371823810_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1371823810_save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="StarEmpty" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Star empty.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="transform_crop" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\transform_crop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="PENCIL" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PENCIL.CUR;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="rect" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rect.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1371824300_clipboard_copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1371824300_clipboard_copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PressRightClickToViewOptions" xml:space="preserve">
     <value>Press Right Click to view Options</value>
   </data>
-  <data name="1371996336_browser" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1371996336_browser.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="blur" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\blur.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="highlight" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\highlight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="close" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Close.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1371823643_doc_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1371823643_doc_edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1371823758_monitor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1371823758_monitor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="doc_plus_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\doc_plus_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="free" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\free.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Ok.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="black_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\black_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="clipboard_copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Clipboard copy.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="32[1]" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\32[1];System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="line" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\line.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Fullscreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fullscreen.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="reset_select" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reset_select.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="clipboard_cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Clipboard cut.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_select" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\select.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Arrow2 - right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Arrow2 - right.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fill.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1371823827_doc_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1371823827_doc_delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1371823721_clipboard_past" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1371823721_clipboard_past.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="round_plus_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\round_plus_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Arrow2 - left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Arrow2 - left.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="IconsLink" xml:space="preserve">
     <value>https://www.iconfinder.com/iconsets/iconic-1</value>
   </data>
-  <data name="iconic_fullscreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconic_fullscreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="feather_chevrons_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\chevrons-left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconic_x" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconic_x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="feather_chevrons_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\chevrons-right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconic_folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconic_folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="feather_circle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\circle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconic_new_window" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconic_new_window.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="feather_cloud_snow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\cloud-snow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="magnifier_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\magnifier-16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="feather_corner_up_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\corner-up-right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_crop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\crop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_scissors" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\scissors.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_square" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\square.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_arrow_up_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\arrow-up-right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_briefcase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\briefcase.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_external_link" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\external-link.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_file_text" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\file-text.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_grid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\grid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_monitor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\monitor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_cloud_snow_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\cloud-snow-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_corner_left_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\corner-left-down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_corner_up_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\corner-up-left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_edit_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\edit-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_minus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\minus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_rotate_ccw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\rotate-ccw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_rotate_cw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\rotate-cw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_aperture" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\aperture.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_aperture_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\aperture-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_arrow_up_right_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\arrow-up-right-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_circle_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\circle-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_corner_left_down_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\corner-left-down-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_corner_up_left_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\corner-up-left-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_droplet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\droplet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_droplet_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\droplet-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_edit_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\edit-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_grayscale" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\grayscale.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_grayscale_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\grayscale-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_grid_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\grid-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_highlighter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\highlighter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_highlighter_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\highlighter-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_line_up_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\line-up-right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_line_up_right_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\line-up-right-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_negative" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\negative.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_negative_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\negative-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_rotate_ccw_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\rotate-ccw-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_rotate_cw_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\rotate-cw-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_slack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\slack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_slack_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\slack-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_square_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\square-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_zoom_in" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\zoom-in.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="feather_zoom_in_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToolbarIcons\Feather\zoom-in-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

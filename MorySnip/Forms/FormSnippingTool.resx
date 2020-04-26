@@ -122,34 +122,34 @@
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Menu_Snip_FromClipboard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 38</value>
+    <value>196, 38</value>
   </data>
   <data name="Menu_Snip_FromClipboard.Text" xml:space="preserve">
-    <value>From Clipboard</value>
+    <value>From &amp;clipboard</value>
   </data>
   <data name="Menu_Snip_FromFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 38</value>
+    <value>196, 38</value>
   </data>
   <data name="Menu_Snip_FromFile.Text" xml:space="preserve">
-    <value>From File</value>
+    <value>From &amp;file</value>
   </data>
   <data name="Menu_Snip_FullScreen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 38</value>
+    <value>196, 38</value>
   </data>
   <data name="Menu_Snip_FullScreen.Text" xml:space="preserve">
-    <value>&amp;Full-screen snip</value>
+    <value>Full-&amp;screen</value>
   </data>
   <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 6</value>
+    <value>193, 6</value>
   </data>
   <data name="Menu_Snip_Exit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 38</value>
+    <value>196, 38</value>
   </data>
   <data name="Menu_Snip_Exit.Text" xml:space="preserve">
     <value>E&amp;xit</value>
   </data>
   <data name="Menu_Snip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 162</value>
+    <value>197, 184</value>
   </data>
   <data name="&gt;&gt;Menu_Snip.Name" xml:space="preserve">
     <value>Menu_Snip</value>

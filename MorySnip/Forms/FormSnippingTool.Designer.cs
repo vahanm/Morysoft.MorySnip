@@ -58,21 +58,21 @@ namespace Morysoft.MorySnip
             // 
             // Menu_Snip_FromClipboard
             // 
-            this.Menu_Snip_FromClipboard.Image = global::Morysoft.MorySnip.Properties.Resources.iconic_new_window;
+            this.Menu_Snip_FromClipboard.Image = global::Morysoft.MorySnip.Properties.Resources.feather_copy;
             this.Menu_Snip_FromClipboard.Name = "Menu_Snip_FromClipboard";
             resources.ApplyResources(this.Menu_Snip_FromClipboard, "Menu_Snip_FromClipboard");
             this.Menu_Snip_FromClipboard.Click += new System.EventHandler(this.Menu_Snip_FromClipboard_Click);
             // 
             // Menu_Snip_FromFile
             // 
-            this.Menu_Snip_FromFile.Image = global::Morysoft.MorySnip.Properties.Resources.iconic_folder;
+            this.Menu_Snip_FromFile.Image = global::Morysoft.MorySnip.Properties.Resources.feather_file_text;
             this.Menu_Snip_FromFile.Name = "Menu_Snip_FromFile";
             resources.ApplyResources(this.Menu_Snip_FromFile, "Menu_Snip_FromFile");
             this.Menu_Snip_FromFile.Click += new System.EventHandler(this.Menu_Snip_FromFile_Click);
             // 
             // Menu_Snip_FullScreen
             // 
-            this.Menu_Snip_FullScreen.Image = global::Morysoft.MorySnip.Properties.Resources.iconic_fullscreen;
+            this.Menu_Snip_FullScreen.Image = global::Morysoft.MorySnip.Properties.Resources.feather_monitor;
             this.Menu_Snip_FullScreen.Name = "Menu_Snip_FullScreen";
             resources.ApplyResources(this.Menu_Snip_FullScreen, "Menu_Snip_FullScreen");
             this.Menu_Snip_FullScreen.Click += new System.EventHandler(this.Menu_Snip_FullScreen_Click);
@@ -84,7 +84,7 @@ namespace Morysoft.MorySnip
             // 
             // Menu_Snip_Exit
             // 
-            this.Menu_Snip_Exit.Image = global::Morysoft.MorySnip.Properties.Resources.iconic_x;
+            this.Menu_Snip_Exit.Image = global::Morysoft.MorySnip.Properties.Resources.feather_x;
             this.Menu_Snip_Exit.Name = "Menu_Snip_Exit";
             resources.ApplyResources(this.Menu_Snip_Exit, "Menu_Snip_Exit");
             this.Menu_Snip_Exit.Click += new System.EventHandler(this.Menu_Snip_Exit_Click);

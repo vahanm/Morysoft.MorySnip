@@ -63,9 +63,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1371823643_doc_edit {
+        internal static System.Drawing.Bitmap feather_aperture {
             get {
-                object obj = ResourceManager.GetObject("1371823643_doc_edit", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_aperture", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1371823655_folder_open {
+        internal static System.Drawing.Bitmap feather_aperture_32 {
             get {
-                object obj = ResourceManager.GetObject("1371823655_folder_open", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_aperture_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1371823693_clipboard_cut {
+        internal static System.Drawing.Bitmap feather_arrow_up_right {
             get {
-                object obj = ResourceManager.GetObject("1371823693_clipboard_cut", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_arrow_up_right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1371823721_clipboard_past {
+        internal static System.Drawing.Bitmap feather_arrow_up_right_32 {
             get {
-                object obj = ResourceManager.GetObject("1371823721_clipboard_past", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_arrow_up_right_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1371823758_monitor {
+        internal static System.Drawing.Bitmap feather_briefcase {
             get {
-                object obj = ResourceManager.GetObject("1371823758_monitor", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_briefcase", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1371823810_save {
+        internal static System.Drawing.Bitmap feather_chevrons_left {
             get {
-                object obj = ResourceManager.GetObject("1371823810_save", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_chevrons_left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1371823810_saveas {
+        internal static System.Drawing.Bitmap feather_chevrons_right {
             get {
-                object obj = ResourceManager.GetObject("1371823810_saveas", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_chevrons_right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1371823827_doc_delete {
+        internal static System.Drawing.Bitmap feather_circle {
             get {
-                object obj = ResourceManager.GetObject("1371823827_doc_delete", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_circle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1371823849_trash {
+        internal static System.Drawing.Bitmap feather_circle_32 {
             get {
-                object obj = ResourceManager.GetObject("1371823849_trash", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_circle_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +153,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1371824300_clipboard_copy {
+        internal static System.Drawing.Bitmap feather_cloud_snow {
             get {
-                object obj = ResourceManager.GetObject("1371824300_clipboard_copy", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_cloud_snow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +163,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1371996336_browser {
+        internal static System.Drawing.Bitmap feather_cloud_snow_32 {
             get {
-                object obj = ResourceManager.GetObject("1371996336_browser", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_cloud_snow_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +173,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _32_1_ {
+        internal static System.Drawing.Bitmap feather_copy {
             get {
-                object obj = ResourceManager.GetObject("32[1]", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_copy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +183,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _select {
+        internal static System.Drawing.Bitmap feather_corner_left_down {
             get {
-                object obj = ResourceManager.GetObject("_select", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_corner_left_down", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,9 +193,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap arrow {
+        internal static System.Drawing.Bitmap feather_corner_left_down_32 {
             get {
-                object obj = ResourceManager.GetObject("arrow", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_corner_left_down_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,9 +203,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Arrow2___left {
+        internal static System.Drawing.Bitmap feather_corner_up_left {
             get {
-                object obj = ResourceManager.GetObject("Arrow2 - left", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_corner_up_left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +213,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Arrow2___right {
+        internal static System.Drawing.Bitmap feather_corner_up_left_32 {
             get {
-                object obj = ResourceManager.GetObject("Arrow2 - right", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_corner_up_left_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,9 +223,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap black_white {
+        internal static System.Drawing.Bitmap feather_corner_up_right {
             get {
-                object obj = ResourceManager.GetObject("black_white", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_corner_up_right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,9 +233,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap blur {
+        internal static System.Drawing.Bitmap feather_crop {
             get {
-                object obj = ResourceManager.GetObject("blur", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_crop", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,9 +243,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap clipboard_copy {
+        internal static System.Drawing.Bitmap feather_droplet {
             get {
-                object obj = ResourceManager.GetObject("clipboard_copy", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_droplet", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,9 +253,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap clipboard_cut {
+        internal static System.Drawing.Bitmap feather_droplet_32 {
             get {
-                object obj = ResourceManager.GetObject("clipboard_cut", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_droplet_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -263,9 +263,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap close {
+        internal static System.Drawing.Bitmap feather_edit_2 {
             get {
-                object obj = ResourceManager.GetObject("close", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_edit_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -273,9 +273,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap doc_plus_32 {
+        internal static System.Drawing.Bitmap feather_edit_3 {
             get {
-                object obj = ResourceManager.GetObject("doc_plus_32", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_edit_3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,9 +283,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap document {
+        internal static System.Drawing.Bitmap feather_external_link {
             get {
-                object obj = ResourceManager.GetObject("document", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_external_link", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -293,9 +293,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap facebook_48 {
+        internal static System.Drawing.Bitmap feather_file_text {
             get {
-                object obj = ResourceManager.GetObject("facebook_48", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_file_text", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -303,9 +303,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fill {
+        internal static System.Drawing.Bitmap feather_grayscale {
             get {
-                object obj = ResourceManager.GetObject("fill", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_grayscale", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -313,9 +313,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap free {
+        internal static System.Drawing.Bitmap feather_grayscale_32 {
             get {
-                object obj = ResourceManager.GetObject("free", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_grayscale_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -323,9 +323,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Fullscreen {
+        internal static System.Drawing.Bitmap feather_grid {
             get {
-                object obj = ResourceManager.GetObject("Fullscreen", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_grid", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -333,9 +333,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap highlight {
+        internal static System.Drawing.Bitmap feather_grid_32 {
             get {
-                object obj = ResourceManager.GetObject("highlight", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_grid_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -343,9 +343,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap iconic_folder {
+        internal static System.Drawing.Bitmap feather_highlighter {
             get {
-                object obj = ResourceManager.GetObject("iconic_folder", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_highlighter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -353,9 +353,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap iconic_fullscreen {
+        internal static System.Drawing.Bitmap feather_highlighter_32 {
             get {
-                object obj = ResourceManager.GetObject("iconic_fullscreen", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_highlighter_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -363,9 +363,9 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap iconic_new_window {
+        internal static System.Drawing.Bitmap feather_line_up_right {
             get {
-                object obj = ResourceManager.GetObject("iconic_new_window", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_line_up_right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -373,9 +373,189 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap iconic_x {
+        internal static System.Drawing.Bitmap feather_line_up_right_32 {
             get {
-                object obj = ResourceManager.GetObject("iconic_x", resourceCulture);
+                object obj = ResourceManager.GetObject("feather_line_up_right_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feather_minus {
+            get {
+                object obj = ResourceManager.GetObject("feather_minus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feather_monitor {
+            get {
+                object obj = ResourceManager.GetObject("feather_monitor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feather_negative {
+            get {
+                object obj = ResourceManager.GetObject("feather_negative", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feather_negative_32 {
+            get {
+                object obj = ResourceManager.GetObject("feather_negative_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feather_rotate_ccw {
+            get {
+                object obj = ResourceManager.GetObject("feather_rotate_ccw", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feather_rotate_ccw_32 {
+            get {
+                object obj = ResourceManager.GetObject("feather_rotate_ccw_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feather_rotate_cw {
+            get {
+                object obj = ResourceManager.GetObject("feather_rotate_cw", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feather_rotate_cw_32 {
+            get {
+                object obj = ResourceManager.GetObject("feather_rotate_cw_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feather_save {
+            get {
+                object obj = ResourceManager.GetObject("feather_save", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feather_scissors {
+            get {
+                object obj = ResourceManager.GetObject("feather_scissors", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feather_settings {
+            get {
+                object obj = ResourceManager.GetObject("feather_settings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feather_slack {
+            get {
+                object obj = ResourceManager.GetObject("feather_slack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feather_slack_32 {
+            get {
+                object obj = ResourceManager.GetObject("feather_slack_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feather_square {
+            get {
+                object obj = ResourceManager.GetObject("feather_square", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feather_square_32 {
+            get {
+                object obj = ResourceManager.GetObject("feather_square_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feather_x {
+            get {
+                object obj = ResourceManager.GetObject("feather_x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feather_zoom_in {
+            get {
+                object obj = ResourceManager.GetObject("feather_zoom_in", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feather_zoom_in_32 {
+            get {
+                object obj = ResourceManager.GetObject("feather_zoom_in_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -386,56 +566,6 @@ namespace Morysoft.MorySnip.Properties {
         internal static string IconsLink {
             get {
                 return ResourceManager.GetString("IconsLink", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap line {
-            get {
-                object obj = ResourceManager.GetObject("line", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap magnifier_16x16 {
-            get {
-                object obj = ResourceManager.GetObject("magnifier_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Numbers {
-            get {
-                object obj = ResourceManager.GetObject("Numbers", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ok {
-            get {
-                object obj = ResourceManager.GetObject("Ok", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap oval {
-            get {
-                object obj = ResourceManager.GetObject("oval", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -464,76 +594,6 @@ namespace Morysoft.MorySnip.Properties {
         internal static string PressRightClickToViewOptions {
             get {
                 return ResourceManager.GetString("PressRightClickToViewOptions", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap rect {
-            get {
-                object obj = ResourceManager.GetObject("rect", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap reset_select {
-            get {
-                object obj = ResourceManager.GetObject("reset_select", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap round_plus_32 {
-            get {
-                object obj = ResourceManager.GetObject("round_plus_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Star {
-            get {
-                object obj = ResourceManager.GetObject("Star", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap StarEmpty {
-            get {
-                object obj = ResourceManager.GetObject("StarEmpty", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap stock_filters_invert_16 {
-            get {
-                object obj = ResourceManager.GetObject("stock_filters-invert-16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap transform_crop {
-            get {
-                object obj = ResourceManager.GetObject("transform_crop", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

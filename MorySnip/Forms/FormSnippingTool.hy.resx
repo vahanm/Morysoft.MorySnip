@@ -118,87 +118,35 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Menu_Snip_FromClipboard.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
   <data name="Menu_Snip_FromClipboard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 38</value>
+    <value>182, 38</value>
   </data>
   <data name="Menu_Snip_FromClipboard.Text" xml:space="preserve">
     <value>Պատճենվածը</value>
   </data>
   <data name="Menu_Snip_FromFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 38</value>
+    <value>182, 38</value>
   </data>
   <data name="Menu_Snip_FromFile.Text" xml:space="preserve">
     <value>Ֆայլից</value>
   </data>
   <data name="Menu_Snip_FullScreen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 38</value>
+    <value>182, 38</value>
   </data>
   <data name="Menu_Snip_FullScreen.Text" xml:space="preserve">
     <value>&amp;Ամբողջ էկրանը</value>
   </data>
   <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>253, 6</value>
-  </data>
-  <data name="Menu_Snip_Album.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 38</value>
-  </data>
-  <data name="Menu_Snip_Album.Text" xml:space="preserve">
-    <value>Նոր լուսանկարչական ալբոմ</value>
-  </data>
-  <data name="Menu_Snip_History.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 38</value>
-  </data>
-  <data name="Menu_Snip_History.Text" xml:space="preserve">
-    <value>Պատմությունը</value>
-  </data>
-  <data name="ToolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>253, 6</value>
+    <value>179, 6</value>
   </data>
   <data name="Menu_Snip_Exit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 38</value>
+    <value>182, 38</value>
   </data>
   <data name="Menu_Snip_Exit.Text" xml:space="preserve">
     <value>&amp;Ելք</value>
   </data>
   <data name="Menu_Snip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 244</value>
+    <value>183, 162</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

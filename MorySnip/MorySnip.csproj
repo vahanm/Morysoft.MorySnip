@@ -280,65 +280,10 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Resources\32[1]" />
-    <None Include="Resources\iconfinder_screenshot_4696676.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\transform_crop.png" />
-    <None Include="Resources\stock_filters-invert-16.png" />
-    <None Include="Resources\Star empty.ico" />
-    <None Include="Resources\Star.ico" />
-    <None Include="Resources\1364670469_3floppy_unmount.png" />
-    <None Include="Resources\1364670706_Share This.png" />
-    <None Include="Resources\1364670780_file_edit.png" />
-    <None Include="Resources\1364670859_clipboard_64.png" />
     <None Include="Resources\PENCIL.CUR" />
-    <None Include="Resources\oval.png" />
-    <None Include="Resources\line.png" />
-    <None Include="Resources\free.png" />
-    <None Include="Resources\rect.png" />
-    <None Include="Resources\select.png" />
-    <None Include="Resources\reset_select.png" />
-    <None Include="Resources\fill.png" />
-    <None Include="Resources\blur.png" />
-    <None Include="Resources\Ok.ico" />
-    <None Include="Resources\Close.ico" />
-    <None Include="Resources\Document.ico" />
-    <None Include="Resources\Clipboard copy.ico" />
-    <None Include="Resources\Clipboard cut.ico" />
-    <Content Include="Resources\1371823643_doc_edit.png" />
-    <Content Include="Resources\1371823655_folder_open.png" />
-    <Content Include="Resources\1371823693_clipboard_cut.png" />
-    <Content Include="Resources\1371823721_clipboard_past.png" />
-    <Content Include="Resources\1371823758_monitor.png" />
-    <Content Include="Resources\1371823810_save.png" />
-    <None Include="Resources\1371823810_saveas.png" />
-    <Content Include="Resources\1371823827_doc_delete.png" />
-    <Content Include="Resources\1371823849_trash.png" />
-    <None Include="Resources\1371824300_clipboard_copy.png" />
-    <None Include="Resources\1371825477_facebook.png" />
-    <None Include="Resources\1371843972_odnoklassniki.png" />
-    <None Include="Resources\1371844583_email.png" />
-    <None Include="Resources\cucak_am_logo.png" />
-    <None Include="Resources\1371996336_browser.png" />
-    <None Include="Resources\arrow.png" />
-    <None Include="Resources\black_white.png" />
-    <None Include="Resources\doc_plus_32.png" />
-    <None Include="Resources\Arrow2 - right.ico" />
-    <None Include="Resources\Arrow2 - left.ico" />
     <Content Include="Resources\editable.htm" />
-    <None Include="Resources\Fullscreen.ico" />
-    <None Include="Resources\favicon[8].ico" />
-    <None Include="Resources\logo-share-hover[1].png" />
-    <None Include="Resources\highlight.png" />
-    <None Include="Resources\facebook_48.png" />
-    <None Include="Resources\iconic_fullscreen.png" />
-    <None Include="Resources\iconic_x.png" />
-    <None Include="Resources\iconic_folder.png" />
-    <None Include="Resources\iconic_new_window.png" />
     <Content Include="Resources\JobIcons\Album.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -357,10 +302,6 @@
     <Content Include="Resources\JobIcons\Clipboard.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Resources\Numbers.png" />
-    <None Include="Resources\round_plus_32.png" />
-    <None Include="Resources\mail_48.png" />
-    <None Include="Resources\magnifier-16x16.png" />
     <Content Include="Resources\SnippingTool.ico" />
   </ItemGroup>
   <ItemGroup>

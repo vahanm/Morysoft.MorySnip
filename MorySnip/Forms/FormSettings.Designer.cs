@@ -34,167 +34,204 @@ namespace Morysoft.MorySnip
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            var resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Settings));
-            this._ComboBox_Type = new ComboBox();
-            _ComboBox_Type.SelectedIndexChanged += ComboBox_Type_SelectedIndexChanged;
-            this._Label1 = new Label();
-            this._Label3 = new Label();
-            this._Label4 = new Label();
-            this._CheckBox_CopyPath = new CheckBox();
-            this._CheckBox_OpenFolder = new CheckBox();
-            this._Button_BrowseLocal = new Button();
-            _Button_BrowseLocal.Click += Button_Browse_Click;
-            this._ImageList_Thumbs = new ImageList(this.components);
-            this._Menu_Clipboard = new ContextMenuStrip(this.components);
-            this._Menu_Clipboard_Message = new ToolStripMenuItem();
-            this._Menu_Clipboard_Separator1 = new ToolStripSeparator();
-            this._Menu_Clipboard_Monitor = new ToolStripMenuItem();
-            this._ComboBox_Quality = new ComboBox();
-            _ComboBox_Quality.SelectedIndexChanged += ComboBox_Type_SelectedIndexChanged;
-            this._Label8 = new Label();
-            this._ToolTip_Buttons = new ToolTip(this.components);
-            this._Menu_Screens = new ContextMenuStrip(this.components);
-            this._Menu_Screens_Screen1 = new ToolStripMenuItem();
-            this._Menu_Screens_Screen2 = new ToolStripMenuItem();
-            this._Menu_Screens_Screen3 = new ToolStripMenuItem();
-            this._Menu_Screens_Screen4 = new ToolStripMenuItem();
-            this._ToolStripSeparator1 = new ToolStripSeparator();
-            this._Menu_Screens_AllScreens = new ToolStripMenuItem();
-            this._Timer_MonitorClipboard = new Timer(this.components);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Settings));
+            this._ComboBox_Type = new System.Windows.Forms.ComboBox();
+            this._Label1 = new System.Windows.Forms.Label();
+            this._Label3 = new System.Windows.Forms.Label();
+            this._Label4 = new System.Windows.Forms.Label();
+            this._CheckBox_CopyPath = new System.Windows.Forms.CheckBox();
+            this._CheckBox_OpenFolder = new System.Windows.Forms.CheckBox();
+            this._Button_BrowseLocal = new System.Windows.Forms.Button();
+            this._ImageList_Thumbs = new System.Windows.Forms.ImageList(this.components);
+            this._Menu_Clipboard = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this._Menu_Clipboard_Message = new System.Windows.Forms.ToolStripMenuItem();
+            this._Menu_Clipboard_Separator1 = new System.Windows.Forms.ToolStripSeparator();
+            this._Menu_Clipboard_Monitor = new System.Windows.Forms.ToolStripMenuItem();
+            this._ComboBox_Quality = new System.Windows.Forms.ComboBox();
+            this._Label8 = new System.Windows.Forms.Label();
+            this._ToolTip_Buttons = new System.Windows.Forms.ToolTip(this.components);
+            this._Menu_Screens = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this._Menu_Screens_Screen1 = new System.Windows.Forms.ToolStripMenuItem();
+            this._Menu_Screens_Screen2 = new System.Windows.Forms.ToolStripMenuItem();
+            this._Menu_Screens_Screen3 = new System.Windows.Forms.ToolStripMenuItem();
+            this._Menu_Screens_Screen4 = new System.Windows.Forms.ToolStripMenuItem();
+            this._ToolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this._Menu_Screens_AllScreens = new System.Windows.Forms.ToolStripMenuItem();
+            this._Timer_MonitorClipboard = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.Button_Save = new System.Windows.Forms.Button();
             this._Menu_Clipboard.SuspendLayout();
             this._Menu_Screens.SuspendLayout();
             this.SuspendLayout();
             // 
-            // ComboBox_Type
+            // _ComboBox_Type
             // 
-            resources.ApplyResources(this._ComboBox_Type, "ComboBox_Type");
-            this._ComboBox_Type.DropDownStyle = ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this._ComboBox_Type, "_ComboBox_Type");
+            this._ComboBox_Type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._ComboBox_Type.FormattingEnabled = true;
-            this._ComboBox_Type.Items.AddRange(new object[] { resources.GetString("ComboBox_Type.Items"), resources.GetString("ComboBox_Type.Items1"), resources.GetString("ComboBox_Type.Items2"), resources.GetString("ComboBox_Type.Items3"), resources.GetString("ComboBox_Type.Items4"), resources.GetString("ComboBox_Type.Items5"), resources.GetString("ComboBox_Type.Items6"), resources.GetString("ComboBox_Type.Items7"), resources.GetString("ComboBox_Type.Items8") });
-            this._ComboBox_Type.Name = "ComboBox_Type";
+            this._ComboBox_Type.Items.AddRange(new object[] {
+            resources.GetString("_ComboBox_Type.Items"),
+            resources.GetString("_ComboBox_Type.Items1"),
+            resources.GetString("_ComboBox_Type.Items2"),
+            resources.GetString("_ComboBox_Type.Items3"),
+            resources.GetString("_ComboBox_Type.Items4"),
+            resources.GetString("_ComboBox_Type.Items5"),
+            resources.GetString("_ComboBox_Type.Items6"),
+            resources.GetString("_ComboBox_Type.Items7"),
+            resources.GetString("_ComboBox_Type.Items8")});
+            this._ComboBox_Type.Name = "_ComboBox_Type";
+            this._ComboBox_Type.SelectedIndexChanged += new System.EventHandler(this.ComboBox_Type_SelectedIndexChanged);
             // 
-            // Label1
+            // _Label1
             // 
-            resources.ApplyResources(this._Label1, "Label1");
-            this._Label1.Name = "Label1";
+            resources.ApplyResources(this._Label1, "_Label1");
+            this._Label1.Name = "_Label1";
             // 
-            // Label3
+            // _Label3
             // 
-            resources.ApplyResources(this._Label3, "Label3");
-            this._Label3.BorderStyle = BorderStyle.Fixed3D;
-            this._Label3.Name = "Label3";
+            resources.ApplyResources(this._Label3, "_Label3");
+            this._Label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this._Label3.Name = "_Label3";
             // 
-            // Label4
+            // _Label4
             // 
-            resources.ApplyResources(this._Label4, "Label4");
-            this._Label4.Name = "Label4";
+            resources.ApplyResources(this._Label4, "_Label4");
+            this._Label4.Name = "_Label4";
             // 
-            // CheckBox_CopyPath
+            // _CheckBox_CopyPath
             // 
-            resources.ApplyResources(this._CheckBox_CopyPath, "CheckBox_CopyPath");
+            resources.ApplyResources(this._CheckBox_CopyPath, "_CheckBox_CopyPath");
             this._CheckBox_CopyPath.Checked = true;
-            this._CheckBox_CopyPath.CheckState = CheckState.Checked;
-            this._CheckBox_CopyPath.Name = "CheckBox_CopyPath";
+            this._CheckBox_CopyPath.CheckState = System.Windows.Forms.CheckState.Checked;
+            this._CheckBox_CopyPath.Name = "_CheckBox_CopyPath";
             this._CheckBox_CopyPath.UseVisualStyleBackColor = true;
             // 
-            // CheckBox_OpenFolder
+            // _CheckBox_OpenFolder
             // 
-            resources.ApplyResources(this._CheckBox_OpenFolder, "CheckBox_OpenFolder");
+            resources.ApplyResources(this._CheckBox_OpenFolder, "_CheckBox_OpenFolder");
             this._CheckBox_OpenFolder.Checked = true;
-            this._CheckBox_OpenFolder.CheckState = CheckState.Checked;
-            this._CheckBox_OpenFolder.Name = "CheckBox_OpenFolder";
+            this._CheckBox_OpenFolder.CheckState = System.Windows.Forms.CheckState.Checked;
+            this._CheckBox_OpenFolder.Name = "_CheckBox_OpenFolder";
             this._CheckBox_OpenFolder.UseVisualStyleBackColor = true;
             // 
-            // Button_BrowseLocal
+            // _Button_BrowseLocal
             // 
-            resources.ApplyResources(this._Button_BrowseLocal, "Button_BrowseLocal");
-            this._Button_BrowseLocal.Name = "Button_BrowseLocal";
+            resources.ApplyResources(this._Button_BrowseLocal, "_Button_BrowseLocal");
+            this._Button_BrowseLocal.Name = "_Button_BrowseLocal";
             this._Button_BrowseLocal.UseVisualStyleBackColor = true;
+            this._Button_BrowseLocal.Click += new System.EventHandler(this.Button_Browse_Click);
             // 
-            // ImageList_Thumbs
+            // _ImageList_Thumbs
             // 
-            this._ImageList_Thumbs.ColorDepth = ColorDepth.Depth32Bit;
-            resources.ApplyResources(this._ImageList_Thumbs, "ImageList_Thumbs");
-            this._ImageList_Thumbs.TransparentColor = Color.Transparent;
+            this._ImageList_Thumbs.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            resources.ApplyResources(this._ImageList_Thumbs, "_ImageList_Thumbs");
+            this._ImageList_Thumbs.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // Menu_Clipboard
+            // _Menu_Clipboard
             // 
-            this._Menu_Clipboard.Items.AddRange(new ToolStripItem[] { this._Menu_Clipboard_Message, this._Menu_Clipboard_Separator1, this._Menu_Clipboard_Monitor });
+            this._Menu_Clipboard.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._Menu_Clipboard_Message,
+            this._Menu_Clipboard_Separator1,
+            this._Menu_Clipboard_Monitor});
             this._Menu_Clipboard.Name = "Menu_Clipboard";
-            resources.ApplyResources(this._Menu_Clipboard, "Menu_Clipboard");
+            resources.ApplyResources(this._Menu_Clipboard, "_Menu_Clipboard");
             // 
-            // Menu_Clipboard_Message
+            // _Menu_Clipboard_Message
             // 
-            resources.ApplyResources(this._Menu_Clipboard_Message, "Menu_Clipboard_Message");
-            this._Menu_Clipboard_Message.Name = "Menu_Clipboard_Message";
+            resources.ApplyResources(this._Menu_Clipboard_Message, "_Menu_Clipboard_Message");
+            this._Menu_Clipboard_Message.Name = "_Menu_Clipboard_Message";
             // 
-            // Menu_Clipboard_Separator1
+            // _Menu_Clipboard_Separator1
             // 
-            this._Menu_Clipboard_Separator1.Name = "Menu_Clipboard_Separator1";
-            resources.ApplyResources(this._Menu_Clipboard_Separator1, "Menu_Clipboard_Separator1");
+            this._Menu_Clipboard_Separator1.Name = "_Menu_Clipboard_Separator1";
+            resources.ApplyResources(this._Menu_Clipboard_Separator1, "_Menu_Clipboard_Separator1");
             // 
-            // Menu_Clipboard_Monitor
+            // _Menu_Clipboard_Monitor
             // 
-            this._Menu_Clipboard_Monitor.Name = "Menu_Clipboard_Monitor";
-            resources.ApplyResources(this._Menu_Clipboard_Monitor, "Menu_Clipboard_Monitor");
+            this._Menu_Clipboard_Monitor.Name = "_Menu_Clipboard_Monitor";
+            resources.ApplyResources(this._Menu_Clipboard_Monitor, "_Menu_Clipboard_Monitor");
             // 
-            // ComboBox_Quality
+            // _ComboBox_Quality
             // 
-            resources.ApplyResources(this._ComboBox_Quality, "ComboBox_Quality");
-            this._ComboBox_Quality.DropDownStyle = ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this._ComboBox_Quality, "_ComboBox_Quality");
+            this._ComboBox_Quality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._ComboBox_Quality.FormattingEnabled = true;
-            this._ComboBox_Quality.Items.AddRange(new object[] { resources.GetString("ComboBox_Quality.Items"), resources.GetString("ComboBox_Quality.Items1"), resources.GetString("ComboBox_Quality.Items2") });
-            this._ComboBox_Quality.Name = "ComboBox_Quality";
+            this._ComboBox_Quality.Items.AddRange(new object[] {
+            resources.GetString("_ComboBox_Quality.Items"),
+            resources.GetString("_ComboBox_Quality.Items1"),
+            resources.GetString("_ComboBox_Quality.Items2")});
+            this._ComboBox_Quality.Name = "_ComboBox_Quality";
             // 
-            // Label8
+            // _Label8
             // 
-            resources.ApplyResources(this._Label8, "Label8");
-            this._Label8.Name = "Label8";
+            resources.ApplyResources(this._Label8, "_Label8");
+            this._Label8.Name = "_Label8";
             // 
-            // Menu_Screens
+            // _Menu_Screens
             // 
-            this._Menu_Screens.Items.AddRange(new ToolStripItem[] { this._Menu_Screens_Screen1, this._Menu_Screens_Screen2, this._Menu_Screens_Screen3, this._Menu_Screens_Screen4, this._ToolStripSeparator1, this._Menu_Screens_AllScreens });
+            this._Menu_Screens.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._Menu_Screens_Screen1,
+            this._Menu_Screens_Screen2,
+            this._Menu_Screens_Screen3,
+            this._Menu_Screens_Screen4,
+            this._ToolStripSeparator1,
+            this._Menu_Screens_AllScreens});
             this._Menu_Screens.Name = "Menu_Screens";
-            resources.ApplyResources(this._Menu_Screens, "Menu_Screens");
+            resources.ApplyResources(this._Menu_Screens, "_Menu_Screens");
             // 
-            // Menu_Screens_Screen1
+            // _Menu_Screens_Screen1
             // 
-            this._Menu_Screens_Screen1.Name = "Menu_Screens_Screen1";
-            resources.ApplyResources(this._Menu_Screens_Screen1, "Menu_Screens_Screen1");
+            this._Menu_Screens_Screen1.Name = "_Menu_Screens_Screen1";
+            resources.ApplyResources(this._Menu_Screens_Screen1, "_Menu_Screens_Screen1");
             this._Menu_Screens_Screen1.Tag = "0";
             // 
-            // Menu_Screens_Screen2
+            // _Menu_Screens_Screen2
             // 
-            this._Menu_Screens_Screen2.Name = "Menu_Screens_Screen2";
-            resources.ApplyResources(this._Menu_Screens_Screen2, "Menu_Screens_Screen2");
+            this._Menu_Screens_Screen2.Name = "_Menu_Screens_Screen2";
+            resources.ApplyResources(this._Menu_Screens_Screen2, "_Menu_Screens_Screen2");
             this._Menu_Screens_Screen2.Tag = "1";
             // 
-            // Menu_Screens_Screen3
+            // _Menu_Screens_Screen3
             // 
-            this._Menu_Screens_Screen3.Name = "Menu_Screens_Screen3";
-            resources.ApplyResources(this._Menu_Screens_Screen3, "Menu_Screens_Screen3");
+            this._Menu_Screens_Screen3.Name = "_Menu_Screens_Screen3";
+            resources.ApplyResources(this._Menu_Screens_Screen3, "_Menu_Screens_Screen3");
             this._Menu_Screens_Screen3.Tag = "2";
             // 
-            // Menu_Screens_Screen4
+            // _Menu_Screens_Screen4
             // 
-            this._Menu_Screens_Screen4.Name = "Menu_Screens_Screen4";
-            resources.ApplyResources(this._Menu_Screens_Screen4, "Menu_Screens_Screen4");
+            this._Menu_Screens_Screen4.Name = "_Menu_Screens_Screen4";
+            resources.ApplyResources(this._Menu_Screens_Screen4, "_Menu_Screens_Screen4");
             this._Menu_Screens_Screen4.Tag = "3";
             // 
-            // ToolStripSeparator1
+            // _ToolStripSeparator1
             // 
-            this._ToolStripSeparator1.Name = "ToolStripSeparator1";
-            resources.ApplyResources(this._ToolStripSeparator1, "ToolStripSeparator1");
+            this._ToolStripSeparator1.Name = "_ToolStripSeparator1";
+            resources.ApplyResources(this._ToolStripSeparator1, "_ToolStripSeparator1");
             // 
-            // Menu_Screens_AllScreens
+            // _Menu_Screens_AllScreens
             // 
-            this._Menu_Screens_AllScreens.Name = "Menu_Screens_AllScreens";
-            resources.ApplyResources(this._Menu_Screens_AllScreens, "Menu_Screens_AllScreens");
+            this._Menu_Screens_AllScreens.Name = "_Menu_Screens_AllScreens";
+            resources.ApplyResources(this._Menu_Screens_AllScreens, "_Menu_Screens_AllScreens");
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Name = "label1";
+            // 
+            // Button_Save
+            // 
+            resources.ApplyResources(this.Button_Save, "Button_Save");
+            this.Button_Save.Image = global::Morysoft.MorySnip.Properties.Resources.feather_save_32;
+            this.Button_Save.Name = "Button_Save";
+            this.Button_Save.UseVisualStyleBackColor = true;
+            this.Button_Save.Click += new System.EventHandler(this.Button_Save_Click);
             // 
             // Form_Settings
             // 
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Button_Save);
             this.Controls.Add(this._Label4);
             this.Controls.Add(this._Label8);
             this.Controls.Add(this._ComboBox_Quality);
@@ -203,17 +240,17 @@ namespace Morysoft.MorySnip
             this.Controls.Add(this._CheckBox_CopyPath);
             this.Controls.Add(this._CheckBox_OpenFolder);
             this.Controls.Add(this._Button_BrowseLocal);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this._Label3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "Form_Settings";
-            base.Load += Form_Load;
-            this.FormClosing += Form_Closing;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
+            this.Load += new System.EventHandler(this.Form_Load);
             this._Menu_Clipboard.ResumeLayout(false);
-            base.Load += Form_Load;
-            this.FormClosing += Form_Closing;
             this._Menu_Screens.ResumeLayout(false);
-            base.Load += Form_Load;
-            this.FormClosing += Form_Closing;
             this.ResumeLayout(false);
+
         }
         private Button _Button_BrowseLocal;
 
@@ -750,6 +787,8 @@ namespace Morysoft.MorySnip
         }
 
         private Timer _Timer_MonitorClipboard;
+        private Label label1;
+        private Button Button_Save;
 
         internal Timer Timer_MonitorClipboard
         {

@@ -118,377 +118,434 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ComboBox_Type.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="_ComboBox_Type.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="ComboBox_Type.Items" xml:space="preserve">
+  <data name="_ComboBox_Type.Items" xml:space="preserve">
     <value>Png</value>
   </data>
-  <data name="ComboBox_Type.Items1" xml:space="preserve">
+  <data name="_ComboBox_Type.Items1" xml:space="preserve">
     <value>Bmp</value>
   </data>
-  <data name="ComboBox_Type.Items2" xml:space="preserve">
+  <data name="_ComboBox_Type.Items2" xml:space="preserve">
     <value>Emf</value>
   </data>
-  <data name="ComboBox_Type.Items3" xml:space="preserve">
+  <data name="_ComboBox_Type.Items3" xml:space="preserve">
     <value>Exif</value>
   </data>
-  <data name="ComboBox_Type.Items4" xml:space="preserve">
+  <data name="_ComboBox_Type.Items4" xml:space="preserve">
     <value>Gif</value>
   </data>
-  <data name="ComboBox_Type.Items5" xml:space="preserve">
+  <data name="_ComboBox_Type.Items5" xml:space="preserve">
     <value>Ico</value>
   </data>
-  <data name="ComboBox_Type.Items6" xml:space="preserve">
+  <data name="_ComboBox_Type.Items6" xml:space="preserve">
     <value>Jpg</value>
   </data>
-  <data name="ComboBox_Type.Items7" xml:space="preserve">
+  <data name="_ComboBox_Type.Items7" xml:space="preserve">
     <value>Tiff</value>
   </data>
-  <data name="ComboBox_Type.Items8" xml:space="preserve">
+  <data name="_ComboBox_Type.Items8" xml:space="preserve">
     <value>Wmf</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="ComboBox_Type.Location" type="System.Drawing.Point, System.Drawing">
-    <value>118, 34</value>
+  <data name="_ComboBox_Type.Location" type="System.Drawing.Point, System.Drawing">
+    <value>118, 35</value>
   </data>
-  <data name="ComboBox_Type.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_ComboBox_Type.Size" type="System.Drawing.Size, System.Drawing">
     <value>81, 21</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ComboBox_Type.TabIndex" type="System.Int32, mscorlib">
+  <data name="_ComboBox_Type.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
-  <data name="&gt;&gt;ComboBox_Type.Name" xml:space="preserve">
-    <value>ComboBox_Type</value>
+  <data name="&gt;&gt;_ComboBox_Type.Name" xml:space="preserve">
+    <value>_ComboBox_Type</value>
   </data>
-  <data name="&gt;&gt;ComboBox_Type.Type" xml:space="preserve">
+  <data name="&gt;&gt;_ComboBox_Type.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ComboBox_Type.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_ComboBox_Type.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;ComboBox_Type.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 34</value>
-  </data>
-  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 21</value>
-  </data>
-  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="Label1.Text" xml:space="preserve">
-    <value>Image type:</value>
-  </data>
-  <data name="Label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
-    <value>Label1</value>
-  </data>
-  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="Label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="Label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 105</value>
-  </data>
-  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 3</value>
-  </data>
-  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
-    <value>Label3</value>
-  </data>
-  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 8</value>
-  </data>
-  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 21</value>
-  </data>
-  <data name="Label4.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="Label4.Text" xml:space="preserve">
-    <value>Default save folder:</value>
-  </data>
-  <data name="Label4.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;Label4.Name" xml:space="preserve">
-    <value>Label4</value>
-  </data>
-  <data name="&gt;&gt;Label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="CheckBox_CopyPath.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="CheckBox_CopyPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 149</value>
-  </data>
-  <data name="CheckBox_CopyPath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 21</value>
-  </data>
-  <data name="CheckBox_CopyPath.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="CheckBox_CopyPath.Text" xml:space="preserve">
-    <value>Copy path (or URL) to clipboard</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_CopyPath.Name" xml:space="preserve">
-    <value>CheckBox_CopyPath</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_CopyPath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_CopyPath.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_CopyPath.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_ComboBox_Type.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="CheckBox_OpenFolder.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
+  <data name="_Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 34</value>
   </data>
-  <data name="CheckBox_OpenFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 123</value>
+  <data name="_Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
   </data>
-  <data name="CheckBox_OpenFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 21</value>
+  <data name="_Label1.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
   </data>
-  <data name="CheckBox_OpenFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
+  <data name="_Label1.Text" xml:space="preserve">
+    <value>Image type:</value>
   </data>
-  <data name="CheckBox_OpenFolder.Text" xml:space="preserve">
-    <value>Open folder after save</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_OpenFolder.Name" xml:space="preserve">
-    <value>CheckBox_OpenFolder</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_OpenFolder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_OpenFolder.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_OpenFolder.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="Button_BrowseLocal.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="Button_BrowseLocal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>118, 8</value>
-  </data>
-  <data name="Button_BrowseLocal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 21</value>
-  </data>
-  <data name="Button_BrowseLocal.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="Button_BrowseLocal.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="_Label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="&gt;&gt;Button_BrowseLocal.Name" xml:space="preserve">
-    <value>Button_BrowseLocal</value>
+  <data name="&gt;&gt;_Label1.Name" xml:space="preserve">
+    <value>_Label1</value>
   </data>
-  <data name="&gt;&gt;Button_BrowseLocal.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Button_BrowseLocal.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Button_BrowseLocal.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <metadata name="ImageList_Thumbs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>156, 17</value>
-  </metadata>
-  <data name="ImageList_Thumbs.ImageSize" type="System.Drawing.Size, System.Drawing">
-    <value>64, 64</value>
-  </data>
-  <metadata name="Menu_Clipboard.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>438, 17</value>
-  </metadata>
-  <data name="Menu_Clipboard_Message.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="Menu_Clipboard_Message.Size" type="System.Drawing.Size, System.Drawing">
-    <value>291, 22</value>
-  </data>
-  <data name="Menu_Clipboard_Message.Text" xml:space="preserve">
-    <value>No image or image file path in clipboard.</value>
-  </data>
-  <data name="Menu_Clipboard_Message.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="Menu_Clipboard_Separator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>288, 6</value>
-  </data>
-  <data name="Menu_Clipboard_Separator1.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="Menu_Clipboard_Monitor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>291, 22</value>
-  </data>
-  <data name="Menu_Clipboard_Monitor.Text" xml:space="preserve">
-    <value>Monitor clipboard</value>
-  </data>
-  <data name="Menu_Clipboard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>292, 54</value>
-  </data>
-  <data name="&gt;&gt;Menu_Clipboard.Name" xml:space="preserve">
-    <value>Menu_Clipboard</value>
-  </data>
-  <data name="&gt;&gt;Menu_Clipboard.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ComboBox_Quality.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="ComboBox_Quality.Items" xml:space="preserve">
-    <value>High (source quality)</value>
-  </data>
-  <data name="ComboBox_Quality.Items1" xml:space="preserve">
-    <value>Normal</value>
-  </data>
-  <data name="ComboBox_Quality.Items2" xml:space="preserve">
-    <value>Low (texts may be unreadable, 250 colors)</value>
-  </data>
-  <data name="ComboBox_Quality.Location" type="System.Drawing.Point, System.Drawing">
-    <value>118, 70</value>
-  </data>
-  <data name="ComboBox_Quality.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 21</value>
-  </data>
-  <data name="ComboBox_Quality.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="&gt;&gt;ComboBox_Quality.Name" xml:space="preserve">
-    <value>ComboBox_Quality</value>
-  </data>
-  <data name="&gt;&gt;ComboBox_Quality.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ComboBox_Quality.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ComboBox_Quality.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="Label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 61</value>
-  </data>
-  <data name="Label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 32</value>
-  </data>
-  <data name="Label8.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="Label8.Text" xml:space="preserve">
-    <value>Image quality for sharing:</value>
-  </data>
-  <data name="Label8.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;Label8.Name" xml:space="preserve">
-    <value>Label8</value>
-  </data>
-  <data name="&gt;&gt;Label8.Type" xml:space="preserve">
+  <data name="&gt;&gt;_Label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Label8.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_Label1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;Label8.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_Label1.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="_Label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="_Label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_Label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 105</value>
+  </data>
+  <data name="_Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>584, 3</value>
+  </data>
+  <data name="_Label3.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;_Label3.Name" xml:space="preserve">
+    <value>_Label3</value>
+  </data>
+  <data name="&gt;&gt;_Label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Label3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_Label3.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="_Label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 8</value>
+  </data>
+  <data name="_Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="_Label4.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="_Label4.Text" xml:space="preserve">
+    <value>Default save folder:</value>
+  </data>
+  <data name="_Label4.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;_Label4.Name" xml:space="preserve">
+    <value>_Label4</value>
+  </data>
+  <data name="&gt;&gt;_Label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Label4.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_Label4.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <metadata name="ToolTip_Buttons.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <data name="_CheckBox_CopyPath.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="_CheckBox_CopyPath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 149</value>
+  </data>
+  <data name="_CheckBox_CopyPath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 21</value>
+  </data>
+  <data name="_CheckBox_CopyPath.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="_CheckBox_CopyPath.Text" xml:space="preserve">
+    <value>Copy path (or URL) to clipboard</value>
+  </data>
+  <data name="&gt;&gt;_CheckBox_CopyPath.Name" xml:space="preserve">
+    <value>_CheckBox_CopyPath</value>
+  </data>
+  <data name="&gt;&gt;_CheckBox_CopyPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_CheckBox_CopyPath.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_CheckBox_CopyPath.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="_CheckBox_OpenFolder.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="_CheckBox_OpenFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 123</value>
+  </data>
+  <data name="_CheckBox_OpenFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 21</value>
+  </data>
+  <data name="_CheckBox_OpenFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="_CheckBox_OpenFolder.Text" xml:space="preserve">
+    <value>Open folder after save</value>
+  </data>
+  <data name="&gt;&gt;_CheckBox_OpenFolder.Name" xml:space="preserve">
+    <value>_CheckBox_OpenFolder</value>
+  </data>
+  <data name="&gt;&gt;_CheckBox_OpenFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_CheckBox_OpenFolder.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_CheckBox_OpenFolder.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="_Button_BrowseLocal.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="_Button_BrowseLocal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>118, 8</value>
+  </data>
+  <data name="_Button_BrowseLocal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>274, 21</value>
+  </data>
+  <data name="_Button_BrowseLocal.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="_Button_BrowseLocal.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;_Button_BrowseLocal.Name" xml:space="preserve">
+    <value>_Button_BrowseLocal</value>
+  </data>
+  <data name="&gt;&gt;_Button_BrowseLocal.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Button_BrowseLocal.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_Button_BrowseLocal.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <metadata name="_ImageList_Thumbs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="Menu_Screens.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>308, 17</value>
+  <data name="_ImageList_Thumbs.ImageSize" type="System.Drawing.Size, System.Drawing">
+    <value>64, 64</value>
+  </data>
+  <metadata name="_Menu_Clipboard.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>175, 17</value>
   </metadata>
-  <data name="Menu_Screens_Screen1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
+  <data name="_Menu_Clipboard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>292, 54</value>
   </data>
-  <data name="Menu_Screens_Screen1.Text" xml:space="preserve">
-    <value>Screen 1</value>
+  <data name="&gt;&gt;_Menu_Clipboard.Name" xml:space="preserve">
+    <value>_Menu_Clipboard</value>
   </data>
-  <data name="Menu_Screens_Screen2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
-  </data>
-  <data name="Menu_Screens_Screen2.Text" xml:space="preserve">
-    <value>Screen 2</value>
-  </data>
-  <data name="Menu_Screens_Screen3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
-  </data>
-  <data name="Menu_Screens_Screen3.Text" xml:space="preserve">
-    <value>Screen 3</value>
-  </data>
-  <data name="Menu_Screens_Screen4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
-  </data>
-  <data name="Menu_Screens_Screen4.Text" xml:space="preserve">
-    <value>Screen 4</value>
-  </data>
-  <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 6</value>
-  </data>
-  <data name="Menu_Screens_AllScreens.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
-  </data>
-  <data name="Menu_Screens_AllScreens.Text" xml:space="preserve">
-    <value>All screens</value>
-  </data>
-  <data name="Menu_Screens.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 120</value>
-  </data>
-  <data name="&gt;&gt;Menu_Screens.Name" xml:space="preserve">
-    <value>Menu_Screens</value>
-  </data>
-  <data name="&gt;&gt;Menu_Screens.Type" xml:space="preserve">
+  <data name="&gt;&gt;_Menu_Clipboard.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <metadata name="Timer_MonitorClipboard.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>579, 17</value>
+  <data name="_Menu_Clipboard_Message.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_Menu_Clipboard_Message.Size" type="System.Drawing.Size, System.Drawing">
+    <value>291, 22</value>
+  </data>
+  <data name="_Menu_Clipboard_Message.Text" xml:space="preserve">
+    <value>No image or image file path in clipboard.</value>
+  </data>
+  <data name="_Menu_Clipboard_Message.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_Menu_Clipboard_Separator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>288, 6</value>
+  </data>
+  <data name="_Menu_Clipboard_Separator1.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_Menu_Clipboard_Monitor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>291, 22</value>
+  </data>
+  <data name="_Menu_Clipboard_Monitor.Text" xml:space="preserve">
+    <value>Monitor clipboard</value>
+  </data>
+  <data name="_ComboBox_Quality.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="_ComboBox_Quality.Items" xml:space="preserve">
+    <value>High (source quality)</value>
+  </data>
+  <data name="_ComboBox_Quality.Items1" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="_ComboBox_Quality.Items2" xml:space="preserve">
+    <value>Low (texts may be unreadable, 250 colors)</value>
+  </data>
+  <data name="_ComboBox_Quality.Location" type="System.Drawing.Point, System.Drawing">
+    <value>118, 68</value>
+  </data>
+  <data name="_ComboBox_Quality.Size" type="System.Drawing.Size, System.Drawing">
+    <value>274, 21</value>
+  </data>
+  <data name="_ComboBox_Quality.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;_ComboBox_Quality.Name" xml:space="preserve">
+    <value>_ComboBox_Quality</value>
+  </data>
+  <data name="&gt;&gt;_ComboBox_Quality.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_ComboBox_Quality.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_ComboBox_Quality.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="_Label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_Label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 61</value>
+  </data>
+  <data name="_Label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 32</value>
+  </data>
+  <data name="_Label8.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="_Label8.Text" xml:space="preserve">
+    <value>Image quality for sharing:</value>
+  </data>
+  <data name="_Label8.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;_Label8.Name" xml:space="preserve">
+    <value>_Label8</value>
+  </data>
+  <data name="&gt;&gt;_Label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_Label8.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_Label8.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <metadata name="_ToolTip_Buttons.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>322, 17</value>
   </metadata>
+  <metadata name="_Menu_Screens.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>466, 17</value>
+  </metadata>
+  <data name="_Menu_Screens.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 120</value>
+  </data>
+  <data name="&gt;&gt;_Menu_Screens.Name" xml:space="preserve">
+    <value>_Menu_Screens</value>
+  </data>
+  <data name="&gt;&gt;_Menu_Screens.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_Menu_Screens_Screen1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 22</value>
+  </data>
+  <data name="_Menu_Screens_Screen1.Text" xml:space="preserve">
+    <value>Screen 1</value>
+  </data>
+  <data name="_Menu_Screens_Screen2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 22</value>
+  </data>
+  <data name="_Menu_Screens_Screen2.Text" xml:space="preserve">
+    <value>Screen 2</value>
+  </data>
+  <data name="_Menu_Screens_Screen3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 22</value>
+  </data>
+  <data name="_Menu_Screens_Screen3.Text" xml:space="preserve">
+    <value>Screen 3</value>
+  </data>
+  <data name="_Menu_Screens_Screen4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 22</value>
+  </data>
+  <data name="_Menu_Screens_Screen4.Text" xml:space="preserve">
+    <value>Screen 4</value>
+  </data>
+  <data name="_ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 6</value>
+  </data>
+  <data name="_Menu_Screens_AllScreens.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 22</value>
+  </data>
+  <data name="_Menu_Screens_AllScreens.Text" xml:space="preserve">
+    <value>All screens</value>
+  </data>
+  <metadata name="_Timer_MonitorClipboard.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>601, 17</value>
+  </metadata>
+  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 183</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>584, 3</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="Button_Save.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="Button_Save.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="Button_Save.Location" type="System.Drawing.Point, System.Drawing">
+    <value>485, 189</value>
+  </data>
+  <data name="Button_Save.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 37</value>
+  </data>
+  <data name="Button_Save.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="Button_Save.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="&gt;&gt;Button_Save.Name" xml:space="preserve">
+    <value>Button_Save</value>
+  </data>
+  <data name="&gt;&gt;Button_Save.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Button_Save.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Button_Save.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -496,7 +553,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>608, 185</value>
+    <value>608, 238</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1976,76 +2033,76 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="&gt;&gt;ImageList_Thumbs.Name" xml:space="preserve">
-    <value>ImageList_Thumbs</value>
+  <data name="&gt;&gt;_ImageList_Thumbs.Name" xml:space="preserve">
+    <value>_ImageList_Thumbs</value>
   </data>
-  <data name="&gt;&gt;ImageList_Thumbs.Type" xml:space="preserve">
+  <data name="&gt;&gt;_ImageList_Thumbs.Type" xml:space="preserve">
     <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Menu_Clipboard_Message.Name" xml:space="preserve">
-    <value>Menu_Clipboard_Message</value>
+  <data name="&gt;&gt;_Menu_Clipboard_Message.Name" xml:space="preserve">
+    <value>_Menu_Clipboard_Message</value>
   </data>
-  <data name="&gt;&gt;Menu_Clipboard_Message.Type" xml:space="preserve">
+  <data name="&gt;&gt;_Menu_Clipboard_Message.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Menu_Clipboard_Separator1.Name" xml:space="preserve">
-    <value>Menu_Clipboard_Separator1</value>
+  <data name="&gt;&gt;_Menu_Clipboard_Separator1.Name" xml:space="preserve">
+    <value>_Menu_Clipboard_Separator1</value>
   </data>
-  <data name="&gt;&gt;Menu_Clipboard_Separator1.Type" xml:space="preserve">
+  <data name="&gt;&gt;_Menu_Clipboard_Separator1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Menu_Clipboard_Monitor.Name" xml:space="preserve">
-    <value>Menu_Clipboard_Monitor</value>
+  <data name="&gt;&gt;_Menu_Clipboard_Monitor.Name" xml:space="preserve">
+    <value>_Menu_Clipboard_Monitor</value>
   </data>
-  <data name="&gt;&gt;Menu_Clipboard_Monitor.Type" xml:space="preserve">
+  <data name="&gt;&gt;_Menu_Clipboard_Monitor.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ToolTip_Buttons.Name" xml:space="preserve">
-    <value>ToolTip_Buttons</value>
+  <data name="&gt;&gt;_ToolTip_Buttons.Name" xml:space="preserve">
+    <value>_ToolTip_Buttons</value>
   </data>
-  <data name="&gt;&gt;ToolTip_Buttons.Type" xml:space="preserve">
+  <data name="&gt;&gt;_ToolTip_Buttons.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Menu_Screens_Screen1.Name" xml:space="preserve">
-    <value>Menu_Screens_Screen1</value>
+  <data name="&gt;&gt;_Menu_Screens_Screen1.Name" xml:space="preserve">
+    <value>_Menu_Screens_Screen1</value>
   </data>
-  <data name="&gt;&gt;Menu_Screens_Screen1.Type" xml:space="preserve">
+  <data name="&gt;&gt;_Menu_Screens_Screen1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Menu_Screens_Screen2.Name" xml:space="preserve">
-    <value>Menu_Screens_Screen2</value>
+  <data name="&gt;&gt;_Menu_Screens_Screen2.Name" xml:space="preserve">
+    <value>_Menu_Screens_Screen2</value>
   </data>
-  <data name="&gt;&gt;Menu_Screens_Screen2.Type" xml:space="preserve">
+  <data name="&gt;&gt;_Menu_Screens_Screen2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Menu_Screens_Screen3.Name" xml:space="preserve">
-    <value>Menu_Screens_Screen3</value>
+  <data name="&gt;&gt;_Menu_Screens_Screen3.Name" xml:space="preserve">
+    <value>_Menu_Screens_Screen3</value>
   </data>
-  <data name="&gt;&gt;Menu_Screens_Screen3.Type" xml:space="preserve">
+  <data name="&gt;&gt;_Menu_Screens_Screen3.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Menu_Screens_Screen4.Name" xml:space="preserve">
-    <value>Menu_Screens_Screen4</value>
+  <data name="&gt;&gt;_Menu_Screens_Screen4.Name" xml:space="preserve">
+    <value>_Menu_Screens_Screen4</value>
   </data>
-  <data name="&gt;&gt;Menu_Screens_Screen4.Type" xml:space="preserve">
+  <data name="&gt;&gt;_Menu_Screens_Screen4.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ToolStripSeparator1.Name" xml:space="preserve">
-    <value>ToolStripSeparator1</value>
+  <data name="&gt;&gt;_ToolStripSeparator1.Name" xml:space="preserve">
+    <value>_ToolStripSeparator1</value>
   </data>
-  <data name="&gt;&gt;ToolStripSeparator1.Type" xml:space="preserve">
+  <data name="&gt;&gt;_ToolStripSeparator1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Menu_Screens_AllScreens.Name" xml:space="preserve">
-    <value>Menu_Screens_AllScreens</value>
+  <data name="&gt;&gt;_Menu_Screens_AllScreens.Name" xml:space="preserve">
+    <value>_Menu_Screens_AllScreens</value>
   </data>
-  <data name="&gt;&gt;Menu_Screens_AllScreens.Type" xml:space="preserve">
+  <data name="&gt;&gt;_Menu_Screens_AllScreens.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Timer_MonitorClipboard.Name" xml:space="preserve">
-    <value>Timer_MonitorClipboard</value>
+  <data name="&gt;&gt;_Timer_MonitorClipboard.Name" xml:space="preserve">
+    <value>_Timer_MonitorClipboard</value>
   </data>
-  <data name="&gt;&gt;Timer_MonitorClipboard.Type" xml:space="preserve">
+  <data name="&gt;&gt;_Timer_MonitorClipboard.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

@@ -5,10 +5,14 @@ namespace Morysoft.MorySnip
 {
     public partial class Form_Settings
     {
-        public Form_Settings()
+        public static DialogResult Show()
         {
-            this.InitializeComponent();
+            using var form = new Form_Settings();
+
+            return form.ShowDialog();
         }
+
+        public Form_Settings() => this.InitializeComponent();
 
         private void Form_Load(object sender, EventArgs e)
         {
@@ -22,12 +26,11 @@ namespace Morysoft.MorySnip
 
         private void Button_Browse_Click(object sender, EventArgs e)
         {
+            using var withBlock = new FolderBrowserDialog();
+
+            if (withBlock.ShowDialog() == DialogResult.OK)
             {
-                var withBlock = new FolderBrowserDialog();
-                if ((int)withBlock.ShowDialog() == (int)DialogResult.OK)
-                {
-                    this.Button_BrowseLocal.Text = withBlock.SelectedPath;
-                }
+                this.Button_BrowseLocal.Text = withBlock.SelectedPath;
             }
         }
 
@@ -42,5 +45,7 @@ namespace Morysoft.MorySnip
             Settings.CopyPath = this.CheckBox_CopyPath.Checked;
             Settings.OpenFolder = this.CheckBox_OpenFolder.Checked;
         }
+
+        private void Button_Save_Click(object sender, EventArgs e) => this.Close();
     }
 }

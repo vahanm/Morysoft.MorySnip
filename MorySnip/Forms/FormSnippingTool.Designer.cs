@@ -40,6 +40,8 @@ namespace Morysoft.MorySnip
             this.Menu_Snip_FromFile = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Snip_FullScreen = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.Menu_Snip_Settings = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.Menu_Snip_Exit = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Snip.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +55,8 @@ namespace Morysoft.MorySnip
             this.Menu_Snip_FromFile,
             this.Menu_Snip_FullScreen,
             this.ToolStripSeparator1,
+            this.Menu_Snip_Settings,
+            this.ToolStripSeparator2,
             this.Menu_Snip_Exit});
             this.Menu_Snip.Name = "Menu_Snip";
             // 
@@ -81,6 +85,18 @@ namespace Morysoft.MorySnip
             // 
             resources.ApplyResources(this.ToolStripSeparator1, "ToolStripSeparator1");
             this.ToolStripSeparator1.Name = "ToolStripSeparator1";
+            // 
+            // Menu_Snip_Settings
+            // 
+            resources.ApplyResources(this.Menu_Snip_Settings, "Menu_Snip_Settings");
+            this.Menu_Snip_Settings.Image = global::Morysoft.MorySnip.Properties.Resources.feather_settings_32;
+            this.Menu_Snip_Settings.Name = "Menu_Snip_Settings";
+            this.Menu_Snip_Settings.Click += new System.EventHandler(this.Menu_Snip_Settings_Click);
+            // 
+            // ToolStripSeparator2
+            // 
+            resources.ApplyResources(this.ToolStripSeparator2, "ToolStripSeparator2");
+            this.ToolStripSeparator2.Name = "ToolStripSeparator2";
             // 
             // Menu_Snip_Exit
             // 
@@ -124,5 +140,7 @@ namespace Morysoft.MorySnip
         private ToolStripMenuItem Menu_Snip_FromClipboard;
 
         private ToolStripMenuItem Menu_Snip_FromFile;
+        private ToolStripMenuItem Menu_Snip_Settings;
+        private ToolStripSeparator ToolStripSeparator2;
     }
 }

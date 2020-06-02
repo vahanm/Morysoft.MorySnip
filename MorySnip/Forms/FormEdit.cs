@@ -341,5 +341,7 @@ namespace Morysoft.MorySnip
         }
 
         private void Menu_PaintMode_Magnifier_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Magnifier;
+
+        private void Button_Settings_Click(object sender, EventArgs e) => Form_Settings.Show();
     }
 }

@@ -389,6 +389,15 @@ namespace Morysoft.MorySnip
 
         private void Menu_Snip_FullScreen_Click(object sender, EventArgs e) => this.SnipFullScreen();
 
+        private void Menu_Snip_Settings_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            Form_Settings.Show();
+
+            this.Show();
+        }
+
         private void Menu_Snip_Exit_Click(object sender, EventArgs e) => this.Close();
 
         private void Menu_Snip_FromClipboard_Click(object sender, EventArgs e) => this.SnipFromClipboard();

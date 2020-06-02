@@ -473,6 +473,16 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap feather_save_32 {
+            get {
+                object obj = ResourceManager.GetObject("feather_save_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap feather_scissors {
             get {
                 object obj = ResourceManager.GetObject("feather_scissors", resourceCulture);
@@ -486,6 +496,16 @@ namespace Morysoft.MorySnip.Properties {
         internal static System.Drawing.Bitmap feather_settings {
             get {
                 object obj = ResourceManager.GetObject("feather_settings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feather_settings_32 {
+            get {
+                object obj = ResourceManager.GetObject("feather_settings_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

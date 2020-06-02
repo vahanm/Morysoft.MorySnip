@@ -119,34 +119,43 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Menu_Snip_FromClipboard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 38</value>
+    <value>193, 38</value>
   </data>
   <data name="Menu_Snip_FromClipboard.Text" xml:space="preserve">
     <value>Պատճենվածը</value>
   </data>
   <data name="Menu_Snip_FromFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 38</value>
+    <value>193, 38</value>
   </data>
   <data name="Menu_Snip_FromFile.Text" xml:space="preserve">
     <value>Ֆայլից</value>
   </data>
   <data name="Menu_Snip_FullScreen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 38</value>
+    <value>193, 38</value>
   </data>
   <data name="Menu_Snip_FullScreen.Text" xml:space="preserve">
     <value>&amp;Ամբողջ էկրանը</value>
   </data>
   <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 6</value>
+    <value>190, 6</value>
+  </data>
+  <data name="Menu_Snip_Settings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 38</value>
+  </data>
+  <data name="Menu_Snip_Settings.Text" xml:space="preserve">
+    <value>&amp;Կարգավորումներ</value>
+  </data>
+  <data name="ToolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 6</value>
   </data>
   <data name="Menu_Snip_Exit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 38</value>
+    <value>193, 38</value>
   </data>
   <data name="Menu_Snip_Exit.Text" xml:space="preserve">
     <value>&amp;Ելք</value>
   </data>
   <data name="Menu_Snip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 162</value>
+    <value>194, 206</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

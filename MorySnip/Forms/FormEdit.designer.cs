@@ -44,6 +44,7 @@ namespace Morysoft.MorySnip
             this.IncrementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DecrementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.Menu_PaintMode_Numbers_Config = new System.Windows.Forms.ToolStripDropDownButton();
             this.Menu_PaintMode_Crop = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.Menu_PaintMode_Free = new System.Windows.Forms.ToolStripButton();
@@ -99,8 +100,9 @@ namespace Morysoft.MorySnip
             this.ToolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.Button_Flip_X = new System.Windows.Forms.ToolStripButton();
             this.Button_Flip_Y = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.Button_Settings = new System.Windows.Forms.ToolStripButton();
             this.ToolStrip_Draw = new System.Windows.Forms.ToolStrip();
-            this.Menu_PaintMode_Numbers_Config = new System.Windows.Forms.ToolStripDropDownButton();
             this.Menu_PaintMode = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -192,6 +194,13 @@ namespace Morysoft.MorySnip
             // 
             this.ToolStripSeparator10.Name = "ToolStripSeparator10";
             resources.ApplyResources(this.ToolStripSeparator10, "ToolStripSeparator10");
+            // 
+            // Menu_PaintMode_Numbers_Config
+            // 
+            this.Menu_PaintMode_Numbers_Config.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
+            this.Menu_PaintMode_Numbers_Config.DropDown = this.Menu_Numbers;
+            resources.ApplyResources(this.Menu_PaintMode_Numbers_Config, "Menu_PaintMode_Numbers_Config");
+            this.Menu_PaintMode_Numbers_Config.Name = "Menu_PaintMode_Numbers_Config";
             // 
             // Menu_PaintMode_Crop
             // 
@@ -346,7 +355,9 @@ namespace Morysoft.MorySnip
             this.Button_Rotate_Right,
             this.ToolStripSeparator5,
             this.Button_Flip_X,
-            this.Button_Flip_Y});
+            this.Button_Flip_Y,
+            this.toolStripSeparator12,
+            this.Button_Settings});
             resources.ApplyResources(this.ToolStrip_Standard, "ToolStrip_Standard");
             this.ToolStrip_Standard.Name = "ToolStrip_Standard";
             // 
@@ -590,6 +601,20 @@ namespace Morysoft.MorySnip
             this.Button_Flip_Y.Name = "Button_Flip_Y";
             this.Button_Flip_Y.Click += new System.EventHandler(this.Button_Flip_Y_Click);
             // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            resources.ApplyResources(this.toolStripSeparator12, "toolStripSeparator12");
+            // 
+            // Button_Settings
+            // 
+            this.Button_Settings.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.Button_Settings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Button_Settings.Image = global::Morysoft.MorySnip.Properties.Resources.feather_settings_32;
+            resources.ApplyResources(this.Button_Settings, "Button_Settings");
+            this.Button_Settings.Name = "Button_Settings";
+            this.Button_Settings.Click += new System.EventHandler(this.Button_Settings_Click);
+            // 
             // ToolStrip_Draw
             // 
             this.ToolStrip_Draw.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
@@ -616,13 +641,6 @@ namespace Morysoft.MorySnip
             this.Menu_PaintMode_Grayscale});
             resources.ApplyResources(this.ToolStrip_Draw, "ToolStrip_Draw");
             this.ToolStrip_Draw.Name = "ToolStrip_Draw";
-            // 
-            // Menu_PaintMode_Numbers_Config
-            // 
-            this.Menu_PaintMode_Numbers_Config.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.None;
-            this.Menu_PaintMode_Numbers_Config.DropDown = this.Menu_Numbers;
-            resources.ApplyResources(this.Menu_PaintMode_Numbers_Config, "Menu_PaintMode_Numbers_Config");
-            this.Menu_PaintMode_Numbers_Config.Name = "Menu_PaintMode_Numbers_Config";
             // 
             // Menu_PaintMode
             // 
@@ -831,5 +849,7 @@ namespace Morysoft.MorySnip
         private ToolStripButton Menu_PaintMode_Magnifier;
         private ToolStripSeparator toolStripSeparator11;
         private ToolStripDropDownButton Menu_PaintMode_Numbers_Config;
+        private ToolStripSeparator toolStripSeparator12;
+        private ToolStripButton Button_Settings;
     }
 }

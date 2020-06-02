@@ -1,0 +1,7 @@
+﻿;The comment below contains SFX script commands
+
+Path=D:\Program Files\MorySnip
+Overwrite=1
+Update=U
+Title=MorySnip Setup
+Shortcut=D, "D:\Program Files\MorySnip\MorySnip.exe", "D:\Program Files\MorySnip\", , MorySnip, 

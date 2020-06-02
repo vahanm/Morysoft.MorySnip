@@ -138,7 +138,7 @@
     <value>Editor_Main</value>
   </data>
   <data name="&gt;&gt;Editor_Main.Type" xml:space="preserve">
-    <value>Morysoft.MorySnip.Editor, MorySnip, Version=1.0.1.0, Culture=neutral, PublicKeyToken=8ddae7e7a12b105c</value>
+    <value>Morysoft.MorySnip.Editor, MorySnip, Version=1.0.1.0, Culture=neutral, PublicKeyToken=b257e0dbbb7a1b30</value>
   </data>
   <data name="&gt;&gt;Editor_Main.Parent" xml:space="preserve">
     <value>Panel_Image</value>
@@ -223,10 +223,10 @@
     <value>Fill</value>
   </data>
   <data name="Panel_Image.Location" type="System.Drawing.Point, System.Drawing">
-    <value>39, 39</value>
+    <value>0, 78</value>
   </data>
   <data name="Panel_Image.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1024, 631</value>
+    <value>1100, 592</value>
   </data>
   <data name="Panel_Image.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -242,12 +242,6 @@
   </data>
   <data name="&gt;&gt;Panel_Image.ZOrder" xml:space="preserve">
     <value>4</value>
-  </data>
-  <metadata name="ToolStrip_Draw.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>523, 17</value>
-  </metadata>
-  <data name="ToolStrip_Draw.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <metadata name="Menu_Numbers.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>946, 17</value>
@@ -270,6 +264,30 @@
   <data name="ToolStripSeparator10.Size" type="System.Drawing.Size, System.Drawing">
     <value>129, 6</value>
   </data>
+  <data name="Menu_PaintMode_Numbers_Config.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
+        YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
+        0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
+        bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
+        VzOOpHI7Jr376Hi9ogHqFIANO0/MmmmbmSmm9a8ze+I4MrNWAdjtoJgWcx+PSzg166yZZ8xM8XvXDix9
+        c4jIqFYAjoriBV9AhEPv1mH/sonogha0afbZMMZz+yreTGyhpusHwtNNCsA5U1zS4BLxzJIfg299qO32
+        Ir7UJtZfftyATqeT+8o2D8JSjQrAJblrncYL7ZJ2+bfaFnC/1S1NjL3diRat7qrO7wLRP3HjWsojBeCo
+        mDEo5mNjuweFGvjWg2EBhCbpkW78htSHHwRyNdmgAFzPEee2iFkzayy2OLXzT4gr6UdUnlXrullsxxQ+
+        kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
+        TgDQASA1MVpwzwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="Menu_PaintMode_Numbers_Config.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="Menu_PaintMode_Numbers_Config.Size" type="System.Drawing.Size, System.Drawing">
+    <value>13, 36</value>
+  </data>
+  <data name="Menu_PaintMode_Numbers_Config.Text" xml:space="preserve">
+    <value>Numbers config</value>
+  </data>
   <data name="Menu_Numbers.Size" type="System.Drawing.Size, System.Drawing">
     <value>133, 54</value>
   </data>
@@ -279,11 +297,20 @@
   <data name="&gt;&gt;Menu_Numbers.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ToolStrip_Draw.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
+  <data name="Menu_PaintMode_Crop.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="Menu_PaintMode_Crop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 36</value>
+  </data>
+  <data name="Menu_PaintMode_Crop.Text" xml:space="preserve">
+    <value>Crop</value>
+  </data>
+  <data name="toolStripSeparator11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 39</value>
   </data>
   <data name="Menu_PaintMode_Free.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 36</value>
+    <value>36, 36</value>
   </data>
   <data name="Menu_PaintMode_Free.Text" xml:space="preserve">
     <value>Free</value>
@@ -292,7 +319,7 @@
     <value>Magenta</value>
   </data>
   <data name="Menu_PaintMode_Line.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 36</value>
+    <value>36, 36</value>
   </data>
   <data name="Menu_PaintMode_Line.Text" xml:space="preserve">
     <value>Line</value>
@@ -301,13 +328,13 @@
     <value>Magenta</value>
   </data>
   <data name="Menu_PaintMode_Arrow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 36</value>
+    <value>36, 36</value>
   </data>
   <data name="Menu_PaintMode_Arrow.Text" xml:space="preserve">
     <value>Arrow</value>
   </data>
   <data name="Menu_PaintMode_Oval.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 36</value>
+    <value>36, 36</value>
   </data>
   <data name="Menu_PaintMode_Oval.Text" xml:space="preserve">
     <value>Oval</value>
@@ -316,100 +343,46 @@
     <value>Magenta</value>
   </data>
   <data name="Menu_PaintMode_Rect.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 36</value>
+    <value>36, 36</value>
   </data>
   <data name="Menu_PaintMode_Rect.Text" xml:space="preserve">
     <value>Rectingle</value>
   </data>
   <data name="ToolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 6</value>
+    <value>6, 39</value>
   </data>
   <data name="Menu_PaintMode_Numbers.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="Menu_PaintMode_Numbers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 36</value>
+    <value>36, 36</value>
   </data>
   <data name="Menu_PaintMode_Numbers.Text" xml:space="preserve">
-    <value>1</value>
+    <value>Numbers</value>
   </data>
   <data name="Menu_PaintMode_Magnifier.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="Menu_PaintMode_Magnifier.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 36</value>
+    <value>36, 36</value>
   </data>
   <data name="Menu_PaintMode_Magnifier.Text" xml:space="preserve">
     <value>Magnifier</value>
   </data>
   <data name="ToolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 6</value>
+    <value>6, 39</value>
   </data>
   <data name="Menu_PaintMode_Fill.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="Menu_PaintMode_Fill.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 36</value>
+    <value>36, 36</value>
   </data>
   <data name="Menu_PaintMode_Fill.Text" xml:space="preserve">
     <value>Fill</value>
   </data>
-  <data name="ToolStripButton1.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="ToolStripButton1.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="ToolStripButton1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 19</value>
-  </data>
-  <data name="ToolStripButton1.Text" xml:space="preserve">
-    <value>Cusomize</value>
-  </data>
-  <data name="ToolStrip_Draw.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 39</value>
-  </data>
-  <data name="ToolStrip_Draw.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 631</value>
-  </data>
-  <data name="ToolStrip_Draw.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="ToolStrip_Draw.Text" xml:space="preserve">
-    <value>DrawToolbar</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip_Draw.Name" xml:space="preserve">
-    <value>ToolStrip_Draw</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip_Draw.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip_Draw.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip_Draw.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <metadata name="ToolStrip_Effects.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>805, 17</value>
-  </metadata>
-  <data name="ToolStrip_Effects.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="ToolStrip_Effects.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="Menu_PaintMode_Crop.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="Menu_PaintMode_Crop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 36</value>
-  </data>
-  <data name="Menu_PaintMode_Crop.Text" xml:space="preserve">
-    <value>Crop</value>
-  </data>
   <data name="ToolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 6</value>
+    <value>6, 39</value>
   </data>
   <data name="Menu_PaintMode_Highlight.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
@@ -418,7 +391,7 @@
     <value>Magenta</value>
   </data>
   <data name="Menu_PaintMode_Highlight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 36</value>
+    <value>36, 36</value>
   </data>
   <data name="Menu_PaintMode_Highlight.Text" xml:space="preserve">
     <value>Highlight</value>
@@ -430,7 +403,7 @@
     <value>Magenta</value>
   </data>
   <data name="Menu_PaintMode_Puzzle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 36</value>
+    <value>36, 36</value>
   </data>
   <data name="Menu_PaintMode_Puzzle.Text" xml:space="preserve">
     <value>Puzzle</value>
@@ -442,7 +415,7 @@
     <value>Magenta</value>
   </data>
   <data name="Menu_PaintMode_Blur.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 36</value>
+    <value>36, 36</value>
   </data>
   <data name="Menu_PaintMode_Blur.Text" xml:space="preserve">
     <value>Blur</value>
@@ -454,7 +427,7 @@
     <value>Magenta</value>
   </data>
   <data name="Menu_PaintMode_Invert.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 36</value>
+    <value>36, 36</value>
   </data>
   <data name="Menu_PaintMode_Invert.Text" xml:space="preserve">
     <value>Ivert</value>
@@ -466,46 +439,10 @@
     <value>Magenta</value>
   </data>
   <data name="Menu_PaintMode_Grayscale.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 36</value>
+    <value>36, 36</value>
   </data>
   <data name="Menu_PaintMode_Grayscale.Text" xml:space="preserve">
     <value>Grayscale</value>
-  </data>
-  <data name="ToolStripButton2.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="ToolStripButton2.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="ToolStripButton2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 19</value>
-  </data>
-  <data name="ToolStripButton2.Text" xml:space="preserve">
-    <value>Cusomize</value>
-  </data>
-  <data name="ToolStrip_Effects.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1063, 39</value>
-  </data>
-  <data name="ToolStrip_Effects.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 631</value>
-  </data>
-  <data name="ToolStrip_Effects.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="ToolStrip_Effects.Text" xml:space="preserve">
-    <value>Effects</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip_Effects.Name" xml:space="preserve">
-    <value>ToolStrip_Effects</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip_Effects.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip_Effects.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip_Effects.ZOrder" xml:space="preserve">
-    <value>6</value>
   </data>
   <metadata name="ToolStrip_Standard.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -759,18 +696,6 @@
   <data name="Button_Flip_Y.Text" xml:space="preserve">
     <value>Flip Vertical</value>
   </data>
-  <data name="Menu_ForNothing1.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="Menu_ForNothing1.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="Menu_ForNothing1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 19</value>
-  </data>
-  <data name="Menu_ForNothing1.Text" xml:space="preserve">
-    <value>Cusomize</value>
-  </data>
   <data name="ToolStrip_Standard.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -793,7 +718,34 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ToolStrip_Standard.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <metadata name="ToolStrip_Draw.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>523, 17</value>
+  </metadata>
+  <data name="ToolStrip_Draw.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 39</value>
+  </data>
+  <data name="ToolStrip_Draw.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1100, 39</value>
+  </data>
+  <data name="ToolStrip_Draw.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
+  </data>
+  <data name="ToolStrip_Draw.Text" xml:space="preserve">
+    <value>DrawToolbar</value>
+  </data>
+  <data name="&gt;&gt;ToolStrip_Draw.Name" xml:space="preserve">
+    <value>ToolStrip_Draw</value>
+  </data>
+  <data name="&gt;&gt;ToolStrip_Draw.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStrip_Draw.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ToolStrip_Draw.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <metadata name="Menu_PaintMode.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>657, 17</value>
@@ -2345,6 +2297,18 @@
   <data name="&gt;&gt;ToolStripSeparator10.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;Menu_PaintMode_Crop.Name" xml:space="preserve">
+    <value>Menu_PaintMode_Crop</value>
+  </data>
+  <data name="&gt;&gt;Menu_PaintMode_Crop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator11.Name" xml:space="preserve">
+    <value>toolStripSeparator11</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;Menu_PaintMode_Free.Name" xml:space="preserve">
     <value>Menu_PaintMode_Free</value>
   </data>
@@ -2405,18 +2369,6 @@
   <data name="&gt;&gt;Menu_PaintMode_Fill.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ToolStripButton1.Name" xml:space="preserve">
-    <value>ToolStripButton1</value>
-  </data>
-  <data name="&gt;&gt;ToolStripButton1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Menu_PaintMode_Crop.Name" xml:space="preserve">
-    <value>Menu_PaintMode_Crop</value>
-  </data>
-  <data name="&gt;&gt;Menu_PaintMode_Crop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;ToolStripSeparator4.Name" xml:space="preserve">
     <value>ToolStripSeparator4</value>
   </data>
@@ -2451,12 +2403,6 @@
     <value>Menu_PaintMode_Grayscale</value>
   </data>
   <data name="&gt;&gt;Menu_PaintMode_Grayscale.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripButton2.Name" xml:space="preserve">
-    <value>ToolStripButton2</value>
-  </data>
-  <data name="&gt;&gt;ToolStripButton2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Button_Save.Name" xml:space="preserve">
@@ -2505,7 +2451,7 @@
     <value>ToolStrip_Standard_Palitra</value>
   </data>
   <data name="&gt;&gt;ToolStrip_Standard_Palitra.Type" xml:space="preserve">
-    <value>Morysoft.MorySnip.ToolStripPalitra, MorySnip, Version=1.0.1.0, Culture=neutral, PublicKeyToken=8ddae7e7a12b105c</value>
+    <value>Morysoft.MorySnip.ToolStripPalitra, MorySnip, Version=1.0.1.0, Culture=neutral, PublicKeyToken=b257e0dbbb7a1b30</value>
   </data>
   <data name="&gt;&gt;Button_Color.Name" xml:space="preserve">
     <value>Button_Color</value>
@@ -2663,11 +2609,11 @@
   <data name="&gt;&gt;Button_Flip_Y.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Menu_ForNothing1.Name" xml:space="preserve">
-    <value>Menu_ForNothing1</value>
+  <data name="&gt;&gt;Menu_PaintMode_Numbers_Config.Name" xml:space="preserve">
+    <value>Menu_PaintMode_Numbers_Config</value>
   </data>
-  <data name="&gt;&gt;Menu_ForNothing1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Menu_PaintMode_Numbers_Config.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ToolStripMenuItem1.Name" xml:space="preserve">
     <value>ToolStripMenuItem1</value>

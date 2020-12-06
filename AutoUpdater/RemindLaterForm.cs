@@ -11,61 +11,58 @@ namespace AutoUpdaterDotNET
 
         public RemindLaterForm()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         private void RemindLaterFormLoad(object sender, EventArgs e)
         {
-            comboBoxRemindLater.SelectedIndex = 0;
-            radioButtonYes.Checked = true;
+            this.comboBoxRemindLater.SelectedIndex = 0;
+            this.radioButtonYes.Checked = true;
         }
 
         private void ButtonOkClick(object sender, EventArgs e)
         {
-            if (radioButtonYes.Checked)
+            if (this.radioButtonYes.Checked)
             {
-                switch (comboBoxRemindLater.SelectedIndex)
+                switch (this.comboBoxRemindLater.SelectedIndex)
                 {
                     case 0:
-                        RemindLaterFormat = AutoUpdater.RemindLaterFormat.Minutes;
-                        RemindLaterAt = 30;
+                        this.RemindLaterFormat = AutoUpdater.RemindLaterFormat.Minutes;
+                        this.RemindLaterAt = 30;
                         break;
                     case 1:
-                        RemindLaterFormat = AutoUpdater.RemindLaterFormat.Hours;
-                        RemindLaterAt = 12;
+                        this.RemindLaterFormat = AutoUpdater.RemindLaterFormat.Hours;
+                        this.RemindLaterAt = 12;
                         break;
                     case 2:
-                        RemindLaterFormat = AutoUpdater.RemindLaterFormat.Days;
-                        RemindLaterAt = 1;
+                        this.RemindLaterFormat = AutoUpdater.RemindLaterFormat.Days;
+                        this.RemindLaterAt = 1;
                         break;
                     case 3:
-                        RemindLaterFormat = AutoUpdater.RemindLaterFormat.Days;
-                        RemindLaterAt = 2;
+                        this.RemindLaterFormat = AutoUpdater.RemindLaterFormat.Days;
+                        this.RemindLaterAt = 2;
                         break;
                     case 4:
-                        RemindLaterFormat = AutoUpdater.RemindLaterFormat.Days;
-                        RemindLaterAt = 4;
+                        this.RemindLaterFormat = AutoUpdater.RemindLaterFormat.Days;
+                        this.RemindLaterAt = 4;
                         break;
                     case 5:
-                        RemindLaterFormat = AutoUpdater.RemindLaterFormat.Days;
-                        RemindLaterAt = 8;
+                        this.RemindLaterFormat = AutoUpdater.RemindLaterFormat.Days;
+                        this.RemindLaterAt = 8;
                         break;
                     case 6:
-                        RemindLaterFormat = AutoUpdater.RemindLaterFormat.Days;
-                        RemindLaterAt = 10;
+                        this.RemindLaterFormat = AutoUpdater.RemindLaterFormat.Days;
+                        this.RemindLaterAt = 10;
                         break;
                 }
-                DialogResult = DialogResult.OK;
+                this.DialogResult = DialogResult.OK;
             }
             else
             {
-                DialogResult = DialogResult.Abort;
+                this.DialogResult = DialogResult.Abort;
             }
         }
 
-        private void RadioButtonYesCheckedChanged(object sender, EventArgs e)
-        {
-            comboBoxRemindLater.Enabled = radioButtonYes.Checked;
-        }
+        private void RadioButtonYesCheckedChanged(object sender, EventArgs e) => this.comboBoxRemindLater.Enabled = this.radioButtonYes.Checked;
     }
 }

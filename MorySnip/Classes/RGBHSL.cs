@@ -1,0 +1,253 @@
+﻿// This tool is part of the xRay Toolkit and is provided free of charge by Bob Powell.
+// This code is not guaranteed to be free from defects or fit for mechantability in any way.
+// By using this tool in your own programs you agree to hold Robert W. Powell free from all
+// damages direct or incidental that arise from such use.
+// You may use this code free of charge in your own projects on condition that you place the
+// following paragraph (enclosed in quotes below) in your applications help or about dialog.
+// "Portions of this code provided by Bob Powell. Http://www.bobpowell.net"
+
+using System.Drawing;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+
+namespace Morysoft.MorySnip
+{
+    public class RGBHSL
+    {
+        public class HSL
+        {
+            public HSL()
+            {
+                this._h = 0;
+                this._s = 0;
+                this._l = 0;
+            } // New
+
+            private double _h;
+            private double _s;
+            private double _l;
+
+            public double H
+            {
+                get => this._h;
+                set
+                {
+                    this._h = value;
+                    this._h = Conversions.ToDouble(Interaction.IIf(this._h > 1, 1, Interaction.IIf(this._h < 0, 0, this._h)));
+                }
+            }
+
+            public double S
+            {
+                get => this._s;
+                set
+                {
+                    this._s = value;
+                    this._s = Conversions.ToDouble(Interaction.IIf(this._s > 1, 1, Interaction.IIf(this._s < 0, 0, this._s)));
+                }
+            }
+
+            public double L
+            {
+                get => this._l;
+                set
+                {
+                    this._l = value;
+                    this._l = Conversions.ToDouble(Interaction.IIf(this._l > 1, 1, Interaction.IIf(this._l < 0, 0, this._l)));
+                }
+            }
+        } // HSL
+
+        public RGBHSL()
+        {
+        } // New
+
+        // / <summary>
+        // / Sets the absolute brightness of a colour
+        // / </summary>
+        // / <param name="c">Original colour</param>
+        // / <param name="brightness">The luminance level to impose</param>
+        // / <returns>an adjusted colour</returns>
+        public static Color SetBrightness(Color c, double brightness)
+        {
+            var hsl = RGB_to_HSL(c);
+            hsl.L = brightness;
+            return HSL_to_RGB(hsl);
+        } // SetBrightness
+
+        // / <summary>
+        // / Modifies an existing brightness level
+        // / </summary>
+        // / <remarks>
+        // / To reduce brightness use a number smaller than 1. To increase brightness use a number larger tnan 1
+        // / </remarks>
+        // / <param name="c">The original colour</param>
+        // / <param name="brightness">The luminance delta</param>
+        // / <returns>An adjusted colour</returns>
+        public static Color ModifyBrightness(Color c, double brightness)
+        {
+            var hsl = RGB_to_HSL(c);
+            hsl.L *= brightness;
+            return HSL_to_RGB(hsl);
+        } // ModifyBrightness
+
+        // / <summary>
+        // / Sets the absolute saturation level
+        // / </summary>
+        // / <remarks>Accepted values 0-1</remarks>
+        // / <param name="c">An original colour</param>
+        // / <param name="Saturation">The saturation value to impose</param>
+        // / <returns>An adjusted colour</returns>
+        public static Color SetSaturation(Color c, double Saturation)
+        {
+            var hsl = RGB_to_HSL(c);
+            hsl.S = Saturation;
+            return HSL_to_RGB(hsl);
+        } // SetSaturation
+
+        // / <summary>
+        // / Modifies an existing Saturation level
+        // / </summary>
+        // / <remarks>
+        // / To reduce Saturation use a number smaller than 1. To increase Saturation use a number larger tnan 1
+        // / </remarks>
+        // / <param name="c">The original colour</param>
+        // / <param name="Saturation">The saturation delta</param>
+        // / <returns>An adjusted colour</returns>
+        public static Color ModifySaturation(Color c, double Saturation)
+        {
+            var hsl = RGB_to_HSL(c);
+            hsl.S *= Saturation;
+            return HSL_to_RGB(hsl);
+        } // ModifySaturation
+
+        // / <summary>
+        // / Sets the absolute Hue level
+        // / </summary>
+        // / <remarks>Accepted values 0-1</remarks>
+        // / <param name="c">An original colour</param>
+        // / <param name="Hue">The Hue value to impose</param>
+        // / <returns>An adjusted colour</returns>
+        public static Color SetHue(Color c, double Hue)
+        {
+            var hsl = RGB_to_HSL(c);
+            hsl.H = Hue;
+            return HSL_to_RGB(hsl);
+        } // SetHue
+
+        // / <summary>
+        // / Modifies an existing Hue level
+        // / </summary>
+        // / <remarks>
+        // / To reduce Hue use a number smaller than 1. To increase Hue use a number larger tnan 1
+        // / </remarks>
+        // / <param name="c">The original colour</param>
+        // / <param name="Hue">The Hue delta</param>
+        // / <returns>An adjusted colour</returns>
+        public static Color ModifyHue(Color c, double Hue)
+        {
+            var hsl = RGB_to_HSL(c);
+            hsl.H *= Hue;
+            return HSL_to_RGB(hsl);
+        } // ModifyHue
+
+        /// <summary>
+        /// Converts a colour from HSL to RGB
+        /// </summary>
+        /// <param name="h"></param>
+        /// <param name="l"></param>
+        /// <param name="s"></param>
+        /// <returns>A Color structure containing the equivalent RGB values</returns>
+        /// <remarks>Adapted from the algoritm in Foley and Van-Dam</remarks>
+        public static Color HSL_to_RGB(double h, double l, double s) => HSL_to_RGB(new HSL() { H = h, L = l, S = s });
+
+        /// <summary>
+        /// Converts a colour from HSL to RGB
+        /// </summary>
+        /// <remarks>Adapted from the algoritm in Foley and Van-Dam</remarks>
+        /// <param name="hsl">The HSL value</param>
+        /// <returns>A Color structure containing the equivalent RGB values</returns>
+        public static Color HSL_to_RGB(HSL hsl)
+        {
+            double temp1;
+            double temp2;
+            double r;
+            double g;
+            double b;
+
+            if (hsl.L == 0)
+            {
+                r = 0;
+                g = 0;
+                b = 0;
+            }
+            else if (hsl.S == 0)
+            {
+                r = hsl.L;
+                g = hsl.L;
+                b = hsl.L;
+            }
+            else
+            {
+                temp2 = hsl.L <= 0.5
+                    ? hsl.L * (1.0 + hsl.S)
+                    : hsl.L + hsl.S - hsl.L * hsl.S;
+                temp1 = 2.0 * hsl.L - temp2;
+
+                double[] t3 = new[] { hsl.H + 1.0 / 3.0, hsl.H, hsl.H - 1.0 / 3.0 };
+                double[] clr = new[] { 0.0, 0.0, 0.0 };
+                int i;
+
+                for (i = 0; i <= 2; i++)
+                {
+                    if (t3[i] < 0)
+                    {
+                        t3[i] += 1.0;
+                    }
+
+                    if (t3[i] > 1)
+                    {
+                        t3[i] -= 1.0;
+                    }
+
+                    if (6.0 * t3[i] < 1.0)
+                    {
+                        clr[i] = temp1 + (temp2 - temp1) * t3[i] * 6.0;
+                    }
+                    else if (2.0 * t3[i] < 1.0)
+                    {
+                        clr[i] = temp2;
+                    }
+                    else if (3.0 * t3[i] < 2.0)
+                    {
+                        clr[i] = temp1 + (temp2 - temp1) * (2.0 / 3.0 - t3[i]) * 6.0;
+                    }
+                    else
+                    {
+                        clr[i] = temp1;
+                    }
+                }
+
+                r = clr[0];
+                g = clr[1];
+                b = clr[2];
+            }
+
+            return Color.FromArgb(Conversions.ToInteger(255 * r), Conversions.ToInteger(255 * g), Conversions.ToInteger(255 * b));
+        } // HSL_to_RGB
+
+        // 
+        // / <summary>
+        // / Converts RGB to HSL
+        // / </summary>
+        // / <remarks>Takes advantage of whats already built in to .NET by using the Color.GetHue, Color.GetSaturation and Color.GetBrightness methods</remarks>
+        // / <param name="c">A Color to convert</param>
+        // / <returns>An HSL value</returns>
+        public static HSL RGB_to_HSL(Color c) => new HSL()
+        {
+            H = c.GetHue() / 360.0,
+            L = c.GetBrightness(),
+            S = c.GetSaturation()
+        };
+    } // RGBHSL
+}

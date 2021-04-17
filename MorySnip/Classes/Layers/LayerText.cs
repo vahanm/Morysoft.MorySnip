@@ -44,30 +44,30 @@ namespace Morysoft.MorySnip
                 switch (this.ArrowMode)
                 {
                     case ArrowModes.AtEnd:
-                    {
-                        var firstPoint = new Point((int)(size.Width + GapLength), 0);
-                        var lastPoint = new Point((int)totalLength, 0);
+                        {
+                            var firstPoint = new Point((int)(size.Width + GapLength), 0);
+                            var lastPoint = new Point((int)totalLength, 0);
 
-                        g.DrawString(this.Text, font, this.Brush, 0, -size.Height / 2);
-                        g.DrawLine(this.Pen, firstPoint, lastPoint);
+                            g.DrawString(this.Text, font, this.Brush, 0, -size.Height / 2);
+                            g.DrawLine(this.Pen, firstPoint, lastPoint);
 
-                        this.DrawArrow(g, firstPoint, lastPoint);
+                            g.DrawArrow(this.Pen, this.Brush, firstPoint, lastPoint, this.ArrowMode);
 
-                        break;
-                    }
+                            break;
+                        }
 
                     case ArrowModes.AtStart:
-                    {
-                        this.DrawArrow(g, this.LastPoint, this.FirstPoint);
-                        break;
-                    }
+                        {
+                            g.DrawArrow(this.Pen, this.Brush, this.LastPoint, this.FirstPoint, this.ArrowMode);
+                            break;
+                        }
 
                     case ArrowModes.Both:
-                    {
-                        this.DrawArrow(g, this.LastPoint, this.FirstPoint);
-                        this.DrawArrow(g, this.FirstPoint, this.LastPoint);
-                        break;
-                    }
+                        {
+                            g.DrawArrow(this.Pen, this.Brush, this.LastPoint, this.FirstPoint, this.ArrowMode);
+                            g.DrawArrow(this.Pen, this.Brush, this.FirstPoint, this.LastPoint, this.ArrowMode);
+                            break;
+                        }
                 }
             }
 

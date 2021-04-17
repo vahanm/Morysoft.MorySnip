@@ -13,11 +13,11 @@ namespace Morysoft.MorySnip
 {
     public partial class FormSnippingTool
     {
-        private static Point _virtualScreenLocation = SystemInformation.VirtualScreen.Location;
-        private static Size _virtualScreenSize = SystemInformation.VirtualScreen.Size;
+        private static Point _virtualScreenLocation;
+        private static Size _virtualScreenSize;
 
-        private static Point _primaryScreenLocation = Screen.PrimaryScreen.Bounds.Location;
-        private static Size _primaryScreenSize = Screen.PrimaryScreen.Bounds.Size;
+        private static Point _primaryScreenLocation;
+        private static Size _primaryScreenSize;
 
         private int x, y, w, h;
         private Point FirstPoint;
@@ -247,11 +247,16 @@ namespace Morysoft.MorySnip
                 if (this.bordersOnlyMode)
                 {
                     g.Clear(this.TransparencyKey);
-                    g.DrawRectangle(new Pen(Color.Red, 2), this.x, this.y, this.w, this.h);
+                    
+                    using var pen = new Pen(Color.Red, 2);
+
+                    g.DrawRectangle(pen, this.x, this.y, this.w, this.h);
                 }
                 else
                 {
-                    g.FillRectangle(new SolidBrush(this.TransparencyKey), this.x, this.y, this.w + 1, this.h + 1);
+                    using var brush = new SolidBrush(this.TransparencyKey);
+
+                    g.FillRectangle(brush, this.x, this.y, this.w + 1, this.h + 1);
                     g.DrawRectangle(Pens.Red, -10, this.y, 10000, this.h + 1);
                     g.DrawRectangle(Pens.Red, this.x, -10, this.w + 1, 10000);
 
@@ -259,42 +264,39 @@ namespace Morysoft.MorySnip
                     var r2 = Helpers.ReduceRatio(Conversions.ToUInteger(this.w), Conversions.ToUInteger(this.h));
                     bool approximate = !(r1 == r2);
 
-                    using (var font = new Font(this.Font.FontFamily, 11, FontStyle.Italic, GraphicsUnit.Pixel))
-                    {
-                        g.DrawString(
-                            String.Format("{0:# ##0px} - {1:# ##0px} -- {4}{2}:{3}",
-                                this.w,
-                                this.h,
-                                r1.Width,
-                                r1.Height,
-                                approximate ? "≈" : ""
-                            ),
-                            font,
-                            Brushes.White,
-                            this.x,
-                            this.y - 14
-                        );
-                    }
+                    using var font = new Font(this.Font.FontFamily, _primaryScreenSize.Height / 45, FontStyle.Italic, GraphicsUnit.Pixel);
+
+                    g.DrawString($"{this.w:# ##0px} - {this.h:# ##0px} -- {(approximate ? "≈" : "")}{r1.Width}:{r1.Height}",
+                        font,
+                        Brushes.White,
+                        this.x,
+                        (float)(this.y - (font.Height * 1.1))
+                    );
                 }
             }
             else
             {
-                using (var font = new Font(this.Font.FontFamily, 40, FontStyle.Italic, GraphicsUnit.Pixel))
-                {
-                    g.DrawString((new Mouse()).ButtonsSwapped
-                        ? Properties.Resources.PressLeftClickToViewOptions
-                        : Properties.Resources.PressRightClickToViewOptions,
-                        font,
-                        Brushes.DarkGray,
-                        -_virtualScreenLocation.X + _primaryScreenLocation.X + 10,
-                        -_virtualScreenLocation.Y + _primaryScreenLocation.Y + (_primaryScreenSize.Height / 2) - 20
-                    );
-                }
+                using var font = new Font(this.Font.FontFamily, _primaryScreenSize.Height / 20, FontStyle.Italic, GraphicsUnit.Pixel);
+
+                g.DrawString((new Mouse()).ButtonsSwapped
+                    ? Properties.Resources.PressLeftClickToViewOptions
+                    : Properties.Resources.PressRightClickToViewOptions,
+                    font,
+                    Brushes.DarkGray,
+                    -_virtualScreenLocation.X + _primaryScreenLocation.X + 10,
+                    -_virtualScreenLocation.Y + _primaryScreenLocation.Y + (_primaryScreenSize.Height / 2) - font.Height
+                );
             }
         }
 
         private void Form_SnippingTool_Load(object sender, EventArgs e)
         {
+            _virtualScreenLocation = SystemInformation.VirtualScreen.Location;
+            _virtualScreenSize = SystemInformation.VirtualScreen.Size;
+
+            _primaryScreenLocation = Screen.PrimaryScreen.WorkingArea.Location; // .Bounds.Location;
+            _primaryScreenSize = Screen.PrimaryScreen.WorkingArea.Size; // .Bounds.Size;
+
             this.Location = _virtualScreenLocation;
             this.Size = _virtualScreenSize;
         }

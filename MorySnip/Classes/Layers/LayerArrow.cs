@@ -27,6 +27,11 @@ namespace Morysoft.MorySnip
 
         public override void Render(Graphics g)
         {
+            if (g is null)
+            {
+                throw new ArgumentNullException(nameof(g));
+            }
+
             g.CompositingQuality = CompositingQuality.HighQuality;
             g.InterpolationMode = InterpolationMode.HighQualityBicubic;
             g.SmoothingMode = SmoothingMode.AntiAlias;

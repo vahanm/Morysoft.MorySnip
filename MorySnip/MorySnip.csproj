@@ -163,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.cs" />
+    <Compile Include="Classes\Layers\LayerText.cs" />
     <Compile Include="Classes\Layers\LayerMagnifier.cs" />
     <Compile Include="Classes\RGBHSL.cs" />
     <Compile Include="Classes\Constants.cs" />
@@ -189,6 +190,7 @@
     <Compile Include="Classes\Polar.cs" />
     <Compile Include="Classes\Screenshot.cs" />
     <Compile Include="Classes\ToolStripPalitra.cs" />
+    <Compile Include="Draw\Arrow.cs" />
     <Compile Include="Forms\FormSettings.Designer.cs">
       <DependentUpon>FormSettings.cs</DependentUpon>
     </Compile>

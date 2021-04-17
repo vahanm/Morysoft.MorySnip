@@ -160,6 +160,9 @@ namespace Morysoft.MorySnip
             this.Menu_PaintMode_Rect.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Rect;
             this.Menu_PaintMode_Numbers.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Number;
             this.Menu_PaintMode_Magnifier.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Magnifier;
+            this.Menu_PaintMode_Text.Checked
+                = this.Menu_PaintMode_TextBox.Visible
+                = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Text;
 
             // Actions
             this.Menu_PaintMode_Highlight.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Highlight;
@@ -343,5 +346,15 @@ namespace Morysoft.MorySnip
         private void Menu_PaintMode_Magnifier_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Magnifier;
 
         private void Button_Settings_Click(object sender, EventArgs e) => Form_Settings.Show();
+
+        private void Menu_PaintMode_Text_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Text;
+
+        private void Menu_PaintMode_TextBox_TextChanged(object sender, EventArgs e) => this.Editor_Main.QuickText = this.Menu_PaintMode_TextBox.Text;
+
+        private void Menu_PaintMode_TextBox_VisibleChanged(object sender, EventArgs e)
+        {
+            this.Menu_PaintMode_TextBox.Focus();
+            this.Menu_PaintMode_TextBox.SelectAll();
+        }
     }
 }

@@ -735,6 +735,24 @@
   <metadata name="ToolStrip_Draw.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>523, 17</value>
   </metadata>
+  <data name="toolStripSeparator13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 39</value>
+  </data>
+  <data name="Menu_PaintMode_Text.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="Menu_PaintMode_Text.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 36</value>
+  </data>
+  <data name="Menu_PaintMode_Text.Text" xml:space="preserve">
+    <value>toolStripButton1</value>
+  </data>
+  <data name="Menu_PaintMode_TextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 39</value>
+  </data>
+  <data name="Menu_PaintMode_TextBox.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="ToolStrip_Draw.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 39</value>
   </data>
@@ -2288,6 +2306,9 @@
         AIABAADAAQAAwAEAAOADAADwBwAA
 </value>
   </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Editor</value>
   </data>
@@ -2465,12 +2486,6 @@
   <data name="&gt;&gt;ToolStripSeparator8.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ToolStrip_Standard_Palitra.Name" xml:space="preserve">
-    <value>ToolStrip_Standard_Palitra</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip_Standard_Palitra.Type" xml:space="preserve">
-    <value>Morysoft.MorySnip.ToolStripPalitra, MorySnip, Version=1.0.1.0, Culture=neutral, PublicKeyToken=b257e0dbbb7a1b30</value>
-  </data>
   <data name="&gt;&gt;Button_Color.Name" xml:space="preserve">
     <value>Button_Color</value>
   </data>
@@ -2639,6 +2654,24 @@
   <data name="&gt;&gt;Button_Settings.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripSeparator13.Name" xml:space="preserve">
+    <value>toolStripSeparator13</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator13.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Menu_PaintMode_Text.Name" xml:space="preserve">
+    <value>Menu_PaintMode_Text</value>
+  </data>
+  <data name="&gt;&gt;Menu_PaintMode_Text.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Menu_PaintMode_TextBox.Name" xml:space="preserve">
+    <value>Menu_PaintMode_TextBox</value>
+  </data>
+  <data name="&gt;&gt;Menu_PaintMode_TextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;ToolStripMenuItem1.Name" xml:space="preserve">
     <value>ToolStripMenuItem1</value>
   </data>
@@ -2680,6 +2713,12 @@
   </data>
   <data name="&gt;&gt;Timer_Update.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStrip_Standard_Palitra.Name" xml:space="preserve">
+    <value>ToolStrip_Standard_Palitra</value>
+  </data>
+  <data name="&gt;&gt;ToolStrip_Standard_Palitra.Type" xml:space="preserve">
+    <value>Morysoft.MorySnip.ToolStripPalitra, MorySnip, Version=1.0.1.0, Culture=neutral, PublicKeyToken=b257e0dbbb7a1b30</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormEdit</value>

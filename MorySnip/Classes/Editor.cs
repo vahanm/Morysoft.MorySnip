@@ -5,6 +5,7 @@ using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using Morysoft.MorySnip.Draw;
 
 namespace Morysoft.MorySnip
 {
@@ -51,6 +52,8 @@ namespace Morysoft.MorySnip
         public bool CanRedo => this.NextSteps.Count > 0;
 
         public bool CanUndo => this.PreviousSteps.Count > 0;
+
+        public string QuickText { get; set; }
 
         public void Redo()
         {
@@ -187,6 +190,7 @@ namespace Morysoft.MorySnip
             Rect,
             Number,
             Magnifier,
+            Text,
             // Effects
             Highlight,
             Invert,
@@ -348,11 +352,12 @@ namespace Morysoft.MorySnip
 
                 case EditorPaintMode.Arrow:
                 {
-                    this.NewLayer = new LayerArrow(this.CurrentPen, this.CurrentBrush, e.Location, ArrowMode: e.Button == MouseButtons.Right ? ArrowModes.AtStart : ArrowModes.AtEnd);
+                    this.NewLayer = new LayerArrow(this.CurrentPen, this.CurrentBrush, e.Location, arrowMode: e.Button == MouseButtons.Right ? ArrowModes.AtStart : ArrowModes.AtEnd);
                     break;
                 }
 
                 case EditorPaintMode.Magnifier:
+                {
                     this.NewLayer = new LayerMagnifier(
                         this.CurrentPen,
                         this.CurrentBrush,
@@ -362,28 +367,37 @@ namespace Morysoft.MorySnip
                         50
                     );
                     break;
+                }
+
+                case EditorPaintMode.Text:
+                {
+                    this.NewLayer = new LayerText(
+                        this.QuickText, this.CurrentPen, this.CurrentBrush, e.Location, this.Font,
+                        e.Button == MouseButtons.Right ? ArrowModes.AtStart : ArrowModes.AtEnd);
+                    break;
+                }
 
                 case EditorPaintMode.Invert:
                 {
-                    this.NewLayer = new LayerAction(e.Location, Actions.Invert, (Zones)Interaction.IIf(e.Button == MouseButtons.Right, Zones.NotSelected, Zones.Selected));
+                    this.NewLayer = new LayerAction(e.Location, Actions.Invert, e.Button == MouseButtons.Right ? Zones.NotSelected : Zones.Selected);
                     break;
                 }
 
                 case EditorPaintMode.Blur:
                 {
-                    this.NewLayer = new LayerAction(e.Location, Actions.Blur, (Zones)Interaction.IIf(e.Button == MouseButtons.Right, Zones.NotSelected, Zones.Selected));
+                    this.NewLayer = new LayerAction(e.Location, Actions.Blur, e.Button == MouseButtons.Right ? Zones.NotSelected : Zones.Selected);
                     break;
                 }
 
                 case EditorPaintMode.Puzzle:
                 {
-                    this.NewLayer = new LayerAction(e.Location, Actions.Puzzle, (Zones)Interaction.IIf(e.Button == MouseButtons.Right, Zones.NotSelected, Zones.Selected));
+                    this.NewLayer = new LayerAction(e.Location, Actions.Puzzle, e.Button == MouseButtons.Right ? Zones.NotSelected : Zones.Selected);
                     break;
                 }
 
                 case EditorPaintMode.Grayscale:
                 {
-                    this.NewLayer = new LayerAction(e.Location, Actions.Grayscale, (Zones)Interaction.IIf(e.Button == MouseButtons.Right, Zones.NotSelected, Zones.Selected));
+                    this.NewLayer = new LayerAction(e.Location, Actions.Grayscale, e.Button == MouseButtons.Right ? Zones.NotSelected : Zones.Selected);
                     break;
                 }
 

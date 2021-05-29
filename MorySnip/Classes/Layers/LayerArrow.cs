@@ -1,82 +1,40 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using Microsoft.VisualBasic.CompilerServices;
+using Morysoft;
+using Morysoft.MorySnip;
+using Morysoft.MorySnip.Draw;
 
 namespace Morysoft.MorySnip
 {
-    public enum ArrowModes : byte
-    {
-        AtStart,
-        AtEnd,
-        Both
-    }
-
     public class LayerArrow : Layer
     {
         public LayerArrow() { }
 
-        public LayerArrow(Pen Pen, Brush Brush, Point FirstPoint, ArrowModes ArrowMode)
+        public LayerArrow(Pen pen, Brush brush, Point firstPoint, ArrowModes arrowMode)
         {
-            this.Pen = Pen;
-            this.Brush = Brush;
-            this.ArrowMode = ArrowMode;
-            this.Start(FirstPoint);
+            this.Pen = pen;
+            this.Brush = brush;
+            this.ArrowMode = arrowMode;
+
+            this.Start(firstPoint);
         }
 
         public ArrowModes ArrowMode { get; set; }
 
-        public override void Paint(Graphics g)
-        {
-            void drawArrow(Point pBegin, Point pEnd)
-            {
-                float a1 = 0.5f;
-                float a2 = 0.4f;
-
-                var newZero = (Polar)pBegin - pEnd;
-
-                var tailPolar11 = new Polar(newZero.Angle - a1, newZero.Radius / 10);
-                var tailPolar12 = new Polar(newZero.Angle - a2, newZero.Radius / 20);
-                var tailPolar21 = new Polar(newZero.Angle + a1, newZero.Radius / 10);
-                var tailPolar22 = new Polar(newZero.Angle + a2, newZero.Radius / 20);
-
-                var tail11 = tailPolar11 + pEnd;
-                var tail12 = tailPolar12 + pEnd;
-                var tail21 = tailPolar21 + pEnd;
-                var tail22 = tailPolar22 + pEnd;
-
-                g.DrawCurve(this.Pen, new Point[] { tail11, tail12, pEnd }, 0.5f);
-                g.DrawCurve(this.Pen, new Point[] { tail21, tail22, pEnd }, 0.5f);
-            };
-
-            g.DrawLine(this.Pen, this.FirstPoint, this.LastPoint);
-
-            switch (this.ArrowMode)
-            {
-                case ArrowModes.AtEnd:
-                {
-                    drawArrow(this.FirstPoint, this.LastPoint);
-                    break;
-                }
-
-                case ArrowModes.AtStart:
-                {
-                    drawArrow(this.LastPoint, this.FirstPoint);
-                    break;
-                }
-
-                case ArrowModes.Both:
-                {
-                    drawArrow(this.LastPoint, this.FirstPoint);
-                    drawArrow(this.FirstPoint, this.LastPoint);
-                    break;
-                }
-            }
-        }
+        public override void Paint(Graphics g) => g.DrawArrow(this.Pen, this.Brush, this.FirstPoint, this.LastPoint, this.ArrowMode);
 
         public override void Render(Graphics g)
         {
-            g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            if (g is null)
+            {
+                throw new ArgumentNullException(nameof(g));
+            }
+
+            g.CompositingQuality = CompositingQuality.HighQuality;
+            g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
 
             this.Paint(g);
         }

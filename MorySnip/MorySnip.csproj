@@ -97,18 +97,6 @@
     <WarningsAsErrors>
     </WarningsAsErrors>
   </PropertyGroup>
-  <PropertyGroup>
-    <ManifestCertificateThumbprint>876A84C96EE7091652B5BAE743907E170CE89409</ManifestCertificateThumbprint>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestKeyFile>MorySnip_TemporaryKey.pfx</ManifestKeyFile>
-  </PropertyGroup>
-  <PropertyGroup>
-    <GenerateManifests>false</GenerateManifests>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignManifests>true</SignManifests>
-  </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
     <TargetZone>Internet</TargetZone>
@@ -135,6 +123,7 @@
     <NeutralLanguage>en-US</NeutralLanguage>
     <AssemblyVersion>1.0.1.0</AssemblyVersion>
     <FileVersion>1.0.1.0</FileVersion>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Ionic.Zip">
@@ -163,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.cs" />
+    <Compile Include="Classes\Layers\LayerText.cs" />
     <Compile Include="Classes\Layers\LayerMagnifier.cs" />
     <Compile Include="Classes\RGBHSL.cs" />
     <Compile Include="Classes\Constants.cs" />
@@ -189,6 +179,7 @@
     <Compile Include="Classes\Polar.cs" />
     <Compile Include="Classes\Screenshot.cs" />
     <Compile Include="Classes\ToolStripPalitra.cs" />
+    <Compile Include="Draw\Arrow.cs" />
     <Compile Include="Forms\FormSettings.Designer.cs">
       <DependentUpon>FormSettings.cs</DependentUpon>
     </Compile>

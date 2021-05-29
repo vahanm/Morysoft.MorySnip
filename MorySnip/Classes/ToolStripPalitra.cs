@@ -24,7 +24,8 @@ namespace Morysoft.MorySnip
     [DefaultEvent("ColorChanged")]
     public class ToolStripPalitra : ToolStripItem
     {
-        private static Color[,] _Palitra = null;
+        private static Color[,] _Palitra;
+
         public static Color[,] Palitra
         {
             get

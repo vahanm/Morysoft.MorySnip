@@ -200,8 +200,8 @@ namespace Morysoft.MorySnip
             Grayscale
         }
 
-        private EditorPaintMode paintMode = EditorPaintMode.Free;
-        private EditorPaintMode paintModeLast = EditorPaintMode.Free;
+        private EditorPaintMode paintMode = EditorPaintMode.Arrow;
+        private EditorPaintMode paintModeLast = EditorPaintMode.Arrow;
 
         public void SetLastPaintMode() => this.PaintMode = this.paintModeLast;
 
@@ -238,6 +238,10 @@ namespace Morysoft.MorySnip
                 this.NewLayer = null;
                 this.Refresh();
             }
+            else if (e.KeyCode == Keys.Oem3 && !e.Control && !e.Shift)
+            {
+                this.SecondaryAction();
+            }
         }
 
         private Layer NewLayer;
@@ -251,33 +255,39 @@ namespace Morysoft.MorySnip
         {
             if (this.LastButton == MouseButtons.Left && e.Button == MouseButtons.Right || this.LastButton == MouseButtons.Right && e.Button == MouseButtons.Left)
             {
-                if (this.NewLayer is LayerArrow NewLayerArrow)
-                {
-                    switch (NewLayerArrow.ArrowMode)
-                    {
-                        case ArrowModes.AtEnd:
-                        {
-                            NewLayerArrow.ArrowMode = ArrowModes.AtStart;
-                            break;
-                        }
-
-                        case ArrowModes.AtStart:
-                        {
-                            NewLayerArrow.ArrowMode = ArrowModes.Both;
-                            break;
-                        }
-
-                        case ArrowModes.Both:
-                        {
-                            NewLayerArrow.ArrowMode = ArrowModes.AtEnd;
-                            break;
-                        }
-
-                        default:
-                            throw new InvalidOperationException();
-                    }
-                }
+                this.SecondaryAction();
             }
+        }
+
+        private void SecondaryAction()
+        {
+            switch (this.NewLayer)
+            {
+                case LayerArrow layerArrow:
+                    {
+                        layerArrow.ArrowMode = layerArrow.ArrowMode switch
+                        {
+                            ArrowModes.AtEnd => ArrowModes.AtStart,
+                            ArrowModes.AtStart => ArrowModes.Both,
+                            ArrowModes.Both => ArrowModes.AtEnd,
+                            _ => ArrowModes.AtStart,
+                        };
+                        break;
+                    }
+                case LayerAction layerAction:
+                    layerAction.Zone = layerAction.Zone switch
+                    {
+                        Zones.Selected => Zones.NotSelected,
+                        Zones.NotSelected => Zones.Selected,
+                        _ => Zones.All,
+                    };
+                    break;
+                case Layer layer:
+                    layer.Fill ^= true;
+                    break;
+            }
+
+            this.Refresh();
         }
 
         private void Editor_MouseDown(object sender, MouseEventArgs e)
@@ -290,23 +300,23 @@ namespace Morysoft.MorySnip
                 {
                     case MouseButtons.Left:
                     case MouseButtons.Right:
-                    {
-                        this.BeginLayer(e);
+                        {
+                            this.BeginLayer(e);
 
-                        break;
-                    }
+                            break;
+                        }
 
                     case MouseButtons.Middle:
-                    {
-                        this.PBegin = e.Location;
-                        break;
-                    }
+                        {
+                            this.PBegin = e.Location;
+                            break;
+                        }
 
                     default:
-                    {
-                        this.LastButton = MouseButtons.None;
-                        break;
-                    }
+                        {
+                            this.LastButton = MouseButtons.None;
+                            break;
+                        }
                 }
             }
         }
@@ -316,102 +326,102 @@ namespace Morysoft.MorySnip
             switch (this.PaintMode)
             {
                 case EditorPaintMode.Line:
-                {
-                    if (e.Button == MouseButtons.Right)
                     {
-                        this.CurrentPen.DashStyle = DashStyle.DashDotDot;
+                        if (e.Button == MouseButtons.Right)
+                        {
+                            this.CurrentPen.DashStyle = DashStyle.DashDotDot;
+                        }
+
+                        this.NewLayer = new LayerLine(this.CurrentPen, e.Location);
+                        break;
                     }
 
-                    this.NewLayer = new LayerLine(this.CurrentPen, e.Location);
-                    break;
-                }
-
                 case EditorPaintMode.Rect:
-                {
-                    this.NewLayer = new LayerRect(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
-                    break;
-                }
+                    {
+                        this.NewLayer = new LayerRect(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
+                        break;
+                    }
 
                 case EditorPaintMode.Number:
-                {
-                    this.NewLayer = new LayerNumber(this.CurrentPen, this.CurrentBrush, e.Location, this.LastNumber) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
-                    break;
-                }
+                    {
+                        this.NewLayer = new LayerNumber(this.CurrentPen, this.CurrentBrush, e.Location, this.LastNumber) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
+                        break;
+                    }
 
                 case EditorPaintMode.Oval:
-                {
-                    this.NewLayer = new LayerOval(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
-                    break;
-                }
+                    {
+                        this.NewLayer = new LayerOval(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
+                        break;
+                    }
 
                 case EditorPaintMode.Free:
-                {
-                    this.NewLayer = new LayerFree(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
-                    break;
-                }
+                    {
+                        this.NewLayer = new LayerFree(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
+                        break;
+                    }
 
                 case EditorPaintMode.Arrow:
-                {
-                    this.NewLayer = new LayerArrow(this.CurrentPen, this.CurrentBrush, e.Location, arrowMode: e.Button == MouseButtons.Right ? ArrowModes.AtStart : ArrowModes.AtEnd);
-                    break;
-                }
+                    {
+                        this.NewLayer = new LayerArrow(this.CurrentPen, this.CurrentBrush, e.Location, arrowMode: e.Button == MouseButtons.Right ? ArrowModes.AtStart : ArrowModes.AtEnd);
+                        break;
+                    }
 
                 case EditorPaintMode.Magnifier:
-                {
-                    this.NewLayer = new LayerMagnifier(
-                        this.CurrentPen,
-                        this.CurrentBrush,
-                        (Bitmap)this.BackgroundImage,
-                        e.Location,
-                        2,
-                        50
-                    );
-                    break;
-                }
+                    {
+                        this.NewLayer = new LayerMagnifier(
+                            this.CurrentPen,
+                            this.CurrentBrush,
+                            (Bitmap)this.BackgroundImage,
+                            e.Location,
+                            2,
+                            50
+                        );
+                        break;
+                    }
 
                 case EditorPaintMode.Text:
-                {
-                    this.NewLayer = new LayerText(
-                        this.QuickText, this.CurrentPen, this.CurrentBrush, e.Location, this.Font,
-                        e.Button == MouseButtons.Right ? ArrowModes.AtStart : ArrowModes.AtEnd);
-                    break;
-                }
+                    {
+                        this.NewLayer = new LayerText(
+                            this.QuickText, this.CurrentPen, this.CurrentBrush, e.Location, this.Font,
+                            e.Button == MouseButtons.Right ? ArrowModes.AtStart : ArrowModes.AtEnd);
+                        break;
+                    }
 
                 case EditorPaintMode.Invert:
-                {
-                    this.NewLayer = new LayerAction(e.Location, Actions.Invert, e.Button == MouseButtons.Right ? Zones.NotSelected : Zones.Selected);
-                    break;
-                }
+                    {
+                        this.NewLayer = new LayerAction(e.Location, Actions.Invert, e.Button == MouseButtons.Right ? Zones.NotSelected : Zones.Selected);
+                        break;
+                    }
 
                 case EditorPaintMode.Blur:
-                {
-                    this.NewLayer = new LayerAction(e.Location, Actions.Blur, e.Button == MouseButtons.Right ? Zones.NotSelected : Zones.Selected);
-                    break;
-                }
+                    {
+                        this.NewLayer = new LayerAction(e.Location, Actions.Blur, e.Button == MouseButtons.Right ? Zones.NotSelected : Zones.Selected);
+                        break;
+                    }
 
                 case EditorPaintMode.Puzzle:
-                {
-                    this.NewLayer = new LayerAction(e.Location, Actions.Puzzle, e.Button == MouseButtons.Right ? Zones.NotSelected : Zones.Selected);
-                    break;
-                }
+                    {
+                        this.NewLayer = new LayerAction(e.Location, Actions.Puzzle, e.Button == MouseButtons.Right ? Zones.NotSelected : Zones.Selected);
+                        break;
+                    }
 
                 case EditorPaintMode.Grayscale:
-                {
-                    this.NewLayer = new LayerAction(e.Location, Actions.Grayscale, e.Button == MouseButtons.Right ? Zones.NotSelected : Zones.Selected);
-                    break;
-                }
+                    {
+                        this.NewLayer = new LayerAction(e.Location, Actions.Grayscale, e.Button == MouseButtons.Right ? Zones.NotSelected : Zones.Selected);
+                        break;
+                    }
 
                 case EditorPaintMode.Highlight:
-                {
-                    this.NewLayer = new LayerAction(e.Location, Actions.Highlight, Zones.Selected);
-                    break;
-                }
+                    {
+                        this.NewLayer = new LayerAction(e.Location, Actions.Highlight, Zones.Selected);
+                        break;
+                    }
 
                 case EditorPaintMode.Crop:
-                {
-                    this.NewLayer = new LayerAction(e.Location, Actions.Crop, Zones.Selected);
-                    break;
-                }
+                    {
+                        this.NewLayer = new LayerAction(e.Location, Actions.Crop, Zones.Selected);
+                        break;
+                    }
             }
         }
 
@@ -423,24 +433,24 @@ namespace Morysoft.MorySnip
                 {
                     case MouseButtons.Left:
                     case MouseButtons.Right:
-                    {
-                        if (this.NewLayer != null)
                         {
-                            this.NewLayer.Step(e.Location);
+                            if (this.NewLayer != null)
+                            {
+                                this.NewLayer.Step(e.Location);
+                            }
+
+                            break;
                         }
 
-                        break;
-                    }
-
                     case MouseButtons.Middle:
-                    {
-                        this.ImagePosition.X += e.Location.X - this.PBegin.X;
-                        this.ImagePosition.Y += e.Location.Y - this.PBegin.Y;
+                        {
+                            this.ImagePosition.X += e.Location.X - this.PBegin.X;
+                            this.ImagePosition.Y += e.Location.Y - this.PBegin.Y;
 
-                        this.PBegin = e.Location;
+                            this.PBegin = e.Location;
 
-                        break;
-                    }
+                            break;
+                        }
                 }
 
                 this.Refresh();
@@ -455,20 +465,20 @@ namespace Morysoft.MorySnip
                 {
                     case MouseButtons.Left:
                     case MouseButtons.Right:
-                    {
-                        this.CompleteLayer(e);
+                        {
+                            this.CompleteLayer(e);
 
-                        break;
-                    }
+                            break;
+                        }
 
                     case MouseButtons.Middle:
-                    {
-                        this.ImagePosition.X += (e.Location.X - this.PBegin.X);
-                        this.ImagePosition.Y += (e.Location.Y - this.PBegin.Y);
+                        {
+                            this.ImagePosition.X += (e.Location.X - this.PBegin.X);
+                            this.ImagePosition.Y += (e.Location.Y - this.PBegin.Y);
 
-                        this.PBegin = e.Location;
-                        break;
-                    }
+                            this.PBegin = e.Location;
+                            break;
+                        }
                 }
 
                 this.LastButton = MouseButtons.None;

@@ -14,21 +14,27 @@ namespace Morysoft.MorySnip.Draw
 
     public static class Arrow
     {
-        private static void DrawEnd(Graphics g, Pen pen, Brush brush, Point pBegin, Point pEnd)
+        private static void DrawEnd(Graphics g,
+                                    Pen pen,
+                                    Brush brush,
+                                    Point pBegin,
+                                    Point pEnd,
+                                    out Point tailLocation)
         {
             var newZero = (Polar)pBegin - pEnd;
 
             var sizeBase = Math.Max(pen.Width, 2.5f);
 
+            var tailPolarShift = new Polar(newZero.Angle + (float)Math.PI, sizeBase * 5); //  + newZero.Radius / 50
             var tailPolarL = new Polar(newZero.Angle - (float)Math.PI / 2, sizeBase * 2); //  + newZero.Radius / 100
             var tailPolarR = new Polar(newZero.Angle + (float)Math.PI / 2, sizeBase * 2); //  + newZero.Radius / 100
-            var tailPolarE = new Polar(newZero.Angle + (float)Math.PI, sizeBase * 5); //  + newZero.Radius / 50
 
-            var tailL = tailPolarL + pEnd;
-            var tailR = tailPolarR + pEnd;
-            var tailE = tailPolarE + pEnd;
+            tailLocation = (Polar)pEnd - tailPolarShift;
 
-            using var path = new GraphicsPath(new Point[] { tailL, tailE, tailR }, new byte[] { 1, 1, 1 });
+            var tailL = tailPolarL + tailLocation;
+            var tailR = tailPolarR + tailLocation;
+
+            using var path = new GraphicsPath(new Point[] { tailL, pEnd, tailR }, new byte[] { 1, 1, 1 });
 
             g.FillPath(brush, path);
 
@@ -57,23 +63,24 @@ namespace Morysoft.MorySnip.Draw
             {
                 case ArrowModes.AtEnd:
                     {
-                        g.DrawLine(pen, pBegin, pEnd);
-                        DrawEnd(g, pen, brush, pBegin, pEnd);
+                        DrawEnd(g, pen, brush, pBegin, pEnd, out var tailLocation);
+
+                        g.DrawLine(pen, pBegin, tailLocation);
                         break;
                     }
 
                 case ArrowModes.AtStart:
                     {
-                        g.DrawLine(pen, pBegin, pEnd);
-                        DrawEnd(g, pen, brush, pBegin, pEnd);
+                        DrawEnd(g, pen, brush, pEnd, pBegin, out var tailLocation);
+                        g.DrawLine(pen, tailLocation, pEnd);
                         break;
                     }
 
                 case ArrowModes.Both:
                     {
-                        g.DrawLine(pen, pBegin, pEnd);
-                        DrawEnd(g, pen, brush, pBegin, pEnd);
-                        DrawEnd(g, pen, brush, pBegin, pEnd);
+                        DrawEnd(g, pen, brush, pBegin, pEnd, out var tailLocationEnd);
+                        DrawEnd(g, pen, brush, pEnd, pBegin, out var tailLocationBegin);
+                        g.DrawLine(pen, tailLocationBegin, tailLocationEnd);
                         break;
                     }
             }

@@ -699,7 +699,7 @@ namespace Morysoft.MorySnip
             this.Editor_Main.LastNumber = 1;
             resources.ApplyResources(this.Editor_Main, "Editor_Main");
             this.Editor_Main.Name = "Editor_Main";
-            this.Editor_Main.PaintMode = Morysoft.MorySnip.Editor.EditorPaintMode.Rect;
+            this.Editor_Main.PaintMode = Morysoft.MorySnip.Editor.EditorPaintMode.Arrow;
             this.Editor_Main.QuickText = null;
             this.Editor_Main.LastNumberChanged += new Morysoft.MorySnip.Editor.LastNumberChangedEventHandler(this.Editor_Main_LastNumberChanged);
             // 

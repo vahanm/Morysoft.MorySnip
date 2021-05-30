@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Morysoft.MorySnip.Draw;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using Microsoft.VisualBasic.CompilerServices;
-using Morysoft;
-using Morysoft.MorySnip;
-using Morysoft.MorySnip.Draw;
 
 namespace Morysoft.MorySnip
 {

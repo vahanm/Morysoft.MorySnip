@@ -49,7 +49,7 @@ namespace Morysoft.MorySnip
                 }
 
                 var totalLength = Math.Max(minTotalLength, drawLength);
-                var arrowLength = totalLength - textSize.Width - GapLength;
+                //var arrowLength = totalLength - textSize.Width - GapLength;
 
                 switch (arrowMode)
                 {

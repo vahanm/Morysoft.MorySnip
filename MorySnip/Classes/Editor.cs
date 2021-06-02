@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Windows.Forms;
-using Microsoft.VisualBasic;
 using Morysoft.MorySnip.Draw;
 
 namespace Morysoft.MorySnip

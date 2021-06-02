@@ -36,6 +36,7 @@ namespace Morysoft.MorySnip
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEdit));
             this.Panel_Image = new System.Windows.Forms.Panel();
+            this.Editor_Main = new Morysoft.MorySnip.Editor();
             this.Resizer_Both = new System.Windows.Forms.Label();
             this.Resizer_Bottom = new System.Windows.Forms.Label();
             this.Resizer_Right = new System.Windows.Forms.Label();
@@ -70,6 +71,7 @@ namespace Morysoft.MorySnip
             this.Button_Back = new System.Windows.Forms.ToolStripButton();
             this.Button_Redo = new System.Windows.Forms.ToolStripButton();
             this.ToolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToolStrip_Standard_Palitra = new Morysoft.MorySnip.ToolStripPalitra();
             this.Button_Color = new System.Windows.Forms.ToolStripDropDownButton();
             this.Menu_Pens = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.RedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -112,8 +114,6 @@ namespace Morysoft.MorySnip
             this.ToolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.Timer_Update = new System.Windows.Forms.Timer(this.components);
-            this.Editor_Main = new Morysoft.MorySnip.Editor();
-            this.ToolStrip_Standard_Palitra = new Morysoft.MorySnip.ToolStripPalitra();
             this.Panel_Image.SuspendLayout();
             this.Menu_Numbers.SuspendLayout();
             this.ToolStrip_Standard.SuspendLayout();
@@ -125,12 +125,23 @@ namespace Morysoft.MorySnip
             // Panel_Image
             // 
             resources.ApplyResources(this.Panel_Image, "Panel_Image");
+            this.Panel_Image.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Panel_Image.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Panel_Image.Controls.Add(this.Editor_Main);
             this.Panel_Image.Controls.Add(this.Resizer_Both);
             this.Panel_Image.Controls.Add(this.Resizer_Bottom);
             this.Panel_Image.Controls.Add(this.Resizer_Right);
             this.Panel_Image.Name = "Panel_Image";
+            // 
+            // Editor_Main
+            // 
+            this.Editor_Main.FillObjecs = false;
+            this.Editor_Main.LastNumber = 1;
+            resources.ApplyResources(this.Editor_Main, "Editor_Main");
+            this.Editor_Main.Name = "Editor_Main";
+            this.Editor_Main.PaintMode = Morysoft.MorySnip.Editor.EditorPaintMode.Arrow;
+            this.Editor_Main.QuickText = null;
+            this.Editor_Main.LastNumberChanged += new Morysoft.MorySnip.Editor.LastNumberChangedEventHandler(this.Editor_Main_LastNumberChanged);
             // 
             // Resizer_Both
             // 
@@ -405,6 +416,12 @@ namespace Morysoft.MorySnip
             this.ToolStripSeparator8.Name = "ToolStripSeparator8";
             resources.ApplyResources(this.ToolStripSeparator8, "ToolStripSeparator8");
             // 
+            // ToolStrip_Standard_Palitra
+            // 
+            resources.ApplyResources(this.ToolStrip_Standard_Palitra, "ToolStrip_Standard_Palitra");
+            this.ToolStrip_Standard_Palitra.Name = "ToolStrip_Standard_Palitra";
+            this.ToolStrip_Standard_Palitra.ColorChanged += new Morysoft.MorySnip.ToolStripPalitra.ColorChangedEventHandler(this.ToolStrip_Standard_Palitra_ColorChanged);
+            // 
             // Button_Color
             // 
             this.Button_Color.DropDown = this.Menu_Pens;
@@ -648,8 +665,8 @@ namespace Morysoft.MorySnip
             // 
             // Menu_PaintMode_TextBox
             // 
-            this.Menu_PaintMode_TextBox.Name = "Menu_PaintMode_TextBox";
             resources.ApplyResources(this.Menu_PaintMode_TextBox, "Menu_PaintMode_TextBox");
+            this.Menu_PaintMode_TextBox.Name = "Menu_PaintMode_TextBox";
             this.Menu_PaintMode_TextBox.TextChanged += new System.EventHandler(this.Menu_PaintMode_TextBox_TextChanged);
             this.Menu_PaintMode_TextBox.VisibleChanged += new System.EventHandler(this.Menu_PaintMode_TextBox_VisibleChanged);
             // 
@@ -692,22 +709,6 @@ namespace Morysoft.MorySnip
             // 
             this.Timer_Update.Enabled = true;
             this.Timer_Update.Tick += new System.EventHandler(this.Timer_Update_Tick);
-            // 
-            // Editor_Main
-            // 
-            this.Editor_Main.FillObjecs = false;
-            this.Editor_Main.LastNumber = 1;
-            resources.ApplyResources(this.Editor_Main, "Editor_Main");
-            this.Editor_Main.Name = "Editor_Main";
-            this.Editor_Main.PaintMode = Morysoft.MorySnip.Editor.EditorPaintMode.Arrow;
-            this.Editor_Main.QuickText = null;
-            this.Editor_Main.LastNumberChanged += new Morysoft.MorySnip.Editor.LastNumberChangedEventHandler(this.Editor_Main_LastNumberChanged);
-            // 
-            // ToolStrip_Standard_Palitra
-            // 
-            resources.ApplyResources(this.ToolStrip_Standard_Palitra, "ToolStrip_Standard_Palitra");
-            this.ToolStrip_Standard_Palitra.Name = "ToolStrip_Standard_Palitra";
-            this.ToolStrip_Standard_Palitra.ColorChanged += new Morysoft.MorySnip.ToolStripPalitra.ColorChangedEventHandler(this.ToolStrip_Standard_Palitra_ColorChanged);
             // 
             // FormEdit
             // 

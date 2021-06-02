@@ -138,7 +138,7 @@
     <value>Editor_Main</value>
   </data>
   <data name="&gt;&gt;Editor_Main.Type" xml:space="preserve">
-    <value>Morysoft.MorySnip.Editor, MorySnip, Version=1.0.1.0, Culture=neutral, PublicKeyToken=b257e0dbbb7a1b30</value>
+    <value>Morysoft.MorySnip.Editor, MorySnip, Version=1.0.1.0, Culture=neutral, PublicKeyToken=91e718c9606fcf10</value>
   </data>
   <data name="&gt;&gt;Editor_Main.Parent" xml:space="preserve">
     <value>Panel_Image</value>
@@ -746,6 +746,9 @@
   </data>
   <data name="Menu_PaintMode_Text.Text" xml:space="preserve">
     <value>toolStripButton1</value>
+  </data>
+  <data name="Menu_PaintMode_TextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
   </data>
   <data name="Menu_PaintMode_TextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 39</value>
@@ -2306,9 +2309,6 @@
         AIABAADAAQAAwAEAAOADAADwBwAA
 </value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Editor</value>
   </data>
@@ -2485,6 +2485,12 @@
   </data>
   <data name="&gt;&gt;ToolStripSeparator8.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStrip_Standard_Palitra.Name" xml:space="preserve">
+    <value>ToolStrip_Standard_Palitra</value>
+  </data>
+  <data name="&gt;&gt;ToolStrip_Standard_Palitra.Type" xml:space="preserve">
+    <value>Morysoft.MorySnip.ToolStripPalitra, MorySnip, Version=1.0.1.0, Culture=neutral, PublicKeyToken=91e718c9606fcf10</value>
   </data>
   <data name="&gt;&gt;Button_Color.Name" xml:space="preserve">
     <value>Button_Color</value>
@@ -2713,12 +2719,6 @@
   </data>
   <data name="&gt;&gt;Timer_Update.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip_Standard_Palitra.Name" xml:space="preserve">
-    <value>ToolStrip_Standard_Palitra</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip_Standard_Palitra.Type" xml:space="preserve">
-    <value>Morysoft.MorySnip.ToolStripPalitra, MorySnip, Version=1.0.1.0, Culture=neutral, PublicKeyToken=b257e0dbbb7a1b30</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormEdit</value>

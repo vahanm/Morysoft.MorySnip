@@ -7,6 +7,7 @@ namespace Morysoft.MorySnip.Draw
     [Flags]
     public enum ArrowModes
     {
+        None = 0,
         AtStart = 1,
         AtEnd = 2,
         Both = AtStart | AtEnd

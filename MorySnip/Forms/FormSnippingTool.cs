@@ -24,7 +24,8 @@ namespace Morysoft.MorySnip
         private Point LastPoint;
         private MouseButtons LastButton = MouseButtons.None;
 
-        private bool bordersOnlyMode = false;
+        private bool bordersOnlyMode;
+
         public List<Screenshot> Screenshotes { get; } = new List<Screenshot>();
 
         public void SnipFromClipboard()
@@ -136,6 +137,8 @@ namespace Morysoft.MorySnip
             this.Refresh();
         }
 
+        Keyboard systemKeyboard = new Keyboard();
+
         private void Crop()
         {
             var images = new List<Screenshot>();
@@ -160,7 +163,7 @@ namespace Morysoft.MorySnip
                     {
                         this.Hide();
 
-                        if (!(new Keyboard()).AltKeyDown)
+                        if (!systemKeyboard.AltKeyDown)
                         {
                             capture();
 
@@ -242,51 +245,65 @@ namespace Morysoft.MorySnip
 
             g.Clear(Color.Black);
 
-            if (this.w > 3 && this.h > 3 && !(this.LastButton == (int)MouseButtons.None))
+            if (this.w < 3 || this.h < 3 || this.LastButton == MouseButtons.None)
             {
-                if (this.bordersOnlyMode)
-                {
-                    g.Clear(this.TransparencyKey);
-                    
-                    using var pen = new Pen(Color.Red, 2);
+                this.DrawInstructions(g);
 
-                    g.DrawRectangle(pen, this.x, this.y, this.w, this.h);
-                }
-                else
-                {
-                    using var brush = new SolidBrush(this.TransparencyKey);
-
-                    g.FillRectangle(brush, this.x, this.y, this.w + 1, this.h + 1);
-                    g.DrawRectangle(Pens.Red, -10, this.y, 10000, this.h + 1);
-                    g.DrawRectangle(Pens.Red, this.x, -10, this.w + 1, 10000);
-
-                    var r1 = Helpers.ReduceRatio(Conversions.ToUInteger(this.w / 10), Conversions.ToUInteger(this.h / 10));
-                    var r2 = Helpers.ReduceRatio(Conversions.ToUInteger(this.w), Conversions.ToUInteger(this.h));
-                    bool approximate = !(r1 == r2);
-
-                    using var font = new Font(this.Font.FontFamily, _primaryScreenSize.Height / 45, FontStyle.Italic, GraphicsUnit.Pixel);
-
-                    g.DrawString($"{this.w:# ##0px} - {this.h:# ##0px} -- {(approximate ? "≈" : "")}{r1.Width}:{r1.Height}",
-                        font,
-                        Brushes.White,
-                        this.x,
-                        (float)(this.y - (font.Height * 1.1))
-                    );
-                }
+                return;
             }
-            else
+
+            if (this.bordersOnlyMode)
             {
-                using var font = new Font(this.Font.FontFamily, _primaryScreenSize.Height / 20, FontStyle.Italic, GraphicsUnit.Pixel);
+                this.DrawCropAreaWithBordersOnly(g);
 
-                g.DrawString((new Mouse()).ButtonsSwapped
-                    ? Properties.Resources.PressLeftClickToViewOptions
-                    : Properties.Resources.PressRightClickToViewOptions,
-                    font,
-                    Brushes.DarkGray,
-                    -_virtualScreenLocation.X + _primaryScreenLocation.X + 10,
-                    -_virtualScreenLocation.Y + _primaryScreenLocation.Y + (_primaryScreenSize.Height / 2) - font.Height
-                );
+                return;
             }
+
+            this.DrawCropArea(g);
+        }
+
+        private void DrawCropArea(Graphics g)
+        {
+            using var brush = new SolidBrush(this.TransparencyKey);
+
+            g.FillRectangle(brush, this.x, this.y, this.w + 1, this.h + 1);
+            g.DrawRectangle(Pens.Red, -10, this.y, 10000, this.h + 1);
+            g.DrawRectangle(Pens.Red, this.x, -10, this.w + 1, 10000);
+
+            var r1 = Helpers.ReduceRatio(Conversions.ToUInteger(this.w / 10), Conversions.ToUInteger(this.h / 10));
+            var r2 = Helpers.ReduceRatio(Conversions.ToUInteger(this.w), Conversions.ToUInteger(this.h));
+            bool approximate = !(r1 == r2);
+            using var font = new Font(this.Font.FontFamily, _primaryScreenSize.Height / 45, FontStyle.Italic, GraphicsUnit.Pixel);
+
+            g.DrawString($"{this.w:# ##0px} - {this.h:# ##0px} -- {(approximate ? "≈" : "")}{r1.Width}:{r1.Height}",
+                font,
+                Brushes.White,
+                this.x,
+                (float)(this.y - font.Height * 1.1)
+            );
+        }
+
+        private void DrawInstructions(Graphics g)
+        {
+            using var font = new Font(this.Font.FontFamily, _primaryScreenSize.Height / 20, FontStyle.Italic, GraphicsUnit.Pixel);
+
+            g.DrawString((new Mouse()).ButtonsSwapped
+                ? Properties.Resources.PressLeftClickToViewOptions
+                : Properties.Resources.PressRightClickToViewOptions,
+                font,
+                Brushes.DarkGray,
+                -_virtualScreenLocation.X + _primaryScreenLocation.X + 10,
+                -_virtualScreenLocation.Y + _primaryScreenLocation.Y + (_primaryScreenSize.Height / 2) - font.Height
+            );
+        }
+
+        private void DrawCropAreaWithBordersOnly(Graphics g)
+        {
+            g.Clear(this.TransparencyKey);
+
+            using var pen = new Pen(Color.Red, 2);
+
+            g.DrawRectangle(pen, this.x, this.y, this.w, this.h);
         }
 
         private void Form_SnippingTool_Load(object sender, EventArgs e)

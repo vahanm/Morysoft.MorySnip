@@ -9,8 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
-using System.Windows.Interop;
-using System.Windows.Media.Imaging;
 using Microsoft.VisualBasic;
 
 namespace Morysoft.MorySnip.Modules
@@ -187,26 +185,26 @@ namespace Morysoft.MorySnip.Modules
                 return false;
             }
 
-            var gEnc = new GifBitmapEncoder();
+            //var gEnc = new GifBitmapEncoder();
 
-            foreach (Bitmap bmpImage in screenshotes)
-            {
-                var bmp = bmpImage.GetHbitmap();
-                var src = Imaging.CreateBitmapSourceFromHBitmap(
-                    bmp,
-                    IntPtr.Zero,
-                    Int32Rect.Empty,
-                    BitmapSizeOptions.FromEmptyOptions());
+            //foreach (Bitmap bmpImage in screenshotes)
+            //{
+            //    var bmp = bmpImage.GetHbitmap();
+            //    var src = Imaging.CreateBitmapSourceFromHBitmap(
+            //        bmp,
+            //        IntPtr.Zero,
+            //        Int32Rect.Empty,
+            //        BitmapSizeOptions.FromEmptyOptions());
 
-                gEnc.Frames.Add(BitmapFrame.Create(src));
+            //    gEnc.Frames.Add(BitmapFrame.Create(src));
 
-                //Marshal.FreeCoTaskMem(bmp); // recommended, handle memory leak
-            }
+            //    //Marshal.FreeCoTaskMem(bmp); // recommended, handle memory leak
+            //}
 
-            using (var fs = new FileStream(path, FileMode.Create))
-            {
-                gEnc.Save(fs);
-            }
+            //using (var fs = new FileStream(path, FileMode.Create))
+            //{
+            //    gEnc.Save(fs);
+            //}
 
             return true;
         }

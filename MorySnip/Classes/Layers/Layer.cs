@@ -45,8 +45,7 @@ namespace Morysoft.MorySnip
 
         public bool InBounds(Point p)
         {
-            return p.X > this.Bounds
-   .X && p.Y > this.Bounds.Y && p.X < this.Bounds.X + this.Bounds.Width && p.Y < this.Bounds.Y + this.Bounds.Height;
+            return p.X > this.Bounds.X && p.Y > this.Bounds.Y && p.X < this.Bounds.X + this.Bounds.Width && p.Y < this.Bounds.Y + this.Bounds.Height;
         }
 
         public virtual void Render(Graphics g)

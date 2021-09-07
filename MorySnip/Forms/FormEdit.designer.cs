@@ -791,7 +791,7 @@ namespace Morysoft.MorySnip
 
         private ToolStripMenuItem ToolStripMenuItem18;
 
-        private Timer Timer_Update;
+        private System.Windows.Forms.Timer Timer_Update;
 
         private ToolStripButton Button_Rotate_Left;
 

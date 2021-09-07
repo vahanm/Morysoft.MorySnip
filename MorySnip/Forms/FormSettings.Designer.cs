@@ -222,7 +222,6 @@ namespace Morysoft.MorySnip
             // Button_Save
             // 
             resources.ApplyResources(this.Button_Save, "Button_Save");
-            this.Button_Save.Image = global::Morysoft.MorySnip.Properties.Resources.feather_save_32;
             this.Button_Save.Name = "Button_Save";
             this.Button_Save.UseVisualStyleBackColor = true;
             this.Button_Save.Click += new System.EventHandler(this.Button_Save_Click);
@@ -786,11 +785,11 @@ namespace Morysoft.MorySnip
             }
         }
 
-        private Timer _Timer_MonitorClipboard;
+        private System.Windows.Forms.Timer _Timer_MonitorClipboard;
         private Label label1;
         private Button Button_Save;
 
-        internal Timer Timer_MonitorClipboard
+        internal System.Windows.Forms.Timer Timer_MonitorClipboard
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
             get

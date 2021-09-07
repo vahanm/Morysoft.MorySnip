@@ -1,28 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Morysoft.MorySnip;
 
-namespace Morysoft.MorySnip.My
+namespace MorySnip
 {
-    internal static class Program
+    static class Program
     {
         /// <summary>
-        /// The main entry point for the application.
+        ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        private static void Main(string[] args)
+        static void Main()
         {
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            using (var form = ApplicationEvents.Startup(args))
-            {
-                Application.Run(form);
-            }
-
-            ApplicationEvents.Shutdown();
+            Application.Run(new FormSnippingTool());
         }
     }
 }

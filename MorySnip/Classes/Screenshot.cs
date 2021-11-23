@@ -11,11 +11,11 @@ namespace Morysoft.MorySnip
         public string Comment { get; set; }
         public string OriginalPath { get; set; }
 
-        public static implicit operator Screenshot(Image source) => new Screenshot() { Image = source };
+        public static implicit operator Screenshot(Image source) => new() { Image = source };
 
         public static explicit operator Image(Screenshot source) => source.Image;
 
-        public Screenshot Clone() => new Screenshot
+        public Screenshot Clone() => new()
         {
             Image = (Image)this.Image?.Clone(),
             Comment = this.Comment,

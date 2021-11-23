@@ -53,7 +53,7 @@ namespace Morysoft.MorySnip
 
         public static Rectangle NormalRectingle(Point p, Size s) => NormalizeRectingle(p, p + s);
 
-        public static Font LogFont = new Font("Courier New", 10);
+        public static Font LogFont = new("Courier New", 10);
 
         public static Bitmap ApplyAction(Bitmap image, Actions type, Zones zone, Rectangle area)
         {
@@ -205,7 +205,7 @@ namespace Morysoft.MorySnip
             return image;
         }
 
-        private static readonly List<string> TempFiles = new List<string>();
+        private static readonly List<string> TempFiles = new();
 
         public static string GetTempFileName()
         {

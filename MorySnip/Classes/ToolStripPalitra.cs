@@ -92,8 +92,8 @@ namespace Morysoft.MorySnip
             }
         }
 
-        private Rectangle Color1Rect = new Rectangle(5, 5, 20, 20);
-        private Rectangle Color2Rect = new Rectangle(15, 15, 20, 20);
+        private Rectangle Color1Rect = new(5, 5, 20, 20);
+        private Rectangle Color2Rect = new(15, 15, 20, 20);
 
         protected override void OnPaint(PaintEventArgs e)
         {

@@ -243,7 +243,7 @@ namespace Morysoft.MorySnip
         // / <remarks>Takes advantage of whats already built in to .NET by using the Color.GetHue, Color.GetSaturation and Color.GetBrightness methods</remarks>
         // / <param name="c">A Color to convert</param>
         // / <returns>An HSL value</returns>
-        public static HSL RGB_to_HSL(Color c) => new HSL()
+        public static HSL RGB_to_HSL(Color c) => new()
         {
             H = c.GetHue() / 360.0,
             L = c.GetBrightness(),

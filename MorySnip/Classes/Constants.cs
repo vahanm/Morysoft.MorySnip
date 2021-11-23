@@ -1,19 +1,18 @@
-﻿namespace Morysoft.MorySnip
-{
-    public enum Actions
-    {
-        Blur,
-        Puzzle,
-        Invert,
-        Grayscale,
-        Crop,
-        Highlight
-    }
+﻿namespace Morysoft.MorySnip;
 
-    public enum Zones
-    {
-        All,
-        Selected,
-        NotSelected
-    }
+public enum Actions
+{
+    Blur,
+    Puzzle,
+    Invert,
+    Grayscale,
+    Crop,
+    Highlight
+}
+
+public enum Zones
+{
+    All,
+    Selected,
+    NotSelected
 }

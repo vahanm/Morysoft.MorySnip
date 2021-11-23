@@ -16,9 +16,9 @@ namespace Morysoft.MorySnip
 
         public Zones Zone { get; set; }
 
-        private readonly Pen Pen1 = new Pen(Color.White, 1);
-        private readonly Pen Pen2 = new Pen(Color.Black, 1) { DashStyle = System.Drawing.Drawing2D.DashStyle.Custom, DashPattern = new float[] { 3, 3 } };
-        private readonly HatchBrush BrushFill = new System.Drawing.Drawing2D.HatchBrush(System.Drawing.Drawing2D.HatchStyle.BackwardDiagonal, Color.DarkGray, Color.Transparent);
+        private readonly Pen Pen1 = new(Color.White, 1);
+        private readonly Pen Pen2 = new(Color.Black, 1) { DashStyle = System.Drawing.Drawing2D.DashStyle.Custom, DashPattern = new float[] { 3, 3 } };
+        private readonly HatchBrush BrushFill = new(System.Drawing.Drawing2D.HatchStyle.BackwardDiagonal, Color.DarkGray, Color.Transparent);
 
         public override void Paint(Graphics g)
         {

@@ -1,26 +1,25 @@
 ﻿using System.Drawing;
 
-namespace Morysoft.MorySnip
+namespace Morysoft.MorySnip;
+
+public class LayerRect : Layer
 {
-    public class LayerRect : Layer
+    public LayerRect(Pen Pen, Brush Brush, Point FirstPoint)
     {
-        public LayerRect(Pen Pen, Brush Brush, Point FirstPoint)
+        this.Pen = Pen;
+        this.Brush = Brush;
+        this.Start(FirstPoint);
+    }
+
+    public override void Paint(Graphics g)
+    {
+        var r = this.Bounds;
+
+        if (this.Fill)
         {
-            this.Pen = Pen;
-            this.Brush = Brush;
-            this.Start(FirstPoint);
+            g.FillRectangle(this.Brush, r);
         }
 
-        public override void Paint(Graphics g)
-        {
-            var r = this.Bounds;
-
-            if (this.Fill)
-            {
-                g.FillRectangle(this.Brush, r);
-            }
-
-            g.DrawRectangle(this.Pen, r);
-        }
+        g.DrawRectangle(this.Pen, r);
     }
 }

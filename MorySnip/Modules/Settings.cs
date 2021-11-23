@@ -118,7 +118,7 @@ namespace Morysoft.MorySnip
 
         public static CultureInfo CultureCode
         {
-            get => new CultureInfo(get_Setting("CultureCode")); // CultureInfo.CurrentCulture
+            get => new(get_Setting("CultureCode")); // CultureInfo.CurrentCulture
             set => set_Setting("CultureCode", value.Name);
         }
 

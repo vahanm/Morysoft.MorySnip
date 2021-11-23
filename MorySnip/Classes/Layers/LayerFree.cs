@@ -2,86 +2,85 @@
 using System.Drawing.Drawing2D;
 using Microsoft.VisualBasic.CompilerServices;
 
-namespace Morysoft.MorySnip
+namespace Morysoft.MorySnip;
+
+public class LayerFree : Layer
 {
-    public class LayerFree : Layer
+    public GraphicsPath Path { get; private set; } = new GraphicsPath();
+
+    public LayerFree()
     {
-        public GraphicsPath Path { get; private set; } = new GraphicsPath();
+    }
 
-        public LayerFree()
-        {
-        }
+    public LayerFree(Pen Pen, Brush Brush, Point FirstPoint)
+    {
+        this.Pen = Pen;
+        this.Brush = Brush;
+        this.Start(FirstPoint);
+    }
 
-        public LayerFree(Pen Pen, Brush Brush, Point FirstPoint)
-        {
-            this.Pen = Pen;
-            this.Brush = Brush;
-            this.Start(FirstPoint);
-        }
+    public override void Step(Point StepPoint)
+    {
+        this.Path.AddLine(this.LastPoint, StepPoint);
+        base.Step(StepPoint);
+    }
 
-        public override void Step(Point StepPoint)
-        {
-            this.Path.AddLine(this.LastPoint, StepPoint);
-            base.Step(StepPoint);
-        }
+    public override void Stop(Point LastPoint)
+    {
+        this.Path.AddLine(this.LastPoint, LastPoint);
+        base.Stop(LastPoint);
+    }
 
-        public override void Stop(Point LastPoint)
+    public override Rectangle Bounds
+    {
+        get
         {
-            this.Path.AddLine(this.LastPoint, LastPoint);
-            base.Stop(LastPoint);
-        }
+            int x = default, y = default, w = default, h = default;
+            bool IsFirst = true;
 
-        public override Rectangle Bounds
-        {
-            get
+            foreach (var item in this.Path.PathPoints)
             {
-                int x = default, y = default, w = default, h = default;
-                bool IsFirst = true;
-
-                foreach (var item in this.Path.PathPoints)
+                if (IsFirst)
                 {
-                    if (IsFirst)
-                    {
-                        IsFirst = false;
-                        x = Conversions.ToInteger(item.X);
-                        y = Conversions.ToInteger(item.Y);
-                        w = Conversions.ToInteger(item.X);
-                        h = Conversions.ToInteger(item.Y);
-                    }
-
-                    if (x > item.X)
-                    {
-                        x = Conversions.ToInteger(item.X);
-                    }
-
-                    if (y > item.Y)
-                    {
-                        y = Conversions.ToInteger(item.Y);
-                    }
-
-                    if (w < item.X)
-                    {
-                        w = Conversions.ToInteger(item.X);
-                    }
-
-                    if (h < item.Y)
-                    {
-                        h = Conversions.ToInteger(item.Y);
-                    }
+                    IsFirst = false;
+                    x = Conversions.ToInteger(item.X);
+                    y = Conversions.ToInteger(item.Y);
+                    w = Conversions.ToInteger(item.X);
+                    h = Conversions.ToInteger(item.Y);
                 }
 
-                return new Rectangle(x, y, w - x, h - y);
-            }
-        }
+                if (x > item.X)
+                {
+                    x = Conversions.ToInteger(item.X);
+                }
 
-        public override void Paint(Graphics g)
+                if (y > item.Y)
+                {
+                    y = Conversions.ToInteger(item.Y);
+                }
+
+                if (w < item.X)
+                {
+                    w = Conversions.ToInteger(item.X);
+                }
+
+                if (h < item.Y)
+                {
+                    h = Conversions.ToInteger(item.Y);
+                }
+            }
+
+            return new Rectangle(x, y, w - x, h - y);
+        }
+    }
+
+    public override void Paint(Graphics g)
+    {
+        if (this.Fill)
         {
-            if (this.Fill)
-            {
-                g.FillPath(this.Brush, this.Path);
-            }
-
-            g.DrawPath(this.Pen, this.Path);
+            g.FillPath(this.Brush, this.Path);
         }
+
+        g.DrawPath(this.Pen, this.Path);
     }
 }

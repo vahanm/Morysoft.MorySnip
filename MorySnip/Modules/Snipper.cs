@@ -95,7 +95,7 @@ namespace Morysoft.MorySnip.Modules
                     }
                 }
                 while (true);
-            }).Where(s => !(s is null));
+            }).Where(s => s is not null);
         }
 
         public static IEnumerable<Screenshot> FromClipboard()

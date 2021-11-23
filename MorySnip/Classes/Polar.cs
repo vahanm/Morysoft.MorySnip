@@ -10,7 +10,7 @@ namespace Morysoft.MorySnip
 
         public float Angle { get; set; }
 
-        public static PointF Convert(Polar source) => new PointF(Conversions.ToSingle(source.Radius * Math.Cos(source.Angle)), Conversions.ToSingle(source.Radius * Math.Sin(source.Angle)));
+        public static PointF Convert(Polar source) => new(Conversions.ToSingle(source.Radius * Math.Cos(source.Angle)), Conversions.ToSingle(source.Radius * Math.Sin(source.Angle)));
 
         public static Polar Convert(Point source) => Convert(new PointF(source.X, source.Y));
 

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
 using Morysoft.MorySnip.Modules;
 
 namespace Morysoft.MorySnip;
@@ -20,7 +18,7 @@ public partial class FormEdit
             Tag = num
         };
 
-        item.Click += (lsender, le) => this.Editor_Main.LastNumber = Conversions.ToInteger(((ToolStripButton)lsender).Tag);
+        item.Click += (lsender, le) => this.Editor_Main.LastNumber = Convert.ToInt32(((ToolStripButton?)lsender)?.Tag);
 
         this.Menu_Numbers.Items.Add(item);
     }
@@ -49,9 +47,15 @@ public partial class FormEdit
     public Screenshot? Screenshot
     {
         get => this.Editor_Main.BackgroundImage;
-#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-        set => this.Editor_Main.BackgroundImage = (Image)value?.Image?.Clone();
-#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+        set
+        {
+            if (value is null)
+            {
+                return;
+            }
+
+            this.Editor_Main.BackgroundImage = (Image)value.Image.Clone();
+        }
     }
 
     private void RedToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,30 +100,28 @@ public partial class FormEdit
 
     private void CustomToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        using (var tmp = new ColorDialog()
+        using var tmp = new ColorDialog()
         {
             Color = this.Editor_Main.CurrentPen.Color
-        })
+        };
+        if (tmp.ShowDialog() == DialogResult.OK)
         {
-            if (tmp.ShowDialog() == DialogResult.OK)
-            {
-                this.Editor_Main.CurrentPen.Color = tmp.Color;
-                ((SolidBrush)this.Editor_Main.CurrentBrush).Color = tmp.Color;
+            this.Editor_Main.CurrentPen.Color = tmp.Color;
+            ((SolidBrush)this.Editor_Main.CurrentBrush).Color = tmp.Color;
 
-                this.Button_Color.Text = this.Editor_Main.CurrentPen.Color.IsKnownColor
-                    ? this.Editor_Main.CurrentPen.Color.Name
-                    : $"{this.Editor_Main.CurrentPen.Color.R}, {this.Editor_Main.CurrentPen.Color.G}, {this.Editor_Main.CurrentPen.Color.B}";
+            this.Button_Color.Text = this.Editor_Main.CurrentPen.Color.IsKnownColor
+                ? this.Editor_Main.CurrentPen.Color.Name
+                : $"{this.Editor_Main.CurrentPen.Color.R}, {this.Editor_Main.CurrentPen.Color.G}, {this.Editor_Main.CurrentPen.Color.B}";
 
-                this.ToolStrip_Standard_Palitra.Color1 = this.Editor_Main.CurrentPen.Color;
-                this.ToolStrip_Standard_Palitra.Color2 = ((SolidBrush)this.Editor_Main.CurrentBrush).Color;
-            }
+            this.ToolStrip_Standard_Palitra.Color1 = this.Editor_Main.CurrentPen.Color;
+            this.ToolStrip_Standard_Palitra.Color2 = ((SolidBrush)this.Editor_Main.CurrentBrush).Color;
         }
     }
 
     private void Menu_Size_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
     {
-        this.Editor_Main.CurrentPen.Width = Conversions.ToSingle(Conversion.Val(e.ClickedItem.Text));
-        this.Button_Size.Text = Conversions.ToString(this.Editor_Main.CurrentPen.Width) + "px";
+        this.Editor_Main.CurrentPen.Width = Convert.ToSingle(e.ClickedItem.Text);
+        this.Button_Size.Text = $"{this.Editor_Main.CurrentPen.Width}px";
         this.Button_Size.Tag = this.Editor_Main.CurrentPen.Width;
     }
 
@@ -283,34 +285,42 @@ public partial class FormEdit
         this.Screenshot = this.Editor_Main.BackgroundImage;
     }
 
-    private void Button_Save_Click(object sender, EventArgs e)
+    private void Save(PublishOptions options)
     {
         this.Render();
 
-        if (Publisher.Publish(PublishOptions.SaveToFile | PublishOptions.CopyPathOrULR, this.Screenshot))
+        if (this.Screenshot is null)
         {
+            MessageBox.Show("Image not found.", "Can not save image.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            return;
+        }
+
+        try
+        {
+            Publisher.Publish(options, this.Screenshot);
+
             this.Close();
         }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message, "Can not save image.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+
+    private void Button_Save_Click(object sender, EventArgs e)
+    {
+        this.Save(PublishOptions.SaveToFile | PublishOptions.CopyPathOrULR);
     }
 
     private void Button_SaveAs_Click(object sender, EventArgs e)
     {
-        this.Render();
-
-        if (Publisher.Publish(PublishOptions.SaveToFile | PublishOptions.SaveAs | PublishOptions.CopyPathOrULR, this.Screenshot))
-        {
-            this.Close();
-        }
+        this.Save(PublishOptions.SaveToFile | PublishOptions.SaveAs | PublishOptions.CopyPathOrULR);
     }
 
     private void Button_SaveCopy_Click(object sender, EventArgs e)
     {
-        this.Render();
-
-        if (Publisher.Publish(PublishOptions.CopyImage, this.Screenshot))
-        {
-            this.Close();
-        }
+        this.Save(PublishOptions.CopyImage);
     }
 
     private void Editor_Main_LastNumberChanged(object sender, EventArgs e)
@@ -329,7 +339,7 @@ public partial class FormEdit
         {
             if (item.Tag != null)
             {
-                ((ToolStripButton)item).Checked = Conversions.ToBoolean(Operators.ConditionalCompareObjectEqual(item.Tag, this.Editor_Main.LastNumber, false));
+                ((ToolStripButton)item).Checked = (int)item.Tag == this.Editor_Main.LastNumber;
             }
         }
     }
@@ -346,7 +356,7 @@ public partial class FormEdit
 
     private void Menu_PaintMode_Magnifier_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Magnifier;
 
-    private void Button_Settings_Click(object sender, EventArgs e) => Form_Settings.Show();
+    private void Button_Settings_Click(object sender, EventArgs e) => FormSettings.Show();
 
     private void Menu_PaintMode_Text_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Text;
 

@@ -17,19 +17,12 @@ public enum PublishOptions : int
     OpenFolder = (1 << 19),
     SaveToFile = (1 << 24),
     SaveAs = (1 << 25),
-    WebSharing = (1 << 28), // Base service
-
-    AsAlbum = (1 << 29),
-    ShareViaFacebook = (1 << 26), // 67,108,864
-
-    ShareViaOdnoklassniki = (1 << 27), // 134,217,728
-
-    SendViaEmail = (1 << 30)
+    Package = (1 << 26),
 }
 
 public static class Publisher
 {
-    public static string? GetPath(bool? saveAs = false, string? defaultType = null, string[]? supportedTypes = null)
+    public static string? GetPath(bool saveAs = false, string? defaultType = null, string[]? supportedTypes = null)
     {
         if (String.IsNullOrWhiteSpace(defaultType))
         {
@@ -41,36 +34,33 @@ public static class Publisher
             supportedTypes = Settings.FileTypes;
         }
 
-        string path = "";
-
-        path += Settings.DefaultPath;
+        string path = Settings.DefaultPath;
 
         path += @"\" + DateAndTime.Now.ToString("yyyy-MM-dd HH-mm-ss-ffff") + "." + defaultType.ToLower();
 
-        if (!Directory.Exists(Settings.DefaultPath))
+        if (saveAs || !Directory.Exists(Settings.DefaultPath))
         {
-            using (var sfd = new SaveFileDialog()
+            using var sfd = new SaveFileDialog()
             {
                 AddExtension = true,
                 CheckPathExists = true,
                 CheckFileExists = false,
                 DefaultExt = $"{defaultType.ToUpper()}|*.{defaultType.ToLower()}",
                 Filter = Settings.FileTypes.Aggregate((a, i) => a + $"{i.ToUpper()}|*.{i.ToLower()}|") + "All Files|*.*"
-            })
-            {
-                if (sfd.ShowDialog() != DialogResult.OK)
-                {
-                    return null;
-                }
+            };
 
-                path = sfd.FileName;
+            if (sfd.ShowDialog() != DialogResult.OK)
+            {
+                return null;
             }
+
+            path = sfd.FileName;
         }
 
         return path;
     }
 
-    private static bool PublishToClipboard(Screenshot screenshot)
+    private static void PublishToClipboard(Screenshot screenshot)
     {
         if (screenshot is null)
         {
@@ -81,24 +71,22 @@ public static class Publisher
         {
             try
             {
-                System.Windows.Forms.Clipboard.SetImage(screenshot.Image);
+                Clipboard.SetImage(screenshot.Image);
 
-                return true;
+                return;
             }
             catch (Exception ex)
             {
                 if (Interaction.MsgBox(ex.Message, MsgBoxStyle.Critical | MsgBoxStyle.RetryCancel) == MsgBoxResult.Cancel)
                 {
-                    return false;
+                    return;
                 }
             }
         }
         while (true);
-
-        return false;
     }
 
-    public static bool Publish(PublishOptions options, params Screenshot[] screenshotes)
+    public static void Publish(PublishOptions options, params Screenshot[] screenshotes)
     {
         if (screenshotes is null || screenshotes.Length == 0)
         {
@@ -108,39 +96,41 @@ public static class Publisher
         int imageNumber = (int)(options & PublishOptions.OnlyImageNumber);
         var screenshot = screenshotes[imageNumber].Image;
 
-        if ((options & PublishOptions.CopyImage) == PublishOptions.CopyImage)
+        if (options.HasFlag(PublishOptions.CopyImage))
         {
-            return PublishToClipboard(screenshot);
+            PublishToClipboard(screenshot);
         }
 
-        return PublishSaveToFile(options, screenshot);
+        if (options.HasFlag(PublishOptions.SaveToFile))
+        {
+            PublishSaveToFile(options, screenshot);
+        }
     }
 
-    private static bool PublishSaveToFile(PublishOptions options, Screenshot screenshot)
+    private static void PublishSaveToFile(PublishOptions options, Screenshot screenshot)
     {
-        string path = GetPath(saveAs: (options & PublishOptions.SaveAs) == PublishOptions.SaveAs);
+        string? path = GetPath(saveAs: options.HasFlag(PublishOptions.SaveAs));
 
         if (path is null)
         {
-            return false;
+            return;
         }
 
-        ImageFormat imageFormat(string imagePath)
+        static ImageFormat? imageFormat(string imagePath)
         {
-            switch (Path.GetExtension(imagePath).Substring(1))
+            return Path.GetExtension(imagePath)[1..] switch
             {
-                case "Bmp": return ImageFormat.Bmp;
-                case "Emf": return ImageFormat.Emf;
-                case "Exif": return ImageFormat.Exif;
-                case "Gif": return ImageFormat.Gif;
-                case "Ico": return ImageFormat.Icon;
-                case "Jpeg":
-                case "jpg": return ImageFormat.Jpeg;
-                case "Png": return ImageFormat.Png;
-                case "Tiff": return ImageFormat.Tiff;
-                case "Wmf": return ImageFormat.Wmf;
-                default: return null;
-            }
+                "Bmp" => ImageFormat.Bmp,
+                "Emf" => ImageFormat.Emf,
+                "Exif" => ImageFormat.Exif,
+                "Gif" => ImageFormat.Gif,
+                "Ico" => ImageFormat.Icon,
+                "Jpeg" or "jpg" => ImageFormat.Jpeg,
+                "Png" => ImageFormat.Png,
+                "Tiff" => ImageFormat.Tiff,
+                "Wmf" => ImageFormat.Wmf,
+                _ => null,
+            };
         }
 
         var img = screenshot.Image;
@@ -155,12 +145,10 @@ public static class Publisher
             img.Save(path, format);
         }
 
-        if ((options & PublishOptions.SaveAs) == PublishOptions.SaveAs)
+        if (options.HasFlag(PublishOptions.OpenFolder))
         {
             Interaction.Shell("explorer /select, \"" + path + "\"", AppWinStyle.NormalFocus);
         }
-
-        return true;
     }
 
     public static bool PublishMultipleFrames(PublishOptions options, IEnumerable<Screenshot> screenshotes)
@@ -170,8 +158,8 @@ public static class Publisher
             throw new ArgumentNullException(nameof(screenshotes));
         }
 
-        string path = GetPath(
-            saveAs: (options & PublishOptions.SaveAs) == PublishOptions.SaveAs,
+        var path = GetPath(
+            saveAs: options.HasFlag(PublishOptions.SaveAs),
             defaultType: "Gif",
             supportedTypes: new string[] { "Gif" });
 

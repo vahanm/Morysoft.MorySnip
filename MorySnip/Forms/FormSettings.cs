@@ -3,25 +3,26 @@ using System.Windows.Forms;
 
 namespace Morysoft.MorySnip
 {
-    public partial class Form_Settings
+    public partial class FormSettings
     {
-        public static DialogResult Show()
+        public static new DialogResult Show()
         {
-            using var form = new Form_Settings();
+            using var form = new FormSettings();
 
             return form.ShowDialog();
         }
 
-        public Form_Settings() => this.InitializeComponent();
+        public FormSettings() => this.InitializeComponent();
 
         private void Form_Load(object sender, EventArgs e)
         {
-            this.Button_BrowseLocal.Text = Settings.DefaultPath;
-            this.ComboBox_Type.SelectedIndex = Settings.FileType;
-            this.ComboBox_Quality.SelectedIndex = Settings.ShareQuality;
+            this.BrowseLocalButton.Text = Settings.DefaultPath;
+            this.ImageTypeComboBox.SelectedIndex = Settings.FileType;
 
-            this.CheckBox_CopyPath.Checked = Settings.CopyPath;
-            this.CheckBox_OpenFolder.Checked = Settings.OpenFolder;
+            this.CopyPathCheckBox.Checked = Settings.CopyPath;
+            this.OpenFolderCheckBox.Checked = Settings.OpenFolder;
+
+            this.quickShotSaveFileCheckBox.Checked = Settings.QuickShotToFile;
         }
 
         private void Button_Browse_Click(object sender, EventArgs e)
@@ -30,20 +31,21 @@ namespace Morysoft.MorySnip
 
             if (withBlock.ShowDialog() == DialogResult.OK)
             {
-                this.Button_BrowseLocal.Text = withBlock.SelectedPath;
+                this.BrowseLocalButton.Text = withBlock.SelectedPath;
             }
         }
 
-        private void ComboBox_Type_SelectedIndexChanged(object sender, EventArgs e) => Settings.FileType = this.ComboBox_Type.SelectedIndex;
+        private void ComboBox_Type_SelectedIndexChanged(object sender, EventArgs e) => Settings.FileType = this.ImageTypeComboBox.SelectedIndex;
 
         private void Form_Closing(object sender, FormClosingEventArgs e)
         {
-            Settings.DefaultPath = this.Button_BrowseLocal.Text;
-            Settings.FileType = this.ComboBox_Type.SelectedIndex;
-            Settings.ShareQuality = this.ComboBox_Quality.SelectedIndex;
+            Settings.DefaultPath = this.BrowseLocalButton.Text;
+            Settings.FileType = this.ImageTypeComboBox.SelectedIndex;
 
-            Settings.CopyPath = this.CheckBox_CopyPath.Checked;
-            Settings.OpenFolder = this.CheckBox_OpenFolder.Checked;
+            Settings.CopyPath = this.CopyPathCheckBox.Checked;
+            Settings.OpenFolder = this.OpenFolderCheckBox.Checked;
+
+            Settings.QuickShotToFile = this.quickShotSaveFileCheckBox.Checked;
         }
 
         private void Button_Save_Click(object sender, EventArgs e) => this.Close();

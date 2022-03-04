@@ -130,19 +130,17 @@ namespace Morysoft.MorySnip.Modules
 
         public static IEnumerable<Screenshot> FromFiles()
         {
-            using (var od = new OpenFileDialog()
+            using var od = new OpenFileDialog()
             {
                 AutoUpgradeEnabled = true,
                 CheckFileExists = true,
                 CheckPathExists = true,
                 Multiselect = true,
                 Filter = "All supported files|*.bmp;*.emf;*.exif;*.gif;*.ico;*.jpeg;*.jpg;*.png;*.tiff;*.wmf;"
-            })
-            {
-                return od.ShowDialog() == DialogResult.OK
-                    ? FromUris(od.FileNames.Select(fn => fn.Trim().Trim('"', '\'')))
-                    : Array.Empty<Screenshot>();
-            }
+            };
+            return od.ShowDialog() == DialogResult.OK
+                ? FromUris(od.FileNames.Select(fn => fn.Trim().Trim('"', '\'')))
+                : Array.Empty<Screenshot>();
         }
 
         //public static IEnumerable<Screenshot> FromSnippingTool()

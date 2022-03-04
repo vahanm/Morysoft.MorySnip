@@ -5,7 +5,6 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
 using Microsoft.VisualBasic.Devices;
 using Morysoft.MorySnip.Modules;
 
@@ -200,7 +199,7 @@ public partial class FormSnippingTool
                             capture();
                         }
 
-                        Publisher.PublishMultipleFrames(PublishOptions.AsAlbum, images);
+                        Publisher.PublishMultipleFrames(PublishOptions.Package, images);
                     }
 
                     this.Close();
@@ -215,7 +214,21 @@ public partial class FormSnippingTool
                     capture();
 
                     this.Screenshotes.AddRange(images);
-                    Publisher.Publish(PublishOptions.CopyImage, images.ToArray());
+
+                    var options = PublishOptions.CopyImage;
+
+                    if (Settings.QuickShotToFile)
+                    {
+                        options |= PublishOptions.SaveToFile;
+
+                        if (Settings.OpenFolder)
+                        {
+                            options |= PublishOptions.OpenFolder;
+                        }
+                    }
+
+                    Publisher.Publish(options, images.ToArray());
+
                     this.Close();
                     break;
                 }
@@ -271,8 +284,8 @@ public partial class FormSnippingTool
         g.DrawRectangle(Pens.Red, -10, this.y, 10000, this.h + 1);
         g.DrawRectangle(Pens.Red, this.x, -10, this.w + 1, 10000);
 
-        var r1 = Helpers.ReduceRatio(Conversions.ToUInteger(this.w / 10), Conversions.ToUInteger(this.h / 10));
-        var r2 = Helpers.ReduceRatio(Conversions.ToUInteger(this.w), Conversions.ToUInteger(this.h));
+        var r1 = Helpers.ReduceRatio(Convert.ToUInt32(this.w / 10), Convert.ToUInt32(this.h / 10));
+        var r2 = Helpers.ReduceRatio(Convert.ToUInt32(this.w), Convert.ToUInt32(this.h));
         bool approximate = !(r1 == r2);
         using var font = new Font(this.Font.FontFamily, _primaryScreenSize.Height / 45, FontStyle.Italic, GraphicsUnit.Pixel);
 
@@ -413,7 +426,7 @@ public partial class FormSnippingTool
     {
         this.Hide();
 
-        Form_Settings.Show();
+        FormSettings.Show();
 
         this.Show();
     }

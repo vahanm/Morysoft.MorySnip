@@ -16,11 +16,11 @@ namespace Morysoft.MorySnip
 
         private void Form_Load(object sender, EventArgs e)
         {
-            this.BrowseLocalButton.Text = Settings.DefaultPath;
-            this.ImageTypeComboBox.SelectedIndex = Settings.FileType;
+            this.browseLocalButton.Text = Settings.DefaultPath;
+            this.imageTypeComboBox.SelectedIndex = Settings.FileType;
 
-            this.CopyPathCheckBox.Checked = Settings.CopyPath;
-            this.OpenFolderCheckBox.Checked = Settings.OpenFolder;
+            this.copyPathCheckBox.Checked = Settings.CopyPath;
+            this.openFolderCheckBox.Checked = Settings.OpenFolder;
 
             this.quickShotSaveFileCheckBox.Checked = Settings.QuickShotToFile;
         }
@@ -31,19 +31,19 @@ namespace Morysoft.MorySnip
 
             if (withBlock.ShowDialog() == DialogResult.OK)
             {
-                this.BrowseLocalButton.Text = withBlock.SelectedPath;
+                this.browseLocalButton.Text = withBlock.SelectedPath;
             }
         }
 
-        private void ComboBox_Type_SelectedIndexChanged(object sender, EventArgs e) => Settings.FileType = this.ImageTypeComboBox.SelectedIndex;
+        private void ComboBox_Type_SelectedIndexChanged(object sender, EventArgs e) => Settings.FileType = this.imageTypeComboBox.SelectedIndex;
 
         private void Form_Closing(object sender, FormClosingEventArgs e)
         {
-            Settings.DefaultPath = this.BrowseLocalButton.Text;
-            Settings.FileType = this.ImageTypeComboBox.SelectedIndex;
+            Settings.DefaultPath = this.browseLocalButton.Text;
+            Settings.FileType = this.imageTypeComboBox.SelectedIndex;
 
-            Settings.CopyPath = this.CopyPathCheckBox.Checked;
-            Settings.OpenFolder = this.OpenFolderCheckBox.Checked;
+            Settings.CopyPath = this.copyPathCheckBox.Checked;
+            Settings.OpenFolder = this.openFolderCheckBox.Checked;
 
             Settings.QuickShotToFile = this.quickShotSaveFileCheckBox.Checked;
         }

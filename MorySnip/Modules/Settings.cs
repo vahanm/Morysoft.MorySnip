@@ -80,7 +80,7 @@ namespace Morysoft.MorySnip
         public static bool OpenFolder
         {
             get => SettingsApi.GetSettingBool(nameof(OpenFolder), true);
-            set => SettingsApi.GetSettingBool(nameof(OpenFolder), value);
+            set => SettingsApi.SetSettingBool(nameof(OpenFolder), value);
         }
 
         public static bool QuickShotToFile

@@ -1,20 +1,22 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace Morysoft.MorySnip;
 
 public abstract class Layer
 {
     public Point Offset { get; set; }
+
     public bool Fill { get; set; }
+
     public Pen? Pen { get; set; }
+
     public Brush? Brush { get; set; }
+
     public Point FirstPoint { get; set; }
+
     public Point LastPoint { get; set; }
 
-    public float Length => (float)Math.Sqrt(
-        Math.Pow(this.FirstPoint.X - this.LastPoint.X, 2) + Math.Pow(this.FirstPoint.Y - this.LastPoint.Y, 2)
-    );
+    public virtual bool IsValid => true;
 
     public virtual void Start(Point FirstPoint)
     {
@@ -40,8 +42,6 @@ public abstract class Layer
     }
 
     public virtual Rectangle Bounds => Helpers.NormalizeRectingle(this.FirstPoint, this.LastPoint);
-
-    public virtual bool IsValid => true;
 
     public bool InBounds(Point p)
     {

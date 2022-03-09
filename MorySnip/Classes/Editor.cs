@@ -8,66 +8,66 @@ using Morysoft.MorySnip.Draw;
 
 namespace Morysoft.MorySnip;
 
-public class EditorStep
-{
-    public EditorStep(Bitmap image, int lastNumber, List<Layer> layers)
-    {
-        this.Image = image ?? throw new ArgumentNullException(nameof(image));
-        this.LastNumber = lastNumber;
-        this.Layers = layers ?? throw new ArgumentNullException(nameof(layers));
-    }
-
-    public Bitmap Image { get; set; }
-
-    public int LastNumber { get; set; }
-
-    public List<Layer> Layers { get; set; }
-}
+public delegate void LastNumberChangedEventHandler(object sender, EventArgs e);
 
 public partial class Editor
 {
-    private readonly Stack<EditorStep> PreviousSteps = new();
-    private readonly Stack<EditorStep> NextSteps = new();
+    private readonly Stack<EditorStep> previousSteps = new();
+    private readonly Stack<EditorStep> nextSteps = new();
     private readonly List<Layer> Layers = new();
-    private Point ImagePosition = new(0, 0);
+    private Point imagePosition = new(0, 0);
 
     private MouseButtons LastButton = MouseButtons.None;
-    private int _LastNumber = 1;
+    private int lastNumber = 1;
+
+    private EditorPaintMode paintMode = EditorPaintMode.Arrow;
+    private EditorPaintMode paintModeLast = EditorPaintMode.Arrow;
+
+    private Point startPoint;
+
+    private Layer? newLayer;
 
     public event LastNumberChangedEventHandler? LastNumberChanged;
 
-    public delegate void LastNumberChangedEventHandler(object sender, EventArgs e);
-
-    public void CreateCheckpoint()
-    {
-        this.PreviousSteps.Push(this.CreateStep());
-        this.NextSteps.Clear();
-    }
-
     public int LastNumber
     {
-        get => this._LastNumber;
+        get => this.lastNumber;
         set
         {
-            this._LastNumber = value;
+            this.lastNumber = value;
 
             LastNumberChanged?.Invoke(this, EventArgs.Empty);
         }
     }
 
-    public bool CanRedo => this.NextSteps.Count > 0;
+    public bool CanRedo => this.nextSteps.Count > 0;
 
-    public bool CanUndo => this.PreviousSteps.Count > 0;
+    public bool CanUndo => this.previousSteps.Count > 0;
 
     public string QuickText { get; set; } = String.Empty;
+
+    public EditorPaintMode PaintMode
+    {
+        get => this.paintMode;
+        set
+        {
+            this.paintModeLast = this.paintMode;
+            this.paintMode = value;
+        }
+    }
+
+    public Editor()
+    {
+        this.InitializeComponent();
+    }
 
     public void Redo()
     {
         if (this.CanRedo)
         {
-            this.PreviousSteps.Push(this.CreateStep());
+            this.previousSteps.Push(this.CreateStep());
 
-            var step = this.NextSteps.Pop();
+            var step = this.nextSteps.Pop();
 
             this.BackgroundImage = step.Image;
             this.LastNumber = step.LastNumber;
@@ -78,17 +78,17 @@ public partial class Editor
     {
         if (this.CanUndo)
         {
-            this.NextSteps.Push(this.CreateStep());
+            this.nextSteps.Push(this.CreateStep());
 
             this.Layers.Clear();
 
-            var step = this.PreviousSteps.Pop();
+            var step = this.previousSteps.Pop();
 
             this.ApplyStep(step);
         }
     }
 
-    public EditorStep CreateStep() => new(this.GetResult(), this.LastNumber, this.Layers.Select(l => l).ToList());
+    public EditorStep CreateStep() => new(this.GetResult(), this.LastNumber, this.Layers.Select(l => l).ToList()); //TODO: clone every layer
 
     public void ApplyStep(EditorStep step)
     {
@@ -108,7 +108,7 @@ public partial class Editor
         this.BackgroundImage = result;
 
         this.Layers.Clear();
-        this.ImagePosition = new Point();
+        this.imagePosition = new Point();
     }
 
     public Bitmap GetResult()
@@ -119,9 +119,9 @@ public partial class Editor
 
         g.Clear(Color.White);
 
-        if (this.Img != null)
+        if (this.EditableImage != null)
         {
-            g.DrawImage(this.Img, this.ImagePosition.X, this.ImagePosition.Y, this.Img.Size.Width, this.Img.Size.Height);
+            g.DrawImage(this.EditableImage, this.imagePosition.X, this.imagePosition.Y, this.EditableImage.Size.Width, this.EditableImage.Size.Height);
         }
 
         foreach (var l in this.Layers)
@@ -136,16 +136,27 @@ public partial class Editor
 
     public Brush CurrentBrush { get; set; } = new SolidBrush(Color.Red);
 
-    private Image Img
+    private Image EditableImage
     {
         get => this.BackgroundImage;
         set
         {
-            this.ImagePosition.X = 0;
-            this.ImagePosition.Y = 0;
+            this.imagePosition.X = 0;
+            this.imagePosition.Y = 0;
             this.BackgroundImage = value;
         }
     }
+
+    public void SetLastPaintMode() => this.PaintMode = this.paintModeLast;
+
+    public void RotateFlip(RotateFlipType value)
+    {
+        this.Render();
+        this.EditableImage.RotateFlip(value);
+        this.ResetImageSizeAndPosition();
+    }
+
+    public bool FillObjecs { get; set; } = true;
 
     protected override void OnPaintBackground(PaintEventArgs e)
     {
@@ -158,13 +169,13 @@ public partial class Editor
 
         g.Clear(Color.White);
 
-        if (this.Img is null)
+        if (this.EditableImage is null)
         {
             g.DrawString("NO IMAGE !!!", this.Font, Brushes.Red, 5, 5);
         }
         else
         {
-            g.DrawImage(this.Img, this.ImagePosition.X, this.ImagePosition.Y, this.Img.Size.Width, this.Img.Size.Height);
+            g.DrawImage(this.EditableImage, this.imagePosition.X, this.imagePosition.Y, this.EditableImage.Size.Width, this.EditableImage.Size.Height);
         }
 
         foreach (var l in this.Layers)
@@ -172,50 +183,11 @@ public partial class Editor
             l.Render(g);
         }
 
-        if (this.NewLayer is not null)
+        if (this.newLayer is not null)
         {
-            this.NewLayer.Paint(g);
+            this.newLayer.Paint(g);
         }
     }
-
-    public enum EditorPaintMode
-    {
-        // Objects
-        Free,
-        Line,
-        Arrow,
-        Oval,
-        Rect,
-        Number,
-        Magnifier,
-        Text,
-        // Effects
-        Highlight,
-        Invert,
-        Blur,
-        Puzzle,
-        Crop,
-        Grayscale
-    }
-
-    private EditorPaintMode paintMode = EditorPaintMode.Arrow;
-    private EditorPaintMode paintModeLast = EditorPaintMode.Arrow;
-
-    public void SetLastPaintMode() => this.PaintMode = this.paintModeLast;
-
-    public EditorPaintMode PaintMode
-    {
-        get => this.paintMode;
-        set
-        {
-            this.paintModeLast = this.paintMode;
-            this.paintMode = value;
-        }
-    }
-
-    public bool FillObjecs { get; set; } = true;
-
-    private Point PBegin;
 
     private void Editor_BackgroundImageChanged(object sender, EventArgs e) => this.ResetImageSizeAndPosition();
 
@@ -224,29 +196,38 @@ public partial class Editor
         if (this.BackgroundImage is not null)
         {
             this.Size = this.BackgroundImage.Size;
-            this.ImagePosition = new Point();
+            this.imagePosition = new Point();
             this.Refresh();
         }
     }
 
     private void Editor_KeyDown(object sender, KeyEventArgs e)
     {
-        if (e.KeyCode == Keys.Escape && !e.Control)
+        if (e.Control || e.Shift || this.newLayer is null)
         {
-            this.NewLayer = null;
+            return;
+        }
+
+        if (e.KeyCode == Keys.Escape)
+        {
+            this.newLayer = null;
             this.Refresh();
         }
-        else if (e.KeyCode == Keys.Oem3 && !e.Control && !e.Shift)
+        else if (e.KeyCode == Keys.Oem3) // `/~ key
         {
             this.SecondaryAction();
         }
+        else if (e.KeyCode == Keys.S && this.newLayer.Pen is not null)
+        {
+            SwitchPenDashStyle(this.newLayer.Pen);
+            this.Refresh();
+        }
     }
 
-    private Layer? NewLayer;
-
-    public Editor()
+    private void CreateCheckpoint()
     {
-        this.InitializeComponent();
+        this.previousSteps.Push(this.CreateStep());
+        this.nextSteps.Clear();
     }
 
     private void Editor_MouseClick(object sender, MouseEventArgs e)
@@ -259,7 +240,7 @@ public partial class Editor
 
     private void SecondaryAction()
     {
-        switch (this.NewLayer)
+        switch (this.newLayer)
         {
             case LayerArrow layerArrow:
                 {
@@ -280,12 +261,30 @@ public partial class Editor
                     _ => Zones.All,
                 };
                 break;
+            case LayerLine layerLine:
+                if (layerLine.Pen is null)
+                {
+                    return;
+                }
+
+                SwitchPenDashStyle(layerLine.Pen);
+                break;
             case Layer layer:
                 layer.Fill ^= true;
                 break;
         }
 
         this.Refresh();
+    }
+
+    private static void SwitchPenDashStyle(Pen pen)
+    {
+        pen.DashStyle = pen.DashStyle switch
+        {
+            DashStyle.Solid => DashStyle.Dash,
+            DashStyle.Dash => DashStyle.Dot,
+            _ => DashStyle.Solid,
+        };
     }
 
     private void Editor_MouseDown(object sender, MouseEventArgs e)
@@ -306,7 +305,7 @@ public partial class Editor
 
                 case MouseButtons.Middle:
                     {
-                        this.PBegin = e.Location;
+                        this.startPoint = e.Location;
                         break;
                     }
 
@@ -327,46 +326,46 @@ public partial class Editor
                 {
                     if (e.Button == MouseButtons.Right)
                     {
-                        this.CurrentPen.DashStyle = DashStyle.DashDotDot;
+                        this.CurrentPen.DashStyle = DashStyle.Dash;
                     }
 
-                    this.NewLayer = new LayerLine(this.CurrentPen, e.Location);
+                    this.newLayer = new LayerLine(this.CurrentPen, e.Location);
                     break;
                 }
 
             case EditorPaintMode.Rect:
                 {
-                    this.NewLayer = new LayerRect(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
+                    this.newLayer = new LayerRect(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
                     break;
                 }
 
             case EditorPaintMode.Number:
                 {
-                    this.NewLayer = new LayerNumber(this.CurrentPen, this.CurrentBrush, e.Location, this.LastNumber) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
+                    this.newLayer = new LayerNumber(this.CurrentPen, this.CurrentBrush, e.Location, this.LastNumber) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
                     break;
                 }
 
             case EditorPaintMode.Oval:
                 {
-                    this.NewLayer = new LayerOval(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
+                    this.newLayer = new LayerOval(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
                     break;
                 }
 
             case EditorPaintMode.Free:
                 {
-                    this.NewLayer = new LayerFree(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
+                    this.newLayer = new LayerFree(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
                     break;
                 }
 
             case EditorPaintMode.Arrow:
                 {
-                    this.NewLayer = new LayerArrow(this.CurrentPen, this.CurrentBrush, e.Location, arrowMode: e.Button == MouseButtons.Right ? ArrowModes.AtStart : ArrowModes.AtEnd);
+                    this.newLayer = new LayerArrow(this.CurrentPen, this.CurrentBrush, e.Location, arrowMode: e.Button == MouseButtons.Right ? ArrowModes.AtStart : ArrowModes.AtEnd);
                     break;
                 }
 
             case EditorPaintMode.Magnifier:
                 {
-                    this.NewLayer = new LayerMagnifier(
+                    this.newLayer = new LayerMagnifier(
                         this.CurrentPen,
                         this.CurrentBrush,
                         (Bitmap)this.BackgroundImage,
@@ -379,7 +378,7 @@ public partial class Editor
 
             case EditorPaintMode.Text:
                 {
-                    this.NewLayer = new LayerText(
+                    this.newLayer = new LayerText(
                         this.QuickText, this.CurrentPen, this.CurrentBrush, e.Location, this.Font,
                         e.Button == MouseButtons.Right ? ArrowModes.AtStart : ArrowModes.AtEnd);
                     break;
@@ -387,37 +386,37 @@ public partial class Editor
 
             case EditorPaintMode.Invert:
                 {
-                    this.NewLayer = new LayerAction(e.Location, Actions.Invert, e.Button == MouseButtons.Right ? Zones.NotSelected : Zones.Selected);
+                    this.newLayer = new LayerAction(e.Location, Actions.Invert, e.Button == MouseButtons.Right ? Zones.NotSelected : Zones.Selected);
                     break;
                 }
 
             case EditorPaintMode.Blur:
                 {
-                    this.NewLayer = new LayerAction(e.Location, Actions.Blur, e.Button == MouseButtons.Right ? Zones.NotSelected : Zones.Selected);
+                    this.newLayer = new LayerAction(e.Location, Actions.Blur, e.Button == MouseButtons.Right ? Zones.NotSelected : Zones.Selected);
                     break;
                 }
 
             case EditorPaintMode.Puzzle:
                 {
-                    this.NewLayer = new LayerAction(e.Location, Actions.Puzzle, e.Button == MouseButtons.Right ? Zones.NotSelected : Zones.Selected);
+                    this.newLayer = new LayerAction(e.Location, Actions.Puzzle, e.Button == MouseButtons.Right ? Zones.NotSelected : Zones.Selected);
                     break;
                 }
 
             case EditorPaintMode.Grayscale:
                 {
-                    this.NewLayer = new LayerAction(e.Location, Actions.Grayscale, e.Button == MouseButtons.Right ? Zones.NotSelected : Zones.Selected);
+                    this.newLayer = new LayerAction(e.Location, Actions.Grayscale, e.Button == MouseButtons.Right ? Zones.NotSelected : Zones.Selected);
                     break;
                 }
 
             case EditorPaintMode.Highlight:
                 {
-                    this.NewLayer = new LayerAction(e.Location, Actions.Highlight, Zones.Selected);
+                    this.newLayer = new LayerAction(e.Location, Actions.Highlight, Zones.Selected);
                     break;
                 }
 
             case EditorPaintMode.Crop:
                 {
-                    this.NewLayer = new LayerAction(e.Location, Actions.Crop, Zones.Selected);
+                    this.newLayer = new LayerAction(e.Location, Actions.Crop, Zones.Selected);
                     break;
                 }
         }
@@ -432,9 +431,9 @@ public partial class Editor
                 case MouseButtons.Left:
                 case MouseButtons.Right:
                     {
-                        if (this.NewLayer != null)
+                        if (this.newLayer != null)
                         {
-                            this.NewLayer.Step(e.Location);
+                            this.newLayer.Step(e.Location);
                         }
 
                         break;
@@ -442,10 +441,10 @@ public partial class Editor
 
                 case MouseButtons.Middle:
                     {
-                        this.ImagePosition.X += e.Location.X - this.PBegin.X;
-                        this.ImagePosition.Y += e.Location.Y - this.PBegin.Y;
+                        this.imagePosition.X += e.Location.X - this.startPoint.X;
+                        this.imagePosition.Y += e.Location.Y - this.startPoint.Y;
 
-                        this.PBegin = e.Location;
+                        this.startPoint = e.Location;
 
                         break;
                     }
@@ -471,10 +470,10 @@ public partial class Editor
 
                 case MouseButtons.Middle:
                     {
-                        this.ImagePosition.X += (e.Location.X - this.PBegin.X);
-                        this.ImagePosition.Y += (e.Location.Y - this.PBegin.Y);
+                        this.imagePosition.X += (e.Location.X - this.startPoint.X);
+                        this.imagePosition.Y += (e.Location.Y - this.startPoint.Y);
 
-                        this.PBegin = e.Location;
+                        this.startPoint = e.Location;
                         break;
                     }
             }
@@ -487,54 +486,44 @@ public partial class Editor
 
     private void CompleteLayer(MouseEventArgs e)
     {
-        if (this.NewLayer == null)
+        if (this.newLayer == null)
         {
             return;
         }
 
-        this.NewLayer.Stop(e.Location);
+        this.newLayer.Stop(e.Location);
 
-        if (!this.NewLayer.IsValid)
+        if (!this.newLayer.IsValid)
         {
-            this.NewLayer = null;
+            this.newLayer = null;
             return;
         }
 
         this.CreateCheckpoint();
 
-        if (this.NewLayer is LayerAction ActionLayer)
+        if (this.newLayer is LayerAction ActionLayer)
         {
             this.Render();
             this.BackgroundImage = Helpers.ApplyAction((Bitmap)this.BackgroundImage, ActionLayer.Action, ActionLayer.Zone, ActionLayer.Bounds);
         }
         else
         {
-            if (this.NewLayer is LayerNumber)
+            if (this.newLayer is LayerNumber)
             {
                 this.LastNumber += 1;
             }
 
-            if (this.NewLayer is LayerLine && this.LastButton == MouseButtons.Right)
-            {
-                this.CurrentPen.DashStyle = DashStyle.Solid;
-            }
+            this.CurrentPen.DashStyle = DashStyle.Solid;
 
-            this.Layers.Add(this.NewLayer);
+            this.Layers.Add(this.newLayer);
         }
 
-        this.NewLayer = null;
-    }
-
-    public void RotateFlip(RotateFlipType value)
-    {
-        this.Render();
-        this.Img.RotateFlip(value);
-        this.ResetImageSizeAndPosition();
+        this.newLayer = null;
     }
 
     private void Editor_MouseWheel(object sender, MouseEventArgs e)
     {
-        if (this.NewLayer == null)
+        if (this.newLayer == null)
         {
             return;
         }

@@ -139,9 +139,9 @@ namespace Morysoft.MorySnip
             this.Editor_Main.LastNumber = 1;
             resources.ApplyResources(this.Editor_Main, "Editor_Main");
             this.Editor_Main.Name = "Editor_Main";
-            this.Editor_Main.PaintMode = Morysoft.MorySnip.Editor.EditorPaintMode.Arrow;
+            this.Editor_Main.PaintMode = Morysoft.MorySnip.EditorPaintMode.Arrow;
             this.Editor_Main.QuickText = null;
-            this.Editor_Main.LastNumberChanged += new Morysoft.MorySnip.Editor.LastNumberChangedEventHandler(this.Editor_Main_LastNumberChanged);
+            this.Editor_Main.LastNumberChanged += new Morysoft.MorySnip.LastNumberChangedEventHandler(this.Editor_Main_LastNumberChanged);
             // 
             // Resizer_Both
             // 
@@ -420,7 +420,7 @@ namespace Morysoft.MorySnip
             // 
             resources.ApplyResources(this.ToolStrip_Standard_Palitra, "ToolStrip_Standard_Palitra");
             this.ToolStrip_Standard_Palitra.Name = "ToolStrip_Standard_Palitra";
-            this.ToolStrip_Standard_Palitra.ColorChanged += new Morysoft.MorySnip.ToolStripPalitra.ColorChangedEventHandler(this.ToolStrip_Standard_Palitra_ColorChanged);
+            this.ToolStrip_Standard_Palitra.ColorChanged += new Morysoft.MorySnip.ColorChangedEventHandler(this.ToolStrip_Standard_Palitra_ColorChanged);
             // 
             // Button_Color
             // 

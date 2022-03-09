@@ -145,41 +145,45 @@ public partial class FormEdit
 
     private void Button_Exit_Click(object sender, EventArgs e) => this.Close();
 
-    private void Menu_PaintMode_Blur_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Blur;
+    private void Menu_PaintMode_Blur_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Blur;
 
-    private void Menu_PaintMode_Puzzle_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Puzzle;
+    private void Menu_PaintMode_Puzzle_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Puzzle;
 
-    private void Menu_PaintMode_Invert_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Invert;
+    private void Menu_PaintMode_Invert_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Invert;
 
-    private void Menu_PaintMode_Grayscale_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Grayscale;
+    private void Menu_PaintMode_Grayscale_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Grayscale;
 
     private void Timer_Update_Tick(object sender, EventArgs e)
     {
         // Tools
-        this.Menu_PaintMode_Free.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Free;
-        this.Menu_PaintMode_Line.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Line;
-        this.Menu_PaintMode_Arrow.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Arrow;
-        this.Menu_PaintMode_Oval.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Oval;
-        this.Menu_PaintMode_Rect.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Rect;
-        this.Menu_PaintMode_Numbers.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Number;
-        this.Menu_PaintMode_Magnifier.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Magnifier;
+        this.Menu_PaintMode_Free.Checked = this.Editor_Main.PaintMode == EditorPaintMode.Free;
+        this.Menu_PaintMode_Line.Checked = this.Editor_Main.PaintMode == EditorPaintMode.Line;
+        this.Menu_PaintMode_Arrow.Checked = this.Editor_Main.PaintMode == EditorPaintMode.Arrow;
+        this.Menu_PaintMode_Oval.Checked = this.Editor_Main.PaintMode == EditorPaintMode.Oval;
+        this.Menu_PaintMode_Rect.Checked = this.Editor_Main.PaintMode == EditorPaintMode.Rect;
+        this.Menu_PaintMode_Numbers.Checked = this.Editor_Main.PaintMode == EditorPaintMode.Number;
+        this.Menu_PaintMode_Magnifier.Checked = this.Editor_Main.PaintMode == EditorPaintMode.Magnifier;
         this.Menu_PaintMode_Text.Checked
             = this.Menu_PaintMode_TextBox.Visible
-            = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Text;
+            = this.Editor_Main.PaintMode == EditorPaintMode.Text;
 
         // Actions
-        this.Menu_PaintMode_Highlight.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Highlight;
-        this.Menu_PaintMode_Invert.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Invert;
-        this.Menu_PaintMode_Grayscale.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Grayscale;
-        this.Menu_PaintMode_Blur.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Blur;
-        this.Menu_PaintMode_Puzzle.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Puzzle;
-        this.Menu_PaintMode_Crop.Checked = this.Editor_Main.PaintMode == Editor.EditorPaintMode.Crop;
+        this.Menu_PaintMode_Highlight.Checked = this.Editor_Main.PaintMode == EditorPaintMode.Highlight;
+        this.Menu_PaintMode_Invert.Checked = this.Editor_Main.PaintMode == EditorPaintMode.Invert;
+        this.Menu_PaintMode_Grayscale.Checked = this.Editor_Main.PaintMode == EditorPaintMode.Grayscale;
+        this.Menu_PaintMode_Blur.Checked = this.Editor_Main.PaintMode == EditorPaintMode.Blur;
+        this.Menu_PaintMode_Puzzle.Checked = this.Editor_Main.PaintMode == EditorPaintMode.Puzzle;
+        this.Menu_PaintMode_Crop.Checked = this.Editor_Main.PaintMode == EditorPaintMode.Crop;
 
         if (this.Button_Size.Tag != (object)this.Editor_Main.CurrentPen.Width)
         {
             this.Button_Size.Text = $"{this.Editor_Main.CurrentPen.Width}px";
             this.Button_Size.Tag = this.Editor_Main.CurrentPen.Width;
         }
+
+        this.Button_Color.Text = this.Editor_Main.CurrentPen.Color.IsKnownColor
+            ? this.Editor_Main.CurrentPen.Color.Name
+            : $"{this.Editor_Main.CurrentPen.Color.R}, {this.Editor_Main.CurrentPen.Color.G}, {this.Editor_Main.CurrentPen.Color.B}";
 
         // Special actions
         this.Button_Back.Enabled = this.Editor_Main.CanUndo;
@@ -198,25 +202,25 @@ public partial class FormEdit
         this.Resizer_Bottom.Width = w;
     }
 
-    private void Menu_PaintMode_Free_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Free;
+    private void Menu_PaintMode_Free_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Free;
 
-    private void Menu_PaintMode_Highlight_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Highlight;
+    private void Menu_PaintMode_Highlight_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Highlight;
 
-    private void Menu_PaintMode_Line_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Line;
+    private void Menu_PaintMode_Line_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Line;
 
-    private void Menu_PaintMode_Arrow_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Arrow;
+    private void Menu_PaintMode_Arrow_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Arrow;
 
-    private void Menu_PaintMode_Oval_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Oval;
+    private void Menu_PaintMode_Oval_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Oval;
 
-    private void Menu_PaintMode_Rect_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Rect;
+    private void Menu_PaintMode_Rect_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Rect;
 
-    private void Menu_PaintMode_Numbers_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Number;
+    private void Menu_PaintMode_Numbers_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Number;
 
-    private void Menu_PaintMode_Select_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Invert;
+    private void Menu_PaintMode_Select_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Invert;
 
     private void Menu_PaintMode_Fill_Click(object sender, EventArgs e) => this.Editor_Main.FillObjecs = this.Menu_PaintMode_Fill.Checked;
 
-    private void Menu_PaintMode_Crop_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Crop;
+    private void Menu_PaintMode_Crop_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Crop;
 
     private int ResizerX;
     private int ResizerY;
@@ -237,18 +241,20 @@ public partial class FormEdit
 
     private void Resizer_Both_MouseMove(object sender, MouseEventArgs e)
     {
-        if (e.Button == MouseButtons.Left)
+        if (e.Button != MouseButtons.Left)
         {
-            this.Resizer_Both.Location += new Size(e.X - this.ResizerX, e.Y - this.ResizerY);
-
-            this.Resizer_Right.Location += new Size(e.X - this.ResizerX, 0);
-            this.Resizer_Right.Size += new Size(0, e.Y - this.ResizerY);
-
-            this.Resizer_Bottom.Location += new Size(0, e.Y - this.ResizerY);
-            this.Resizer_Bottom.Size += new Size(e.X - this.ResizerX, 0);
-
-            this.Editor_Main.Size += new Size(e.X - this.ResizerX, e.Y - this.ResizerY);
+            return;
         }
+
+        this.Resizer_Both.Location += new Size(e.X - this.ResizerX, e.Y - this.ResizerY);
+
+        this.Resizer_Right.Location += new Size(e.X - this.ResizerX, 0);
+        this.Resizer_Right.Size += new Size(0, e.Y - this.ResizerY);
+
+        this.Resizer_Bottom.Location += new Size(0, e.Y - this.ResizerY);
+        this.Resizer_Bottom.Size += new Size(e.X - this.ResizerX, 0);
+
+        this.Editor_Main.Size += new Size(e.X - this.ResizerX, e.Y - this.ResizerY);
     }
 
     private void Resizer_Right_MouseMove(object sender, MouseEventArgs e)
@@ -347,18 +353,18 @@ public partial class FormEdit
     private void ToolStrip_Standard_Palitra_ColorChanged(object sender, PalitraEventArgs e)
     {
         this.Editor_Main.CurrentPen.Color = this.ToolStrip_Standard_Palitra.Color1;
-        ((SolidBrush)this.Editor_Main.CurrentBrush).Color = this.ToolStrip_Standard_Palitra.Color2;
 
-        this.Button_Color.Text = this.Editor_Main.CurrentPen.Color.IsKnownColor
-            ? this.Editor_Main.CurrentPen.Color.Name
-            : $"{this.Editor_Main.CurrentPen.Color.R}, {this.Editor_Main.CurrentPen.Color.G}, {this.Editor_Main.CurrentPen.Color.B}";
+        if (this.Editor_Main.CurrentBrush is SolidBrush solidBrush)
+        {
+            solidBrush.Color = this.ToolStrip_Standard_Palitra.Color2;
+        }
     }
 
-    private void Menu_PaintMode_Magnifier_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Magnifier;
+    private void Menu_PaintMode_Magnifier_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Magnifier;
 
     private void Button_Settings_Click(object sender, EventArgs e) => FormSettings.Show();
 
-    private void Menu_PaintMode_Text_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = Editor.EditorPaintMode.Text;
+    private void Menu_PaintMode_Text_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Text;
 
     private void Menu_PaintMode_TextBox_TextChanged(object sender, EventArgs e) => this.Editor_Main.QuickText = this.Menu_PaintMode_TextBox.Text;
 

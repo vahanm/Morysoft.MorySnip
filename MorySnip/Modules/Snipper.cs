@@ -59,7 +59,7 @@ namespace Morysoft.MorySnip.Modules
 
         public static IEnumerable<Screenshot> SnipScreen(int index) => throw new NotImplementedException();
 
-        public static IEnumerable<Screenshot> FromUris(IEnumerable<string> paths)
+        public static IEnumerable<Screenshot?> FromUris(IEnumerable<string> paths)
         {
             var isAborted = false;
 
@@ -98,7 +98,7 @@ namespace Morysoft.MorySnip.Modules
             }).Where(s => s is not null);
         }
 
-        public static IEnumerable<Screenshot> FromClipboard()
+        public static IEnumerable<Screenshot?> FromClipboard()
         {
             if (Clipboard.ContainsImage())
             {
@@ -113,10 +113,15 @@ namespace Morysoft.MorySnip.Modules
             }
             else if (Clipboard.ContainsFileDropList())
             {
-                var filesDroped = new List<Screenshot>();
+                var filesDroped = new List<Screenshot?>();
 
-                foreach (string path in Clipboard.GetFileDropList())
+                foreach (var path in Clipboard.GetFileDropList())
                 {
+                    if (path is null)
+                    {
+                        continue;
+                    }
+
                     string nomralizedPath = path.Trim('"', '\'');
 
                     filesDroped.AddRange(FromUris(new string[] { nomralizedPath }));
@@ -128,7 +133,7 @@ namespace Morysoft.MorySnip.Modules
             return Array.Empty<Screenshot>();
         }
 
-        public static IEnumerable<Screenshot> FromFiles()
+        public static IEnumerable<Screenshot?> FromFiles()
         {
             using var od = new OpenFileDialog()
             {

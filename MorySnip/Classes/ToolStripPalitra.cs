@@ -136,20 +136,34 @@ public class ToolStripPalitra : ToolStripItem
         g.DrawRectangle(Pens.Black, new Rectangle());
     }
 
-    private static Color GetColorByPoint(Point p)
+    private static bool TryGetColorByPoint(Point p, out Color color)
     {
         var colors = Palitra;
         int i = (p.Y - 5) / 3;
         int j = p.X - 70;
 
-        return i >= 0 && i < colors.GetLength(0) && j >= 0 && j < colors.GetLength(1)
-            ? colors[i, j]
-            : Color.Black;
+        var inRange = i >= 0 && i < colors.GetLength(0) && j >= 0 && j < colors.GetLength(1);
+
+        color = inRange ? colors[i, j] : Color.White;
+
+        return inRange;
     }
 
-    private void SelectColor1(Point point) => this.Color1 = GetColorByPoint(point);
+    private void SelectColor1(Point point)
+    {
+        if (TryGetColorByPoint(point, out var color))
+        {
+            this.Color1 = color;
+        }
+    }
 
-    private void SelectColor2(Point point) => this.Color2 = GetColorByPoint(point);
+    private void SelectColor2(Point point)
+    {
+        if (TryGetColorByPoint(point, out var color))
+        {
+            this.Color2 = color;
+        }
+    }
 
     protected override void OnMouseDown(MouseEventArgs e)
     {

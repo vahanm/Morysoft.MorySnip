@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.Devices;
+using Morysoft.MorySnip.Classes;
 using Morysoft.MorySnip.Modules;
 
 namespace Morysoft.MorySnip;
@@ -79,15 +81,7 @@ public partial class FormSnippingTool
 
     public FormEdit SaveForm
     {
-        get
-        {
-            if (this._saveForm is null)
-            {
-                this._saveForm = new FormEdit();
-            }
-
-            return this._saveForm;
-        }
+        get => this._saveForm ??= new FormEdit();
         set => this._saveForm = value;
     }
 
@@ -257,9 +251,12 @@ public partial class FormSnippingTool
 
         var g = e.Graphics;
 
-        g.Clear(Color.Black);
+        g.Clear(Color.DarkSlateGray);
 
-        if (this.w < 3 || this.h < 3 || this.LastButton == MouseButtons.None)
+        g.CompositingQuality = CompositingQuality.HighQuality;
+        g.SmoothingMode = SmoothingMode.AntiAlias;
+
+        if (this.LastButton == MouseButtons.None)
         {
             this.DrawInstructions(g);
 
@@ -281,19 +278,36 @@ public partial class FormSnippingTool
         using var brush = new SolidBrush(this.TransparencyKey);
 
         g.FillRectangle(brush, this.x, this.y, this.w + 1, this.h + 1);
-        g.DrawRectangle(Pens.Red, -10, this.y, 10000, this.h + 1);
-        g.DrawRectangle(Pens.Red, this.x, -10, this.w + 1, 10000);
+        g.DrawRectangle(Pens.DarkGray, -10, this.y - 1, 10000, this.h + 3);
+        g.DrawRectangle(Pens.DarkGray, this.x - 1, -10, this.w + 3, 10000);
+        g.DrawRectangle(Pens.LightGray, this.x, this.y, this.w + 1, this.h + 1);
 
         var r1 = Helpers.ReduceRatio(Convert.ToUInt32(this.w / 10), Convert.ToUInt32(this.h / 10));
         var r2 = Helpers.ReduceRatio(Convert.ToUInt32(this.w), Convert.ToUInt32(this.h));
         bool approximate = !(r1 == r2);
-        using var font = new Font(this.Font.FontFamily, _primaryScreenSize.Height / 45, FontStyle.Italic, GraphicsUnit.Pixel);
+        using var font = new Font(this.Font.FontFamily, 11, FontStyle.Italic, GraphicsUnit.Point);
+        var sizeText = $"{this.w:#,##0} x {this.h:#,##0} {(approximate ? "≈" : "=")} {r1.Width}:{r1.Height}";
+        var (sizeTextWidth, sizeTextHeight) = g.MeasureString(sizeText, font);
+        var sizeTextX = this.x + 5;
+        var sizeTextY = (float)(this.y - font.Height * 1.1) - 5;
+        var padding = 6.0F;
 
-        g.DrawString($"{this.w:# ##0px} - {this.h:# ##0px} -- {(approximate ? "≈" : "")}{r1.Width}:{r1.Height}",
+        g.DrawRoundedRectangle(
+            sizeTextX,
+            sizeTextY - 2 * padding,
+            sizeTextWidth + 2 * padding,
+            sizeTextHeight + 2 * padding,
+            sizeTextHeight / 4,
+            new SolidBrush(Color.Black),
+            new Pen(Color.FromArgb(30, 30, 30), 4)
+        );
+
+        g.DrawString(
+            sizeText,
             font,
             Brushes.White,
-            this.x,
-            (float)(this.y - font.Height * 1.1)
+            sizeTextX + padding,
+            sizeTextY - padding
         );
     }
 
@@ -418,6 +432,7 @@ public partial class FormSnippingTool
         }
 
         this.LastButton = MouseButtons.None;
+        this.Refresh();
     }
 
     private void Menu_Snip_FullScreen_Click(object sender, EventArgs e) => this.SnipFullScreen();

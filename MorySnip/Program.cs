@@ -1,8 +1,7 @@
 using System;
 using System.Windows.Forms;
-using Morysoft.MorySnip;
 
-namespace MorySnip;
+namespace Morysoft.MorySnip;
 
 static class Program
 {
@@ -12,6 +11,8 @@ static class Program
     [STAThread]
     static void Main()
     {
+        DpiHelper.SetDpiAwareness();
+
         Application.SetHighDpiMode(HighDpiMode.SystemAware);
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);

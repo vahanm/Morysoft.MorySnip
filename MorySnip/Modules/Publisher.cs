@@ -4,6 +4,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Xml;
 using Microsoft.VisualBasic;
 
 namespace Morysoft.MorySnip.Modules;
@@ -85,6 +86,31 @@ public static class Publisher
         }
         while (true);
     }
+
+    //private static void ShowToast()
+    //{
+    //    string title = "featured picture of the day";
+    //    string content = "beautiful scenery";
+    //    string image = "https://picsum.photos/360/180?image=104";
+    //    string logo = "https://picsum.photos/64?image=883";
+
+    //    string xmlString =
+    //    $@"<toast><visual>
+    //   <binding template='ToastGeneric'>
+    //   <text>{title}</text>
+    //   <text>{content}</text>
+    //   <image src='{image}'/>
+    //   <image src='{logo}' placement='appLogoOverride' hint-crop='circle'/>
+    //   </binding>
+    //  </visual></toast>";
+
+    //    var toastXml = new XmlDocument();
+    //    toastXml.LoadXml(xmlString);
+
+    //    var toast = new ToastNotification(toastXml);
+
+    //    ToastNotificationManager.CreateToastNotifier().Show(toast);
+    //}
 
     public static void Publish(PublishOptions options, params Screenshot[] screenshotes)
     {

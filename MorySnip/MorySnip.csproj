@@ -2,11 +2,14 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <RootNamespace>Morysoft.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
     <ApplicationIcon>.\Resources\SnippingTool.ico</ApplicationIcon>
+    <UseWPF>True</UseWPF>
+    <LangVersion>11.0</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
 </Project>

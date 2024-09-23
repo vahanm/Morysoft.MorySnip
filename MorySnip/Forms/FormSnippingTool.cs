@@ -244,10 +244,7 @@ public partial class FormSnippingTool
 
     protected override void OnPaintBackground(PaintEventArgs e)
     {
-        if (e is null)
-        {
-            throw new ArgumentNullException(nameof(e));
-        }
+        ArgumentNullException.ThrowIfNull(e);
 
         var g = e.Graphics;
 
@@ -255,6 +252,27 @@ public partial class FormSnippingTool
 
         g.CompositingQuality = CompositingQuality.HighQuality;
         g.SmoothingMode = SmoothingMode.AntiAlias;
+
+        foreach (var screen in Screen.AllScreens)
+        {
+            var scaleFactor = DpiHelper.GetScaleFactorForScreen(screen);
+            var bounds = screen.Bounds;
+            var padding = 3;
+
+            g.DrawRectangle(
+                Pens.GreenYellow,
+                bounds.Left + padding,
+                bounds.Top + padding,
+                bounds.Width - 2 * padding,
+                bounds.Height - 2 * padding);
+
+            g.DrawString(
+                $"{screen.DeviceName} - {bounds.Width}x{bounds.Height} - {scaleFactor * 100}%",
+                this.Font,
+                Brushes.GreenYellow,
+                bounds.Left + 2 * padding,
+                bounds.Top + 2 * padding);
+        }
 
         if (this.LastButton == MouseButtons.None)
         {

@@ -6,13 +6,14 @@
 // following paragraph (enclosed in quotes below) in your applications help or about dialog.
 // "Portions of this code provided by Bob Powell. Http://www.bobpowell.net"
 
+using System;
 using System.Drawing;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 
 namespace Morysoft.MorySnip.Classes;
 
-public class RGBHSL
+public static class RGBHSL
 {
     public class HSL
     {
@@ -57,10 +58,6 @@ public class RGBHSL
             }
         }
     } // HSL
-
-    public RGBHSL()
-    {
-    } // New
 
     // / <summary>
     // / Sets the absolute brightness of a colour
@@ -249,4 +246,16 @@ public class RGBHSL
         L = c.GetBrightness(),
         S = c.GetSaturation()
     };
+
+    public static String ToHex(this ref readonly Color color)
+    {
+        return $"#{color.R:X2}{color.G:X2}{color.B:X2}";
+    }
+
+    public static String ToName(this ref readonly Color color)
+    {
+        return color.IsKnownColor
+            ? color.Name
+            : $"{color.ToHex()}";
+    }
 } // RGBHSL

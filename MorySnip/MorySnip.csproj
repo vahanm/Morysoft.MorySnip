@@ -8,7 +8,7 @@
     <RootNamespace>Morysoft.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
     <ApplicationIcon>.\Resources\SnippingTool.ico</ApplicationIcon>
     <UseWPF>True</UseWPF>
-    <LangVersion>11.0</LangVersion>
+    <LangVersion>12.0</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 

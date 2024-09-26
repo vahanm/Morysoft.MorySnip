@@ -5,8 +5,18 @@ using System.Windows.Forms;
 
 public partial class DpiHelper
 {
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    private struct MarshalPoint
+    {
+        public int X { get; set; }
+
+        public int Y { get; set; }
+
+        public static implicit operator MarshalPoint(Point point) => new() { X = point.X, Y = point.Y };
+    }
+
     [LibraryImport("user32.dll")]
-    private static partial IntPtr MonitorFromPoint(Point pt, uint dwFlags);
+    private static partial IntPtr MonitorFromPoint(MarshalPoint pt, uint dwFlags);
 
     [LibraryImport("shcore.dll")]
     private static partial int GetDpiForMonitor(IntPtr hmonitor, int dpiType, out uint dpiX, out uint dpiY);

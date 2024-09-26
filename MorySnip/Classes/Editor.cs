@@ -159,14 +159,11 @@ public partial class Editor
         this.ResetImageSizeAndPosition();
     }
 
-    public bool FillObjecs { get; set; } = true;
+    public bool FillObjects { get; set; } = true;
 
     protected override void OnPaintBackground(PaintEventArgs e)
     {
-        if (e is null)
-        {
-            throw new ArgumentNullException(nameof(e));
-        }
+        ArgumentNullException.ThrowIfNull(e);
 
         var g = e.Graphics;
 
@@ -181,15 +178,14 @@ public partial class Editor
             g.DrawImage(this.EditableImage, this.imagePosition.X, this.imagePosition.Y, this.EditableImage.Size.Width, this.EditableImage.Size.Height);
         }
 
+        g.SmoothingMode = SmoothingMode.AntiAlias;
+
         foreach (var l in this.Layers)
         {
             l.Render(g);
         }
 
-        if (this.newLayer is not null)
-        {
-            this.newLayer.Paint(g);
-        }
+        this.newLayer?.Paint(g);
     }
 
     private void Editor_BackgroundImageChanged(object sender, EventArgs e) => this.ResetImageSizeAndPosition();
@@ -338,25 +334,25 @@ public partial class Editor
 
             case EditorPaintMode.Rect:
                 {
-                    this.newLayer = new LayerRect(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
+                    this.newLayer = new LayerRect(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjects };
                     break;
                 }
 
             case EditorPaintMode.Number:
                 {
-                    this.newLayer = new LayerNumber(this.CurrentPen, this.CurrentBrush, e.Location, this.LastNumber) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
+                    this.newLayer = new LayerNumber(this.CurrentPen, this.CurrentBrush, e.Location, this.LastNumber) { Fill = e.Button == MouseButtons.Right ^ this.FillObjects };
                     break;
                 }
 
             case EditorPaintMode.Oval:
                 {
-                    this.newLayer = new LayerOval(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
+                    this.newLayer = new LayerOval(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjects };
                     break;
                 }
 
             case EditorPaintMode.Free:
                 {
-                    this.newLayer = new LayerFree(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjecs };
+                    this.newLayer = new LayerFree(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjects };
                     break;
                 }
 

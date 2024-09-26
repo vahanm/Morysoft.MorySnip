@@ -61,42 +61,22 @@ public partial class FormEdit
 
     private void RedToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        this.Editor_Main.CurrentPen.Color = Color.Red;
-        ((SolidBrush)this.Editor_Main.CurrentBrush).Color = Color.Red;
-        this.Button_Color.Text = "Red";
-
-        this.ToolStrip_Standard_Palitra.Color1 = this.Editor_Main.CurrentPen.Color;
-        this.ToolStrip_Standard_Palitra.Color2 = ((SolidBrush)this.Editor_Main.CurrentBrush).Color;
+        this.SetColor(Color.Red);
     }
 
     private void BlueToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        this.Editor_Main.CurrentPen.Color = Color.Blue;
-        ((SolidBrush)this.Editor_Main.CurrentBrush).Color = Color.Blue;
-        this.Button_Color.Text = "Blue";
-
-        this.ToolStrip_Standard_Palitra.Color1 = this.Editor_Main.CurrentPen.Color;
-        this.ToolStrip_Standard_Palitra.Color2 = ((SolidBrush)this.Editor_Main.CurrentBrush).Color;
+        this.SetColor(Color.Blue);
     }
 
     private void BlackToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        this.Editor_Main.CurrentPen.Color = Color.Black;
-        ((SolidBrush)this.Editor_Main.CurrentBrush).Color = Color.Black;
-        this.Button_Color.Text = "Black";
-
-        this.ToolStrip_Standard_Palitra.Color1 = this.Editor_Main.CurrentPen.Color;
-        this.ToolStrip_Standard_Palitra.Color2 = ((SolidBrush)this.Editor_Main.CurrentBrush).Color;
+        this.SetColor(Color.Black);
     }
 
     private void WhiteToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        this.Editor_Main.CurrentPen.Color = Color.White;
-        ((SolidBrush)this.Editor_Main.CurrentBrush).Color = Color.White;
-        this.Button_Color.Text = "White";
-
-        this.ToolStrip_Standard_Palitra.Color1 = this.Editor_Main.CurrentPen.Color;
-        this.ToolStrip_Standard_Palitra.Color2 = ((SolidBrush)this.Editor_Main.CurrentBrush).Color;
+        this.SetColor(Color.White);
     }
 
     private void CustomToolStripMenuItem_Click(object sender, EventArgs e)
@@ -105,18 +85,35 @@ public partial class FormEdit
         {
             Color = this.Editor_Main.CurrentPen.Color
         };
+
         if (tmp.ShowDialog() == DialogResult.OK)
         {
-            this.Editor_Main.CurrentPen.Color = tmp.Color;
-            ((SolidBrush)this.Editor_Main.CurrentBrush).Color = tmp.Color;
-
-            this.Button_Color.Text = this.Editor_Main.CurrentPen.Color.IsKnownColor
-                ? this.Editor_Main.CurrentPen.Color.Name
-                : $"{this.Editor_Main.CurrentPen.Color.R}, {this.Editor_Main.CurrentPen.Color.G}, {this.Editor_Main.CurrentPen.Color.B}";
-
-            this.ToolStrip_Standard_Palitra.Color1 = this.Editor_Main.CurrentPen.Color;
-            this.ToolStrip_Standard_Palitra.Color2 = ((SolidBrush)this.Editor_Main.CurrentBrush).Color;
+            this.SetColor(tmp.Color);
         }
+    }
+
+    private void SetColor(Color color)
+    {
+        this.SetPenColor(color);
+        this.SetBrishColor(color);
+    }
+
+    private void SetBrishColor(Color color)
+    {
+        if (this.Editor_Main.CurrentBrush is SolidBrush solidBrush)
+        {
+            solidBrush.Color = color;
+        }
+
+        this.ToolStrip_Standard_Palette.Color2 = color;
+    }
+
+    private void SetPenColor(Color color)
+    {
+        this.Editor_Main.CurrentPen.Color = color;
+        this.Button_Color.Text = color.ToName();
+
+        this.ToolStrip_Standard_Palette.Color1 = color;
     }
 
     private void Menu_Size_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -182,14 +179,15 @@ public partial class FormEdit
             this.Button_Size.Tag = this.Editor_Main.CurrentPen.Width;
         }
 
-        this.Button_Color.Text = this.Editor_Main.CurrentPen.Color.IsKnownColor
-            ? this.Editor_Main.CurrentPen.Color.Name
-            : $"{this.Editor_Main.CurrentPen.Color.R}, {this.Editor_Main.CurrentPen.Color.G}, {this.Editor_Main.CurrentPen.Color.B}";
-
         // Special actions
         this.Button_Back.Enabled = this.Editor_Main.CanUndo;
         this.Button_Redo.Enabled = this.Editor_Main.CanRedo;
 
+        //this.MoveResizers();
+    }
+
+    private void MoveResizers()
+    {
         int w = this.Editor_Main.Width;
         int h = this.Editor_Main.Height;
         int l = w + 4 - this.Panel_Image.HorizontalScroll.Value; // 
@@ -219,7 +217,7 @@ public partial class FormEdit
 
     private void Menu_PaintMode_Select_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Invert;
 
-    private void Menu_PaintMode_Fill_Click(object sender, EventArgs e) => this.Editor_Main.FillObjecs = this.Menu_PaintMode_Fill.Checked;
+    private void Menu_PaintMode_Fill_Click(object sender, EventArgs e) => this.Editor_Main.FillObjects = this.Menu_PaintMode_Fill.Checked;
 
     private void Menu_PaintMode_Crop_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Crop;
 
@@ -284,6 +282,16 @@ public partial class FormEdit
 
             this.Editor_Main.Size += new Size(0, e.Y - this.ResizerY);
         }
+    }
+
+    private void Resizer_MouseUp(object sender, MouseEventArgs e)
+    {
+        this.MoveResizerLayoutHolder();
+    }
+
+    private void MoveResizerLayoutHolder()
+    {
+        this.Resizer_LayoutHolder.Location = this.Resizer_Both.Location;
     }
 
     private void Render()
@@ -353,12 +361,8 @@ public partial class FormEdit
 
     private void ToolStrip_Standard_Palitra_ColorChanged(object sender, PaletteEventArgs e)
     {
-        this.Editor_Main.CurrentPen.Color = this.ToolStrip_Standard_Palitra.Color1;
-
-        if (this.Editor_Main.CurrentBrush is SolidBrush solidBrush)
-        {
-            solidBrush.Color = this.ToolStrip_Standard_Palitra.Color2;
-        }
+        this.SetPenColor(this.ToolStrip_Standard_Palette.Color1);
+        this.SetBrishColor(this.ToolStrip_Standard_Palette.Color2);
     }
 
     private void Menu_PaintMode_Magnifier_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Magnifier;
@@ -373,5 +377,11 @@ public partial class FormEdit
     {
         this.Menu_PaintMode_TextBox.Focus();
         this.Menu_PaintMode_TextBox.SelectAll();
+    }
+
+    private void Editor_Main_BackgroundImageChanged(object sender, EventArgs e)
+    {
+        this.MoveResizerLayoutHolder();
+        this.MoveResizers();
     }
 }

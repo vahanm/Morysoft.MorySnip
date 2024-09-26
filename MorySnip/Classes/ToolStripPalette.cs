@@ -31,25 +31,25 @@ public delegate void Color2ChangedEventHandler(object sender, PaletteEventArgs e
 [DefaultEvent("ColorChanged")]
 public class ToolStripPalette : ToolStripItem
 {
-    private static Color[,]? palitra;
+    private static Color[,]? palette;
 
-    private static Color[,] Palitra
+    private static Color[,] Palette
     {
         get
         {
-            if (palitra == null)
+            if (palette == null)
             {
-                palitra = new Color[12, 361];
+                palette = new Color[12, 361];
                 for (var l = 0; l <= 10; l++)
                 {
                     for (var i = 0; i <= 360 - 1; i++)
                     {
-                        palitra[l, i] = RGBHSL.HSL_to_RGB(i / (double)365, 1 - l / (double)10, 1);
+                        palette[l, i] = RGBHSL.HSL_to_RGB(i / (double)365, 1 - l / (double)10, 1);
                     }
                 }
             }
 
-            return palitra;
+            return palette;
         }
     }
 
@@ -129,7 +129,7 @@ public class ToolStripPalette : ToolStripItem
         {
             for (var i = 0; i <= 359; i += 3)
             {
-                g.FillRectangle(new SolidBrush(Palitra[l, i]), 70 + i, 5 + 3 * l, 3, 3);
+                g.FillRectangle(new SolidBrush(Palette[l, i]), 70 + i, 5 + 3 * l, 3, 3);
             }
         }
 
@@ -138,7 +138,7 @@ public class ToolStripPalette : ToolStripItem
 
     private static bool TryGetColorByPoint(Point p, out Color color)
     {
-        var colors = Palitra;
+        var colors = Palette;
         var i = (p.Y - 5) / 3;
         var j = p.X - 70;
 

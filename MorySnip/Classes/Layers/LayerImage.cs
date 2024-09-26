@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace Morysoft.MorySnip;
+namespace Morysoft.MorySnip.Classes.Layers;
 
 public class LayerImage : Layer
 {

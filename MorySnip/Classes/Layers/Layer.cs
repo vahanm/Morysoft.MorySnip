@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
+using Morysoft.MorySnip.Modules;
 
-namespace Morysoft.MorySnip;
+namespace Morysoft.MorySnip.Classes.Layers;
 
 public abstract class Layer
 {

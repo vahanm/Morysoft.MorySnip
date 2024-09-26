@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Morysoft.MorySnip.Classes;
 using Morysoft.MorySnip.Modules;
 
 namespace Morysoft.MorySnip;
@@ -350,7 +351,7 @@ public partial class FormEdit
         }
     }
 
-    private void ToolStrip_Standard_Palitra_ColorChanged(object sender, PalitraEventArgs e)
+    private void ToolStrip_Standard_Palitra_ColorChanged(object sender, PaletteEventArgs e)
     {
         this.Editor_Main.CurrentPen.Color = this.ToolStrip_Standard_Palitra.Color1;
 

@@ -2,7 +2,7 @@
 using System;
 using System.Drawing;
 
-namespace Morysoft.MorySnip;
+namespace Morysoft.MorySnip.Classes.Layers;
 
 public class LayerText : LayerArrow
 {

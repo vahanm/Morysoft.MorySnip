@@ -1,32 +1,33 @@
 ﻿using System.Drawing;
 using System.Drawing.Drawing2D;
+using Morysoft.MorySnip.Classes;
 
-namespace Morysoft.MorySnip
+namespace Morysoft.MorySnip.Classes.Layers;
+
+public class LayerAction : Layer
 {
-    public class LayerAction : Layer
+    public LayerAction(Point FirstPoint, Actions Action, Zones Zone)
     {
-        public LayerAction(Point FirstPoint, Actions Action, Zones Zone)
+        this.Action = Action;
+        this.Zone = Zone;
+        this.Start(FirstPoint);
+    }
+
+    public Actions Action { get; set; }
+
+    public Zones Zone { get; set; }
+
+    private readonly Pen Pen1 = new(Color.White, 1);
+    private readonly Pen Pen2 = new(Color.Black, 1) { DashStyle = DashStyle.Custom, DashPattern = new float[] { 3, 3 } };
+    private readonly HatchBrush BrushFill = new(HatchStyle.BackwardDiagonal, Color.DarkGray, Color.Transparent);
+
+    public override void Paint(Graphics g)
+    {
+        var r = this.Bounds;
+
+        switch (this.Zone)
         {
-            this.Action = Action;
-            this.Zone = Zone;
-            this.Start(FirstPoint);
-        }
-
-        public Actions Action { get; set; }
-
-        public Zones Zone { get; set; }
-
-        private readonly Pen Pen1 = new(Color.White, 1);
-        private readonly Pen Pen2 = new(Color.Black, 1) { DashStyle = System.Drawing.Drawing2D.DashStyle.Custom, DashPattern = new float[] { 3, 3 } };
-        private readonly HatchBrush BrushFill = new(System.Drawing.Drawing2D.HatchStyle.BackwardDiagonal, Color.DarkGray, Color.Transparent);
-
-        public override void Paint(Graphics g)
-        {
-            var r = this.Bounds;
-
-            switch (this.Zone)
-            {
-                case Zones.NotSelected:
+            case Zones.NotSelected:
                 {
                     if (r.Y > 0)
                     {
@@ -43,21 +44,20 @@ namespace Morysoft.MorySnip
                     break;
                 }
 
-                case Zones.Selected:
+            case Zones.Selected:
                 {
                     g.FillRectangle(this.BrushFill, r);
                     break;
                 }
-            }
-
-            g.DrawRectangle(this.Pen1, r);
-            g.DrawRectangle(this.Pen2, r);
         }
 
-        public override void Render(Graphics g)
-        {
-        }
-
-        public override bool IsValid => this.FirstPoint.X != this.LastPoint.X && this.FirstPoint.Y != this.LastPoint.Y;
+        g.DrawRectangle(this.Pen1, r);
+        g.DrawRectangle(this.Pen2, r);
     }
+
+    public override void Render(Graphics g)
+    {
+    }
+
+    public override bool IsValid => this.FirstPoint.X != this.LastPoint.X && this.FirstPoint.Y != this.LastPoint.Y;
 }

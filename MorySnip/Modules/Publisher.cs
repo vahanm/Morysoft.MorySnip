@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
 using Microsoft.VisualBasic;
+using Morysoft.MorySnip.Classes;
 
 namespace Morysoft.MorySnip.Modules;
 

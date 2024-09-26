@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using Microsoft.VisualBasic.CompilerServices;
 
-namespace Morysoft.MorySnip;
+namespace Morysoft.MorySnip.Classes.Layers;
 
 public class LayerNumber : Layer
 {
@@ -28,11 +28,11 @@ public class LayerNumber : Layer
         // End If
         g.DrawRectangle(this.Pen, r);
 
-        int w = Conversions.ToInteger(this.Pen.Width);
-        int s = 8 + w;
+        var w = Conversions.ToInteger(this.Pen.Width);
+        var s = 8 + w;
         var f = new Font("Courier New", s + 2);
 
-        int h = Conversions.ToInteger(g.MeasureString("000", f).Width);
+        var h = Conversions.ToInteger(g.MeasureString("000", f).Width);
         var t = g.MeasureString(Conversions.ToString(this.Number), f);
 
         var rb = new Rectangle(r.X - h / 2, r.Y - h / 2, h, h);

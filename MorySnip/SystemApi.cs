@@ -3,18 +3,19 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-public class DpiHelper
+public partial class DpiHelper
 {
-    [DllImport("user32.dll")]
-    static extern IntPtr MonitorFromPoint(Point pt, uint dwFlags);
+    [LibraryImport("user32.dll")]
+    private static partial IntPtr MonitorFromPoint(Point pt, uint dwFlags);
 
-    [DllImport("shcore.dll")]
-    static extern int GetDpiForMonitor(IntPtr hmonitor, int dpiType, out uint dpiX, out uint dpiY);
+    [LibraryImport("shcore.dll")]
+    private static partial int GetDpiForMonitor(IntPtr hmonitor, int dpiType, out uint dpiX, out uint dpiY);
 
     const int MDT_EFFECTIVE_DPI = 0; // DPI setting we are interested in
 
-    [DllImport("user32.dll")]
-    static extern bool SetProcessDpiAwarenessContext(int dpiFlag);
+    [LibraryImport("user32.dll")]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    private static partial bool SetProcessDpiAwarenessContext(int dpiFlag);
 
     // Per monitor DPI-aware flag
     const int DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2 = -4;

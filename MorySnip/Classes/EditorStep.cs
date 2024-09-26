@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using Morysoft.MorySnip.Classes.Layers;
 
-namespace Morysoft.MorySnip;
+namespace Morysoft.MorySnip.Classes;
 
 public class EditorStep
 {

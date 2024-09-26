@@ -2,7 +2,7 @@
 using System.Drawing.Drawing2D;
 using Microsoft.VisualBasic.CompilerServices;
 
-namespace Morysoft.MorySnip;
+namespace Morysoft.MorySnip.Classes.Layers;
 
 public class LayerFree : Layer
 {
@@ -36,7 +36,7 @@ public class LayerFree : Layer
         get
         {
             int x = default, y = default, w = default, h = default;
-            bool IsFirst = true;
+            var IsFirst = true;
 
             foreach (var item in this.Path.PathPoints)
             {

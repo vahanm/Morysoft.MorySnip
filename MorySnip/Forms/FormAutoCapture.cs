@@ -1,10 +1,9 @@
-﻿namespace Morysoft.MorySnip
+﻿namespace Morysoft.MorySnip;
+
+public partial class FormAutoCapture
 {
-    public partial class FormAutoCapture
+    public FormAutoCapture()
     {
-        public FormAutoCapture()
-        {
-            this.InitializeComponent();
-        }
+        this.InitializeComponent();
     }
 }

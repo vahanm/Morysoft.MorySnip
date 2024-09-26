@@ -5,9 +5,10 @@ using System.Threading;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
+using Morysoft.MorySnip.Classes;
 using Morysoft.MorySnip.Modules;
 
-namespace Morysoft.MorySnip.My;
+namespace Morysoft.MorySnip;
 
 internal static class ApplicationEvents
 {
@@ -117,13 +118,13 @@ internal static class ApplicationEvents
     {
         var tmp = new FormEdit();
 
-        foreach (string path in args)
+        foreach (var path in args)
         {
             var nomralizedPath = path.Trim().Trim('"', '\'');
 
             try
             {
-                string localPath = new Uri(nomralizedPath).LocalPath;
+                var localPath = new Uri(nomralizedPath).LocalPath;
                 Screenshot tempImage = Image.FromFile(localPath);
 
                 tempImage.OriginalPath = localPath;
@@ -146,7 +147,7 @@ internal static class ApplicationEvents
 
         Thread.CurrentThread.CurrentUICulture = Settings.CultureCode; // CultureInfo.CurrentCulture 'New CultureInfo("hy-am")
 
-        ApplicationEvents.ApplyJumpList();
+        ApplyJumpList();
 
         if (
             args.Length == 1

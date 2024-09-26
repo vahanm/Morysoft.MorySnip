@@ -1,6 +1,5 @@
-﻿namespace Morysoft.MorySnip
+﻿namespace Morysoft.MorySnip;
+
+public partial class ImageControls
 {
-    public partial class ImageControls
-    {
-    }
 }

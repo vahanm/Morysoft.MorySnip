@@ -261,8 +261,8 @@ public partial class FormSnippingTool
 
             g.DrawRectangle(
                 Pens.GreenYellow,
-                bounds.Left + padding,
-                bounds.Top + padding,
+                -_virtualScreenLocation.X + bounds.Left + padding,
+                -_virtualScreenLocation.Y + bounds.Top + padding,
                 bounds.Width - 2 * padding,
                 bounds.Height - 2 * padding);
 
@@ -270,8 +270,8 @@ public partial class FormSnippingTool
                 $"{screen.DeviceName} - {bounds.Width}x{bounds.Height} - {scaleFactor * 100}%",
                 this.Font,
                 Brushes.GreenYellow,
-                bounds.Left + 2 * padding,
-                bounds.Top + 2 * padding);
+                -_virtualScreenLocation.X + bounds.Left + 2 * padding,
+                -_virtualScreenLocation.Y + bounds.Top + 2 * padding);
         }
 
         if (this.LastButton == MouseButtons.None)
@@ -339,7 +339,7 @@ public partial class FormSnippingTool
             font,
             Brushes.DarkGray,
             -_virtualScreenLocation.X + _primaryScreenLocation.X + 10,
-            -_virtualScreenLocation.Y + _primaryScreenLocation.Y + (_primaryScreenSize.Height / 2) - font.Height
+            -_virtualScreenLocation.Y + _primaryScreenLocation.Y + _primaryScreenSize.Height / 2 - font.Height
         );
     }
 

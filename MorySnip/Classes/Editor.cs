@@ -4,7 +4,10 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Windows.Forms;
+using Morysoft.MorySnip.Classes;
+using Morysoft.MorySnip.Classes.Layers;
 using Morysoft.MorySnip.Draw;
+using Morysoft.MorySnip.Modules;
 
 namespace Morysoft.MorySnip;
 

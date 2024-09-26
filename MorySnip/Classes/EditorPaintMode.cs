@@ -1,4 +1,4 @@
-﻿namespace Morysoft.MorySnip;
+﻿namespace Morysoft.MorySnip.Classes;
 
 public enum EditorPaintMode
 {

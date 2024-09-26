@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using Morysoft.MorySnip.Classes;
 
 namespace Morysoft.MorySnip.Draw;
 
@@ -45,20 +46,9 @@ public static class Arrow
 
     public static void DrawArrow(this Graphics g, Pen pen, Brush brush, Point pBegin, Point pEnd, ArrowModes arrowMode)
     {
-        if (g is null)
-        {
-            throw new ArgumentNullException(nameof(g));
-        }
-
-        if (pen is null)
-        {
-            throw new ArgumentNullException(nameof(pen));
-        }
-
-        if (brush is null)
-        {
-            throw new ArgumentNullException(nameof(brush));
-        }
+        ArgumentNullException.ThrowIfNull(g);
+        ArgumentNullException.ThrowIfNull(pen);
+        ArgumentNullException.ThrowIfNull(brush);
 
         switch (arrowMode)
         {

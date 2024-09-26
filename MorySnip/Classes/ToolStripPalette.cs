@@ -3,33 +3,33 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Morysoft.MorySnip;
+namespace Morysoft.MorySnip.Classes;
 
-public class PalitraEventArgs : EventArgs
+public class PaletteEventArgs : EventArgs
 {
     public Color NewColor { get; set; }
 
     public Color OldColor { get; set; }
 
-    public PalitraEventArgs(Color NewColor, Color OldColor)
+    public PaletteEventArgs(Color newColor, Color oldColor)
     {
-        this.NewColor = NewColor;
-        this.OldColor = OldColor;
+        this.NewColor = newColor;
+        this.OldColor = oldColor;
     }
 
-    public PalitraEventArgs()
+    public PaletteEventArgs()
     {
     }
 }
 
-public delegate void ColorChangedEventHandler(object sender, PalitraEventArgs e);
+public delegate void ColorChangedEventHandler(object sender, PaletteEventArgs e);
 
-public delegate void Color1ChangedEventHandler(object sender, PalitraEventArgs e);
+public delegate void Color1ChangedEventHandler(object sender, PaletteEventArgs e);
 
-public delegate void Color2ChangedEventHandler(object sender, PalitraEventArgs e);
+public delegate void Color2ChangedEventHandler(object sender, PaletteEventArgs e);
 
 [DefaultEvent("ColorChanged")]
-public class ToolStripPalitra : ToolStripItem
+public class ToolStripPalette : ToolStripItem
 {
     private static Color[,]? palitra;
 
@@ -40,9 +40,9 @@ public class ToolStripPalitra : ToolStripItem
             if (palitra == null)
             {
                 palitra = new Color[12, 361];
-                for (int l = 0; l <= 10; l++)
+                for (var l = 0; l <= 10; l++)
                 {
-                    for (int i = 0; i <= 360 - 1; i++)
+                    for (var i = 0; i <= 360 - 1; i++)
                     {
                         palitra[l, i] = RGBHSL.HSL_to_RGB(i / (double)365, 1 - l / (double)10, 1);
                     }
@@ -79,15 +79,15 @@ public class ToolStripPalitra : ToolStripItem
             if (this.color2 == this.color1)
             {
                 this.color2 = value;
-                Color2Changed?.Invoke(this, new PalitraEventArgs());
+                Color2Changed?.Invoke(this, new PaletteEventArgs());
             }
 
             var oldColor = this.color1;
 
             this.color1 = value;
-            Color1Changed?.Invoke(this, new PalitraEventArgs());
+            Color1Changed?.Invoke(this, new PaletteEventArgs());
 
-            ColorChanged?.Invoke(this, new PalitraEventArgs(value, oldColor));
+            ColorChanged?.Invoke(this, new PaletteEventArgs(value, oldColor));
 
             this.Parent.Refresh();
         }
@@ -107,8 +107,8 @@ public class ToolStripPalitra : ToolStripItem
             var oldColor = this.color2;
 
             this.color2 = value;
-            ColorChanged?.Invoke(this, new PalitraEventArgs(value, oldColor));
-            Color2Changed?.Invoke(this, new PalitraEventArgs());
+            ColorChanged?.Invoke(this, new PaletteEventArgs(value, oldColor));
+            Color2Changed?.Invoke(this, new PaletteEventArgs());
             this.Parent.Refresh();
         }
     }
@@ -125,9 +125,9 @@ public class ToolStripPalitra : ToolStripItem
         g.FillRectangle(new SolidBrush(this.Color1), this.Color1Rect);
         g.DrawRectangle(Pens.Black, this.Color1Rect);
 
-        for (int l = 0; l <= 10; l++)
+        for (var l = 0; l <= 10; l++)
         {
-            for (int i = 0; i <= 359; i += 3)
+            for (var i = 0; i <= 359; i += 3)
             {
                 g.FillRectangle(new SolidBrush(Palitra[l, i]), 70 + i, 5 + 3 * l, 3, 3);
             }
@@ -139,8 +139,8 @@ public class ToolStripPalitra : ToolStripItem
     private static bool TryGetColorByPoint(Point p, out Color color)
     {
         var colors = Palitra;
-        int i = (p.Y - 5) / 3;
-        int j = p.X - 70;
+        var i = (p.Y - 5) / 3;
+        var j = p.X - 70;
 
         var inRange = i >= 0 && i < colors.GetLength(0) && j >= 0 && j < colors.GetLength(1);
 
@@ -195,7 +195,7 @@ public class ToolStripPalitra : ToolStripItem
         base.OnMouseMove(e);
     }
 
-    public ToolStripPalitra()
+    public ToolStripPalette()
     {
     }
 }

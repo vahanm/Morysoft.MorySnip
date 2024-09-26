@@ -3,63 +3,64 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using Microsoft.VisualBasic.CompilerServices;
+using Morysoft.MorySnip.Classes;
 
-namespace Morysoft.MorySnip
+namespace Morysoft.MorySnip.Modules;
+
+internal static class Helpers
 {
-    internal static class Helpers
+    private static int _gcd(int a, int b) => b == 0 ? a : _gcd(b, a % b);
+
+    public static Size ReduceRatio(uint numerator, uint denominator)
     {
-        private static int _gcd(int a, int b) => b == 0 ? a : _gcd(b, a % b);
+        object temp = null;
+        // from: http://pages.pacificcoast.net/~cazelais/euclid.html
+        // take care of some simple cases
 
-        public static Size ReduceRatio(uint numerator, uint denominator)
+        if (numerator == denominator)
         {
-            object temp = null;
-            // from: http://pages.pacificcoast.net/~cazelais/euclid.html
-            // take care of some simple cases
-
-            if (numerator == denominator)
-            {
-                return new Size(1, 1);
-            }
-
-            // make sure numerator is always the larger number
-            if (numerator < denominator)
-            {
-                temp = numerator;
-                numerator = denominator;
-                denominator = Conversions.ToUInteger(temp);
-            }
-
-            int divisor = _gcd(Conversions.ToInteger(numerator), Conversions.ToInteger(denominator));
-
-            if (temp == null)
-            {
-                return new Size(Conversions.ToInteger(numerator / divisor), Conversions.ToInteger(denominator / divisor));
-            }
-            else
-            {
-                return new Size(Conversions.ToInteger(denominator / divisor), Conversions.ToInteger(numerator / divisor));
-            }
+            return new Size(1, 1);
         }
 
-        public static Rectangle NormalizeRectingle(Point p1, Point p2)
+        // make sure numerator is always the larger number
+        if (numerator < denominator)
         {
-            int x1 = Math.Min(p1.X, p2.X);
-            int x2 = Math.Max(p1.X, p2.X);
-            int y1 = Math.Min(p1.Y, p2.Y);
-            int y2 = Math.Max(p1.Y, p2.Y);
-
-            return new Rectangle(x1, y1, x2 - x1, y2 - y1);
+            temp = numerator;
+            numerator = denominator;
+            denominator = Conversions.ToUInteger(temp);
         }
 
-        public static Rectangle NormalRectingle(Point p, Size s) => NormalizeRectingle(p, p + s);
+        var divisor = _gcd(Conversions.ToInteger(numerator), Conversions.ToInteger(denominator));
 
-        public static Font LogFont = new("Courier New", 10);
-
-        public static Bitmap ApplyAction(Bitmap image, Actions type, Zones zone, Rectangle area)
+        if (temp == null)
         {
-            switch (type)
-            {
-                case Actions.Crop:
+            return new Size(Conversions.ToInteger(numerator / divisor), Conversions.ToInteger(denominator / divisor));
+        }
+        else
+        {
+            return new Size(Conversions.ToInteger(denominator / divisor), Conversions.ToInteger(numerator / divisor));
+        }
+    }
+
+    public static Rectangle NormalizeRectingle(Point p1, Point p2)
+    {
+        var x1 = Math.Min(p1.X, p2.X);
+        var x2 = Math.Max(p1.X, p2.X);
+        var y1 = Math.Min(p1.Y, p2.Y);
+        var y2 = Math.Max(p1.Y, p2.Y);
+
+        return new Rectangle(x1, y1, x2 - x1, y2 - y1);
+    }
+
+    public static Rectangle NormalRectingle(Point p, Size s) => NormalizeRectingle(p, p + s);
+
+    public static Font LogFont = new("Courier New", 10);
+
+    public static Bitmap ApplyAction(Bitmap image, Actions type, Zones zone, Rectangle area)
+    {
+        switch (type)
+        {
+            case Actions.Crop:
                 {
                     var newImage = new Bitmap(area.Width, area.Height);
                     var g = Graphics.FromImage(newImage);
@@ -68,54 +69,54 @@ namespace Morysoft.MorySnip
 
                     return newImage;
                 }
-            }
+        }
 
-            image = (Bitmap)image.Clone();
+        image = (Bitmap)image.Clone();
 
-            int w = image.Width;
-            int h = image.Height;
+        var w = image.Width;
+        var h = image.Height;
 
-            int cropX = area.X;
-            int cropY = area.Y;
-            int cropW = area.X + area.Width;
-            int cropH = area.Y + area.Height;
+        var cropX = area.X;
+        var cropY = area.Y;
+        var cropW = area.X + area.Width;
+        var cropH = area.Y + area.Height;
 
-            bool isSelected(int x, int y) => x >= cropX & x <= cropW & y >= cropY & y <= cropH;
+        bool isSelected(int x, int y) => x >= cropX & x <= cropW & y >= cropY & y <= cropH;
 
-            bool inZone(int x, int y)
+        bool inZone(int x, int y)
+        {
+            switch (zone)
             {
-                switch (zone)
-                {
-                    case Zones.All:
+                case Zones.All:
                     {
                         return true;
                     }
 
-                    case Zones.NotSelected:
+                case Zones.NotSelected:
                     {
                         return !isSelected(x, y);
                     }
 
-                    case Zones.Selected:
+                case Zones.Selected:
                     {
                         return isSelected(x, y);
                     }
-                }
+            }
 
-                return false;
-            };
+            return false;
+        };
 
 
-            Action<int, int> Effect;
+        Action<int, int> Effect;
 
-            switch (type)
-            {
-                case Actions.Blur:
+        switch (type)
+        {
+            case Actions.Blur:
                 {
                     Effect = (x, y) =>
                     {
                         int nR = default, nG = default, nB = default, nA = default, count = default;
-                        int r = 5;
+                        var r = 5;
 
                         for (int sx = x - r, loopTo = x + r; sx <= loopTo; sx += 2)
                         {
@@ -147,13 +148,13 @@ namespace Morysoft.MorySnip
                     break;
                 }
 
-                case Actions.Puzzle:
+            case Actions.Puzzle:
                 {
                     Effect = (x, y) => image.SetPixel(x, y, image.GetPixel(x - x % 4, y - y % 4));
                     break;
                 }
 
-                case Actions.Grayscale:
+            case Actions.Grayscale:
                 {
                     Effect = (x, y) =>
                     {
@@ -170,64 +171,63 @@ namespace Morysoft.MorySnip
                     break;
                 }
 
-                case Actions.Invert:
+            case Actions.Invert:
                 {
                     Effect = (x, y) => image.SetPixel(x, y, Color.FromArgb(255 - image.GetPixel(x, y).R, 255 - image.GetPixel(x, y).G, 255 - image.GetPixel(x, y).B));
                     break;
                 }
 
-                case Actions.Highlight:
+            case Actions.Highlight:
                 {
                     Effect = (x, y) => image.SetPixel(x, y, Color.FromArgb(image.GetPixel(x, y).R, image.GetPixel(x, y).G, 0));
                     break;
                 }
 
-                default:
+            default:
                 {
                     Effect = (x, y) =>
                     {
                     };
                     break;
                 }
-            }
-
-            for (int x = 0, loopTo = image.Width - 1; x <= loopTo; x++)
-            {
-                for (int y = 0, loopTo1 = image.Height - 1; y <= loopTo1; y++)
-                {
-                    if (inZone(x, y))
-                    {
-                        Effect(x, y);
-                    }
-                }
-            }
-
-            return image;
         }
 
-        private static readonly List<string> TempFiles = new();
-
-        public static string GetTempFileName()
+        for (int x = 0, loopTo = image.Width - 1; x <= loopTo; x++)
         {
-            string result = Path.GetTempFileName();
-
-            TempFiles.Add(result);
-
-            return result;
+            for (int y = 0, loopTo1 = image.Height - 1; y <= loopTo1; y++)
+            {
+                if (inZone(x, y))
+                {
+                    Effect(x, y);
+                }
+            }
         }
 
-        public static void DeleteAllTempFiles()
-        {
-            foreach (string file in TempFiles)
-            {
-                try
-                {
-                    File.Delete(file);
-                }
-                catch
-                {
+        return image;
+    }
 
-                }
+    private static readonly List<string> TempFiles = new();
+
+    public static string GetTempFileName()
+    {
+        var result = Path.GetTempFileName();
+
+        TempFiles.Add(result);
+
+        return result;
+    }
+
+    public static void DeleteAllTempFiles()
+    {
+        foreach (var file in TempFiles)
+        {
+            try
+            {
+                File.Delete(file);
+            }
+            catch
+            {
+
             }
         }
     }

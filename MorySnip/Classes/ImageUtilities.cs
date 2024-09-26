@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 
-namespace Morysoft.MorySnip;
+namespace Morysoft.MorySnip.Classes;
 
 public static class ImageUtilities
 {
@@ -87,7 +87,7 @@ public static class ImageUtilities
         if (Quality < 0 || Quality > 100)
         {
             // create the error message
-            string err = String.Format("Jpeg image quality must be between 0 and 100, with 100 being the highest quality.  A value of {0} was specified.", Quality);
+            var err = String.Format("Jpeg image quality must be between 0 and 100, with 100 being the highest quality.  A value of {0} was specified.", Quality);
             // throw a helpful exception
             throw new ArgumentOutOfRangeException(err);
         }
@@ -111,7 +111,7 @@ public static class ImageUtilities
     public static ImageCodecInfo GetEncoderInfo(string mimeType)
     {
         // do a case insensitive search for the mime type
-        string lookupKey = mimeType.ToLower();
+        var lookupKey = mimeType.ToLower();
 
         // the codec to return, default to Nothing
         ImageCodecInfo foundCodec = null;

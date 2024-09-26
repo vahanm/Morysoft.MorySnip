@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Drawing;
+using Morysoft.MorySnip.Classes;
 
-namespace Morysoft.MorySnip;
+namespace Morysoft.MorySnip.Classes.Layers;
 
 public class LayerMagnifier : Layer
 {

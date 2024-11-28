@@ -11,6 +11,8 @@ public enum EditorPaintMode
     Number,
     Magnifier,
     Text,
+    Ruler,
+
     // Effects
     Highlight,
     Invert,

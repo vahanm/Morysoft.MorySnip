@@ -106,6 +106,7 @@ namespace Morysoft.MorySnip
             this.toolStripSeparator12 = new ToolStripSeparator();
             this.Button_Settings = new ToolStripButton();
             this.ToolStrip_Draw = new ToolStrip();
+            this.Menu_PaintMode_Ruler = new ToolStripButton();
             this.toolStripSeparator13 = new ToolStripSeparator();
             this.Menu_PaintMode_Text = new ToolStripButton();
             this.Menu_PaintMode_TextBox = new ToolStripTextBox();
@@ -408,10 +409,10 @@ namespace Morysoft.MorySnip
             this.ToolStripSeparator8.Name = "ToolStripSeparator8";
             resources.ApplyResources(this.ToolStripSeparator8, "ToolStripSeparator8");
             // 
-            // ToolStrip_Standard_Palitra
+            // ToolStrip_Standard_Palette
             // 
-            resources.ApplyResources(this.ToolStrip_Standard_Palette, "ToolStrip_Standard_Palitra");
-            this.ToolStrip_Standard_Palette.Name = "ToolStrip_Standard_Palitra";
+            resources.ApplyResources(this.ToolStrip_Standard_Palette, "ToolStrip_Standard_Palette");
+            this.ToolStrip_Standard_Palette.Name = "ToolStrip_Standard_Palette";
             this.ToolStrip_Standard_Palette.ColorChanged += this.ToolStrip_Standard_Palitra_ColorChanged;
             // 
             // Button_Color
@@ -598,9 +599,17 @@ namespace Morysoft.MorySnip
             // 
             this.ToolStrip_Draw.GripStyle = ToolStripGripStyle.Hidden;
             this.ToolStrip_Draw.ImageScalingSize = new Size(32, 32);
-            this.ToolStrip_Draw.Items.AddRange(new ToolStripItem[] { this.Menu_PaintMode_Crop, this.toolStripSeparator11, this.Menu_PaintMode_Free, this.Menu_PaintMode_Line, this.Menu_PaintMode_Arrow, this.Menu_PaintMode_Oval, this.Menu_PaintMode_Rect, this.toolStripSeparator13, this.Menu_PaintMode_Text, this.Menu_PaintMode_TextBox, this.ToolStripSeparator7, this.Menu_PaintMode_Numbers, this.Menu_PaintMode_Numbers_Config, this.Menu_PaintMode_Magnifier, this.ToolStripSeparator9, this.Menu_PaintMode_Fill, this.ToolStripSeparator4, this.Menu_PaintMode_Highlight, this.Menu_PaintMode_Puzzle, this.Menu_PaintMode_Blur, this.Menu_PaintMode_Invert, this.Menu_PaintMode_Grayscale });
+            this.ToolStrip_Draw.Items.AddRange(new ToolStripItem[] { this.Menu_PaintMode_Crop, this.toolStripSeparator11, this.Menu_PaintMode_Free, this.Menu_PaintMode_Line, this.Menu_PaintMode_Ruler, this.Menu_PaintMode_Arrow, this.Menu_PaintMode_Oval, this.Menu_PaintMode_Rect, this.toolStripSeparator13, this.Menu_PaintMode_Text, this.Menu_PaintMode_TextBox, this.ToolStripSeparator7, this.Menu_PaintMode_Numbers, this.Menu_PaintMode_Numbers_Config, this.Menu_PaintMode_Magnifier, this.ToolStripSeparator9, this.Menu_PaintMode_Fill, this.ToolStripSeparator4, this.Menu_PaintMode_Highlight, this.Menu_PaintMode_Puzzle, this.Menu_PaintMode_Blur, this.Menu_PaintMode_Invert, this.Menu_PaintMode_Grayscale });
             resources.ApplyResources(this.ToolStrip_Draw, "ToolStrip_Draw");
             this.ToolStrip_Draw.Name = "ToolStrip_Draw";
+            // 
+            // Menu_PaintMode_Ruler
+            // 
+            this.Menu_PaintMode_Ruler.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            this.Menu_PaintMode_Ruler.Image = Properties.Resources.feather_line_up_right_32;
+            resources.ApplyResources(this.Menu_PaintMode_Ruler, "Menu_PaintMode_Ruler");
+            this.Menu_PaintMode_Ruler.Name = "Menu_PaintMode_Ruler";
+            this.Menu_PaintMode_Ruler.Click += this.Menu_PaintMode_Ruler_Click;
             // 
             // toolStripSeparator13
             // 
@@ -835,5 +844,6 @@ namespace Morysoft.MorySnip
         private ToolStripSeparator toolStripSeparator13;
         private ToolStripTextBox Menu_PaintMode_TextBox;
         private Label Resizer_LayoutHolder;
+        private ToolStripButton Menu_PaintMode_Ruler;
     }
 }

@@ -156,6 +156,7 @@ public partial class FormEdit
         // Tools
         this.Menu_PaintMode_Free.Checked = this.Editor_Main.PaintMode == EditorPaintMode.Free;
         this.Menu_PaintMode_Line.Checked = this.Editor_Main.PaintMode == EditorPaintMode.Line;
+        this.Menu_PaintMode_Ruler.Checked = this.Editor_Main.PaintMode == EditorPaintMode.Ruler;
         this.Menu_PaintMode_Arrow.Checked = this.Editor_Main.PaintMode == EditorPaintMode.Arrow;
         this.Menu_PaintMode_Oval.Checked = this.Editor_Main.PaintMode == EditorPaintMode.Oval;
         this.Menu_PaintMode_Rect.Checked = this.Editor_Main.PaintMode == EditorPaintMode.Rect;
@@ -206,6 +207,8 @@ public partial class FormEdit
     private void Menu_PaintMode_Highlight_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Highlight;
 
     private void Menu_PaintMode_Line_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Line;
+
+    private void Menu_PaintMode_Ruler_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Ruler;
 
     private void Menu_PaintMode_Arrow_Click(object sender, EventArgs e) => this.Editor_Main.PaintMode = EditorPaintMode.Arrow;
 

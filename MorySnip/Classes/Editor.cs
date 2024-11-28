@@ -332,6 +332,17 @@ public partial class Editor
                     break;
                 }
 
+            case EditorPaintMode.Ruler:
+                {
+                    if (e.Button == MouseButtons.Right)
+                    {
+                        this.CurrentPen.DashStyle = DashStyle.Dash;
+                    }
+
+                    this.newLayer = new LayerRuler(this.CurrentPen, e.Location);
+                    break;
+                }
+
             case EditorPaintMode.Rect:
                 {
                     this.newLayer = new LayerRect(this.CurrentPen, this.CurrentBrush, e.Location) { Fill = e.Button == MouseButtons.Right ^ this.FillObjects };

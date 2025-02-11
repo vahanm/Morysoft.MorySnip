@@ -606,7 +606,6 @@ namespace Morysoft.MorySnip
             // Menu_PaintMode_Ruler
             // 
             this.Menu_PaintMode_Ruler.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            this.Menu_PaintMode_Ruler.Image = Properties.Resources.feather_line_up_right_32;
             resources.ApplyResources(this.Menu_PaintMode_Ruler, "Menu_PaintMode_Ruler");
             this.Menu_PaintMode_Ruler.Name = "Menu_PaintMode_Ruler";
             this.Menu_PaintMode_Ruler.Click += this.Menu_PaintMode_Ruler_Click;

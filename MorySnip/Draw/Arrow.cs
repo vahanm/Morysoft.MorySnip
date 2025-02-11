@@ -36,7 +36,7 @@ public static class Arrow
         var tailL = tailPolarL + tailLocation;
         var tailR = tailPolarR + tailLocation;
 
-        using var path = new GraphicsPath(new Point[] { tailL, pEnd, tailR }, new byte[] { 1, 1, 1 });
+        using var path = new GraphicsPath(new Point[] { tailL, pEnd, tailR }, [1, 1, 1]);
 
         g.FillPath(brush, path);
 

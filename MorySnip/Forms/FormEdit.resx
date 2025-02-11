@@ -772,6 +772,15 @@
   <metadata name="ToolStrip_Draw.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>523, 17</value>
   </metadata>
+  <data name="Menu_PaintMode_Ruler.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACmSURBVFhH7ZRBCoAwDATzKN/kFwSvPsWzR7+nEkggLC14
+        MFuEDPRQLMw2iRUpiiKXydYQZhG5bNFDuPweEQDluqexjJRvJnb5jgcyifIYglIBlJ/MNqBc9woOYspf
+        0JM7qe8AyrXsLVJeQpRTeu2gnDpwa6fnlIGLkijH7ykB8IYHHjBSBg7llF47epso1bedGsIDRBlW5POS
+        I62+pg7cW1rBiuKfPJwgaR298v8iAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="Menu_PaintMode_Ruler.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>

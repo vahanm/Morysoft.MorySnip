@@ -19,7 +19,7 @@ namespace Morysoft.MorySnip.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -606,6 +606,60 @@ namespace Morysoft.MorySnip.Properties {
         internal static string IconsLink {
             get {
                 return ResourceManager.GetString("IconsLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hold to crop with delay.
+        /// </summary>
+        internal static string KeyInstructionAlt {
+            get {
+                return ResourceManager.GetString("KeyInstructionAlt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hold to crop square.
+        /// </summary>
+        internal static string KeyInstructionControl {
+            get {
+                return ResourceManager.GetString("KeyInstructionControl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Press to crop.
+        /// </summary>
+        internal static string KeyInstructionEnter {
+            get {
+                return ResourceManager.GetString("KeyInstructionEnter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exit.
+        /// </summary>
+        internal static string KeyInstructionEscape {
+            get {
+                return ResourceManager.GetString("KeyInstructionEscape", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hold to crop around.
+        /// </summary>
+        internal static string KeyInstructionShift {
+            get {
+                return ResourceManager.GetString("KeyInstructionShift", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No image or image file path in clipboard..
+        /// </summary>
+        internal static string MessageClipboardNoImage {
+            get {
+                return ResourceManager.GetString("MessageClipboardNoImage", resourceCulture);
             }
         }
         

@@ -1,6 +1,5 @@
 ﻿using System.Drawing;
 using System.Drawing.Drawing2D;
-using Morysoft.MorySnip.Classes;
 
 namespace Morysoft.MorySnip.Classes.Layers;
 

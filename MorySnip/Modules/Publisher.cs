@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing.Imaging;
+﻿using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
-using System.Xml;
 using Microsoft.VisualBasic;
 using Morysoft.MorySnip.Classes;
 
@@ -14,12 +10,12 @@ namespace Morysoft.MorySnip.Modules;
 public enum PublishOptions : int
 {
     OnlyImageNumber = (1 << 16) - 1,
-    CopyPathOrULR = (1 << 17),
-    CopyImage = (1 << 18),
-    OpenFolder = (1 << 19),
-    SaveToFile = (1 << 24),
-    SaveAs = (1 << 25),
-    Package = (1 << 26),
+    CopyPathOrULR = 1 << 17,
+    CopyImage = 1 << 18,
+    OpenFolder = 1 << 19,
+    SaveToFile = 1 << 24,
+    SaveAs = 1 << 25,
+    Package = 1 << 26,
 }
 
 public static class Publisher

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Drawing;
-using Morysoft.MorySnip.Classes;
+﻿using System.Drawing;
 
 namespace Morysoft.MorySnip.Classes.Layers;
 
@@ -48,7 +46,7 @@ public class LayerMagnifier : Layer
             var tail12 = tailPolar12 + pBegin;
 
             g.DrawLine(this.Pen, tail12, tail11);
-        };
+        }
 
         drawArrow(this.LastPoint, this.FirstPoint);
 

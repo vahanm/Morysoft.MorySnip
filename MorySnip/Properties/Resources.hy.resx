@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="PressLeftClickToViewOptions" xml:space="preserve">
+    <value>Սեղմեք ձախ քլիք տարբերակների համար</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="PENCIL" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PENCIL.CUR;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -124,7 +127,22 @@
   <data name="PressRightClickToViewOptions" xml:space="preserve">
     <value>Սեղմեք աջ քլիք տարբերակների համար</value>
   </data>
-  <data name="PressLeftClickToViewOptions" xml:space="preserve">
-    <value>Սեղմեք ձախ քլիք տարբերակների համար</value>
+  <data name="KeyInstructionEscape" xml:space="preserve">
+    <value>Ելք</value>
+  </data>
+  <data name="KeyInstructionControl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyInstructionShift" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyInstructionEnter" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KeyInstructionAlt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MessageClipboardNoImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
 </root>

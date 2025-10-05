@@ -1,7 +1,6 @@
-﻿using Morysoft.MorySnip.Draw;
-using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Drawing2D;
+using Morysoft.MorySnip.Draw;
 
 namespace Morysoft.MorySnip.Classes.Layers;
 
@@ -24,10 +23,7 @@ public class LayerArrow : Layer
 
     public override void Render(Graphics g)
     {
-        if (g is null)
-        {
-            throw new ArgumentNullException(nameof(g));
-        }
+        ArgumentNullException.ThrowIfNull(g);
 
         g.CompositingQuality = CompositingQuality.HighQuality;
         g.InterpolationMode = InterpolationMode.HighQualityBicubic;

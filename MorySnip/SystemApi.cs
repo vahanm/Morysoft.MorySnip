@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -21,14 +20,14 @@ public partial class DpiHelper
     [LibraryImport("shcore.dll")]
     private static partial int GetDpiForMonitor(IntPtr hmonitor, int dpiType, out uint dpiX, out uint dpiY);
 
-    const int MDT_EFFECTIVE_DPI = 0; // DPI setting we are interested in
+    private const int MDT_EFFECTIVE_DPI = 0; // DPI setting we are interested in
 
     [LibraryImport("user32.dll")]
     [return: MarshalAs(UnmanagedType.Bool)]
     private static partial bool SetProcessDpiAwarenessContext(int dpiFlag);
 
     // Per monitor DPI-aware flag
-    const int DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2 = -4;
+    private const int DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2 = -4;
 
     public static void SetDpiAwareness()
     {

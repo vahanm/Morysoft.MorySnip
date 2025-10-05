@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
 using System.IO;
 using Microsoft.VisualBasic.CompilerServices;
 using Morysoft.MorySnip.Classes;
@@ -104,8 +102,7 @@ internal static class Helpers
             }
 
             return false;
-        };
-
+        }
 
         Action<int, int> Effect;
 
@@ -206,7 +203,7 @@ internal static class Helpers
         return image;
     }
 
-    private static readonly List<string> TempFiles = new();
+    private static readonly List<string> TempFiles = [];
 
     public static string GetTempFileName()
     {

@@ -126,14 +126,14 @@
     <value>50, 50</value>
   </data>
   <data name="Editor_Main.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 2</value>
+    <value>2, 3</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Editor_Main.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 3, 5, 3</value>
+    <value>6, 4, 6, 4</value>
   </data>
   <data name="Editor_Main.Size" type="System.Drawing.Size, System.Drawing">
-    <value>504, 377</value>
+    <value>576, 503</value>
   </data>
   <data name="Editor_Main.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -155,13 +155,13 @@
     <value>NoControl</value>
   </data>
   <data name="Resizer_Both.Location" type="System.Drawing.Point, System.Drawing">
-    <value>509, 383</value>
+    <value>582, 511</value>
   </data>
   <data name="Resizer_Both.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="Resizer_Both.Size" type="System.Drawing.Size, System.Drawing">
-    <value>9, 9</value>
+    <value>10, 11</value>
   </data>
   <data name="Resizer_Both.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -182,13 +182,13 @@
     <value>NoControl</value>
   </data>
   <data name="Resizer_Bottom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 383</value>
+    <value>2, 511</value>
   </data>
   <data name="Resizer_Bottom.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="Resizer_Bottom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>504, 9</value>
+    <value>576, 11</value>
   </data>
   <data name="Resizer_Bottom.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -209,13 +209,13 @@
     <value>NoControl</value>
   </data>
   <data name="Resizer_Right.Location" type="System.Drawing.Point, System.Drawing">
-    <value>509, 2</value>
+    <value>582, 3</value>
   </data>
   <data name="Resizer_Right.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="Resizer_Right.Size" type="System.Drawing.Size, System.Drawing">
-    <value>9, 377</value>
+    <value>10, 502</value>
   </data>
   <data name="Resizer_Right.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -233,10 +233,10 @@
     <value>3</value>
   </data>
   <data name="Resizer_LayoutHolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>522, 398</value>
+    <value>597, 531</value>
   </data>
   <data name="Resizer_LayoutHolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>10, 10</value>
+    <value>11, 13</value>
   </data>
   <data name="Resizer_LayoutHolder.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -260,10 +260,10 @@
     <value>0, 78</value>
   </data>
   <data name="Panel_Image.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
+    <value>5, 4, 5, 4</value>
   </data>
   <data name="Panel_Image.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1283, 695</value>
+    <value>1466, 953</value>
   </data>
   <data name="Panel_Image.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -284,7 +284,7 @@
     <value>946, 17</value>
   </metadata>
   <data name="IncrementToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+    <value>151, 26</value>
   </data>
   <data name="IncrementToolStripMenuItem.Text" xml:space="preserve">
     <value>Increment</value>
@@ -293,18 +293,18 @@
     <value>False</value>
   </data>
   <data name="DecrementToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+    <value>151, 26</value>
   </data>
   <data name="DecrementToolStripMenuItem.Text" xml:space="preserve">
     <value>Decrement</value>
   </data>
   <data name="ToolStripSeparator10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 6</value>
+    <value>148, 6</value>
   </data>
   <data name="Menu_PaintMode_Numbers_Config.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIFSURBVDhPpZLtS1NhGMbPPxJmmlYSgqHiKzGU1EDxg4iK
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAIFSURBVDhPpZLtS1NhGMbPPxJmmlYSgqHiKzGU1EDxg4iK
         YKyG2WBogqMYJQOtCEVRFBGdTBCJfRnkS4VaaWNT5sqx1BUxRXxDHYxAJLvkusEeBaPAB+5z4Jzn+t3X
         /aLhnEfjo8m+dCoa+7/C3O2Hqe0zDC+8KG+cRZHZhdzaaWTVTCLDMIY0vfM04Nfh77/G/sEhwpEDbO3t
         I7TxE8urEVy99fT/AL5gWDLrTB/hnF4XsW0khCu5ln8DmJliT2AXrcNBsU1gj/MH4nMeKwBrPktM28xM
@@ -320,13 +320,13 @@
     <value>Magenta</value>
   </data>
   <data name="Menu_PaintMode_Numbers_Config.Size" type="System.Drawing.Size, System.Drawing">
-    <value>13, 36</value>
+    <value>14, 36</value>
   </data>
   <data name="Menu_PaintMode_Numbers_Config.Text" xml:space="preserve">
     <value>Numbers config</value>
   </data>
   <data name="Menu_Numbers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 54</value>
+    <value>152, 62</value>
   </data>
   <data name="&gt;&gt;Menu_Numbers.Name" xml:space="preserve">
     <value>Menu_Numbers</value>
@@ -548,40 +548,40 @@
     <value>172, 17</value>
   </metadata>
   <data name="RedToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 22</value>
+    <value>128, 24</value>
   </data>
   <data name="RedToolStripMenuItem.Text" xml:space="preserve">
     <value>Red</value>
   </data>
   <data name="BlueToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 22</value>
+    <value>128, 24</value>
   </data>
   <data name="BlueToolStripMenuItem.Text" xml:space="preserve">
     <value>Blue</value>
   </data>
   <data name="BlackToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 22</value>
+    <value>128, 24</value>
   </data>
   <data name="BlackToolStripMenuItem.Text" xml:space="preserve">
     <value>Black</value>
   </data>
   <data name="WhiteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 22</value>
+    <value>128, 24</value>
   </data>
   <data name="WhiteToolStripMenuItem.Text" xml:space="preserve">
     <value>White</value>
   </data>
   <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 6</value>
+    <value>125, 6</value>
   </data>
   <data name="CustomToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 22</value>
+    <value>128, 24</value>
   </data>
   <data name="CustomToolStripMenuItem.Text" xml:space="preserve">
     <value>Custom</value>
   </data>
   <data name="Menu_Pens.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 120</value>
+    <value>129, 130</value>
   </data>
   <data name="&gt;&gt;Menu_Pens.Name" xml:space="preserve">
     <value>Menu_Pens</value>
@@ -593,7 +593,7 @@
     <value>Magenta</value>
   </data>
   <data name="Button_Color.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 36</value>
+    <value>81, 36</value>
   </data>
   <data name="Button_Color.Text" xml:space="preserve">
     <value>Red</value>
@@ -602,79 +602,79 @@
     <value>286, 17</value>
   </metadata>
   <data name="ToolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 22</value>
+    <value>94, 24</value>
   </data>
   <data name="ToolStripMenuItem7.Text" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="ToolStripMenuItem8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 22</value>
+    <value>94, 24</value>
   </data>
   <data name="ToolStripMenuItem8.Text" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="ToolStripMenuItem9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 22</value>
+    <value>94, 24</value>
   </data>
   <data name="ToolStripMenuItem9.Text" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="ToolStripMenuItem10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 22</value>
+    <value>94, 24</value>
   </data>
   <data name="ToolStripMenuItem10.Text" xml:space="preserve">
     <value>4</value>
   </data>
   <data name="ToolStripMenuItem11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 22</value>
+    <value>94, 24</value>
   </data>
   <data name="ToolStripMenuItem11.Text" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="ToolStripMenuItem12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 22</value>
+    <value>94, 24</value>
   </data>
   <data name="ToolStripMenuItem12.Text" xml:space="preserve">
     <value>6</value>
   </data>
   <data name="ToolStripMenuItem13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 22</value>
+    <value>94, 24</value>
   </data>
   <data name="ToolStripMenuItem13.Text" xml:space="preserve">
     <value>7</value>
   </data>
   <data name="ToolStripMenuItem14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 22</value>
+    <value>94, 24</value>
   </data>
   <data name="ToolStripMenuItem14.Text" xml:space="preserve">
     <value>8</value>
   </data>
   <data name="ToolStripMenuItem15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 22</value>
+    <value>94, 24</value>
   </data>
   <data name="ToolStripMenuItem15.Text" xml:space="preserve">
     <value>9</value>
   </data>
   <data name="ToolStripMenuItem16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 22</value>
+    <value>94, 24</value>
   </data>
   <data name="ToolStripMenuItem16.Text" xml:space="preserve">
     <value>10</value>
   </data>
   <data name="ToolStripMenuItem17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 22</value>
+    <value>94, 24</value>
   </data>
   <data name="ToolStripMenuItem17.Text" xml:space="preserve">
     <value>11</value>
   </data>
   <data name="ToolStripMenuItem18.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 22</value>
+    <value>94, 24</value>
   </data>
   <data name="ToolStripMenuItem18.Text" xml:space="preserve">
     <value>12</value>
   </data>
   <data name="Menu_Size.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 268</value>
+    <value>95, 292</value>
   </data>
   <data name="&gt;&gt;Menu_Size.Name" xml:space="preserve">
     <value>Menu_Size</value>
@@ -686,7 +686,7 @@
     <value>Magenta</value>
   </data>
   <data name="Button_Size.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 36</value>
+    <value>79, 36</value>
   </data>
   <data name="Button_Size.Text" xml:space="preserve">
     <value>2px</value>
@@ -749,7 +749,7 @@
     <value>0, 0</value>
   </data>
   <data name="ToolStrip_Standard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1283, 39</value>
+    <value>1466, 39</value>
   </data>
   <data name="ToolStrip_Standard.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -775,7 +775,7 @@
   <data name="Menu_PaintMode_Ruler.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACmSURBVFhH7ZRBCoAwDATzKN/kFwSvPsWzR7+nEkggLC14
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAACmSURBVFhH7ZRBCoAwDATzKN/kFwSvPsWzR7+nEkggLC14
         MFuEDPRQLMw2iRUpiiKXydYQZhG5bNFDuPweEQDluqexjJRvJnb5jgcyifIYglIBlJ/MNqBc9woOYspf
         0JM7qe8AyrXsLVJeQpRTeu2gnDpwa6fnlIGLkijH7ykB8IYHHjBSBg7llF47epso1bedGsIDRBlW5POS
         I62+pg7cW1rBiuKfPJwgaR298v8iAAAAAElFTkSuQmCC
@@ -800,10 +800,10 @@
     <value>36, 36</value>
   </data>
   <data name="Menu_PaintMode_Text.Text" xml:space="preserve">
-    <value>toolStripButton1</value>
+    <value>Arraw with text</value>
   </data>
   <data name="Menu_PaintMode_TextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 39</value>
+    <value>132, 39</value>
   </data>
   <data name="Menu_PaintMode_TextBox.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -812,7 +812,7 @@
     <value>0, 39</value>
   </data>
   <data name="ToolStrip_Draw.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1283, 39</value>
+    <value>1466, 39</value>
   </data>
   <data name="ToolStrip_Draw.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -884,10 +884,10 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
+    <value>8, 20</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1283, 773</value>
+    <value>1466, 1031</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2362,7 +2362,7 @@
 </value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
+    <value>5, 4, 5, 4</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Editor</value>

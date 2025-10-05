@@ -189,6 +189,7 @@ namespace Morysoft.MorySnip
             // 
             // Menu_Numbers
             // 
+            this.Menu_Numbers.ImageScalingSize = new Size(20, 20);
             this.Menu_Numbers.Items.AddRange(new ToolStripItem[] { this.IncrementToolStripMenuItem, this.DecrementToolStripMenuItem, this.ToolStripSeparator10 });
             this.Menu_Numbers.Name = "Menu_Numbers";
             this.Menu_Numbers.OwnerItem = this.Menu_PaintMode_Numbers_Config;
@@ -424,6 +425,7 @@ namespace Morysoft.MorySnip
             // 
             // Menu_Pens
             // 
+            this.Menu_Pens.ImageScalingSize = new Size(20, 20);
             this.Menu_Pens.Items.AddRange(new ToolStripItem[] { this.RedToolStripMenuItem, this.BlueToolStripMenuItem, this.BlackToolStripMenuItem, this.WhiteToolStripMenuItem, this.ToolStripSeparator1, this.CustomToolStripMenuItem });
             this.Menu_Pens.Name = "Menu_Pens";
             this.Menu_Pens.OwnerItem = this.Button_Color;
@@ -473,6 +475,7 @@ namespace Morysoft.MorySnip
             // 
             // Menu_Size
             // 
+            this.Menu_Size.ImageScalingSize = new Size(20, 20);
             this.Menu_Size.Items.AddRange(new ToolStripItem[] { this.ToolStripMenuItem7, this.ToolStripMenuItem8, this.ToolStripMenuItem9, this.ToolStripMenuItem10, this.ToolStripMenuItem11, this.ToolStripMenuItem12, this.ToolStripMenuItem13, this.ToolStripMenuItem14, this.ToolStripMenuItem15, this.ToolStripMenuItem16, this.ToolStripMenuItem17, this.ToolStripMenuItem18 });
             this.Menu_Size.Name = "Menu_Size";
             this.Menu_Size.OwnerItem = this.Button_Size;
@@ -632,6 +635,7 @@ namespace Morysoft.MorySnip
             // 
             // Menu_PaintMode
             // 
+            this.Menu_PaintMode.ImageScalingSize = new Size(20, 20);
             this.Menu_PaintMode.Name = "Menu_PaintMode";
             resources.ApplyResources(this.Menu_PaintMode, "Menu_PaintMode");
             // 

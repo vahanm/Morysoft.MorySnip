@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
 using Morysoft.MorySnip.Classes.Layers;
 
 namespace Morysoft.MorySnip.Classes;

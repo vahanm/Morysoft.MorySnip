@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
 using System.Windows.Forms;
-using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.Devices;
 using Morysoft.MorySnip.Classes;
 using Morysoft.MorySnip.Modules;
@@ -27,7 +23,7 @@ public partial class FormSnippingTool
 
     private bool bordersOnlyMode;
 
-    public List<Screenshot> Screenshotes { get; } = new List<Screenshot>();
+    public List<Screenshot> Screenshotes { get; } = [];
 
     public void SnipFromClipboard()
     {
@@ -35,7 +31,7 @@ public partial class FormSnippingTool
 
         if (this.SaveForm.Screenshot?.Image is null)
         {
-            Interaction.MsgBox("No image or image file path in clipboard.", MsgBoxStyle.Critical);
+            MessageBox.Show(Properties.Resources.MessageClipboardNoImage, null, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         else
         {
@@ -142,14 +138,13 @@ public partial class FormSnippingTool
             this.Opacity = 0;
             this.Refresh();
 
-            images.AddRange(Snipper.Areas(new Rectangle[]
-            {
-                    new Rectangle(this.x, this.y, this.w, this.h)
-            }));
+            images.AddRange(Snipper.Areas([
+                new(this.x, this.y, this.w, this.h)
+            ]));
 
             this.Opacity = 1;
             this.Refresh();
-        };
+        }
 
         switch (this.LastButton)
         {
@@ -331,16 +326,45 @@ public partial class FormSnippingTool
 
     private void DrawInstructions(Graphics g)
     {
-        using var font = new Font(this.Font.FontFamily, _primaryScreenSize.Height / 20, FontStyle.Italic, GraphicsUnit.Pixel);
+        using var fontMouse = new Font(this.Font.FontFamily, _primaryScreenSize.Height / 20, FontStyle.Italic, GraphicsUnit.Pixel);
 
-        g.DrawString((new Mouse()).ButtonsSwapped
+        var xStart = -_virtualScreenLocation.X + _primaryScreenLocation.X + 10;
+        var yStart = -_virtualScreenLocation.Y + _primaryScreenLocation.Y + _primaryScreenSize.Height / 2;
+
+        g.DrawString(new Mouse().ButtonsSwapped
             ? Properties.Resources.PressLeftClickToViewOptions
             : Properties.Resources.PressRightClickToViewOptions,
-            font,
+            fontMouse,
             Brushes.DarkGray,
-            -_virtualScreenLocation.X + _primaryScreenLocation.X + 10,
-            -_virtualScreenLocation.Y + _primaryScreenLocation.Y + _primaryScreenSize.Height / 2 - font.Height
+            xStart,
+            yStart - fontMouse.Height
         );
+
+        using var fontKeys = new Font(this.Font.FontFamily, _primaryScreenSize.Height / 30, FontStyle.Italic, GraphicsUnit.Pixel);
+
+        foreach (var (index, key, hint) in new (int, string, string)[] {
+            (0, "Ctrl", Properties.Resources.KeyInstructionControl),
+            (1, "Shift", Properties.Resources.KeyInstructionShift),
+            (2, "Alt", Properties.Resources.KeyInstructionAlt),
+            (3, "Esc", Properties.Resources.KeyInstructionEscape),
+        })
+        {
+            g.DrawString(
+                $"{key}",
+                fontKeys,
+                Brushes.DarkGray,
+                xStart + 30,
+                yStart + index * fontKeys.Height
+            );
+
+            g.DrawString(
+                $"- {hint}",
+                fontKeys,
+                Brushes.DarkGray,
+                xStart + 110,
+                yStart + index * fontKeys.Height
+            );
+        }
     }
 
     private void DrawCropAreaWithBordersOnly(Graphics g)

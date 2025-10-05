@@ -1,10 +1,7 @@
-﻿using System;
-using System.Drawing;
-using System.Linq;
+﻿using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
 using Morysoft.MorySnip.Classes;
 using Morysoft.MorySnip.Modules;
 

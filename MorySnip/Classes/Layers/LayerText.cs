@@ -1,6 +1,5 @@
-﻿using Morysoft.MorySnip.Draw;
-using System;
-using System.Drawing;
+﻿using System.Drawing;
+using Morysoft.MorySnip.Draw;
 
 namespace Morysoft.MorySnip.Classes.Layers;
 
@@ -20,9 +19,9 @@ public class LayerText : LayerArrow
 
     public Font Font { get; set; }
 
-    const float ArrowMinLength = 30;
+    private const float ArrowMinLength = 30;
 
-    const float GapLength = 10;
+    private const float GapLength = 10;
 
     public override void Paint(Graphics g)
     {

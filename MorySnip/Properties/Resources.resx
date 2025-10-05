@@ -292,4 +292,22 @@
   <data name="feather_type_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ToolbarIcons\Feather\type-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="KeyInstructionEscape" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="KeyInstructionControl" xml:space="preserve">
+    <value>Hold to crop square</value>
+  </data>
+  <data name="KeyInstructionShift" xml:space="preserve">
+    <value>Hold to crop around</value>
+  </data>
+  <data name="KeyInstructionEnter" xml:space="preserve">
+    <value>Press to crop</value>
+  </data>
+  <data name="KeyInstructionAlt" xml:space="preserve">
+    <value>Hold to crop with delay</value>
+  </data>
+  <data name="MessageClipboardNoImage" xml:space="preserve">
+    <value>No image or image file path in clipboard.</value>
+  </data>
 </root>

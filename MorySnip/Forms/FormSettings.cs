@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using Morysoft.MorySnip.Modules;
 
 namespace Morysoft.MorySnip;

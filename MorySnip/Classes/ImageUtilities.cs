@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Imaging;
 
 namespace Morysoft.MorySnip.Classes;
@@ -24,7 +22,7 @@ public static class ImageUtilities
             // if the quick lookup isn't initialised, initialise it
             if (EncodersValue == null)
             {
-                EncodersRet = new Dictionary<string, ImageCodecInfo>();
+                EncodersRet = [];
             }
 
             // if there are no codecs, try loading them

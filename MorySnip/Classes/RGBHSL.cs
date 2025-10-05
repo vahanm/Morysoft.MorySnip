@@ -6,7 +6,6 @@
 // following paragraph (enclosed in quotes below) in your applications help or about dialog.
 // "Portions of this code provided by Bob Powell. Http://www.bobpowell.net"
 
-using System;
 using System.Drawing;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;

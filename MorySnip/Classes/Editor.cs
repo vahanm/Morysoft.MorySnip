@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
 using System.Windows.Forms;
 using Morysoft.MorySnip.Classes;
 using Morysoft.MorySnip.Classes.Layers;
@@ -17,7 +14,7 @@ public partial class Editor
 {
     private readonly Stack<EditorStep> previousSteps = new();
     private readonly Stack<EditorStep> nextSteps = new();
-    private readonly List<Layer> Layers = new();
+    private readonly List<Layer> Layers = [];
     private Point imagePosition = new(0, 0);
 
     private MouseButtons LastButton = MouseButtons.None;
@@ -480,8 +477,8 @@ public partial class Editor
 
                 case MouseButtons.Middle:
                     {
-                        this.imagePosition.X += (e.Location.X - this.startPoint.X);
-                        this.imagePosition.Y += (e.Location.Y - this.startPoint.Y);
+                        this.imagePosition.X += e.Location.X - this.startPoint.X;
+                        this.imagePosition.Y += e.Location.Y - this.startPoint.Y;
 
                         this.startPoint = e.Location;
                         break;

@@ -8,13 +8,13 @@ internal static class Program
     ///  The main entry point for the application.
     /// </summary>
     [STAThread]
-    private static void Main()
+    private static void Main(string[] args)
     {
         DpiHelper.SetDpiAwareness();
 
         Application.SetHighDpiMode(HighDpiMode.SystemAware);
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
-        Application.Run(new FormSnippingTool());
+        Application.Run(ApplicationEvents.Startup(args));
     }
 }

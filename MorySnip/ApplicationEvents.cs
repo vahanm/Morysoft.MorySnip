@@ -1,9 +1,13 @@
 ﻿using System.Drawing;
+using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using Microsoft.WindowsAPICodePack.Shell;
+using Microsoft.WindowsAPICodePack.Taskbar;
 using Morysoft.MorySnip.Classes;
 using Morysoft.MorySnip.Modules;
+using JumpList = Microsoft.WindowsAPICodePack.Taskbar.JumpList;
 
 namespace Morysoft.MorySnip;
 
@@ -11,52 +15,57 @@ internal static class ApplicationEvents
 {
     public static void Shutdown() => Helpers.DeleteAllTempFiles();
 
-    private static void ApplyJumpList()
+    public static void ApplyJumpList(Form form)
     {
-        //var jl = new System.Windows.Shell.JumpList();
-        //string exe = Application.ExecutablePath;
-        //string dir = System.IO.Path.GetDirectoryName(exe);
+        var exe = Application.ExecutablePath;
+        var dir = Path.GetDirectoryName(exe)!;
 
-        //void addJumpTask(string title, string command, string icon, string customCategory)
-        //{
-        //    var jt = new System.Windows.Shell.JumpTask()
-        //    {
-        //        Title = title,
-        //        ApplicationPath = exe,
-        //        Arguments = command,
-        //        IconResourcePath = String.IsNullOrWhiteSpace(icon) ? exe : String.Format(@"{0}\Resources\JobIcons\{1}.ico", dir, icon),
-        //        IconResourceIndex = 0
-        //    };
+        // Create or get jump list
+        var jl = JumpList.CreateJumpListForIndividualWindow(TaskbarManager.Instance.ApplicationId, form.Handle);
 
-        //    // If Not String.IsNullOrWhiteSpace(CustomCategory) Then
-        //    // jt.CustomCategory = CustomCategory
-        //    // End If
+        // Clear existing
+        jl.ClearAllUserTasks();
 
-        //    jl.JumpItems.Add(jt);
-        //};
+        void addJumpTask(string title, string command, string icon, string customCategory)
+        {
+            var iconPath = String.IsNullOrWhiteSpace(icon)
+                ? exe
+                : Path.Combine(dir, "Resources", "JobIcons", icon + ".ico");
 
-        //addJumpTask("Cut from screen", "", "", "Capture");
+            var jt = new JumpListLink(exe, title)
+            {
+                Arguments = command,
+                IconReference = new IconReference(iconPath, 0)
+            };
 
-        //if (Screen.AllScreens.Length == 1)
-        //{
-        //    addJumpTask("Capture full screen", "--fullscreen", "Desktop", "Capture");
-        //}
-        //else if (Screen.AllScreens.Length > 1)
-        //{
-        //    addJumpTask("Capture all screens", "--fullscreen", "Desktop", "Capture");
+            jl.AddUserTasks(jt);
+        }
 
-        //    for (int i = 0, loopTo = Screen.AllScreens.Length - 1; i <= loopTo; i++)
-        //    {
-        //        addJumpTask("Capture screen " + Conversions.ToString(i + 1), "--fullscreen[" + Conversions.ToString(i) + "]", "Desktop", "Capture");
-        //    }
-        //}
+        // Capture options
+        addJumpTask("Cut from screen", "", "", "Capture");
 
-        //addJumpTask("From clipboard", "--clipboard", "Clipboard", "Capture");
-        //addJumpTask("From file", "--file", "File", "Capture");
+        if (Screen.AllScreens.Length == 1)
+        {
+            addJumpTask("Capture full screen", "--fullscreen", "Desktop", "Capture");
+        }
+        else
+        {
+            addJumpTask("Capture all screens", "--fullscreen", "Desktop", "Capture");
 
-        //jl.ShowRecentCategory = true;
+            for (var i = 0; i < Screen.AllScreens.Length; i++)
+            {
+                addJumpTask($"Capture screen {i + 1}", $"--fullscreen[{i}]", "Desktop", "Capture");
+            }
+        }
 
-        //jl.Apply();
+        addJumpTask("From clipboard", "--clipboard", "Clipboard", "Capture");
+        addJumpTask("From file", "--file", "File", "Capture");
+
+        // Add standard recent items category
+        //jl.AddKnownCategory(KnownDestinationCategory.Recent);
+
+        // Commit changes
+        jl.Refresh();
     }
 
     private static FormEdit FromJumpList(string com)
@@ -143,8 +152,6 @@ internal static class ApplicationEvents
         Settings.SetDefaultSettings();
 
         Thread.CurrentThread.CurrentUICulture = Settings.CultureCode; // CultureInfo.CurrentCulture 'New CultureInfo("hy-am")
-
-        ApplyJumpList();
 
         if (
             args.Length == 1

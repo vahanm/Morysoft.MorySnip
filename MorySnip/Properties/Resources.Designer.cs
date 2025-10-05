@@ -628,7 +628,7 @@ namespace Morysoft.MorySnip.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Press to crop.
+        ///   Looks up a localized string similar to Press to crop &amp; copy.
         /// </summary>
         internal static string KeyInstructionEnter {
             get {

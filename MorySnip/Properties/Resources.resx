@@ -302,7 +302,7 @@
     <value>Hold to crop around</value>
   </data>
   <data name="KeyInstructionEnter" xml:space="preserve">
-    <value>Press to crop</value>
+    <value>Press to crop &amp; copy</value>
   </data>
   <data name="KeyInstructionAlt" xml:space="preserve">
     <value>Hold to crop with delay</value>

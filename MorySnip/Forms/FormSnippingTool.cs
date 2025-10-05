@@ -129,7 +129,7 @@ public partial class FormSnippingTool
         this.Refresh();
     }
 
-    private void Crop()
+    private void Crop(bool quickMode)
     {
         var images = new List<Screenshot>();
 
@@ -146,82 +146,71 @@ public partial class FormSnippingTool
             this.Refresh();
         }
 
-        switch (this.LastButton)
+        this.Hide();
+
+        if (!quickMode)
         {
-            case MouseButtons.Left:
+            if (!systemKeyboard.AltKeyDown)
+            {
+                capture();
+
+                this.Hide();
+                this.SaveForm.Screenshot = images.First();
+                this.SaveForm.ShowDialog();
+            }
+            else
+            {
+                using var acf = new FormAutoCapture();
+
+                if (acf.ShowDialog() != DialogResult.OK)
                 {
-                    this.Hide();
+                    Environment.Exit(0);
 
-                    if (!systemKeyboard.AltKeyDown)
-                    {
-                        capture();
-
-                        this.Hide();
-                        this.SaveForm.Screenshot = images.First();
-                        this.SaveForm.ShowDialog();
-                    }
-                    else
-                    {
-                        using var acf = new FormAutoCapture();
-
-                        if (acf.ShowDialog() != DialogResult.OK)
-                        {
-                            Environment.Exit(0);
-
-                            return;
-                        }
-
-                        static void wait(int milliseconds) => Process.GetCurrentProcess().WaitForExit(milliseconds);
-
-                        int waitMilliseconds = (int)acf.NumericUpDown_Start.Value * 1000;
-                        int intervalMilliseconds = (int)acf.NumericUpDown_Interval.Value;
-                        int count = (int)acf.NumericUpDown_Count.Value;
-
-                        this.bordersOnlyMode = true;
-                        this.Opacity = 1;
-                        this.Show();
-                        this.Refresh();
-
-                        for (int i = 1, loopTo = count; i <= loopTo; i++)
-                        {
-                            wait(i == 1 ? waitMilliseconds : intervalMilliseconds);
-                            capture();
-                        }
-
-                        Publisher.PublishMultipleFrames(PublishOptions.Package, images);
-                    }
-
-                    this.Close();
-
-                    break;
+                    return;
                 }
 
-            case MouseButtons.Right:
-                {
-                    this.Hide();
+                static void wait(int milliseconds) => Process.GetCurrentProcess().WaitForExit(milliseconds);
 
+                int waitMilliseconds = (int)acf.NumericUpDown_Start.Value * 1000;
+                int intervalMilliseconds = (int)acf.NumericUpDown_Interval.Value;
+                int count = (int)acf.NumericUpDown_Count.Value;
+
+                this.bordersOnlyMode = true;
+                this.Opacity = 1;
+                this.Show();
+                this.Refresh();
+
+                for (int i = 1, loopTo = count; i <= loopTo; i++)
+                {
+                    wait(i == 1 ? waitMilliseconds : intervalMilliseconds);
                     capture();
-
-                    this.Screenshotes.AddRange(images);
-
-                    var options = PublishOptions.CopyImage;
-
-                    if (Settings.QuickShotToFile)
-                    {
-                        options |= PublishOptions.SaveToFile;
-
-                        if (Settings.OpenFolder)
-                        {
-                            options |= PublishOptions.OpenFolder;
-                        }
-                    }
-
-                    Publisher.Publish(options, images.ToArray());
-
-                    this.Close();
-                    break;
                 }
+
+                Publisher.PublishMultipleFrames(PublishOptions.Package, images);
+            }
         }
+        else
+        {
+            capture();
+
+            this.Screenshotes.AddRange(images);
+
+            var options = PublishOptions.CopyImage;
+
+            if (Settings.QuickShotToFile)
+            {
+                options |= PublishOptions.SaveToFile;
+
+                if (Settings.OpenFolder)
+                {
+                    options |= PublishOptions.OpenFolder;
+                }
+            }
+
+            Publisher.Publish(options, images.ToArray());
+        }
+
+        this.Close();
     }
 
     private void Cancel()
@@ -346,7 +335,8 @@ public partial class FormSnippingTool
             (0, "Ctrl", Properties.Resources.KeyInstructionControl),
             (1, "Shift", Properties.Resources.KeyInstructionShift),
             (2, "Alt", Properties.Resources.KeyInstructionAlt),
-            (3, "Esc", Properties.Resources.KeyInstructionEscape),
+            (3, "Enter", Properties.Resources.KeyInstructionEnter),
+            (4, "Esc", Properties.Resources.KeyInstructionEscape),
         })
         {
             g.DrawString(
@@ -378,6 +368,8 @@ public partial class FormSnippingTool
 
     private void Form_SnippingTool_Load(object sender, EventArgs e)
     {
+        ApplicationEvents.ApplyJumpList(this);
+
         _virtualScreenLocation = SystemInformation.VirtualScreen.Location;
         _virtualScreenSize = SystemInformation.VirtualScreen.Size;
 
@@ -413,7 +405,7 @@ public partial class FormSnippingTool
                     break;
 
                 case Keys.Enter:
-                    this.Crop();
+                    this.Crop(true);
                     break;
             }
         }
@@ -466,7 +458,7 @@ public partial class FormSnippingTool
         {
             this.LastPoint = e.Location;
             this.CalculateArea();
-            this.Crop();
+            this.Crop(this.LastButton == MouseButtons.Right);
         }
         else if (e.Button == MouseButtons.Right && this.w < 3 && this.h < 3)
         {

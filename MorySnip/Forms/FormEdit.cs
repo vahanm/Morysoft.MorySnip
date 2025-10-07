@@ -117,9 +117,7 @@ public partial class FormEdit
 
     private void Menu_Size_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
     {
-        this.Editor_Main.CurrentPen.Width = Convert.ToSingle(e.ClickedItem.Text);
-        this.Button_Size.Text = $"{this.Editor_Main.CurrentPen.Width}px";
-        this.Button_Size.Tag = this.Editor_Main.CurrentPen.Width;
+        this.Editor_Main.CurrentPenWidth = Convert.ToSingle(e.ClickedItem.Text);
     }
 
     private void Button_Back_Click(object sender, EventArgs e) => this.Editor_Main.Undo();
@@ -385,5 +383,11 @@ public partial class FormEdit
     {
         this.MoveResizerLayoutHolder();
         this.MoveResizers();
+    }
+
+    private void Editor_Main_CurrentPenWidthChanged(object sender, EventArgs e)
+    {
+        this.Button_Size.Text = $"{this.Editor_Main.CurrentPen.Width}px";
+        this.Button_Size.Tag = this.Editor_Main.CurrentPen.Width;
     }
 }

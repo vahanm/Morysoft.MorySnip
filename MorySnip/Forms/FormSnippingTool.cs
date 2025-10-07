@@ -288,7 +288,9 @@ public partial class FormSnippingTool
         var r2 = Helpers.ReduceRatio(Convert.ToUInt32(this.w), Convert.ToUInt32(this.h));
         bool approximate = !(r1 == r2);
         using var font = new Font(this.Font.FontFamily, 11, FontStyle.Italic, GraphicsUnit.Point);
-        var sizeText = $"{this.w:#,##0} x {this.h:#,##0} {(approximate ? "≈" : "=")} {r1.Width}:{r1.Height}";
+        var sizeText = this.w > 3 && this.h > 3
+            ? $"{this.w:#,##0} x {this.h:#,##0} {(approximate ? "≈" : "=")} {r1.Width}:{r1.Height}"
+            : Properties.Resources.ReleaseToCancel;
         var (sizeTextWidth, sizeTextHeight) = g.MeasureString(sizeText, font);
         var sizeTextX = this.x + 5;
         var sizeTextY = (float)(this.y - font.Height * 1.1) - 5;

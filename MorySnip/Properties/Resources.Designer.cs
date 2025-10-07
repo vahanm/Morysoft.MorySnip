@@ -363,6 +363,16 @@ namespace Morysoft.MorySnip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap feather_image {
+            get {
+                object obj = ResourceManager.GetObject("feather_image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap feather_line_up_right {
             get {
                 object obj = ResourceManager.GetObject("feather_line_up_right", resourceCulture);
@@ -396,6 +406,16 @@ namespace Morysoft.MorySnip.Properties {
         internal static System.Drawing.Bitmap feather_monitor {
             get {
                 object obj = ResourceManager.GetObject("feather_monitor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feather_move {
+            get {
+                object obj = ResourceManager.GetObject("feather_move", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -526,6 +546,16 @@ namespace Morysoft.MorySnip.Properties {
         internal static System.Drawing.Bitmap feather_slack_32 {
             get {
                 object obj = ResourceManager.GetObject("feather_slack_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feather_smile {
+            get {
+                object obj = ResourceManager.GetObject("feather_smile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -688,6 +718,15 @@ namespace Morysoft.MorySnip.Properties {
         internal static string PressRightClickToViewOptions {
             get {
                 return ResourceManager.GetString("PressRightClickToViewOptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Release to cancel.
+        /// </summary>
+        internal static string ReleaseToCancel {
+            get {
+                return ResourceManager.GetString("ReleaseToCancel", resourceCulture);
             }
         }
     }

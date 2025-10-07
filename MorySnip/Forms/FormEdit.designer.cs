@@ -140,6 +140,7 @@ namespace Morysoft.MorySnip
             // 
             // Editor_Main
             // 
+            this.Editor_Main.CurrentPenWidth = 2F;
             this.Editor_Main.FillObjects = false;
             this.Editor_Main.LastNumber = 1;
             resources.ApplyResources(this.Editor_Main, "Editor_Main");
@@ -147,6 +148,7 @@ namespace Morysoft.MorySnip
             this.Editor_Main.PaintMode = EditorPaintMode.Arrow;
             this.Editor_Main.QuickText = null;
             this.Editor_Main.LastNumberChanged += this.Editor_Main_LastNumberChanged;
+            this.Editor_Main.CurrentPenWidthChanged += this.Editor_Main_CurrentPenWidthChanged;
             this.Editor_Main.BackgroundImageChanged += this.Editor_Main_BackgroundImageChanged;
             // 
             // Resizer_Both

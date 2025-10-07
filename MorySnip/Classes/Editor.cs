@@ -8,8 +8,6 @@ using Morysoft.MorySnip.Modules;
 
 namespace Morysoft.MorySnip;
 
-public delegate void LastNumberChangedEventHandler(object sender, EventArgs e);
-
 public partial class Editor
 {
     private readonly Stack<EditorStep> previousSteps = new();
@@ -27,7 +25,8 @@ public partial class Editor
 
     private Layer? newLayer;
 
-    public event LastNumberChangedEventHandler? LastNumberChanged;
+    public event EventHandler? LastNumberChanged;
+    public event EventHandler? CurrentPenWidthChanged;
 
     public int LastNumber
     {
@@ -37,6 +36,17 @@ public partial class Editor
             this.lastNumber = value;
 
             LastNumberChanged?.Invoke(this, EventArgs.Empty);
+        }
+    }
+
+    public float CurrentPenWidth
+    {
+        get => this.CurrentPen.Width;
+        set
+        {
+            this.CurrentPen.Width = value;
+
+            CurrentPenWidthChanged?.Invoke(this, EventArgs.Empty);
         }
     }
 
@@ -212,6 +222,25 @@ public partial class Editor
         else if (e.KeyCode == Keys.Oem3) // `/~ key
         {
             this.SecondaryAction();
+        }
+        else if (e.KeyCode is Keys.D1 or Keys.D2 or Keys.D3 
+            or Keys.D4 or Keys.D5 or Keys.D6
+            or Keys.D7 or Keys.D8 or Keys.D9) // `/~ key
+        {
+            this.CurrentPenWidth = e.KeyCode switch
+            {
+                Keys.D1 => 1,
+                Keys.D2 => 2,
+                Keys.D3 => 3,
+                Keys.D4 => 5,
+                Keys.D5 => 8,
+                Keys.D6 => 12,
+                Keys.D7 => 15,
+                Keys.D8 => 20,
+                Keys.D9 => 30,
+                _ => 1,
+            };
+            this.Refresh();
         }
         else if (e.KeyCode == Keys.S && this.newLayer.Pen is not null)
         {

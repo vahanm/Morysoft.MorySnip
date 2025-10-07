@@ -2,6 +2,9 @@
 
 public enum EditorPaintMode
 {
+    // Tools
+    Move,
+
     // Objects
     Free,
     Line,
@@ -12,6 +15,8 @@ public enum EditorPaintMode
     Magnifier,
     Text,
     Ruler,
+    Emoji,
+    Image,
 
     // Effects
     Highlight,

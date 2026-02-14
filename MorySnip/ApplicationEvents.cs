@@ -146,8 +146,8 @@ internal static class ApplicationEvents
 
     public static Form Startup(string[] args)
     {
-        Interaction.SaveSetting(Application.CompanyName, "Global", Application.ProductName.Replace(" ", "_") + "_Version", Application.ProductVersion);
-        Interaction.SaveSetting(Application.CompanyName, "Global", Application.ProductName.Replace(" ", "_") + "_LastRun", DateAndTime.Now.ToString("hh:mm:ss dd.MM.yyyy"));
+        Interaction.SaveSetting(Application.CompanyName!, "Global", Application.ProductName!.Replace(" ", "_") + "_Version", Application.ProductVersion);
+        Interaction.SaveSetting(Application.CompanyName!, "Global", Application.ProductName!.Replace(" ", "_") + "_LastRun", DateAndTime.Now.ToString("hh:mm:ss dd.MM.yyyy"));
 
         Settings.SetDefaultSettings();
 

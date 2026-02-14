@@ -102,10 +102,7 @@ public partial class Editor
 
     public void ApplyStep(EditorStep step)
     {
-        if (step is null)
-        {
-            throw new ArgumentNullException(nameof(step));
-        }
+        ArgumentNullException.ThrowIfNull(step);
 
         this.BackgroundImage = step.Image;
         this.LastNumber = step.LastNumber;
@@ -129,7 +126,7 @@ public partial class Editor
 
         g.Clear(Color.White);
 
-        if (this.EditableImage != null)
+        if (this.EditableImage is not null)
         {
             g.DrawImage(this.EditableImage, this.imagePosition.X, this.imagePosition.Y, this.EditableImage.Size.Width, this.EditableImage.Size.Height);
         }
@@ -146,7 +143,7 @@ public partial class Editor
 
     public Brush CurrentBrush { get; set; } = new SolidBrush(Color.Red);
 
-    private Image EditableImage
+    private Image? EditableImage
     {
         get => this.BackgroundImage;
         set
@@ -162,7 +159,7 @@ public partial class Editor
     public void RotateFlip(RotateFlipType value)
     {
         this.Render();
-        this.EditableImage.RotateFlip(value);
+        this.EditableImage?.RotateFlip(value);
         this.ResetImageSizeAndPosition();
     }
 
@@ -223,9 +220,10 @@ public partial class Editor
         {
             this.SecondaryAction();
         }
-        else if (e.KeyCode is Keys.D1 or Keys.D2 or Keys.D3 
+        else if (e.KeyCode
+            is Keys.D1 or Keys.D2 or Keys.D3 
             or Keys.D4 or Keys.D5 or Keys.D6
-            or Keys.D7 or Keys.D8 or Keys.D9) // `/~ key
+            or Keys.D7 or Keys.D8 or Keys.D9)
         {
             this.CurrentPenWidth = e.KeyCode switch
             {
@@ -244,7 +242,7 @@ public partial class Editor
         }
         else if (e.KeyCode == Keys.S && this.newLayer.Pen is not null)
         {
-            SwitchPenDashStyle(this.newLayer.Pen);
+            this.newLayer.SwitchPenDashStyle();
             this.Refresh();
         }
     }
@@ -257,7 +255,8 @@ public partial class Editor
 
     private void Editor_MouseClick(object sender, MouseEventArgs e)
     {
-        if (this.LastButton == MouseButtons.Left && e.Button == MouseButtons.Right || this.LastButton == MouseButtons.Right && e.Button == MouseButtons.Left)
+        if (this.LastButton == MouseButtons.Left && e.Button == MouseButtons.Right
+            || this.LastButton == MouseButtons.Right && e.Button == MouseButtons.Left)
         {
             this.SecondaryAction();
         }
@@ -265,81 +264,45 @@ public partial class Editor
 
     private void SecondaryAction()
     {
-        switch (this.newLayer)
+        if (this.newLayer is null)
         {
-            case LayerArrow layerArrow:
-                {
-                    layerArrow.ArrowMode = layerArrow.ArrowMode switch
-                    {
-                        ArrowModes.AtEnd => ArrowModes.AtStart,
-                        ArrowModes.AtStart => ArrowModes.Both,
-                        ArrowModes.Both => ArrowModes.AtEnd,
-                        _ => ArrowModes.AtStart,
-                    };
-                    break;
-                }
-            case LayerAction layerAction:
-                layerAction.Zone = layerAction.Zone switch
-                {
-                    Zones.Selected => Zones.NotSelected,
-                    Zones.NotSelected => Zones.Selected,
-                    _ => Zones.All,
-                };
-                break;
-            case LayerLine layerLine:
-                if (layerLine.Pen is null)
-                {
-                    return;
-                }
-
-                SwitchPenDashStyle(layerLine.Pen);
-                break;
-            case Layer layer:
-                layer.Fill ^= true;
-                break;
+            return;
         }
 
+        this.newLayer.SecondaryAction();
         this.Refresh();
-    }
-
-    private static void SwitchPenDashStyle(Pen pen)
-    {
-        pen.DashStyle = pen.DashStyle switch
-        {
-            DashStyle.Solid => DashStyle.Dash,
-            DashStyle.Dash => DashStyle.Dot,
-            _ => DashStyle.Solid,
-        };
     }
 
     private void Editor_MouseDown(object sender, MouseEventArgs e)
     {
-        if (this.LastButton == MouseButtons.None)
+        if (this.LastButton != MouseButtons.None)
         {
-            this.LastButton = e.Button;
+            return;
+        }
 
-            switch (e.Button)
-            {
-                case MouseButtons.Left:
-                case MouseButtons.Right:
-                    {
-                        this.BeginLayer(e);
+        this.LastButton = e.Button;
 
-                        break;
-                    }
+        switch (e.Button)
+        {
+            case MouseButtons.Left:
+            case MouseButtons.Right:
+                {
+                    this.BeginLayer(e);
 
-                case MouseButtons.Middle:
-                    {
-                        this.startPoint = e.Location;
-                        break;
-                    }
+                    break;
+                }
 
-                default:
-                    {
-                        this.LastButton = MouseButtons.None;
-                        break;
-                    }
-            }
+            case MouseButtons.Middle:
+                {
+                    this.startPoint = e.Location;
+                    break;
+                }
+
+            default:
+                {
+                    this.LastButton = MouseButtons.None;
+                    break;
+                }
         }
     }
 
@@ -404,7 +367,7 @@ public partial class Editor
                     this.newLayer = new LayerMagnifier(
                         this.CurrentPen,
                         this.CurrentBrush,
-                        (Bitmap)this.BackgroundImage,
+                        (Bitmap)this.BackgroundImage!,
                         e.Location,
                         2,
                         50
@@ -467,10 +430,7 @@ public partial class Editor
                 case MouseButtons.Left:
                 case MouseButtons.Right:
                     {
-                        if (this.newLayer != null)
-                        {
-                            this.newLayer.Step(e.Location);
-                        }
+                        this.newLayer?.Step(e.Location);
 
                         break;
                     }
@@ -522,7 +482,7 @@ public partial class Editor
 
     private void CompleteLayer(MouseEventArgs e)
     {
-        if (this.newLayer == null)
+        if (this.newLayer is null)
         {
             return;
         }
@@ -540,7 +500,7 @@ public partial class Editor
         if (this.newLayer is LayerAction ActionLayer)
         {
             this.Render();
-            this.BackgroundImage = Helpers.ApplyAction((Bitmap)this.BackgroundImage, ActionLayer.Action, ActionLayer.Zone, ActionLayer.Bounds);
+            this.BackgroundImage = Helpers.ApplyAction((Bitmap)this.BackgroundImage!, ActionLayer.Action, ActionLayer.Zone, ActionLayer.Bounds);
         }
         else
         {

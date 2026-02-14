@@ -390,4 +390,9 @@ public partial class FormEdit
         this.Button_Size.Text = $"{this.Editor_Main.CurrentPen.Width}px";
         this.Button_Size.Tag = this.Editor_Main.CurrentPen.Width;
     }
+
+    private void Menu_PaintMode_Move_Click(object sender, EventArgs e)
+    {
+        this.Editor_Main.PaintMode = EditorPaintMode.Move;
+    }
 }

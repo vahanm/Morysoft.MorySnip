@@ -7,12 +7,12 @@ public enum Actions
     Invert,
     Grayscale,
     Crop,
-    Highlight
+    Highlight,
 }
 
 public enum Zones
 {
     All,
     Selected,
-    NotSelected
+    NotSelected,
 }

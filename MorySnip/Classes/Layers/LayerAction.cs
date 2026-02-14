@@ -59,4 +59,14 @@ public class LayerAction : Layer
     }
 
     public override bool IsValid => this.FirstPoint.X != this.LastPoint.X && this.FirstPoint.Y != this.LastPoint.Y;
+
+    public override void SecondaryAction()
+    {
+        this.Zone = this.Zone switch
+        {
+            Zones.Selected => Zones.NotSelected,
+            Zones.NotSelected => Zones.Selected,
+            _ => Zones.All,
+        };
+    }
 }

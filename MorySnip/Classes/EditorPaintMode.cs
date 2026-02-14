@@ -24,5 +24,5 @@ public enum EditorPaintMode
     Blur,
     Puzzle,
     Crop,
-    Grayscale
+    Grayscale,
 }

@@ -31,4 +31,15 @@ public class LayerArrow : Layer
 
         this.Paint(g);
     }
+
+    public override void SecondaryAction()
+    {
+        this.ArrowMode = this.ArrowMode switch
+        {
+            ArrowModes.AtEnd => ArrowModes.AtStart,
+            ArrowModes.AtStart => ArrowModes.Both,
+            ArrowModes.Both => ArrowModes.AtEnd,
+            _ => ArrowModes.AtStart,
+        };
+    }
 }

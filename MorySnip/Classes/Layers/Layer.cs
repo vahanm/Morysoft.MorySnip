@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Drawing.Drawing2D;
 using Morysoft.MorySnip.Modules;
 
 namespace Morysoft.MorySnip.Classes.Layers;
@@ -59,4 +60,21 @@ public abstract class Layer
     }
 
     public abstract void Paint(Graphics g);
+
+    public virtual void SecondaryAction() => this.Fill ^= true;
+
+    public void SwitchPenDashStyle()
+    {
+        if (this.Pen is null)
+        {
+            return;
+        }
+
+        this.Pen.DashStyle = this.Pen.DashStyle switch
+        {
+            DashStyle.Solid => DashStyle.Dash,
+            DashStyle.Dash => DashStyle.Dot,
+            _ => DashStyle.Solid,
+        };
+    }
 }

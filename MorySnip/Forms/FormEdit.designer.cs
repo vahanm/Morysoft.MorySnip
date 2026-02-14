@@ -110,6 +110,7 @@ namespace Morysoft.MorySnip
             this.toolStripSeparator13 = new ToolStripSeparator();
             this.Menu_PaintMode_Text = new ToolStripButton();
             this.Menu_PaintMode_TextBox = new ToolStripTextBox();
+            this.Menu_PaintMode_Move = new ToolStripButton();
             this.Menu_PaintMode = new ContextMenuStrip(this.components);
             this.ToolStripMenuItem1 = new ToolStripMenuItem();
             this.ToolStripMenuItem2 = new ToolStripMenuItem();
@@ -118,6 +119,10 @@ namespace Morysoft.MorySnip
             this.ToolStripSeparator2 = new ToolStripSeparator();
             this.ToolStripMenuItem5 = new ToolStripMenuItem();
             this.Timer_Update = new Timer(this.components);
+            this.toolStripSeparator14 = new ToolStripSeparator();
+            this.toolStripSeparator15 = new ToolStripSeparator();
+            this.Menu_PaintMode_Screenshot = new ToolStripButton();
+            this.toolStripButton1 = new ToolStripButton();
             this.Panel_Image.SuspendLayout();
             this.Menu_Numbers.SuspendLayout();
             this.ToolStrip_Standard.SuspendLayout();
@@ -604,7 +609,7 @@ namespace Morysoft.MorySnip
             // 
             this.ToolStrip_Draw.GripStyle = ToolStripGripStyle.Hidden;
             this.ToolStrip_Draw.ImageScalingSize = new Size(32, 32);
-            this.ToolStrip_Draw.Items.AddRange(new ToolStripItem[] { this.Menu_PaintMode_Crop, this.toolStripSeparator11, this.Menu_PaintMode_Free, this.Menu_PaintMode_Line, this.Menu_PaintMode_Ruler, this.Menu_PaintMode_Arrow, this.Menu_PaintMode_Oval, this.Menu_PaintMode_Rect, this.toolStripSeparator13, this.Menu_PaintMode_Text, this.Menu_PaintMode_TextBox, this.ToolStripSeparator7, this.Menu_PaintMode_Numbers, this.Menu_PaintMode_Numbers_Config, this.Menu_PaintMode_Magnifier, this.ToolStripSeparator9, this.Menu_PaintMode_Fill, this.ToolStripSeparator4, this.Menu_PaintMode_Highlight, this.Menu_PaintMode_Puzzle, this.Menu_PaintMode_Blur, this.Menu_PaintMode_Invert, this.Menu_PaintMode_Grayscale });
+            this.ToolStrip_Draw.Items.AddRange(new ToolStripItem[] { this.Menu_PaintMode_Move, this.toolStripSeparator14, this.Menu_PaintMode_Crop, this.toolStripSeparator11, this.Menu_PaintMode_Free, this.Menu_PaintMode_Line, this.Menu_PaintMode_Ruler, this.Menu_PaintMode_Arrow, this.Menu_PaintMode_Oval, this.Menu_PaintMode_Rect, this.toolStripSeparator13, this.Menu_PaintMode_Text, this.Menu_PaintMode_TextBox, this.ToolStripSeparator7, this.Menu_PaintMode_Numbers, this.Menu_PaintMode_Numbers_Config, this.Menu_PaintMode_Magnifier, this.ToolStripSeparator9, this.Menu_PaintMode_Fill, this.ToolStripSeparator4, this.Menu_PaintMode_Highlight, this.Menu_PaintMode_Puzzle, this.Menu_PaintMode_Blur, this.Menu_PaintMode_Invert, this.Menu_PaintMode_Grayscale, this.toolStripSeparator15, this.Menu_PaintMode_Screenshot, this.toolStripButton1 });
             resources.ApplyResources(this.ToolStrip_Draw, "ToolStrip_Draw");
             this.ToolStrip_Draw.Name = "ToolStrip_Draw";
             // 
@@ -634,6 +639,14 @@ namespace Morysoft.MorySnip
             resources.ApplyResources(this.Menu_PaintMode_TextBox, "Menu_PaintMode_TextBox");
             this.Menu_PaintMode_TextBox.TextChanged += this.Menu_PaintMode_TextBox_TextChanged;
             this.Menu_PaintMode_TextBox.VisibleChanged += this.Menu_PaintMode_TextBox_VisibleChanged;
+            // 
+            // Menu_PaintMode_Move
+            // 
+            this.Menu_PaintMode_Move.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            this.Menu_PaintMode_Move.Image = Properties.Resources.feather_move;
+            resources.ApplyResources(this.Menu_PaintMode_Move, "Menu_PaintMode_Move");
+            this.Menu_PaintMode_Move.Name = "Menu_PaintMode_Move";
+            this.Menu_PaintMode_Move.Click += this.Menu_PaintMode_Move_Click;
             // 
             // Menu_PaintMode
             // 
@@ -675,6 +688,29 @@ namespace Morysoft.MorySnip
             // 
             this.Timer_Update.Enabled = true;
             this.Timer_Update.Tick += this.Timer_Update_Tick;
+            // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            resources.ApplyResources(this.toolStripSeparator14, "toolStripSeparator14");
+            // 
+            // toolStripSeparator15
+            // 
+            this.toolStripSeparator15.Name = "toolStripSeparator15";
+            resources.ApplyResources(this.toolStripSeparator15, "toolStripSeparator15");
+            // 
+            // Menu_PaintMode_Screenshot
+            // 
+            this.Menu_PaintMode_Screenshot.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            this.Menu_PaintMode_Screenshot.Image = Properties.Resources.feather_monitor;
+            resources.ApplyResources(this.Menu_PaintMode_Screenshot, "Menu_PaintMode_Screenshot");
+            this.Menu_PaintMode_Screenshot.Name = "Menu_PaintMode_Screenshot";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
+            this.toolStripButton1.Name = "toolStripButton1";
             // 
             // FormEdit
             // 
@@ -850,5 +886,10 @@ namespace Morysoft.MorySnip
         private ToolStripTextBox Menu_PaintMode_TextBox;
         private Label Resizer_LayoutHolder;
         private ToolStripButton Menu_PaintMode_Ruler;
+        private ToolStripButton Menu_PaintMode_Move;
+        private ToolStripSeparator toolStripSeparator14;
+        private ToolStripSeparator toolStripSeparator15;
+        private ToolStripButton Menu_PaintMode_Screenshot;
+        private ToolStripButton toolStripButton1;
     }
 }

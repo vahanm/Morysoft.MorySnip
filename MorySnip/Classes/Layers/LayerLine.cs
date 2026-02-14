@@ -19,4 +19,6 @@ public class LayerLine : Layer
     );
 
     public override void Paint(Graphics g) => g.DrawLine(this.Pen, this.FirstPoint, this.LastPoint);
+
+    public override void SecondaryAction() => this.SwitchPenDashStyle();
 }

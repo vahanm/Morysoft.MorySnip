@@ -1,4 +1,4 @@
-﻿using System.Drawing;
+using System.Drawing;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Runtime.CompilerServices;
@@ -421,7 +421,7 @@ namespace Morysoft.MorySnip
             // 
             resources.ApplyResources(this.ToolStrip_Standard_Palette, "ToolStrip_Standard_Palette");
             this.ToolStrip_Standard_Palette.Name = "ToolStrip_Standard_Palette";
-            this.ToolStrip_Standard_Palette.ColorChanged += this.ToolStrip_Standard_Palitra_ColorChanged;
+            this.ToolStrip_Standard_Palette.ColorChanged += this.ToolStrip_Standard_Palette_ColorChanged;
             // 
             // Button_Color
             // 
